@@ -1,0 +1,18 @@
+{
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "alex.chen <alex@alexchendeMacBook-Pro.local>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "vuepress": "^1.7.0",
+    "vuepress-plugin-mermaidjs": "^1.8.0"
+  }
+}
