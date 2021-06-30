@@ -1,3 +1,35 @@
-# Wink Link
+# Documentation
 
-Node of the decentralized oracle network for TRON, bridging on and off-chain computation
+## Development
+
+Installation package:
+
+```sh
+npm i
+```
+
+You can now start writing with:
+
+```sh
+npm run docs:dev
+```
+
+To generate static assets, run:
+
+```sh
+npm run docs:build
+```
+
+## Deployment
+
+Installation package:
+
+```sh
+npm i --production
+```
+
+Run backend server:
+
+```sh
+pm2 start index.js
+```
