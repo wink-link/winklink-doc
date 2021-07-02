@@ -8,7 +8,7 @@ notice This contract provides a consistent address for the `CurrentAnwerInterfac
 |Pair|Contract|
 |:--|:--|
 |TRX/USD  | TVoALT2EWuYz61pSGk3vdaA2v7nDWkXcF5 |
-|JST/USD  | TCfrPgHFNULydpUxarqXgGQ6nEkpao1g22 |
+|WIN/USD  | TCfrPgHFNULydpUxarqXgGQ6nEkpao1g22 |
 |WIN/USD  | TUe9QMxwBEXvpfKxBLmcrsHLEWCeqVjG1x |
 |SUNOLD/USD  | TKXb4abDXFKoUa9H7HT7NShutYqpyS2KjJ |
 |DICE/USD | TScYfxYxCVNo3YDDBhdS4nDCW573SGZHLC |
@@ -20,7 +20,7 @@ notice This contract provides a consistent address for the `CurrentAnwerInterfac
 |TUSD/USD | THJwwJp3NPmUPkQqwPmstnoSAhTotghP1g |
 |NFT/USD  | TEDMTefgJghimW5ZFFg4dWLZ6HNL4bWBsd |
 |SUN/USD  | TNo43wgMc7TZWm8odPXNnYXp2EGx5WTxNT |
-|JST/TRX  | TJBgJXjjTjWz9XVoE1G4MGUf9CuttSpnA3 |
+|WIN/TRX  | TJBgJXjjTjWz9XVoE1G4MGUf9CuttSpnA3 |
 |WIN/TRX  | TRE6DK5dMrPPntN5J7W4Y4dCZ6XdBABPmm |
 |SUNOLD/TRX  | TDoQw5Kdvtb42c468UYFKHTtk5NuHGRMCy |
 |DICE/TRX | TDtmDgv67sDmL7KkefBhQ9fbBGBPfEcWKx |

@@ -79,7 +79,7 @@ Price history can be acquired from the `AggregatorInterface` interface function 
 ### Nile Testnet
 
 - Contract List[View Page](http://47.252.73.5:3300/#/solutions)
-- JST Token Contract Address: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN    Token Contract Address: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
 - JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 
 List of price service contract addresses:
@@ -116,7 +116,7 @@ Launched by WinkLink, the `TronUser` contract is a contract template for aggrega
 
 The contract code is located at [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol).
 
-In deploying the TronUser contract, the JST token address and JustMid contract address are required in the constructor. For example, on Nile TestNet,
+In deploying the TronUser contract, the WIN token address and JustMid contract address are required in the constructor. For example, on Nile TestNet,
 `(TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)` is required.
 
 ### Add an Oracle Node and a job ID
@@ -144,9 +144,9 @@ updateRequestDetails(
 );
 ```
 
-### Transfer JST Tokens to the Contract
+### Transfer WIN Tokens to the Contract
 
-TronUser contract needs `transferAndCall` to call the Oracle contract, so there should be enough JST tokens in the contract account. You can transfer a certain amount of JST tokens for the contract through the transfer service or the TestNet Faucet.
+TronUser contract needs `transferAndCall` to call the Oracle contract, so there should be enough WIN tokens in the contract account. You can transfer a certain amount of WIN tokens for the contract through the transfer service or the TestNet Faucet.
 
 ### Call the Price Feed Contract
 

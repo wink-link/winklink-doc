@@ -27,20 +27,20 @@ Prepare Node Account. You're suggested to read related [Node account preparation
 VRFCoordinator contract is deployed on the TRON public chain with the following features:
 
 - Receive data requests from Consumer Contract and trigger Event Log
-    - JST transfer as fees, will be sent along with the data request
+    - WIN transfer as fees, will be sent along with the data request
 - Accept random number and the proof submitted from WinkLink node
     - VRFCoordinator contract will verify the random number after receiving the contract
-- Calculate the JST fee on data requests and claim rewards
+- Calculate the WIN fee on data requests and claim rewards
 
 VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/3for/just-link/blob/vrf-dev/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
 
-JST token address, JustMid contract address and BlockHashStore contract address are needed in the constructor function when deploying an VRFCoordinator contract.
+WIN token address, JustMid contract address and BlockHashStore contract address are needed in the constructor function when deploying an VRFCoordinator contract.
 
-For convenience, Nile TestNet has deployed `JustMid` contract and encapsulated the `JST` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and JST tokens from the Faucet address provided by Nile TestNet.
+For convenience, Nile TestNet has deployed `JustMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
 ::: tip Nile Testnet
 
-- JST TRC20 Contract Address: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN TRC20 Contract Address: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
 - JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
   :::
@@ -166,8 +166,8 @@ The owner of the VRFCoordinator contract is required to call the contract below 
   function registerProvingKey(uint256 _fee, address _oracle, bytes calldata _publicProvingKey, bytes32 _jobID)
 ```
 
-`_fee` is the minimum JST token cost required for the registration node to generate random numbers, 
-`_oracle` is the address of the registered node, which is used to receive the JST token paid by DAPP ,
+`_fee` is the minimum WIN token cost required for the registration node to generate random numbers, 
+`_oracle` is the address of the registered node, which is used to receive the WIN token paid by DAPP ,
 `_publicProvingKey` is the public key used by the registration node to generate random numbers, that is, x||y, 
 `_jobID` is the jobID of VRF service of the node.
 
@@ -186,16 +186,16 @@ Some parameters are needed in the constructor function when deploying an Dapp co
 ```js
   constructor(address vrfCoordinator, address jst, address justMid, bytes32 keyHash, uint256 fee)
 ```
-`vrfCoordinator` the address of VRFCoordinator, `jst` JST token address, `justMid` JustMid contract address,
+`vrfCoordinator` the address of VRFCoordinator, `jst` WIN token address, `justMid` JustMid contract address,
 `keyHash` the hash value of the public key of the registered node, which can be obtained by calling the hashofkeybytes function of the VRFCoordinator contract (input is x||y).
-`fee` the JST token fee payed for generating random number, and its value should be greater than the fee required by random number node.
+`fee` the WIN token fee payed for generating random number, and its value should be greater than the fee required by random number node.
 
 Example:  `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3,
 TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c963264369a098bb2f0922cb125,12）`.
 
-### Transfer JST Tokens to the Contract
+### Transfer WIN Tokens to the Contract
 
-VRFD20 contract needs to call the VRFCoordinator contract, so there should be enough JST tokens in the contract account. You can transfer a certain amount of JST tokens for the contract through the transfer service or the TestNet Faucet.
+VRFD20 contract needs to call the VRFCoordinator contract, so there should be enough WIN tokens in the contract account. You can transfer a certain amount of WIN tokens for the contract through the transfer service or the TestNet Faucet.
 
 ### Call the Dapp Contract
 

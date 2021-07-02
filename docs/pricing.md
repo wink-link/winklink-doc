@@ -81,7 +81,7 @@ contract PriceConsumer {
 ### Nile 测试网
 
 - 合约列表[查看页面](http://47.252.73.5:3300/#/solutions)
-- JST 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
 - JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 
 价格服务合约地址列表：
@@ -118,7 +118,7 @@ TronUser 合约是 WinkLink 官方推出的聚合价格服务合约模板，该�
 
 合约代码位于 [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
 
-部署 TronUser 合约时需要在构造函数提供 JST 代币地址和 JustMid 合约地址。例如 Nile 测试网中，需要提供
+部署 TronUser 合约时需要在构造函数提供 WIN 代币地址和 JustMid 合约地址。例如 Nile 测试网中，需要提供
 `(TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`.
 
 ### 添加预言机节点以及 job ID
@@ -138,10 +138,10 @@ function updateRequestDetails(uint128 _paymentAmount, uint128 _minimumResponses,
 
 示例调用 `updateRequestDetails(10, 1, ["TR9jYcLWAcQfbKcP5oau1ccSbeW7mdnqg8"], ["db22ccf4b4a14d0cae2a0757632e425d"])`.
 
-### 为合约转入 JST 代币
+### 为合约转入 WIN 代币
 
-TronUser 合约需要使用 `transferAndCall` 调用 Oracle 合约，所以合约账户需要有足够的 JST 代币。
-可以通过转账或测试网水龙头为合约转入若干 JST 代币。
+TronUser 合约需要使用 `transferAndCall` 调用 Oracle 合约，所以合约账户需要有足够的 WIN 代币。
+可以通过转账或测试网水龙头为合约转入若干 WIN 代币。
 
 ### 调用喂价合约
 

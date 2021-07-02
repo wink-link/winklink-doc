@@ -28,21 +28,21 @@ WinkLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部�
 VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功能如下
 
 - 接收消费者合约(Consumer Contract)的数据请求，触发 Event Log
-    - 数据请求发送时会附带 JST 转账作为使用费用
+    - 数据请求发送时会附带 WIN 转账作为使用费用
 - 接受 WinkLink 节点所提交的随机数和证明  
     - VRFCoordinator收到合约后会对随机数进行验证
-- 对数据请求的 JST 代币费用进行结算，提取收益
+- 对数据请求的 WIN 代币费用进行结算，提取收益
 
 合约代码位于 [VRFCoordinator.sol](https://github.com/3for/just-link/blob/vrf-dev/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
 
-部署 VRFCoordinator 合约时需要在构造函数提供 JST 代币地址和 JustMid 合约地址，_blockHashStore为BlockhashStore合约地址。
+部署 VRFCoordinator 合约时需要在构造函数提供 WIN 代币地址和 JustMid 合约地址，_blockHashStore为BlockhashStore合约地址。
 
-为方便开发者, Nile 测试网已经部署了 `JustMid` 合约，封装了 Nile 测试网 `JST` 代币。
-开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 JST 代币。
+为方便开发者, Nile 测试网已经部署了 `JustMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
 
 ::: tip Nile 测试网
 
-- JST 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
 - JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
@@ -158,7 +158,7 @@ curl --location --request GET 'http://localhost:8080/job/specs'
   function registerProvingKey(uint256 _fee, address _oracle, bytes calldata _publicProvingKey, bytes32 _jobID)
 ```
 
-其中 `_fee` 为注册节点生成随机数最小的JST代币费用，`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的JST代币，
+其中 `_fee` 为注册节点生成随机数最小的WIN代币费用，`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的WIN代币，
 `_publicProvingKey` 为注册节点用于生成随机数的公钥，即x||y， `_jobID` 为节点VRF服务的JobID。
 
 示例调用例如 `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
@@ -174,16 +174,16 @@ curl --location --request GET 'http://localhost:8080/job/specs'
 ```js
   constructor(address vrfCoordinator, address jst, address justMid, bytes32 keyHash, uint256 fee)
 ```
-其中 `vrfCoordinator` 为 VRFCoordinator 合约地址，`jst` 为 JST 代币合约地址，`justMid` 为 JustMid 合约地址，
+其中 `vrfCoordinator` 为 VRFCoordinator 合约地址，`jst` 为 WIN 代币合约地址，`justMid` 为 JustMid 合约地址，
 `keyHash` 为注册节点公钥的Hash值，可通过调用 VRFCoordinator 合约的 hashOfKeyBytes 函数获得(输入为x||y)。
-`fee` 支付随机数生成的JST代币费用，可修改，其值应大于随机数节点注册时要求的fee。
+`fee` 支付随机数生成的WIN代币费用，可修改，其值应大于随机数节点注册时要求的fee。
 
 例如 `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3,
 TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c963264369a098bb2f0922cb125,12）`。
 
-### 为合约转入JST代币
+### 为合约转入WIN代币
 
-VRFD20 合约需要调用 VRFCoordinator 合约，所以合约账户需要有足够的 JST 代币。可以通过转账或测试网水龙头为合约转入若干 JST 代币。
+VRFD20 合约需要调用 VRFCoordinator 合约，所以合约账户需要有足够的 WIN 代币。可以通过转账或测试网水龙头为合约转入若干 WIN 代币。
 
 ### 调用Dapp合约
 

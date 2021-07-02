@@ -36,7 +36,7 @@ WinkLink 生态采用去中心化架构，所有智能合约开源，任何组�
 
 ### JustMid 合约
 
-WinkLink 使用 JST 代币(TRC20)作为整个生态的基础代币。
+WinkLink 使用 WIN 代币(TRC20)作为整个生态的基础代币。
 
 WinkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的同时调用合约的某一回调函数，相关功能类似 [ERC677](https://github.com/ethereum/EIPs/issues/677), 但接口参数不同。
 
@@ -45,17 +45,17 @@ WinkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的
 
 合约代码位于 [JustMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/JustMid.sol).
 
-为方便开发者, Nile 测试网已经部署了 `JustMid` 合约，封装了 Nile 测试网 `JST` 代币。
-开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 JST 代币。
+为方便开发者, Nile 测试网已经部署了 `JustMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
 
 ::: tip Nile 测试网
 
-- JST 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN 代币合约地址: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
 - JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
 :::
 
-部署 JustMid 合约时候需要在构造函数提供被封装的 TRC20 代币地址（即 JST 代币地址）。
+部署 JustMid 合约时候需要在构造函数提供被封装的 TRC20 代币地址（即 WIN 代币地址）。
 
 所有对 JustMid 合约的操作均在合约中进行，开发者不需要直接调用该合约。
 
@@ -64,17 +64,17 @@ WinkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的
 Oracle 合约是部署在 TRON 公链上的预言机合约。主要功能如下
 
 - 接收消费者合约(Consumer Contract)的数据请求，触发 Event Log
-  - 数据请求发送时会附带 JST 转账作为使用费用
+  - 数据请求发送时会附带 WIN 转账作为使用费用
 - 接受 WinkLink 节点所提交的数据
   - WinkLink 节点通过监听 Event Log 获知数据请求
   - 节点通过识别 job 配置，选择调用不同数据请求对应的适配器，获得外部数据，向 Oracle 合约提交数据
   - 触发消费者合约的数据回调函数
 - 支持撤销数据请求
-- 对数据请求的 JST 代币费用进行结算，提取收益
+- 对数据请求的 WIN 代币费用进行结算，提取收益
 
 合约代码位于 [TronOracles.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronOracles.sol).
 
-部署 Oracle 合约时需要在构造函数提供 JST 代币地址和 JustMid 合约地址。
+部署 Oracle 合约时需要在构造函数提供 WIN 代币地址和 JustMid 合约地址。
 
 Oracle 合约实现了 `Ownable` 接口，合约的 owner 可以管理收益或销毁合约。
 
