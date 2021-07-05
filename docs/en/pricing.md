@@ -79,7 +79,7 @@ Price history can be acquired from the `AggregatorInterface` interface function 
 ### Nile Testnet
 
 - Contract List[View Page](http://47.252.73.5:3300/#/solutions)
-- WIN    Token Contract Address: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
+- WIN    Token Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 
 List of price service contract addresses:
@@ -117,7 +117,7 @@ Launched by WinkLink, the `TronUser` contract is a contract template for aggrega
 The contract code is located at [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol).
 
 In deploying the TronUser contract, the WIN token address and JustMid contract address are required in the constructor. For example, on Nile TestNet,
-`(TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)` is required.
+`(TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)` is required.
 
 ### Add an Oracle Node and a job ID
 

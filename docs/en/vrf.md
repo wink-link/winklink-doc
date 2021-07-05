@@ -40,7 +40,7 @@ For convenience, Nile TestNet has deployed `JustMid` contract and encapsulated t
 
 ::: tip Nile Testnet
 
-- WIN TRC20 Contract Address: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN TRC20 Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
   :::
@@ -190,7 +190,7 @@ Some parameters are needed in the constructor function when deploying an Dapp co
 `keyHash` the hash value of the public key of the registered node, which can be obtained by calling the hashofkeybytes function of the VRFCoordinator contract (input is x||y).
 `fee` the WIN token fee payed for generating random number, and its value should be greater than the fee required by random number node.
 
-Example:  `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3,
+Example:  `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2,
 TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c963264369a098bb2f0922cb125,12）`.
 
 ### Transfer WIN Tokens to the Contract

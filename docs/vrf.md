@@ -42,7 +42,7 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 
 ::: tip Nile 测试网
 
-- WIN 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
@@ -178,7 +178,7 @@ curl --location --request GET 'http://localhost:8080/job/specs'
 `keyHash` 为注册节点公钥的Hash值，可通过调用 VRFCoordinator 合约的 hashOfKeyBytes 函数获得(输入为x||y)。
 `fee` 支付随机数生成的WIN代币费用，可修改，其值应大于随机数节点注册时要求的fee。
 
-例如 `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3,
+例如 `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2,
 TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c963264369a098bb2f0922cb125,12）`。
 
 ### 为合约转入WIN代币

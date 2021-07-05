@@ -81,7 +81,7 @@ contract PriceConsumer {
 ### Nile 测试网
 
 - 合约列表[查看页面](http://47.252.73.5:3300/#/solutions)
-- WIN 代币合约地址: `TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3`
+- WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 
 价格服务合约地址列表：
@@ -119,7 +119,7 @@ TronUser 合约是 WinkLink 官方推出的聚合价格服务合约模板，该�
 合约代码位于 [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
 
 部署 TronUser 合约时需要在构造函数提供 WIN 代币地址和 JustMid 合约地址。例如 Nile 测试网中，需要提供
-`(TF17BgPaZYbz8oxbjhriubPDsA7ArKoLX3, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`.
+`(TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`.
 
 ### 添加预言机节点以及 job ID
 
