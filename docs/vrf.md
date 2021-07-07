@@ -33,17 +33,17 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
     - VRFCoordinator收到合约后会对随机数进行验证
 - 对数据请求的 WIN 代币费用进行结算，提取收益
 
-合约代码位于 [VRFCoordinator.sol](https://github.com/3for/just-link/blob/vrf-dev/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
+合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
 
-部署 VRFCoordinator 合约时需要在构造函数提供 WIN 代币地址和 JustMid 合约地址，_blockHashStore为BlockhashStore合约地址。
+部署 VRFCoordinator 合约时需要在构造函数提供 WIN 代币地址和 WinkMid 合约地址，_blockHashStore为BlockhashStore合约地址。
 
-为方便开发者, Nile 测试网已经部署了 `JustMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
 开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
 
 ::: tip Nile 测试网
 
 - WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- JustMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
+- WinkMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
 ## 节点部署
@@ -51,7 +51,7 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 
 VRFCoordinator 合约部署完毕后，就可以开始 WinkLink 节点部署。
 
-WinkLink 节点代码位于: <https://github.com/3for/just-link/tree/vrf-dev/node>，
+WinkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/feature/vrf/node>，
 编译完成后 node-v1.0.jar 位于项目源码目录下的 node/build/libs/ 中
 
 ###节点配置
@@ -167,14 +167,14 @@ curl --location --request GET 'http://localhost:8080/job/specs'
 
 ## Dapp合约
 
-合约代码位于 [VRFD20.sol](https://github.com/3for/just-link/tree/vrf-dev/tvm-contracts/v1.0/VRF/VRFD20.sol)
+合约代码位于 [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFD20.sol)
 
 ### 部署Dapp合约
 部署 VRFD20 合约时需要向构造函数中填充参数
 ```js
-  constructor(address vrfCoordinator, address jst, address justMid, bytes32 keyHash, uint256 fee)
+  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
 ```
-其中 `vrfCoordinator` 为 VRFCoordinator 合约地址，`jst` 为 WIN 代币合约地址，`justMid` 为 JustMid 合约地址，
+其中 `vrfCoordinator` 为 VRFCoordinator 合约地址，`win` 为 WIN 代币合约地址，`winkMid` 为 WinkMid 合约地址，
 `keyHash` 为注册节点公钥的Hash值，可通过调用 VRFCoordinator 合约的 hashOfKeyBytes 函数获得(输入为x||y)。
 `fee` 支付随机数生成的WIN代币费用，可修改，其值应大于随机数节点注册时要求的fee。
 

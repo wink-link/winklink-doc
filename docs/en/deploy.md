@@ -27,28 +27,28 @@ You may use any of the following tools or libraries for contract deployment and 
 - [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
 - [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
-### JustMid Contract
+### WinkMid Contract
 
 WinkLink uses WIN (TRC20) as the base token for the whole platform.
 
 WinkLink adopts the `transferAndCall` feature, i.e. calling one of the callback functions while transferring TRC20 tokens to contracts, a feature similar to [ERC677](https://github.com/ethereum/EIPs/issues/677) yet adopting different interface parameters.
 
-Given that we cannot modify contracts or add interfaces for most of the tokens issued, WinkLink provides `JustMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
+Given that we cannot modify contracts or add interfaces for most of the tokens issued, WinkLink provides `WinkMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
 
-The contract code is available at [JustMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/JustMid.sol).
+The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
 
-For convenience, Nile TestNet has deployed `JustMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
+For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
 ::: tip Nile Testnet
 
 - WIN TRC20 Contract Address: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
-- JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
+- WinkMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
 :::
 
-When deploying JustMid contract, developers need to provide the encapsulated TRC20 token address (i.e. WIN token address) for the constructor.
+When deploying WinkMid contract, developers need to provide the encapsulated TRC20 token address (i.e. WIN token address) for the constructor.
 
-Developers do not need to call `JustMid` contract directly, as it's just a helper for caller contracts.
+Developers do not need to call `WinkMid` contract directly, as it's wink a helper for caller contracts.
 
 ### Oracle Contract
 
@@ -65,7 +65,7 @@ Oracle contract is deployed on the TRON public chain with the following features
 
 Contract code is available at [TronOracles.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronOracles.sol).
 
-WIN token address and JustMid contract address are needed in the constructor function when deploying an Oracle contract.
+WIN token address and WinkMid contract address are needed in the constructor function when deploying an Oracle contract.
 
 Oracle contract implements the `Ownable` interface. The owner of the contract is eligible for managing rewards or destroying the contract.
 

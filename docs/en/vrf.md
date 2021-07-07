@@ -32,16 +32,16 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
     - VRFCoordinator contract will verify the random number after receiving the contract
 - Calculate the WIN fee on data requests and claim rewards
 
-VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/3for/just-link/blob/vrf-dev/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
+VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
 
-WIN token address, JustMid contract address and BlockHashStore contract address are needed in the constructor function when deploying an VRFCoordinator contract.
+WIN token address, WinkMid contract address and BlockHashStore contract address are needed in the constructor function when deploying an VRFCoordinator contract.
 
-For convenience, Nile TestNet has deployed `JustMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
+For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
 ::: tip Nile Testnet
 
 - WIN TRC20 Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- JustMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
+- WinkMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
   :::
 
@@ -50,7 +50,7 @@ For node deployment, please refer to [WinkLink Node Deploy Doc](https://docs.win
 
 WinkLink node can be deployed after the VRFCoordinator contract is deployed.
 
-WinkLink node (project directory `node`) code is available at: <https://github.com/3for/just-link/tree/vrf-dev/node>.
+WinkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/vrf/node>.
 
 After compilation, `node-v1.0.jar` will be stored in `node/build/libs/` under the project source code directory.
 
@@ -177,16 +177,16 @@ Call example: `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
 
 ## Dapp Contract
 
-Contract code is available at  [VRFD20.sol](https://github.com/3for/just-link/tree/vrf-dev/tvm-contracts/v1.0/VRF/VRFD20.sol)
+Contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFD20.sol)
 
 ### Dapp Contract Deployment
 
 Some parameters are needed in the constructor function when deploying an Dapp contract
 
 ```js
-  constructor(address vrfCoordinator, address jst, address justMid, bytes32 keyHash, uint256 fee)
+  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
 ```
-`vrfCoordinator` the address of VRFCoordinator, `jst` WIN token address, `justMid` JustMid contract address,
+`vrfCoordinator` the address of VRFCoordinator, `win` WIN token address, `winkMid` WinkMid contract address,
 `keyHash` the hash value of the public key of the registered node, which can be obtained by calling the hashofkeybytes function of the VRFCoordinator contract (input is x||y).
 `fee` the WIN token fee payed for generating random number, and its value should be greater than the fee required by random number node.
 
