@@ -2,39 +2,42 @@
 
 ## Overview
 A Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash. Only the holder of the private key can compute the hash, but anyone with public key can verify the correctness of the hash.
-VRF can be used to generate safe and reliable random numbers.
-Random number is determined by seed (provided by users), nonce (private state of VRFCoordinator contract) , hash of block and private key of random number generating node. Random number node cannot cheat. To keep the security, the random number is verified before it is sent to the user DAPP.
+VRF can be used to generate secure and reliable random numbers.
 
-VRF generation process is:
-- The user contract sends out an on-chain request to generate random number;
-- Once the node listens for the request, it generates random numbers and proof off-chain, and response back to the on-chain contract;
-- The on-chain contract checks the random number and the corresponding proof, only when the check passes, it sends the random number to the user DAPP through a callback function.
+Random number is determined by seed (provided by users), nonce (private state of VRFCoordinator contract) , block hash (the block of the request event) and private key of oracle node.
 
-VRF can be used for any application that requires reliable random number:
+The generation process of VRF is:
+- A Dapp contract sends out an on-chain request for a random number;
+- Once the off-chain oracle node listens for the request, it generates a random number and cryptographic proof of how that number was determined, and then submits them back to an oracle contract (VRFCoordinator);
+- Once the random number proof is verified by the oracle contract, the random number is published to the Dapp contract through a callback function.
+
+The process above ensures that the random number cannot be tampered with nor manipulated by anyone, including oracle operators, miners, users and even smart contract developers.
+
+WinkLink VRF is a provably-fair and verifiable source of randomness designed for Dapp contracts. Dapp contract developers can use WinkLink VRF as a tamper-proof RNG to build reliable smart contracts for any applications which rely on unpredictable outcomes:
 - Blockchain games and NFTs
 - Random assignment of duties and resources (e.g. randomly assigning judges to cases)
 - Choosing a representative sample for consensus mechanisms
 
-This article describes how to deploy and use VRF contracts.
+This article describes how to deploy and use the WinkLink VRF service.
 
 ## Before you start
 
 Maintainers for WinkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
 
-Prepare Node Account. You're suggested to read related [Node account preparation doc](https://docs.winklink.org/v1/doc/en/deploy.html#prepare-node-account)
+Prepare Node Account. You're suggested to read related [Node account preparation doc](https://doc.winklink.org/v1/doc/en/deploy.html#prepare-node-account)
 
 ## VRFCoordinator Contract
 VRFCoordinator contract is deployed on the TRON public chain with the following features:
 
-- Receive data requests from Consumer Contract and trigger Event Log
-    - WIN transfer as fees, will be sent along with the data request
+- Receive random number requests from Dapp contract and trigger VRFRequest logs
+    - WIN transfer as fees, will be sent along with the request
 - Accept random number and the proof submitted from WinkLink node
-    - VRFCoordinator contract will verify the random number after receiving the contract
+    - VRFCoordinator contract will verify the proof before sending the random number to Dapp contract
 - Calculate the WIN fee on data requests and claim rewards
 
-VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
+VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
 
-WIN token address, WinkMid contract address and BlockHashStore contract address are needed in the constructor function when deploying an VRFCoordinator contract.
+WIN token address, WinkMid contract address and BlockHashStore contract address are needed in the constructor function when deploying a VRFCoordinator contract.
 
 For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
@@ -46,31 +49,31 @@ For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated t
   :::
 
 ## Node Deployment
-For node deployment, please refer to [WinkLink Node Deploy Doc](https://docs.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
+For node deployment, please refer to [WinkLink Node Deploy Doc](https://doc.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
 
 WinkLink node can be deployed after the VRFCoordinator contract is deployed.
 
-WinkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/vrf/node>.
+WinkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/rename2wink/node>.
 
 After compilation, `node-v1.0.jar` will be stored in `node/build/libs/` under the project source code directory.
 
 ### Node Configuration
 
-After the node configuration file is confirmed, it is required to create a `vrfKeyStore.yml` file and write the private key for VRF (support multiple VRF private keys in one node):
+After the node configuration file is confirmed, it is required to create a `vrfKeyStore.yml` file and set the private key for VRF (support multiple VRF private keys in one node):
 
 ```text
 privateKeys:
-  - *****(32字节 hex 编码私钥)
+  - *****(private key in hexadecimal format)
 ```
 
-Support to dynamically update vrfkeystore without restarting the node server. The steps are:
+Support for dynamically updating vrfkeystore without restarting the node server. The steps are:
 
 First, add a new VRF private key to the `vrfKeyStore.yml` 
 
 Second, execute the following command:
 
 ```sh
-curl --location --request GET 'http://localhost:8080/vrf/updateVRFKey/vrfKeyStore.yml'
+curl --location --request GET 'http://localhost:8081/vrf/updateVRFKey/vrfKeyStore.yml'
 ```
 
 ::: tip
@@ -120,7 +123,7 @@ Example: (change the parameter below:  `address`  is the VRFCoordinator contract
 `publicKey` is the compressed value of the node's public key, which can be obtained by viewing the terminal display after the node starts, and the corresponding item is `eckey compressed`)
 
 ```sh
-curl --location --request POST 'http://localhost:8080/job/specs' \
+curl --location --request POST 'http://localhost:8081/job/specs' \
   --header 'Content-Type: application/json' \
     --data-raw '{
     "initiators": [
@@ -153,7 +156,7 @@ curl --location --request POST 'http://localhost:8080/job/specs' \
 Request example:
 
 ```sh
-curl --location --request GET 'http://localhost:8080/job/specs'
+curl --location --request GET 'http://localhost:8081/job/specs'
 ```
 
 ## Authorize a Node Account
@@ -177,7 +180,7 @@ Call example: `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
 
 ## Dapp Contract
 
-Contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFD20.sol)
+Contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
 
 ### Dapp Contract Deployment
 

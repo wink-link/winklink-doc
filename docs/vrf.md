@@ -2,7 +2,7 @@
 
 ## 介绍
 VRF（Verifiable Random Function)，即可验证的随机函数，其可生成安全可靠的随机数。
-随机数由用户提供的seed、nonce(VRFCoordinator合约的私有状态)、区块的hash 和 随机数生成节点的私钥共同决定，随机数节点不可作弊。且该随机数在返回给用户Dapp之前经过了验证，从而保证了该随机数的安全性。
+随机数由用户提供的seed、nonce(VRFCoordinator合约的私有状态)、请求所在区块hash 和 随机数生成节点的私钥共同决定，随机数节点不可作弊。且该随机数在返回给用户Dapp之前经过了验证，从而保证了该随机数的安全性。
 
 随机数生成流程如下：
 - 由用户合约在链上发出生成随机数的请求；
@@ -21,7 +21,7 @@ VRF（Verifiable Random Function)，即可验证的随机函数，其可生成�
 WinkLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部署和调用流程。
 建议参考 [官方文档](https://cn.developers.tron.network/) 。
 
-完成节点账号申请,建议参考[节点账号准备文档](https://docs.winklink.org/v1/doc/deploy.html#%E5%87%86%E5%A4%87%E8%8A%82%E7%82%B9%E5%B8%90%E5%8F%B7) 。
+完成节点账号申请,建议参考[节点账号准备文档](https://doc.winklink.org/v1/doc/deploy.html#%E5%87%86%E5%A4%87%E8%8A%82%E7%82%B9%E5%B8%90%E5%8F%B7) 。
 
 ## VRFCoordinator 合约
 
@@ -33,7 +33,7 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
     - VRFCoordinator收到合约后会对随机数进行验证
 - 对数据请求的 WIN 代币费用进行结算，提取收益
 
-合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
+合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
 
 部署 VRFCoordinator 合约时需要在构造函数提供 WIN 代币地址和 WinkMid 合约地址，_blockHashStore为BlockhashStore合约地址。
 
@@ -47,11 +47,11 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
 ## 节点部署
-节点部署部分可以参考[WinkLink节点部署文档](https://docs.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分仅列出VRF节点部署的不同之处。
+节点部署部分可以参考[WinkLink节点部署文档](https://doc.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分仅列出VRF节点部署的不同之处。
 
 VRFCoordinator 合约部署完毕后，就可以开始 WinkLink 节点部署。
 
-WinkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/feature/vrf/node>，
+WinkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/feature/rename2wink/node>，
 编译完成后 node-v1.0.jar 位于项目源码目录下的 node/build/libs/ 中
 
 ###节点配置
@@ -67,7 +67,7 @@ privateKeys:
 首先在`vrfKeyStore.yml` 文件中添加新的VRF私钥
 然后执行如下指令：
 ```sh
-curl --location --request GET 'http://localhost:8080/vrf/updateVRFKey/vrfKeyStore.yml'
+curl --location --request GET 'http://localhost:8081/vrf/updateVRFKey/vrfKeyStore.yml'
 ```
 
 ::: tip
@@ -113,7 +113,7 @@ WinkLink 节点正常运行后，就可以通过 HTTP API 为节点添加 job:
 示例：(修改下面代码中 `address` 参数为上述步骤中部署的 VRFCoordinator 合约地址；`publicKey` 参数为节点公钥的压缩值，该值可通过查看节点运行后的终端显示获得,对应项为`ecKey compressed`)
 
 ```sh
-curl --location --request POST 'http://localhost:8080/job/specs' \
+curl --location --request POST 'http://localhost:8081/job/specs' \
   --header 'Content-Type: application/json' \
     --data-raw '{
     "initiators": [
@@ -146,7 +146,7 @@ curl --location --request POST 'http://localhost:8080/job/specs' \
 请求示例：
 
 ```sh
-curl --location --request GET 'http://localhost:8080/job/specs'
+curl --location --request GET 'http://localhost:8081/job/specs'
 ```
 ## 为节点账户授权
 
@@ -167,7 +167,7 @@ curl --location --request GET 'http://localhost:8080/job/specs'
 
 ## Dapp合约
 
-合约代码位于 [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/vrf/tvm-contracts/v1.0/VRF/VRFD20.sol)
+合约代码位于 [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
 
 ### 部署Dapp合约
 部署 VRFD20 合约时需要向构造函数中填充参数
@@ -192,5 +192,6 @@ VRFD20 合约需要调用 VRFCoordinator 合约，所以合约账户需要有足
 ```js
 function rollDice(uint256 userProvidedSeed, address roller)
 ```
-其中 `userProvidedSeed` 为用户提供的种子，`roller` 目前可以填入任意地址
-示例调用例如 `rollDice(0x852f725894485e4979af5ea47ddd90cc68ea1ac0f4b99e52e9b91fa35a7204e2, TL44GNkjETr2JumQHgYJF842oyE6h2inoR)`。
+其中 `userProvidedSeed` 为用户提供的种子，`roller` 为使用随机数的地址
+
+调用示例 `rollDice(0x852f725894485e4979af5ea47ddd90cc68ea1ac0f4b99e52e9b91fa35a7204e2, TL44GNkjETr2JumQHgYJF842oyE6h2inoR)`。
