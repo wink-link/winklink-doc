@@ -1,19 +1,19 @@
 module.exports = {
-  title: 'WinkLink',
-  description: 'WinkLink Documentation',
+  title: 'WINKLink',
+  description: 'WINKLink Documentation',
   base: '/v1/doc/',
   locales: {
     '/': {
       lang: 'zh-CN',
       label: '简体中文',
-      title: 'WinkLink 开发文档',
-      description: 'WinkLink 开发和使用手册'
+      title: 'WINKLink 开发文档',
+      description: 'WINKLink 开发和使用手册'
     },
     '/en/': {
       lang: 'en-US',
       label: 'English',
-      title: 'WinkLink Developer Documentation',
-      description: 'WinkLink Developer Documentation'
+      title: 'WINKLink Developer Documentation',
+      description: 'WINKLink Developer Documentation'
     }
   },
   themeConfig: {
