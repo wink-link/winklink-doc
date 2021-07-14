@@ -1,13 +1,13 @@
 # WINkLink Random number Service
 
 ## Overview
-Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as random number. Only the holder of the private key can compute the hash, but anyone with public key can verify the correctness of the hash.
+Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as a random number. Only the holder of the private key can compute the hash, but anyone with the public key can verify the correctness of the hash.
 VRF can be used to generate secure and reliable random numbers.
 
 Random number is determined by seed (provided by users), nonce (private state of VRFCoordinator contract) , block hash (the block of the request event) and private key of oracle node.
 
 The generation process of VRF is:
-- A Dapp contract sends out an on-chain request for random number;
+- A Dapp contract sends out an on-chain request for a random number;
 - Once the off-chain oracle node listens for the request, it generates a random number attaching the cryptographic proof to make the generated random number verifiable, and then submits them back to an oracle contract (VRFCoordinator);
 - Once the random number proof is verified by the oracle contract, the random number is published to the Dapp contract through a callback function.
 
@@ -81,7 +81,7 @@ curl --location --request GET 'http://localhost:8081/vrf/updateVRFKey/vrfKeyStor
 ```
 
 ::: tip
-It is for important safety concern that you use file to provide private information instead of command line. In the production environment, set the permission of the private file `vrfKeyStore` as 600, meaning that only the owner can read or write the data.
+It is for important safety concerns that you use files to provide private information instead of the command line. In the production environment, set the permission of the private file `vrfKeyStore` as 600, meaning that only the owner can read or write the data.
 :::
 
 ### Start a Node
