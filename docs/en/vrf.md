@@ -24,7 +24,7 @@ This article describes how to deploy and use the WinkLink VRF service.
 
 Maintainers for WinkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
 
-Prepare the node account. You should to read related [Node account preparation doc](https://doc.winklink.org/v1/doc/en/deploy.html#prepare-node-account).
+Prepare the node account. You should read related [Node account preparation doc](https://doc.winklink.org/v1/doc/en/deploy.html#prepare-node-account).
 
 ## VRFCoordinator Contract
 VRFCoordinator contract is deployed on the TRON public chain with the following features:
@@ -37,7 +37,11 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
 
 VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
 
-WIN token address, WinkMid contract address and BlockHashStore contract address are needed in the constructor function when deploying a VRFCoordinator contract.
+Some parameters are needed in the constructor function when deploying a VRFCoordinator contract:
+```js
+  constructor(address _win, address _winkMid, address _blockHashStore)
+```
+`_blockHashStore` BlockHashStore address, `_win` WIN token address, `_winkMid` WinkMid contract address.
 
 For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers can use this contract address directly without additional deployment. Users can also claim test TRX and WIN tokens from the Faucet address provided by Nile testnet.
 
@@ -180,11 +184,60 @@ Call example: `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
 
 ## Dapp Contract
 
-Contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
+An example of a Dapp contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
+
+In this example, we'll create a contract with a Game of Thrones theme. It will request randomness from Chainlink VRF, the result of which it will transform into a number between 1 and 20, mimicking the rolling of a 20 sided dice. Each number represents a Game of Thrones house. So, if you land a 1, you are assigned house Targaryan, 2 is Lannister, and so on.
+
+When rolling the dice, it will accept an address variable to track which address is assigned to each house.
+
+When writing for a new Dapp contract, the main steps are:
+
+- a) Import VRFConsumerBase:
+```js
+  pragma solidity ^0.6.0;
+
+  import "./VRFConsumerBase.sol";
+  
+  contract VRFD20 is VRFConsumerBase {
+  
+  }
+```
+- b) Set `s_keyHash` to identify the VRF key to generate the random number; `s_fee` for the fee amount in one request.
+```js
+  bytes32 private s_keyHash;
+  uint256 private s_fee;
+```
+- c) Dapp contract initialization:
+```js
+  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
+    public
+    VRFConsumerBase(vrfCoordinator, win, winkMid)
+  {
+    s_keyHash = keyHash;
+    s_fee = fee;   
+  }
+```
+- d) Call `requestRandomness` to request for random number, and get `requestId` for the specific request:
+```js
+  function rollDice(uint256 userProvidedSeed, address roller)
+  {
+    require(winkMid.balanceOf(address(this)) >= s_fee, "Not enough WIN to pay fee");
+    requestId = requestRandomness(s_keyHash, s_fee, userProvidedSeed);
+    emit DiceRolled(requestId, roller);
+  }
+```
+- e) Fulfill `fulfillRandomness` used by VRFCoordinator contract to send the verified random number `randomness` (for a specific request `requestId`) back to.
+```js
+  function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
+    uint256 d20Value = randomness.mod(20).add(1);
+    s_results[s_rollers[requestId]] = d20Value; 
+    emit DiceLanded(requestId, d20Value);
+  }
+```
 
 ### Dapp Contract Deployment
 
-Some parameters are needed in the constructor function when deploying an Dapp contract
+Some parameters are needed in the constructor function when deploying a Dapp contract
 
 ```js
   constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)

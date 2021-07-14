@@ -35,7 +35,12 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 
 合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
 
-部署 VRFCoordinator 合约时需要在构造函数提供 WIN 代币地址和 WinkMid 合约地址，_blockHashStore为BlockhashStore合约地址。
+部署 VRFCoordinator 合约时需要在构造函数提供相关参数：
+```js
+  constructor(address _win, address _winkMid, address _blockHashStore)
+```
+`_blockHashStore` 为BlockHashStore合约地址，`_win` 为WIN代币地址, `_winkMid` 为WinkMid合约地址。
+
 
 为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
 开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
@@ -167,7 +172,54 @@ curl --location --request GET 'http://localhost:8081/job/specs'
 
 ## Dapp合约
 
-合约代码位于 [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
+示例Dapp合约： [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
+
+该示例为权力游戏合约，其向WinkLink VRF请求随机数，将随机值转换为1~20，每个数字代表一个房间，如经转换后的数字为1，则被分配到Targaryan房间，2对应Lannister房间，以此类推。
+
+当编写新的Dapp合约时，需遵循以下规则：
+
+- a) 引入 VRFConsumerBase:
+```js
+  pragma solidity ^0.6.0;
+
+  import "./VRFConsumerBase.sol";
+  
+  contract VRFD20 is VRFConsumerBase {
+  
+  }
+```
+- b) 设置 `s_keyHash` 为生成随机数所使用的VRF key；`s_fee` 为单次随机数请求所支付的费用。
+```js
+  bytes32 private s_keyHash;
+  uint256 private s_fee;
+```
+- c) Dapp合约初始化：
+```js
+  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
+    public
+    VRFConsumerBase(vrfCoordinator, win, winkMid)
+  {
+    s_keyHash = keyHash;
+    s_fee = fee;   
+  }
+```
+- d) 调用 `requestRandomness` 来发起随机数请求，记录相应的`requestId`:
+```js
+  function rollDice(uint256 userProvidedSeed, address roller)
+  {
+    require(winkMid.balanceOf(address(this)) >= s_fee, "Not enough WIN to pay fee");
+    requestId = requestRandomness(s_keyHash, s_fee, userProvidedSeed);
+    emit DiceRolled(requestId, roller);
+  }
+```
+- e) 实现 `fulfillRandomness` 来接收 VRFCoordinator合约回调的经验证通过的随机数`requestId`和`randomness`。
+```js
+  function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
+    uint256 d20Value = randomness.mod(20).add(1);
+    s_results[s_rollers[requestId]] = d20Value; 
+    emit DiceLanded(requestId, d20Value);
+  }
+```
 
 ### 部署Dapp合约
 部署 VRFD20 合约时需要向构造函数中填充参数
