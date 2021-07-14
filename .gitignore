@@ -2,6 +2,7 @@
 .idea/
 build/
 logs/
+node_modules/
 
 node/HELP.md
 node/.gradle
