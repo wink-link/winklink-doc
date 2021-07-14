@@ -1,36 +1,36 @@
 # Design of System Architecture
 <!-- Architecture Overview -->
 
-## WINKLink Node Model
+## WINkLink Node Model
 
 ```mermaid
 flowchart LR
-    A[External data source] <--> B[WINKLink node] <--> C[TRON BlockChain API]
+    A[External data source] <--> B[WINkLink node] <--> C[TRON BlockChain API]
 ```
 
 There are three main modules as illustrated above:
 
 - External data source
-- WINKLink node
+- WINkLink node
 - TRON blockchain
 
-Above are the main components that make up the node structure of WINKLink oracle. We will introduce them one by one.
+Above are the main components that make up the node structure of WINkLink oracle. We will introduce them one by one.
 
 ### External Data Source
 
 External data source refers to the external data available to the native blockchain, including centralized exchanges, centralized oracles, stock exchange APIs, etc.
 
-### WINKLink Node
+### WINkLink Node
 
-WINKLink node runs task processing, monitors on-chain contract requests (via Event), retrieves data from external data sources and submits results to the blockchain.
+WINkLink node runs task processing, monitors on-chain contract requests (via Event), retrieves data from external data sources and submits results to the blockchain.
 
 ### TRON blockchain
 
-Blockchain node mainly refers to the API services provided by the TRON blockchain, including Fullnode API and Event API services. Through these APIs, WINKLink node can monitor specific contract events to trigger tasks, sign broadcasted transactions and return data back to **the consumer contract**.
+Blockchain node mainly refers to the API services provided by the TRON blockchain, including Fullnode API and Event API services. Through these APIs, WINkLink node can monitor specific contract events to trigger tasks, sign broadcasted transactions and return data back to **the consumer contract**.
 
-As suggested by the double-headed arrow, WINKLink node subscribes blockchain events while broadcasting transactions via API and returning data results.
+As suggested by the double-headed arrow, WINkLink node subscribes blockchain events while broadcasting transactions via API and returning data results.
 
-## WINKLink Request Model
+## WINkLink Request Model
 
 ### Create a Request
 

@@ -1,14 +1,14 @@
-# WINKLink Price Service
+# WINkLink Price Service
 
 ## Overview
 
 It is required that smart contracts frequently echo the token prices in the real world. For DeFi in particular, asset prices must be highly aligned with real-world prices, otherwise users and developers may suffer losses caused by arbitrage or attacks on the contract.
 
-WINKLink's price service focuses on digital currency pairs, providing DApps with accurate and stable price information of real-world digital currencies.
+WINkLink's price service focuses on digital currency pairs, providing DApps with accurate and stable price information of real-world digital currencies.
 
-The solution provided by WINKLink aggregates price data of multiple WINKLink oracle nodes that leads to a stable price service, which is called the Price Feed Contract.
+The solution provided by WINkLink aggregates price data of multiple WINkLink oracle nodes that leads to a stable price service, which is called the Price Feed Contract.
 
-We are going to explore how to use and deploy the WINKLink price service contract in the following sections.
+We are going to explore how to use and deploy the WINkLink price service contract in the following sections.
 
 ## Acquire Latest Prices
 
@@ -101,7 +101,7 @@ List of price service contract addresses:
 
 ### Apply for New Trading Pairs
 
-If you need WINKLink to provide a new trading pair officially,
+If you need WINkLink to provide a new trading pair officially,
 please fill in and submit the [this form](https://docs.google.com/forms/d/e/1FAIpQLSdt0xu6Sw7llvV0yu-4qJGkh3gvfBVFr_YPv01CEl7P19yXSQ/viewform).
 
 ## Deply the Price Service
@@ -112,7 +112,7 @@ In real production, price feed requires multiple oracle nodes, which will be agg
 
 ### Deploy the Price Feed Contract
 
-Launched by WINKLink, the `TronUser` contract is a contract template for aggregated price service. The contract applies the `AggregatorInterface` which developers can use directly.
+Launched by WINkLink, the `TronUser` contract is a contract template for aggregated price service. The contract applies the `AggregatorInterface` which developers can use directly.
 
 The contract code is located at [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol).
 
@@ -129,7 +129,7 @@ function updateRequestDetails(uint128 _paymentAmount, uint128 _minimumResponses,
 
 `_paymentAmount` refers to the amount of tokens paid for updating the call each time.
 
-`_oracles` and `_jobIds` are a pair of lists with equal length. Each set represents a unique job ID of a WINKLink oracle.
+`_oracles` and `_jobIds` are a pair of lists with equal length. Each set represents a unique job ID of a WINkLink oracle.
 
 `_minimumResponses` refers to the minimum number of response oracles. It must be greater than or equal to the length of `_oracles`. For example, you can set it to 5/10 so that only when at least 5/10 oracles have responded will the upgraded value become valid.
 
@@ -152,7 +152,7 @@ TronUser contract needs `transferAndCall` to call the Oracle contract, so there 
 
 #### Update Prices with requestRateUpdate
 
-Use the following interface to request WINKLink oracle nodes to acquire the latest price information from external data sources:
+Use the following interface to request WINkLink oracle nodes to acquire the latest price information from external data sources:
 
 ```js
 function requestRateUpdate() returns (bytes32)

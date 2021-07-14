@@ -1,24 +1,24 @@
-# 搭建 WINKLink 节点
+# 搭建 WINkLink 节点
 
-本节介绍如何加入 WINKLink 生态：部署预言机合约，搭建 WINKLink 节点。
+本节介绍如何加入 WINkLink 生态：部署预言机合约，搭建 WINkLink 节点。
 
-目前 WINKLink 不区分 Oracle 合约拥有者和预言机节点运营者。
+目前 WINkLink 不区分 Oracle 合约拥有者和预言机节点运营者。
 即预言机节点的运营者同时是 Oracle 合约的拥有者。预言机节点账户只处理数据源和数据提交，
 Oracle 合约拥有者可以通过合约调用，提取 Oracle 合约使用者所支付的使用费。
 
 ## 准备工作
 
-WINKLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部署和调用流程。
+WINkLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部署和调用流程。
 建议参考 [官方文档](https://cn.developers.tron.network/)。
 
 主要阅读 TronIDE 合约部署相关内容。
 
 ## 合约部署
 
-WINKLink 生态采用去中心化架构，所有智能合约开源，任何组织和个人都可以部署自己的 WINKLink 预言机合约，
+WINkLink 生态采用去中心化架构，所有智能合约开源，任何组织和个人都可以部署自己的 WINkLink 预言机合约，
 并对外公布所提供的服务。
 
-用户可以从各个公开 WINKLink 服务中选择自己所需的组合，创建自己的聚合数据合约，从去中心化受益。
+用户可以从各个公开 WINkLink 服务中选择自己所需的组合，创建自己的聚合数据合约，从去中心化受益。
 
 项目合约地址位于: <https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0>
 
@@ -36,11 +36,11 @@ WINKLink 生态采用去中心化架构，所有智能合约开源，任何组�
 
 ### WinkMid 合约
 
-WINKLink 使用 WIN 代币(TRC20)作为整个生态的基础代币。
+WINkLink 使用 WIN 代币(TRC20)作为整个生态的基础代币。
 
-WINKLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的同时调用合约的某一回调函数，相关功能类似 [ERC677](https://github.com/ethereum/EIPs/issues/677), 但接口参数不同。
+WINkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的同时调用合约的某一回调函数，相关功能类似 [ERC677](https://github.com/ethereum/EIPs/issues/677), 但接口参数不同。
 
-考虑到绝大多数已发行的代币无法再修改合约增加接口, WINKLink 提供了 `WinkMid` 合约，可以用来包装任一 TRC20 代币，并提供
+考虑到绝大多数已发行的代币无法再修改合约增加接口, WINkLink 提供了 `WinkMid` 合约，可以用来包装任一 TRC20 代币，并提供
 `transferAndCall` 接口。
 
 合约代码位于 [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
@@ -65,8 +65,8 @@ Oracle 合约是部署在 TRON 公链上的预言机合约。主要功能如下
 
 - 接收消费者合约(Consumer Contract)的数据请求，触发 Event Log
   - 数据请求发送时会附带 WIN 转账作为使用费用
-- 接受 WINKLink 节点所提交的数据
-  - WINKLink 节点通过监听 Event Log 获知数据请求
+- 接受 WINkLink 节点所提交的数据
+  - WINkLink 节点通过监听 Event Log 获知数据请求
   - 节点通过识别 job 配置，选择调用不同数据请求对应的适配器，获得外部数据，向 Oracle 合约提交数据
   - 触发消费者合约的数据回调函数
 - 支持撤销数据请求
@@ -80,9 +80,9 @@ Oracle 合约实现了 `Ownable` 接口，合约的 owner 可以管理收益或�
 
 ## 节点部署
 
-合约部署完毕后，就可以开始 WINKLink 节点部署。
+合约部署完毕后，就可以开始 WINkLink 节点部署。
 
-WINKLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/winklink/tree/master/node>.
+WINkLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/winklink/tree/master/node>.
 
 ::: warning
 目前的节点实现包含通过交易所 API 获取币价的适配器。请在稳定的非中国大陆网络环境中运行节点。
@@ -90,7 +90,7 @@ WINKLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/
 
 ### 准备节点帐号
 
-每个 WINKLink 节点都必须对应一个 TRON 帐号，用于调用 Oracle 合约提交数据。
+每个 WINkLink 节点都必须对应一个 TRON 帐号，用于调用 Oracle 合约提交数据。
 
 开发者生成帐号地址和私钥后，通过测试网水龙头页面投测试 TRX 代币。该代币用于支付智能合约调用的必要费用。
 
@@ -107,19 +107,19 @@ WINKLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/
 
 ### 依赖环境
 
-WINKLink 节点依赖 MySQL 实例。开发者可以使用目标环境的软件包管理器或 Docker 部署 MySQL 实例。
+WINkLink 节点依赖 MySQL 实例。开发者可以使用目标环境的软件包管理器或 Docker 部署 MySQL 实例。
 
 ::: tip
 这里假定本机部署的 MySQL 实例的用户名和密码分别是 `root:root`。在生产环境中请使用强密码或其他验证方式。
 :::
 
-WINKLink 节点使用 Java 语言编写，依赖 JRE/JDK 环境，建议使用 Oracle JDK8.
+WINkLink 节点使用 Java 语言编写，依赖 JRE/JDK 环境，建议使用 Oracle JDK8.
 
-WINKLink 节点依赖 nodejs 环境，需要安装 nodejs(npm) >= 10.0.
+WINkLink 节点依赖 nodejs 环境，需要安装 nodejs(npm) >= 10.0.
 
 ### 获取节点可执行程序
 
-开发者可以在 [Github Release](https://github.com/wink-link/winklink/releases) 页面下载到到最新版本的 WINKLink 节点可执行程序 `node-v1.0.jar`。
+开发者可以在 [Github Release](https://github.com/wink-link/winklink/releases) 页面下载到到最新版本的 WINkLink 节点可执行程序 `node-v1.0.jar`。
 
 TODO: 未发布版本
 
@@ -143,7 +143,7 @@ cd winklink/
 
 ### 节点配置
 
-WINKLink 节点使用 springboot 方式配置。所有配置文件位于项目子目录 `node/src/main/resource`.
+WINkLink 节点使用 springboot 方式配置。所有配置文件位于项目子目录 `node/src/main/resource`.
 `application.yml` 可以指定使用的具体 profile.
 
 ```yml
@@ -182,7 +182,7 @@ privatekey=*****(32字节 hex 编码私钥)
 
 所有配置文件都需要被复制到节点程序当前运行时目录，即 `cp node/src/main/resource/*.yml ./`.
 
-使用如下命令启动 WINKLink 节点程序：
+使用如下命令启动 WINkLink 节点程序：
 
 ```sh
 java -jar node/build/libs/node-v1.0.jar -k key.store
@@ -194,7 +194,7 @@ java -jar node/build/libs/node-v1.0.jar -k key.store
 java -jar node/build/libs/node-v1.0.jar --server.port=8081 --spring.profiles.active=dev --key key.store
 ```
 
-使用如下命令判断 WINKLink 节点是否正常运行：
+使用如下命令判断 WINkLink 节点是否正常运行：
 
 ```sh
 tail -f logs/tron.log
@@ -207,10 +207,10 @@ tail -f logs/tron.log
 ### 为节点添加 job
 
 节点的 job 代表了节点所支持的数据服务, job ID 通过一个 32 字节唯一标识。对于最终用户来说，
-`(Oracle 地址, job ID)` 唯一标识了一个 WINKLink 节点提供的数据服务。
-每个 WINKLink 节点都可以提供多组数据服务。
+`(Oracle 地址, job ID)` 唯一标识了一个 WINkLink 节点提供的数据服务。
+每个 WINkLink 节点都可以提供多组数据服务。
 
-WINKLink 节点正常运行后，就可以通过 HTTP API 为节点添加 job:
+WINkLink 节点正常运行后，就可以通过 HTTP API 为节点添加 job:
 
 示例：(修改下面代码中 `address` 参数为上述步骤中部署的 Oracle 合约地址)
 
@@ -280,11 +280,11 @@ function setFulfillmentPermission(address _node, bool _allowed)
 - [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
 - [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
-## 申请成为官方认证 WINKLink 节点
+## 申请成为官方认证 WINkLink 节点
 
 以上步骤执行完毕后，节点即可对外提供服务。
 
-节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINKLink 官方认证节点，
-在 WINKLink 官网列出自己的节点。
+节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINkLink 官方认证节点，
+在 WINkLink 官网列出自己的节点。
 
 [申请表单](https://docs.google.com/forms/d/e/1FAIpQLSe5mX6ZR13jBTgkO3D7jgio8f5ASTVYBObx8AAlyGs0hYyiJw/viewform)

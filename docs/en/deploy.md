@@ -1,18 +1,18 @@
-# Deploy WINKLink Node
+# Deploy WINkLink Node
 
-This section explains how to join in the WINKLink ecosystem, including deploying oracle contracts and deploying WINKLink node.
+This section explains how to join in the WINkLink ecosystem, including deploying oracle contracts and deploying WINkLink node.
 
-Currently, the owner of oracle contract is also the operator of the node on WINKLink. With regard to distribution of proceeds, Oracle node accounts process and submit data, and only owners of the oracle contract are entitled to withdraw the handling fees paid by Oracle contract users.
+Currently, the owner of oracle contract is also the operator of the node on WINkLink. With regard to distribution of proceeds, Oracle node accounts process and submit data, and only owners of the oracle contract are entitled to withdraw the handling fees paid by Oracle contract users.
 
 ## Before you start
 
-Maintainers for WINKLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
+Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
 
 ## Contract Deployment
 
-Employing a decentralized structure, WINKLink features open-source smart contracts and allows any organization or individual to deploy their WINKLink oracle contracts and release these services to the public.
+Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink oracle contracts and release these services to the public.
 
-Users may pick their sets from all the open services available on WINKLink to create their own aggregated data contracts and benefit from decentralization.
+Users may pick their sets from all the open services available on WINkLink to create their own aggregated data contracts and benefit from decentralization.
 
 Contract address for the project is hosted at: <https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0>.
 
@@ -29,11 +29,11 @@ You may use any of the following tools or libraries for contract deployment and 
 
 ### WinkMid Contract
 
-WINKLink uses WIN (TRC20) as the base token for the whole platform.
+WINkLink uses WIN (TRC20) as the base token for the whole platform.
 
-WINKLink adopts the `transferAndCall` feature, i.e. calling one of the callback functions while transferring TRC20 tokens to contracts, a feature similar to [ERC677](https://github.com/ethereum/EIPs/issues/677) yet adopting different interface parameters.
+WINkLink adopts the `transferAndCall` feature, i.e. calling one of the callback functions while transferring TRC20 tokens to contracts, a feature similar to [ERC677](https://github.com/ethereum/EIPs/issues/677) yet adopting different interface parameters.
 
-Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINKLink provides `WinkMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
+Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides `WinkMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
 
 The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
 
@@ -56,8 +56,8 @@ Oracle contract is deployed on the TRON public chain with the following features
 
 - Receive data requests from Consumer Contract and trigger Event Log
   - WIN transfer as fees, will be sent along with the data request
-- Accept data submitted from WINKLink node
-  - WINKLink node monitors Event Log and then learns about the data request
+- Accept data submitted from WINkLink node
+  - WINkLink node monitors Event Log and then learns about the data request
   - Through job configuration, nodes call the corresponding adaptors of different data requests to obtain external data and trigger Oracle contracts to submit data
   - Trigger the callback function of the consumer contract
 - Support cancelling data requests
@@ -71,9 +71,9 @@ Oracle contract implements the `Ownable` interface. The owner of the contract is
 
 ## Node Deployment
 
-WINKLink node can be deployed after the contract is deployed.
+WINkLink node can be deployed after the contract is deployed.
 
-WINKLink node (project directory `node`) code is available at: https://github.com/wink-link/winklink/tree/master/node.
+WINkLink node (project directory `node`) code is available at: https://github.com/wink-link/winklink/tree/master/node.
 
 ::: warning
 Current node implementation includes the adapter for accessing token price via exchange APIs. Please run the node in a stable network environment outside Mainland China.
@@ -81,7 +81,7 @@ Current node implementation includes the adapter for accessing token price via e
 
 ### Prepare Node Account
 
-Each WINKLink node must be linked to a TRON account for calling Oracle contract to submit data.
+Each WINkLink node must be linked to a TRON account for calling Oracle contract to submit data.
 
 After generating the account address and the private key, the developer can test TRX token on the Testnet Faucet page.The token is used for paying the handling fees on calling the smart contracts.
 
@@ -98,19 +98,19 @@ Your private key might get leaked if it is transmitted via an untrusted network.
 
 ### Required Environment
 
-WINKLink node relies on a running MySQL instance. Developers can use the system package manager or Docker of the target environment to deploy a MySQL instance.
+WINkLink node relies on a running MySQL instance. Developers can use the system package manager or Docker of the target environment to deploy a MySQL instance.
 
 ::: tip
 Here we assume that the username and the password for the MySQL instance deployed locally are `root:root` respectively. Please use a strong password or other verification methods in the production environment.
 :::
 
-WINKLink node is written in Java language and requires JRE/JDK environment. It is recommended to use Oracle JDK8.
+WINkLink node is written in Java language and requires JRE/JDK environment. It is recommended to use Oracle JDK8.
 
-WINKLink node requires a nodejs environment. You need to install Nodejs(npm) >= 10.0.
+WINkLink node requires a nodejs environment. You need to install Nodejs(npm) >= 10.0.
 
 ### Access Executable Program for the Node
 
-Developers can download from [Github Release](https://github.com/wink-link/winklink/releases) page the latest version of WINKLink node executable `node-v1.0.jar`。
+Developers can download from [Github Release](https://github.com/wink-link/winklink/releases) page the latest version of WINkLink node executable `node-v1.0.jar`。
 
 TODO: 未发布版本
 
@@ -133,11 +133,11 @@ The compilation process here omits the test (`-x test`), because the test instan
 
 ### Node Configuration
 
-WINKLink node is configured using springboot.
+WINkLink node is configured using springboot.
 All configuration files are under the subdirectory `node/src/main/resource`.
 With `application.yml` you can specify a db profile to be used.
 
-WINKLink 节点使用 springboot 方式配置。所有配置文件位于项目子目录 `node/src/main/resource`.
+WINkLink 节点使用 springboot 方式配置。所有配置文件位于项目子目录 `node/src/main/resource`.
 `application.yml` 可以指定使用的具体 profile.
 
 ```yml
@@ -176,7 +176,7 @@ It is for important safety concern that you use files to provide private informa
 All configuration files need to be copied to the directory that your node is running in,
 use the command `cp node/src/main/resource/*.yml ./`.
 
-Start your WINKLink node using the following command:
+Start your WINkLink node using the following command:
 
 ```sh
 java -jar node/build/libs/node-v1.0.jar -k key.store
@@ -188,7 +188,7 @@ Configuration items can also be specified using a command line. For example:
 java -jar node/build/libs/node-v1.0.jar --server.port=8081 --spring.profiles.active=dev --key key.store
 ```
 
-Determine whether your WINKLink node is running properly using the following command:
+Determine whether your WINkLink node is running properly using the following command:
 
 ```sh
 tail -f logs/tron.log
@@ -201,9 +201,9 @@ You can apply testnet tokens at Testnet Faucet.
 
 ### Add a Job to Your Node
 
-The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, `(Oracle address, job ID)` uniquely identifies the data service provided by a WINKLink node. Each WINKLink node can provide multiple data services.
+The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, `(Oracle address, job ID)` uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
 
-When your WINKLink node is running properly, you can add a job to your node via HTTP API:
+When your WINkLink node is running properly, you can add a job to your node via HTTP API:
 
 Example: (change the address parameter below to the Oracle contract address deployed in the steps above)
 
@@ -274,10 +274,10 @@ Contract calls can be made via any of the following tools or libraries:
 - [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
 - [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
-## Apply to be an officially certified WINKLink node
+## Apply to be an officially certified WINkLink node
 
 Your node can provide services to the public after the steps above are performed.
 
-You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINKLink and be listed on the WINKLink website.
+You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINkLink and be listed on the WINkLink website.
 
 [Application form](https://docs.google.com/forms/d/e/1FAIpQLSdufboAPr-ApgF3D7GHlUFUIlctsosualKI0IiRreMlwX-Eaw/viewform)

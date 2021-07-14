@@ -1,15 +1,15 @@
-# WINKLink 价格服务
+# WINkLink 价格服务
 
 ## 介绍
 
 智能合约经常需要对真实世界的代币资产价格做响应，在 DeFi 领域更是如此，资产价格必须和真实世界价格高度对应，
 否则用户和开发者可能承受合约被套利或攻击带来的损失。
 
-WINKLink 价格服务专注于数字货币价格对, 为 DApp 提供准确稳定的外部世界数字货币价格信息。
+WINkLink 价格服务专注于数字货币价格对, 为 DApp 提供准确稳定的外部世界数字货币价格信息。
 
-WINKLink 官方提供了聚合多个 WINKLink 预言机节点价格数据的方案，最终得到稳定的价格服务，称作喂价合约(Price Feed Contract).
+WINkLink 官方提供了聚合多个 WINkLink 预言机节点价格数据的方案，最终得到稳定的价格服务，称作喂价合约(Price Feed Contract).
 
-本文介绍如何使用和部署 WINKLink 价格服务合约。
+本文介绍如何使用和部署 WINkLink 价格服务合约。
 
 ## 获取最新价格
 
@@ -103,7 +103,7 @@ contract PriceConsumer {
 
 ### 申请新交易对
 
-如果您需要 WINKLink 提供新的交易对，请填写并提交[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSdPqV3oWV87FYdox5D_J6BIve7R5eG0cHIGsh49r8gg_QiNeQ/viewform)。
+如果您需要 WINkLink 提供新的交易对，请填写并提交[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSdPqV3oWV87FYdox5D_J6BIve7R5eG0cHIGsh49r8gg_QiNeQ/viewform)。
 
 ## 部署价格服务
 
@@ -114,7 +114,7 @@ contract PriceConsumer {
 
 ### 部署喂价合约
 
-TronUser 合约是 WINKLink 官方推出的聚合价格服务合约模板，该合约实现了 `AggregatorInterface` 接口，开发者可以直接使用。
+TronUser 合约是 WINkLink 官方推出的聚合价格服务合约模板，该合约实现了 `AggregatorInterface` 接口，开发者可以直接使用。
 
 合约代码位于 [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
 
@@ -131,7 +131,7 @@ function updateRequestDetails(uint128 _paymentAmount, uint128 _minimumResponses,
 
 其中 `_paymentAmount` 表示每次更新调用所支付代币数量。
 
-`_oracles` 和 `_jobIds` 是一对等长列表，每组对应一个 WINKLink 预言机 job 唯一标识。
+`_oracles` 和 `_jobIds` 是一对等长列表，每组对应一个 WINkLink 预言机 job 唯一标识。
 
 `_minimumResponses` 表示需要的最少响应预言机个数，必须大于等于 `_oracles` 长度。
 例如可以设置要求至少 5/10 个预言机响应后，本次更新值才有效。
@@ -147,7 +147,7 @@ TronUser 合约需要使用 `transferAndCall` 调用 Oracle 合约，所以合�
 
 #### 更新价格 requestRateUpdate
 
-使用如下接口请求 WINKLink 预言机节点从外部数据源获取最新价格：
+使用如下接口请求 WINkLink 预言机节点从外部数据源获取最新价格：
 
 ```js
 function requestRateUpdate() returns (bytes32)

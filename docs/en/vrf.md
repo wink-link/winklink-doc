@@ -1,4 +1,4 @@
-# WINKLink Random number Service
+# WINkLink Random number Service
 
 ## Overview
 A Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash. Only the holder of the private key can compute the hash, but anyone with public key can verify the correctness of the hash.
@@ -19,7 +19,7 @@ This article describes how to deploy and use VRF contracts.
 
 ## Before you start
 
-Maintainers for WINKLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
+Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
 
 Prepare Node Account. You're suggested to read related [Node account preparation doc](https://docs.winklink.org/v1/doc/en/deploy.html#prepare-node-account)
 
@@ -28,7 +28,7 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
 
 - Receive data requests from Consumer Contract and trigger Event Log
     - WIN transfer as fees, will be sent along with the data request
-- Accept random number and the proof submitted from WINKLink node
+- Accept random number and the proof submitted from WINkLink node
     - VRFCoordinator contract will verify the random number after receiving the contract
 - Calculate the WIN fee on data requests and claim rewards
 
@@ -46,11 +46,11 @@ For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated t
   :::
 
 ## Node Deployment
-For node deployment, please refer to [WINKLink Node Deploy Doc](https://docs.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
+For node deployment, please refer to [WINkLink Node Deploy Doc](https://docs.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
 
-WINKLink node can be deployed after the VRFCoordinator contract is deployed.
+WINkLink node can be deployed after the VRFCoordinator contract is deployed.
 
-WINKLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/vrf/node>.
+WINkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/vrf/node>.
 
 After compilation, `node-v1.0.jar` will be stored in `node/build/libs/` under the project source code directory.
 
@@ -82,7 +82,7 @@ It is for important safety concern that you use files to provide private informa
 All configuration files need to be copied to the directory that your node is running in, use the command `cp node/src/main/resource/*.yml ./`.
 At the same time, the `tronApiKey` part of the `application dev` file needs to be filled with apikey
 
-Start your WINKLink node using the following command:
+Start your WINkLink node using the following command:
 
 ```sh
 java -jar node/build/libs/node-v1.0.jar -k key.store -vrfK vrfKeyStore.yml
@@ -99,7 +99,7 @@ nile testnet:
 java -jar node/build/libs/node-v1.0.jar --env dev --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
 ```
 
-Determine whether your WINKLink node is running properly using the following command:
+Determine whether your WINkLink node is running properly using the following command:
 
 ```sh
 tail -f logs/tron.log
@@ -114,7 +114,7 @@ You can apply testnet tokens at Testnet Faucet.
 
 The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. 
 
-When your WINKLink node is running properly, you can add a job to your node via HTTP API:
+When your WINkLink node is running properly, you can add a job to your node via HTTP API:
 
 Example: (change the parameter below:  `address`  is the VRFCoordinator contract address deployed in the steps above; 
 `publicKey` is the compressed value of the node's public key, which can be obtained by viewing the terminal display after the node starts, and the corresponding item is `eckey compressed`)

@@ -1,38 +1,38 @@
 # 系统架构设计
 <!-- Architecture Overview -->
 
-## WINKLink 节点模型
+## WINkLink 节点模型
 
 ```mermaid
 flowchart LR
-    外部数据源 <--> B[WINKLink Node] <--> C[TRON BlockChain API]
+    外部数据源 <--> B[WINkLink Node] <--> C[TRON BlockChain API]
 ```
 
 如上图，我们可以看到三个主要模块：
 
 * 外部数据源
-* WINKLink 节点
+* WINkLink 节点
 * TRON blockchain
 
-这些是 WINKLink 预言机节点架构的主要组成部分，下面我们将逐个介绍。
+这些是 WINkLink 预言机节点架构的主要组成部分，下面我们将逐个介绍。
 
 ### 外部数据源
 
 外部数据源代表原生区块链外部可获取的数据，例如中心化交易所、中心化预言机、股票交易所的 API 接口等。
 
-### WINKLink 节点
+### WINkLink 节点
 
-WINKLink 节点运行任务处理，监听链上合约请求(以 Event 方式监听)，从外部数据源获取数据，然后向区块链提交数据结果。
+WINkLink 节点运行任务处理，监听链上合约请求(以 Event 方式监听)，从外部数据源获取数据，然后向区块链提交数据结果。
 
 ### TRON blockchain
 
 区块链节点主要指 TRON 区块链提供的 API 服务，包括 Fullnode API 和 Event API 服务。
-通过这些 API, WINKLink 节点可以监听特定合约事件来启动任务，同时也可以通过 API 服务签名广播交易，
+通过这些 API, WINkLink 节点可以监听特定合约事件来启动任务，同时也可以通过 API 服务签名广播交易，
 将数据返回给**消费者合约**。
 
-箭头表示的连接性是双向的, WINKLink 节点既订阅区块链事件，又通过 API 发布交易，提交数据结果。
+箭头表示的连接性是双向的, WINkLink 节点既订阅区块链事件，又通过 API 发布交易，提交数据结果。
 
-## WINKLink 请求模型
+## WINkLink 请求模型
 
 ### 创建请求
 
