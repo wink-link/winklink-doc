@@ -1,4 +1,4 @@
-# WinkLink Random number Service
+# WINkLink Random number Service
 
 ## Overview
 Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as random number. Only the holder of the private key can compute the hash, but anyone with public key can verify the correctness of the hash.
@@ -13,16 +13,16 @@ The generation process of VRF is:
 
 The process above ensures that the random number cannot be tampered with nor manipulated by anyone, including oracle operators, miners, users and even smart contract developers.
 
-WinkLink VRF is a provably-fair and verifiable source of randomness designed for Dapp contracts. Dapp contract developers can use WinkLink VRF as a tamper-proof RNG (Random Number Generator) to build reliable smart contracts for any applications which rely on unpredictable random number:
+WINkLink VRF is a provably-fair and verifiable source of randomness designed for Dapp contracts. Dapp contract developers can use WINkLink VRF as a tamper-proof RNG (Random Number Generator) to build reliable smart contracts for any applications which rely on unpredictable random number:
 - Blockchain games and NFTs
 - Random assignment of duties and resources (e.g. randomly assigning judges to cases)
 - Choosing a representative sample for consensus mechanisms
 
-This article describes how to deploy and use the WinkLink VRF service.
+This article describes how to deploy and use the WINkLink VRF service.
 
 ## Before you start
 
-Maintainers for WinkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
+Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related [TRON official documents](https://cn.developers.tron.network/), particularly those on contract deployment on TronIDE.
 
 Prepare the node account. You should read related [Node account preparation doc](https://doc.winklink.org/v1/doc/en/deploy.html#prepare-node-account).
 
@@ -31,9 +31,9 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
 
 - Receive random number requests from Dapp contract and emit VRFRequest event
     - WIN transfer as fees, will be sent along with the request
-- Accept random number and the proof submitted from WinkLink node
+- Accept random number and the proof submitted from WINkLink node
     - VRFCoordinator contract will verify the proof before sending the random number to Dapp contract
-- Calculate the WinkLink node rewards for the request fulfilment
+- Calculate the WINkLink node rewards for the request fulfilment
 
 VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
 
@@ -53,11 +53,11 @@ For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated t
   :::
 
 ## Node Deployment
-For node deployment, please refer to [WinkLink Node Deploy Doc](https://doc.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
+For node deployment, please refer to [WINkLink Node Deploy Doc](https://doc.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
 
-WinkLink node should be deployed after the VRFCoordinator contract is deployed.
+WINkLink node should be deployed after the VRFCoordinator contract is deployed.
 
-WinkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/rename2wink/node>.
+WINkLink node (project directory `node`) code is available at: <https://github.com/wink-link/winklink/tree/feature/rename2wink/node>.
 
 After compilation, `node-v1.0.jar` will be stored in `node/build/libs/` under the project root directory.
 
@@ -89,7 +89,7 @@ It is for important safety concern that you use file to provide private informat
 All configuration files need to be copied to the directory where your node is running in, use the command `cp node/src/main/resource/*.yml ./`.
 At the same time, the `tronApiKey` part of the `application dev` file needs to be filled with apikey.
 
-Start your WinkLink node using the following command:
+Start your WINkLink node using the following command:
 
 ```sh
 java -jar node/build/libs/node-v1.0.jar -k key.store -vrfK vrfKeyStore.yml
@@ -106,7 +106,7 @@ nile testnet:
 java -jar node/build/libs/node-v1.0.jar --env dev --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
 ```
 
-Determine whether your WinkLink node is running properly using the following command:
+Determine whether your WINkLink node is running properly using the following command:
 
 ```sh
 tail -f logs/tron.log
@@ -121,7 +121,7 @@ You can apply testnet tokens at Testnet Faucet.
 
 The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. 
 
-When your WinkLink node is running properly, you can add a job to your node via HTTP API:
+When your WINkLink node is running properly, you can add a job to your node via HTTP API:
 
 Example: (change the parameter below:  `address`  is the VRFCoordinator contract address deployed in the steps above; 
 `publicKey` is the compressed value of the node's public key, which can be obtained by viewing the terminal display after the node starts, and the corresponding item is `eckey compressed`)
