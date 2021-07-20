@@ -83,6 +83,7 @@ Price history can be acquired from the `AggregatorInterface` interface function 
 | SUN-TRX  | `TPVW4azkkthtLdYGLUPdQGLvU9Tciuhq5a` |
 | USDC-USD | `THL5y573nNXkHbHY8ZkZNLPZTMXdkq9aFr` |
 | USDC-TRX | `TSLmB88ek8npjBKeQRzdYZJMpabwfvj2PT` |
+| ETH-USD  | `TZCPyp7fWW3xnQ6gv5LG9v7S7VYbr4h2H1` |
 
 ### Nile Testnet
 
