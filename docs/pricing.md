@@ -112,7 +112,7 @@ contract PriceConsumer {
 
 ### 申请新交易对
 
-如果您需要 WINkLink 提供新的交易对，请填写并提交[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSdPqV3oWV87FYdox5D_J6BIve7R5eG0cHIGsh49r8gg_QiNeQ/viewform)。
+如果您需要 WINkLink 提供新的交易对，请填写并提交[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSf4ZY2N6VeWdP6CBYwzB61Xah8B3PW0gZZ9a6xGmGZTcBI73g/viewform)。
 
 ## 部署价格服务
 

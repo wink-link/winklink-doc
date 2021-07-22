@@ -287,4 +287,4 @@ function setFulfillmentPermission(address _node, bool _allowed)
 节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINkLink 官方认证节点，
 在 WINkLink 官网列出自己的节点。
 
-[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSe5mX6ZR13jBTgkO3D7jgio8f5ASTVYBObx8AAlyGs0hYyiJw/viewform)
+[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSdUQn6LTeVE57ZANeg4cjgUPX-VrQv9lLK8ExCxVEovGUoaSw/viewform)
