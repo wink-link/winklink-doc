@@ -111,7 +111,7 @@ List of price service contract addresses:
 ### Apply for New Trading Pairs
 
 If you need WINkLink to provide a new trading pair officially,
-please fill in and submit the [this form](https://docs.google.com/forms/d/e/1FAIpQLSdt0xu6Sw7llvV0yu-4qJGkh3gvfBVFr_YPv01CEl7P19yXSQ/viewform).
+please fill in and submit the [this form](https://docs.google.com/forms/d/e/1FAIpQLSe_YkCyUUp6wqoUoiLMj4BsON9B3LVoVatCiPqeqpuohZOuuw/viewform).
 
 ## Deply the Price Service
 
