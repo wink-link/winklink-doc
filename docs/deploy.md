@@ -43,7 +43,7 @@ WINkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的
 考虑到绝大多数已发行的代币无法再修改合约增加接口, WINkLink 提供了 `WinkMid` 合约，可以用来包装任一 TRC20 代币，并提供
 `transferAndCall` 接口。
 
-合约代码位于 [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
+合约代码位于 [WinkMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/WinkMid.sol).
 
 为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
 开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。

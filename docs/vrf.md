@@ -33,7 +33,7 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
     - VRFCoordinator收到合约后会对随机数进行验证
 - 对数据请求的 WIN 代币费用进行结算，提取收益
 
-合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
+合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
 
 部署 VRFCoordinator 合约时需要在构造函数提供相关参数：
 ```js
@@ -56,7 +56,7 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 
 VRFCoordinator 合约部署完毕后，就可以开始 WINkLink 节点部署。
 
-WINkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/feature/rename2wink/node>，
+WINkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/master/node>，
 编译完成后 node-v1.0.jar 位于项目源码目录下的 node/build/libs/ 中
 
 ###节点配置
@@ -172,7 +172,7 @@ curl --location --request GET 'http://localhost:8081/job/specs'
 
 ## Dapp合约
 
-示例Dapp合约： [VRFD20.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/VRF/VRFD20.sol)
+示例Dapp合约： [VRFD20.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/VRF/VRFD20.sol)
 
 该示例为权力游戏合约，WINkLink VRF请求随机数，将随机值转换为1~20，每个数字代表一个房间，如经转换后的数字为1，则被分配到Targaryan房间，2对应Lannister房间，以此类推。
 

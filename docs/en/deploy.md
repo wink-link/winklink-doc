@@ -35,7 +35,7 @@ WINkLink adopts the `transferAndCall` feature, i.e. calling one of the callback 
 
 Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides `WinkMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
 
-The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
+The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/WinkMid.sol).
 
 For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
