@@ -112,8 +112,6 @@ WINkLink node requires a nodejs environment. You need to install Nodejs(npm) >= 
 
 Developers can download from [Github Release](https://github.com/wink-link/winklink/releases) page the latest version of WINkLink node executable `node-v1.0.jar`。
 
-TODO: 未发布版本
-
 Or you can compile following the steps below:
 
 ```sh
@@ -136,9 +134,6 @@ The compilation process here omits the test (`-x test`), because the test instan
 WINkLink node is configured using springboot.
 All configuration files are under the subdirectory `node/src/main/resource`.
 With `application.yml` you can specify a db profile to be used.
-
-WINkLink 节点使用 springboot 方式配置。所有配置文件位于项目子目录 `node/src/main/resource`.
-`application.yml` 可以指定使用的具体 profile.
 
 ```yml
 # application.yml

@@ -121,8 +121,6 @@ WINkLink 节点依赖 nodejs 环境，需要安装 nodejs(npm) >= 10.0.
 
 开发者可以在 [Github Release](https://github.com/wink-link/winklink/releases) 页面下载到到最新版本的 WINkLink 节点可执行程序 `node-v1.0.jar`。
 
-TODO: 未发布版本
-
 也可以按照如下步骤编译:
 
 ```sh

@@ -52,6 +52,19 @@ For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated t
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
   :::
 
+## Tron Mainnet WINkLink Info
+|Item|Value|
+|:--|:--|
+|WIN Token  | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7 |
+|WinkMid  | TKy2MGKR6rQKBwM7dneUEnh2kvsodRR1Jo |
+|VRFCoordinator  | TTMLZ9e14KVCXkQrCSGRBS4r5iQPXGP1bA |
+|Key Hash 1 | 0x284367a1c6c6cfee60d3343b399e8353da9a1482bdfddb549d217787a4c558f2 |
+|Fee 1  | 4 WIN |
+|Key Hash 2 | 0x489db76c028fb5020e0c3d4fd7126f9c2750c7f52f3e03941c5bfcbe1c27d2a5 |
+|Fee 2  | 4 WIN |
+|Key Hash 3 | 0xe90fbf3bd9cce99d28f7110a4afaa965f03061a6d6dd5a6f6dd6b0f937d73a63 |
+|Fee 3  | 4 WIN |
+
 ## Node Deployment
 For node deployment, please refer to [WINkLink Node Deploy Doc](https://doc.winklink.org/v1/doc/en/deploy.html) .  This section only lists the differences of VRF node deployment.
 
