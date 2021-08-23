@@ -1,4 +1,4 @@
-# WINkLink Random number Service
+# WINkLink Random Number Service
 
 ## Overview
 Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as a random number. Only the holder of the private key can compute the hash, but anyone with the public key can verify the correctness of the hash.
