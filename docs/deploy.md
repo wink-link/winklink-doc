@@ -31,8 +31,6 @@ WINkLink 生态采用去中心化架构，所有智能合约开源，任何组�
 - [TronIDE, 同时支持合约编译](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox, 同时支持合约编译](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractnew)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ### WinkMid 合约
 
@@ -98,8 +96,7 @@ WINkLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/
 
 - [官方 wallet-cli 工具](https://github.com/tronprotocol/wallet-cli)
 - [Generate Address Offline](https://andelf.gitbook.io/tron/tron-by-example/generate-address-offline)
-- [tronj](https://github.com/ki5fpl/tronj/blob/master/client/src/test/java/com/github/ki5fpl/tronj/client/ClientTest.java#L70)
-- [tronpy](https://github.com/andelf/tronpy/blob/master/examples/generate_address.py)
+- [trident](https://github.com/tronprotocol/trident/tree/main/trident-java)
 
 ::: warning
 通过非信任的网络传输私钥会有泄露风险。请通过离线方式生成地址和私钥。
@@ -275,8 +272,6 @@ function setFulfillmentPermission(address _node, bool _allowed)
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ## 申请成为官方认证 WINkLink 节点
 

@@ -24,8 +24,6 @@ You may use any of the following tools or libraries for contract deployment and 
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractnew)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ### WinkMid Contract
 
@@ -89,8 +87,7 @@ Developers can generate account address and private key via one of the following
 
 - [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
 - [Generate Address Offline](https://andelf.gitbook.io/tron/tron-by-example/generate-address-offline)
-- [tronj](https://github.com/ki5fpl/tronj/blob/master/client/src/test/java/com/github/ki5fpl/tronj/client/ClientTest.java#L70)
-- [tronpy](https://github.com/andelf/tronpy/blob/master/examples/generate_address.py)
+- [trident](https://github.com/tronprotocol/trident/tree/main/trident-java)
 
 ::: warning
 Your private key might get leaked if it is transmitted via an untrusted network. Please generate the address and the private key offline.
@@ -266,8 +263,6 @@ Contract calls can be made via any of the following tools or libraries:
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ## Apply to be an officially certified WINkLink node
 
