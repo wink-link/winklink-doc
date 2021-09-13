@@ -2,7 +2,7 @@
 
 ## 什么是 WINkLink
 
-WINkLink 是运行在 TRON 网络上的去中心化预言机项目。关于 TRON 网络及其基础发开相关知识，
+WINkLink 是运行在 TRON 网络上的去中心化预言机项目。关于 TRON 网络及其基础开发相关知识，
 请参考 [TRON 开发者中心](https://cn.developers.tron.network/)。
 
 ## 什么是预言机

@@ -33,7 +33,9 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
     - VRFCoordinator收到合约后会对随机数进行验证
 - 对数据请求的 WIN 代币费用进行结算，提取收益
 
+
 合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
+
 
 部署 VRFCoordinator 合约时需要在构造函数提供相关参数：
 ```js
@@ -186,7 +188,9 @@ curl --location --request GET 'http://localhost:8081/job/specs'
 
 ## Dapp合约
 
+
 示例Dapp合约： [VRFDemo.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFDemo.sol)
+
 
 该示例为权力游戏合约，WINkLink VRF请求随机数，将随机值转换为1~20，每个数字代表一个房间，如经转换后的数字为1，则被分配到Targaryan房间，2对应Lannister房间，以此类推。
 

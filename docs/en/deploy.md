@@ -24,8 +24,6 @@ You may use any of the following tools or libraries for contract deployment and 
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractnew)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ### WinkMid Contract
 
@@ -35,7 +33,7 @@ WINkLink adopts the `transferAndCall` feature, i.e. calling one of the callback 
 
 Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides `WinkMid` wrapper contract, which helps wrapping any TRC20 token and provides `transferAndCall` interface.
 
-The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
+The contract code is available at [WinkMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/WinkMid.sol).
 
 For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
@@ -89,8 +87,7 @@ Developers can generate account address and private key via one of the following
 
 - [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
 - [Generate Address Offline](https://andelf.gitbook.io/tron/tron-by-example/generate-address-offline)
-- [tronj](https://github.com/ki5fpl/tronj/blob/master/client/src/test/java/com/github/ki5fpl/tronj/client/ClientTest.java#L70)
-- [tronpy](https://github.com/andelf/tronpy/blob/master/examples/generate_address.py)
+- [trident](https://github.com/tronprotocol/trident/tree/main/trident-java)
 
 ::: warning
 Your private key might get leaked if it is transmitted via an untrusted network. Please generate the address and the private key offline.
@@ -266,8 +263,6 @@ Contract calls can be made via any of the following tools or libraries:
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ## Apply to be an officially certified WINkLink node
 
@@ -275,4 +270,4 @@ Your node can provide services to the public after the steps above are performed
 
 You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINkLink and be listed on the WINkLink website.
 
-[Application form](https://docs.google.com/forms/d/e/1FAIpQLSdufboAPr-ApgF3D7GHlUFUIlctsosualKI0IiRreMlwX-Eaw/viewform)
+[Application form](https://docs.google.com/forms/d/e/1FAIpQLSdUQn6LTeVE57ZANeg4cjgUPX-VrQv9lLK8ExCxVEovGUoaSw/viewform)

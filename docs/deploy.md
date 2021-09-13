@@ -31,8 +31,6 @@ WINkLink 生态采用去中心化架构，所有智能合约开源，任何组�
 - [TronIDE, 同时支持合约编译](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox, 同时支持合约编译](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractnew)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ### WinkMid 合约
 
@@ -43,7 +41,7 @@ WINkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的
 考虑到绝大多数已发行的代币无法再修改合约增加接口, WINkLink 提供了 `WinkMid` 合约，可以用来包装任一 TRC20 代币，并提供
 `transferAndCall` 接口。
 
-合约代码位于 [WinkMid.sol](https://github.com/wink-link/winklink/blob/feature/rename2wink/tvm-contracts/v1.0/WinkMid.sol).
+合约代码位于 [WinkMid.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/WinkMid.sol).
 
 为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
 开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
@@ -98,8 +96,7 @@ WINkLink 节点(项目目录 `node`)代码位于: <https://github.com/wink-link/
 
 - [官方 wallet-cli 工具](https://github.com/tronprotocol/wallet-cli)
 - [Generate Address Offline](https://andelf.gitbook.io/tron/tron-by-example/generate-address-offline)
-- [tronj](https://github.com/ki5fpl/tronj/blob/master/client/src/test/java/com/github/ki5fpl/tronj/client/ClientTest.java#L70)
-- [tronpy](https://github.com/andelf/tronpy/blob/master/examples/generate_address.py)
+- [trident](https://github.com/tronprotocol/trident/tree/main/trident-java)
 
 ::: warning
 通过非信任的网络传输私钥会有泄露风险。请通过离线方式生成地址和私钥。
@@ -275,8 +272,6 @@ function setFulfillmentPermission(address _node, bool _allowed)
 - [TronIDE](https://cn.developers.tron.network/docs/ide%E5%85%A5%E9%97%A8)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
-- [tronpy](https://tronpy.readthedocs.io/en/latest/contract.html#creating-smart-contract)
-- [rust-tron](https://github.com/andelf/rust-tron/blob/master/docs/contract.md)
 
 ## 申请成为官方认证 WINkLink 节点
 
@@ -285,4 +280,4 @@ function setFulfillmentPermission(address _node, bool _allowed)
 节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINkLink 官方认证节点，
 在 WINkLink 官网列出自己的节点。
 
-[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSe5mX6ZR13jBTgkO3D7jgio8f5ASTVYBObx8AAlyGs0hYyiJw/viewform)
+[申请表单](https://docs.google.com/forms/d/e/1FAIpQLSf4ZY2N6VeWdP6CBYwzB61Xah8B3PW0gZZ9a6xGmGZTcBI73g/viewform

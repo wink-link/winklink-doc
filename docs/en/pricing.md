@@ -56,25 +56,34 @@ Price history can be acquired from the `AggregatorInterface` interface function 
 
 | Pair     | Price Feed Contract Address          |
 | -------- | ------------------------------------ |
-| TRX-USD  | `TNwqbPTDLgGQVfLz75NnaMfsrVHbKQBuCo` |
-| JST-USD  | `TAKipCT5xdCKkB8BTEGV8A9pysbnLSbK4v` |
-| SUNOLD-USD  | `THVdX8xZfjUtZEHFYDzZhQF6HzwjBeivo6` |
-| BTC-USD  | `TFBF8bBpQbrhzEZbTyXXPmB3a4tXmqqk7Y` |
-| WIN-USD  | `TBdQHu2hd5obmikZWn4KkuqmxaN1LCEp4U` |
-| DICE-USD | `TYQh9z6g2aGB1mQwRzGvdFphkt1nEjAMY2` |
-| USDJ-USD | `TBbg182ovR4Ra282MERwDwiyCVS2gtjF8g` |
-| JST-TRX  | `TCf4vSQLbHBFKzezHudEpvnhJ5GNQ6F2Ex` |
-| WIN-TRX  | `TR6LAm2T1kdqgZBYWBtyS9HXs11KhvK5cq` |
-| DICE-TRX | `TLjFYyi7Va3nUfEgUiL5S1YgLqPYjv7aF4` |
-| LIVE-USD | `TBpcwZo2Vk825nss6WSSdhVz7NWqt5aS1U` |
-| USDT-USD | `TZ8u8sz1ToRfGaQ5JbYNwEiuRTXUBe9tFx` |
-| SUNOLD-TRX  | `TE14YrYpFtrPqxVSQ6V4WUsTniwfdcxbAR` |
-| BTC-TRX  | `TGNLjD435kXGoHi9JiFvrDr9SQE6eyu91X` |
-| USDJ-TRX | `TDQA9eG9tmS7JbbFbzfcxvQn1Z9xuPt62V` |
-| USDT-TRX | `TWBz6RPTbgEu9qY72NNRSZprD88DnHzizw` |
-| BTT-USD  | `THNCvWFdV3Qe2SeFWzz95XvjjsmBPtHi6q` |
-| BTT-TRX  | `TSEu2g6oD5ukHYvKbn2shc9mdpELySgbv9` |
-| ETH-TRX  | `TENtY6C9WiCpGenjUFwf33DYTcrV7GEZuh` |
+| TRX-USD  | `TXwZqjjw4HtphG4tAm5i1j1fGHuXmYKeeP` |
+| JST-USD  | `TPMkqBh7kU16Zmv9EAtm6vfWYrTax4Aucb` |
+| SUNOLD-USD  | `TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy` |
+| BTC-USD  | `TTzPaLxJMy8nwXe9NRfHopHW4KyUeavLdF` |
+| WIN-USD  | `TQU2nPFvemv6hbtmJ48Z749a7VcAmacV4D` |
+| DICE-USD | `TP4nTfoGu9pTdMR4PNc6rH1NM7AS7MGWLm` |
+| USDJ-USD | `TBxnH94m2Zsp869QpiAoCHt54wCsFSUsSP` |
+| JST-TRX  | `TXMSfKwBfvY6THwnTzRRteYHdB125rKBKK` |
+| WIN-TRX  | `TFtL1Kdb2n5yrVTxa6qYgwnNEAAGnKiuDT` |
+| DICE-TRX | `TW4VZcEmjSBZLWjQiWr4jNitVGB2Bn3dCo` |
+| LIVE-USD | `TFFVcMViFUn3UEXVMPeuWjb4xo6TwUacog` |
+| USDT-USD | `TYWY6L4mECH2Gtiq3sg4zY4fvD1XZpwGrb` |
+| SUNOLD-TRX  | `TGoKRdiC9TrEoVZcKNFRa7oDEdC4S6Ra9r` |
+| BTC-TRX  | `TPdsKCrr3SJ2HMvt9tTVy3CjhN1CuvEUqc` |
+| USDJ-TRX | `TRTpP7TN186YAncgn5Yfjnw4Kds56BneAc` |
+| USDT-TRX | `TRf25FSQQzHQ7j1Td7dtYUBPb8R5yVCx2L` |
+| BTT-USD  | `TM2CEasFpeREBtLWgkzMqASkn5mvtf12He` |
+| BTT-TRX  | `TEDsjLSWQjERk4baV2NjPUDAzfxxACBgQE` |
+| ETH-TRX  | `TBnthNeA1wjNDquD6kXYY2zTRLFyg5eMmj` |
+| TUSD-USD | `TXyKzmu2J2eXcVspbLnnzuQmU2krLxb8dG` |
+| TUSD-TRX | `TDtUKwNXhFp7HrKcAGR5jYEJBEURod8s2f` |
+| NFT-USD  | `TS15kJyth5F7vAE5bpzAUumEGFDsnYkEGF` |
+| NFT-TRX  | `TXSf7X1Dw7CGmykSQeNBDgKhCPw8Ehvggq` |
+| SUN-USD  | `TAKUV2gwwmAG7fCtwSW9VwSrGnPikuuw5p` |
+| SUN-TRX  | `TPVW4azkkthtLdYGLUPdQGLvU9Tciuhq5a` |
+| USDC-USD | `THL5y573nNXkHbHY8ZkZNLPZTMXdkq9aFr` |
+| USDC-TRX | `TSLmB88ek8npjBKeQRzdYZJMpabwfvj2PT` |
+| ETH-USD  | `TZCPyp7fWW3xnQ6gv5LG9v7S7VYbr4h2H1` |
 
 ### Nile Testnet
 
@@ -102,7 +111,7 @@ List of price service contract addresses:
 ### Apply for New Trading Pairs
 
 If you need WINkLink to provide a new trading pair officially,
-please fill in and submit the [this form](https://docs.google.com/forms/d/e/1FAIpQLSdt0xu6Sw7llvV0yu-4qJGkh3gvfBVFr_YPv01CEl7P19yXSQ/viewform).
+please fill in and submit the [this form](https://docs.google.com/forms/d/e/1FAIpQLSe_YkCyUUp6wqoUoiLMj4BsON9B3LVoVatCiPqeqpuohZOuuw/viewform).
 
 ## Deply the Price Service
 

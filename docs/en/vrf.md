@@ -1,4 +1,4 @@
-# WINkLink Random number Service
+# WINkLink Random Number Service
 
 ## Overview
 Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as a random number. Only the holder of the private key can compute the hash, but anyone with the public key can verify the correctness of the hash.
@@ -35,7 +35,9 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
     - VRFCoordinator contract will verify the proof before sending the random number to Dapp contract
 - Calculate the WINkLink node rewards for the request fulfilment
 
+
 VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
+
 
 Some parameters are needed in the constructor function when deploying a VRFCoordinator contract:
 ```js
@@ -197,7 +199,9 @@ Call example: `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
 
 ## Dapp Contract
 
+
 An example of a Dapp contract code is available at  [VRFDemo.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFDemo.sol)
+
 
 In this example, we'll create a contract with a Game of Thrones theme. It will request randomness from Chainlink VRF, the result of which it will transform into a number between 1 and 20, mimicking the rolling of a 20 sided dice. Each number represents a Game of Thrones house. So, if you land a 1, you are assigned house Targaryan, 2 is Lannister, and so on.
 
