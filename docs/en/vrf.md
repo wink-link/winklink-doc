@@ -35,7 +35,9 @@ VRFCoordinator contract is deployed on the TRON public chain with the following 
     - VRFCoordinator contract will verify the proof before sending the random number to Dapp contract
 - Calculate the WINkLink node rewards for the request fulfilment
 
-VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
+
+VRFCoordinator contract code is available at [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) .
+
 
 Some parameters are needed in the constructor function when deploying a VRFCoordinator contract:
 ```js
@@ -197,7 +199,9 @@ Call example: `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
 
 ## Dapp Contract
 
-An example of a Dapp contract code is available at  [VRFD20.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/VRF/VRFD20.sol)
+
+An example of a Dapp contract code is available at  [VRFDemo.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFDemo.sol)
+
 
 In this example, we'll create a contract with a Game of Thrones theme. It will request randomness from Chainlink VRF, the result of which it will transform into a number between 1 and 20, mimicking the rolling of a 20 sided dice. Each number represents a Game of Thrones house. So, if you land a 1, you are assigned house Targaryan, 2 is Lannister, and so on.
 
@@ -211,7 +215,7 @@ When writing for a new Dapp contract, the main steps are:
 
   import "./VRFConsumerBase.sol";
   
-  contract VRFD20 is VRFConsumerBase {
+  contract VRFDemo is VRFConsumerBase {
   
   }
 ```
@@ -264,7 +268,7 @@ TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c96326
 
 ### Transfer WIN Tokens to the Contract
 
-VRFD20 contract needs to call the VRFCoordinator contract, so there should be enough WIN tokens in the contract account. You can transfer a certain amount of WIN tokens for the contract through the transfer service or the TestNet Faucet.
+VRFDemo contract needs to call the VRFCoordinator contract, so there should be enough WIN tokens in the contract account. You can transfer a certain amount of WIN tokens for the contract through the transfer service or the TestNet Faucet.
 
 ### Call the Dapp Contract
 
