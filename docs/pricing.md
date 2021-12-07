@@ -74,8 +74,8 @@ contract PriceConsumer {
 | BTC-TRX  | `TPdsKCrr3SJ2HMvt9tTVy3CjhN1CuvEUqc` |
 | USDJ-TRX | `TRTpP7TN186YAncgn5Yfjnw4Kds56BneAc` |
 | USDT-TRX | `TRf25FSQQzHQ7j1Td7dtYUBPb8R5yVCx2L` |
-| BTT-USD  | `TM2CEasFpeREBtLWgkzMqASkn5mvtf12He` |
-| BTT-TRX  | `TEDsjLSWQjERk4baV2NjPUDAzfxxACBgQE` |
+| BTTOLD-USD  | `TM2CEasFpeREBtLWgkzMqASkn5mvtf12He` |
+| BTTOLD-TRX  | `TEDsjLSWQjERk4baV2NjPUDAzfxxACBgQE` |
 | ETH-TRX  | `TBnthNeA1wjNDquD6kXYY2zTRLFyg5eMmj` |
 | TUSD-USD | `TXyKzmu2J2eXcVspbLnnzuQmU2krLxb8dG` |
 | TUSD-TRX | `TDtUKwNXhFp7HrKcAGR5jYEJBEURod8s2f` |

@@ -16,7 +16,7 @@ notice This contract provides a consistent address for the `CurrentAnwerInterfac
 |USDJ/USD | TGDMT5GEieh5QkypNuZPZdkoUMuLnbRoNP |
 |USDT/USD | TKEP3W34Ax46VG5qWwz3JEaHT3sd6nwhum |
 |LIVE/USD | TAuP3UiVv3bsCEXKP3ZFfQoqbXnWKnFfpA |
-|BTT/USD  | TNEWUFk4dBfqeBXBHnnLWUimsN8gDQgS8o |
+|BTTOLD/USD  | TNEWUFk4dBfqeBXBHnnLWUimsN8gDQgS8o |
 |TUSD/USD | THJwwJp3NPmUPkQqwPmstnoSAhTotghP1g |
 |NFT/USD  | TEDMTefgJghimW5ZFFg4dWLZ6HNL4bWBsd |
 |SUN/USD  | TNo43wgMc7TZWm8odPXNnYXp2EGx5WTxNT |
@@ -27,7 +27,7 @@ notice This contract provides a consistent address for the `CurrentAnwerInterfac
 |BTC/TRX  | TVvW94Pg3nMdDERy2hn4BLqWaDhYZT2rPD |
 |USDJ/TRX | TBSR4KnxqQYNpX7aBcgZxAV9uWQytywunb |
 |USDT/TRX | TAVMLy2shiFGJgBpQHZbWPg1FDMQ1VAF15 |
-|BTT/TRX  | TJyFLjXXNY2LQpxeZSKmaMe4YMYb8K78LQ |
+|BTTOLD/TRX  | TJyFLjXXNY2LQpxeZSKmaMe4YMYb8K78LQ |
 |ETH/TRX  | TJ4gcqPg4PCCvds8CEGjPC8RCZQuaMEKhH |
 |TUSD/TRX | TFoqeWwf3vFcbCqdU8ZjzGVgZ4TYK8nHPa |
 |NFT/TRX  | TYH5pXgks8YJAnFqWjbkxFdN4QBj12vM2i |
