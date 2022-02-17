@@ -33,3 +33,5 @@
 |SUN/TRX  | TFC7kdChdTnY2C7de3Qn5J9boKkRJNCjFy |
 |USDC/USD  | TRD4xaVdMefgbrk13brFZpM7JxMxUgrFLP |
 |USDC/TRX  | TAHJuuuNVVsZtxLiHuvPmJJvFPA2NVkdVo |
+|BTT/USD  | TRzbLXUwQCT93bxMnphugmZkzHAVWug4h4 |
+|BTT/TRX  | TDWaNo684w5VGS1vWd3d2aCRfdPuNjxxtJ |
