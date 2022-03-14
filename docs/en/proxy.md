@@ -36,3 +36,4 @@ notice This contract provides a consistent address for the `CurrentAnwerInterfac
 |USDC/TRX  | TAHJuuuNVVsZtxLiHuvPmJJvFPA2NVkdVo |
 |BTT/USD  | TRzbLXUwQCT93bxMnphugmZkzHAVWug4h4 |
 |BTT/TRX  | TDWaNo684w5VGS1vWd3d2aCRfdPuNjxxtJ |
+|ETH/USD  | TJFwQstZKR6qUr5Mts6SVsAKrSoq1jx1MS |
