@@ -270,4 +270,4 @@ Your node can provide services to the public after the steps above are performed
 
 You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINkLink and be listed on the WINkLink website.
 
-[Application form](https://docs.google.com/forms/d/e/1FAIpQLSdUQn6LTeVE57ZANeg4cjgUPX-VrQv9lLK8ExCxVEovGUoaSw/viewform)
+[Application form](https://forms.gle/v1VwnSEQVMMpYNXJ8)
