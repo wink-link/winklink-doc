@@ -101,7 +101,6 @@ List of price service contract addresses:
 |-----------| ------------------------------------ |
 | TRX-USD   | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy` |
 | USDT-USD  | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb` |
-| BTC-TRX   | `TRmHgEskF1gebGbAk5CyajvdtJgQPKQzTL` |
 | ETH-USD   | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
 | LTC-USD   | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
 | LTC-TRX   | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
