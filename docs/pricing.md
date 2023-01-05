@@ -101,13 +101,15 @@ contract PriceConsumer {
 
 <!-- NOTE: multiline table, auto-formated -->
 
-| Pair      | 喂价合约地址                         | 
-| --------- | ------------------------------------ |
-| TRX-USD   | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy` |
-| USDT-USD  | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb` |
-| ETH-USD   | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
-| LTC-USD   | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
-| LTC-TRX   | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
+| Pair     | 喂价合约地址                         | 
+|----------| ------------------------------------ |
+| TRX-USD  | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy` |
+| USDT-USD | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb` |
+| ETH-USD  | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
+| LTC-USD  | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
+| LTC-TRX  | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
+| BUSD-USD | `TWn3oCuk4un2h2uZmkDQjYynm1u4iQHzQz` |
+| BUSD-TRX | `TWVmGA1vtcWiigAZcxDJBCSrCjaj828MKa` |
 
 
 ### 申请新交易对

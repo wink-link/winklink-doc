@@ -104,6 +104,8 @@ List of price service contract addresses:
 | ETH-USD   | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
 | LTC-USD   | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
 | LTC-TRX   | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
+| BUSD-USD | `TWn3oCuk4un2h2uZmkDQjYynm1u4iQHzQz` |
+| BUSD-TRX | `TWVmGA1vtcWiigAZcxDJBCSrCjaj828MKa` |
 
 ### Apply for New Trading Pairs
 
