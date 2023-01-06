@@ -56,8 +56,8 @@ contract PriceConsumer {
 
 ### 主网
 
-| Pair     | 喂价合约地址                         |
-| -------- | ------------------------------------ |
+| Pair     | 喂价合约地址                               |
+| -------- |--------------------------------------|
 | TRX-USD  | `TXwZqjjw4HtphG4tAm5i1j1fGHuXmYKeeP` |
 | JST-USD  | `TPMkqBh7kU16Zmv9EAtm6vfWYrTax4Aucb` |
 | SUNOLD-USD  | `TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy` |
@@ -90,6 +90,8 @@ contract PriceConsumer {
 | USDD-TRX  | `TRH63ix5DoZwoNEtYTpzykiJ7mW8Ak1fh7` |
 | LTC-USD  | `TFhAq2W3fEse2rj8cLmQ29k4zP3X5CFc7z` |
 | LTC-TRX  | `TA2DUPP9Nufru5QoRQSpVzVrTpmMRyLSU9` |
+| BUSD-USD   | `TWQjWbMjkiMGcR5pbkdRcUgcXmyspxqSkD` |
+| BUSD-TRX   | `TQBSnLu654t21xf5R3nNrvNs8q422RmZyo` |
 
 ### Nile 测试网
 
