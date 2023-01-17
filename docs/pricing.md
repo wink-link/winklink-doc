@@ -56,8 +56,8 @@ contract PriceConsumer {
 
 ### 主网
 
-| Pair     | 喂价合约地址                         |
-| -------- | ------------------------------------ |
+| Pair     | 喂价合约地址                               |
+| -------- |--------------------------------------|
 | TRX-USD  | `TXwZqjjw4HtphG4tAm5i1j1fGHuXmYKeeP` |
 | JST-USD  | `TPMkqBh7kU16Zmv9EAtm6vfWYrTax4Aucb` |
 | SUNOLD-USD  | `TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy` |
@@ -90,6 +90,8 @@ contract PriceConsumer {
 | USDD-TRX  | `TRH63ix5DoZwoNEtYTpzykiJ7mW8Ak1fh7` |
 | LTC-USD  | `TFhAq2W3fEse2rj8cLmQ29k4zP3X5CFc7z` |
 | LTC-TRX  | `TA2DUPP9Nufru5QoRQSpVzVrTpmMRyLSU9` |
+| BUSD-USD   | `TWQjWbMjkiMGcR5pbkdRcUgcXmyspxqSkD` |
+| BUSD-TRX   | `TQBSnLu654t21xf5R3nNrvNs8q422RmZyo` |
 
 ### Nile 测试网
 
@@ -101,13 +103,15 @@ contract PriceConsumer {
 
 <!-- NOTE: multiline table, auto-formated -->
 
-| Pair      | 喂价合约地址                         | 
-| --------- | ------------------------------------ |
-| TRX-USD   | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy` |
-| USDT-USD  | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb` |
-| ETH-USD   | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
-| LTC-USD   | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
-| LTC-TRX   | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
+| Pair     | 喂价合约地址                         | 
+|----------| ------------------------------------ |
+| TRX-USD  | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy` |
+| USDT-USD | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb` |
+| ETH-USD  | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM` |
+| LTC-USD  | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ` |
+| LTC-TRX  | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1` |
+| BUSD-USD | `TWn3oCuk4un2h2uZmkDQjYynm1u4iQHzQz` |
+| BUSD-TRX | `TWVmGA1vtcWiigAZcxDJBCSrCjaj828MKa` |
 
 
 ### 申请新交易对
