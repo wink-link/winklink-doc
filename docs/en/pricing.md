@@ -61,11 +61,9 @@ Price history can be acquired from the `AggregatorInterface` interface function 
 | SUNOLD-USD | `TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy`   |
 | BTC-USD    | `TTzPaLxJMy8nwXe9NRfHopHW4KyUeavLdF`   |
 | WIN-USD    | `TQU2nPFvemv6hbtmJ48Z749a7VcAmacV4D`   |
-| DICE-USD   | `TP4nTfoGu9pTdMR4PNc6rH1NM7AS7MGWLm`   |
 | USDJ-USD   | `TBxnH94m2Zsp869QpiAoCHt54wCsFSUsSP`   |
 | JST-TRX    | `TXMSfKwBfvY6THwnTzRRteYHdB125rKBKK`   |
 | WIN-TRX    | `TFtL1Kdb2n5yrVTxa6qYgwnNEAAGnKiuDT`   |
-| DICE-TRX   | `TW4VZcEmjSBZLWjQiWr4jNitVGB2Bn3dCo`   |
 | LIVE-USD   | `TFFVcMViFUn3UEXVMPeuWjb4xo6TwUacog`   |
 | USDT-USD   | `TYWY6L4mECH2Gtiq3sg4zY4fvD1XZpwGrb`   |
 | SUNOLD-TRX | `TGoKRdiC9TrEoVZcKNFRa7oDEdC4S6Ra9r`   |
