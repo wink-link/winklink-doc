@@ -51,7 +51,7 @@ WINkLink 依赖 `transferAndCall` 功能，即在转账 TRC20 代币给合约的
 - WIN 代币合约地址: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
 - WinkMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
-:::
+  :::
 
 部署 WinkMid 合约时候需要在构造函数提供被封装的 TRC20 代币地址（即 WIN 代币地址）。
 
@@ -144,17 +144,17 @@ WINkLink 节点使用 springboot 方式配置。所有配置文件位于项目�
 ```yml
 # application.yml
 server:
-    port: 8080
+  port: 8080
 spring:
-    # dev|pro
-    profiles:
-        active: dev # 这里设置具体的 profile 文件，即 `application-dev.yml`
-    jackson:
-        time-zone: GMT+8
-        date-format: yyyy-MM-dd HH:mm:ss
-    servlet:
-        multipart:
-            maxRequestSize: 104857600 #100MB
+  # dev|pro
+  profiles:
+    active: dev # 这里设置具体的 profile 文件，即 `application-dev.yml`
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      maxRequestSize: 104857600 #100MB
 
 # ... (omitted)
 ```
@@ -273,11 +273,11 @@ function setFulfillmentPermission(address _node, bool _allowed)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
 
-## 申请成为官方认证 WINkLink 节点
+<!-- ## 申请成为官方认证 WINkLink 节点
 
 以上步骤执行完毕后，节点即可对外提供服务。
 
 节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINkLink 官方认证节点，
 在 WINkLink 官网列出自己的节点。
 
-[申请表单](https://forms.gle/Qfqway2pW3f6Zumi8)
+[申请表单](https://forms.gle/Qfqway2pW3f6Zumi8) -->

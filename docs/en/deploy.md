@@ -42,7 +42,7 @@ For convenience, Nile TestNet has deployed `WinkMid` contract and encapsulated t
 - WIN TRC20 Contract Address: `TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7`
 - WinkMid Contract Address: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
-:::
+  :::
 
 When deploying WinkMid contract, developers need to provide the encapsulated TRC20 token address (i.e. WIN token address) for the constructor.
 
@@ -135,17 +135,17 @@ With `application.yml` you can specify a db profile to be used.
 ```yml
 # application.yml
 server:
-    port: 8080
+  port: 8080
 spring:
-    # dev|pro
-    profiles:
-        active: dev # Specify the profile file here, namely `application-dev.yml`
-    jackson:
-        time-zone: GMT+8
-        date-format: yyyy-MM-dd HH:mm:ss
-    servlet:
-        multipart:
-            maxRequestSize: 104857600 #100MB
+  # dev|pro
+  profiles:
+    active: dev # Specify the profile file here, namely `application-dev.yml`
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      maxRequestSize: 104857600 #100MB
 
 # ... (omitted)
 ```
@@ -264,10 +264,10 @@ Contract calls can be made via any of the following tools or libraries:
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
 
-## Apply to be an officially certified WINkLink node
+<!-- ## Apply to be an officially certified WINkLink node
 
 Your node can provide services to the public after the steps above are performed.
 
 You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINkLink and be listed on the WINkLink website.
 
-[Application form](https://forms.gle/v1VwnSEQVMMpYNXJ8)
+[Application form](https://forms.gle/v1VwnSEQVMMpYNXJ8) -->
