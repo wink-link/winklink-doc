@@ -273,11 +273,11 @@ function setFulfillmentPermission(address _node, bool _allowed)
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
 
-## 申请成为官方认证 WINkLink 节点
+<!-- ## 申请成为官方认证 WINkLink 节点
 
 以上步骤执行完毕后，节点即可对外提供服务。
 
 节点可以向社区公布自己的 Oracle 合约地址和所支持的数据服务 job ID. 也可以申请成为 WINkLink 官方认证节点，
 在 WINkLink 官网列出自己的节点。
 
-[申请表单](https://forms.gle/Qfqway2pW3f6Zumi8)
+[申请表单](https://forms.gle/Qfqway2pW3f6Zumi8) -->

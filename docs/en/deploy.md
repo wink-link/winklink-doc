@@ -264,10 +264,10 @@ Contract calls can be made via any of the following tools or libraries:
 - [TronBox](https://cn.developers.tron.network/docs/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%E9%83%A8%E7%BD%B2)
 - [tronweb](https://cn.developers.tron.network/reference#tronwebcontractat)
 
-## Apply to be an officially certified WINkLink node
+<!-- ## Apply to be an officially certified WINkLink node
 
 Your node can provide services to the public after the steps above are performed.
 
 You can share your node's Oracle contract address and job ID of supported data services to the community. You can also apply to be a node officially certified by WINkLink and be listed on the WINkLink website.
 
-[Application form](https://forms.gle/v1VwnSEQVMMpYNXJ8)
+[Application form](https://forms.gle/v1VwnSEQVMMpYNXJ8) -->
