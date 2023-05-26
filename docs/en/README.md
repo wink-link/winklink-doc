@@ -18,7 +18,6 @@ With the sharp rise of various DeFi applications, a stable and reliable decentra
 
 Depending on the role you want to assume in the WINkLink ecosystem, you can choose to do the following:
 
-- For WINkLink contract deployment: [Deployment](./deploy.md)
 - For using WINkLink price service in DApps: [Price Service](./pricing.md)
 - For details on WINkLink implementation: [Introduction of the Architecture](./architecture.md)
 
