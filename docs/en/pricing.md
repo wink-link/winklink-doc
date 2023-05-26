@@ -54,7 +54,7 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 
 ### Mainnet
 
-> ⚠️Warning: Please do note that effective from 01 July onwards, the price feed mainnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
+> :warning: Please do note that effective from 01 July onwards, the price feed mainnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
 
 | Pair       | Price Feed Contract Address          | Price Feed Contract Address (Off Chain Reporting) |
 |------------|--------------------------------------|---------------------------------------------------|
@@ -97,7 +97,7 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 - WinkMid Contract Address: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
 List of price service contract addresses:
-> ⚠️Warning: Please do note that effective from 01 July onwards, the price feed Nile Testnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
+> :warning: Please do note that effective from 01 July onwards, the price feed Nile Testnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
 
 <!-- NOTE: multiline table, auto-formated -->
 
