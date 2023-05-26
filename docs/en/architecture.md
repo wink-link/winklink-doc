@@ -8,27 +8,27 @@ flowchart LR
     A[External data source] <--> B[WINkLink node] <--> C[TRON BlockChain API]
 ```
 
-There are three main modules as illustrated above:
+The WINkLink oracle node structure consists of three main modules, as illustrated above:
 
 - External data source
 - WINkLink node
 - TRON blockchain
 
-Above are the main components that make up the node structure of WINkLink oracle. We will introduce them one by one.
+Let us take a closer look at each of these modules.
 
 ### External Data Source
 
-External data source refers to the external data available to the native blockchain, including centralized exchanges, centralized oracles, stock exchange APIs, etc.
+The external data source module encompasses all the external data that is available to the native blockchain. This includes centralized exchanges, centralized oracles, stock exchange APIs, and other such sources of data.
 
 ### WINkLink Node
 
-WINkLink node runs task processing, monitors on-chain contract requests (via Event), retrieves data from external data sources and submits results to the blockchain.
+The WINkLink node is responsible for running task processing, monitoring on-chain contract requests (via Event), retrieving data from external data sources, and submitting results to the blockchain.
 
 ### TRON blockchain
 
-Blockchain node mainly refers to the API services provided by the TRON blockchain, including Fullnode API and Event API services. Through these APIs, WINkLink node can monitor specific contract events to trigger tasks, sign broadcasted transactions and return data back to **the consumer contract**.
+The TRON blockchain node primarily consists of the API services provided by the TRON blockchain. These include Fullnode API and Event API services. Through these APIs, the WINkLink node can monitor specific contract events to trigger tasks, sign and broadcast transactions, and return data back to the **consumer contract**.
 
-As suggested by the double-headed arrow, WINkLink node subscribes blockchain events while broadcasting transactions via API and returning data results.
+As indicated by the double-headed arrow, the WINkLink node subscribes to blockchain events while broadcasting transactions via API and returning data results.
 
 ## WINkLink Request Model
 
@@ -49,7 +49,7 @@ sequenceDiagram
 
 ### Process a Request
 
-Oracle's contract events will asynchronously trigger the following procedure:
+The Oracle's contract events asynchronously trigger the following procedure:
 
 ```mermaid
 sequenceDiagram
@@ -71,6 +71,15 @@ sequenceDiagram
 
 In actual implementation, multiple oracles need to be aggregated to obtain more accurate results and filter out outliers.
 
-For example, the price aggregation feature retrieves information from multiple oracles and generates an average price or a median price.
+For example, the price aggregation feature retrieves information from multiple oracles and generates a median price.
 
-To learn more about the logic of price aggregation, please refer to: [AggregatorInterface](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol).
+To learn more about the logic of price aggregation, please refer to: [AggregatorInterface](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol).
+
+## Off-Chain Reporting
+Off-Chain Reporting (OCR) is a new method for aggregating data that promises to improve scalability, stability, and decentralization in the WINkLink network.
+
+With OCR, all nodes in the network interact through a peer-to-peer (P2P) network, with one node acting as the leader and the others as followers. The P2P network uses a lightweight consensus algorithm during communication. Each node reports its signed data observation back to the leader, who generates a consolidated report. If the transmission conditions are met, this report is broadcast onto the blockchain as a single aggregate transaction. This process leads to a single aggregate transaction, which greatly reduces gas consumption.
+
+The aggregated transaction contains a report that is signed by a quorum of oracles and includes all their observations. To maintain the trustlessness properties of WINkLink oracle networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
+
+Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.

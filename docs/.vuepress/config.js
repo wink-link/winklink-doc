@@ -20,14 +20,20 @@ module.exports = {
     locales: {
       '/': {
         label: '简体中文',
+        // sidebar: {
+        //   '/': ['', 'architecture', 'deploy', 'pricing', 'v2', 'proxy', 'glossary', 'vrf'],
+        // }
         sidebar: {
-          '/': ['', 'architecture', 'deploy', 'pricing', 'v2', 'proxy', 'glossary', 'vrf'],
+          '/': ['', 'architecture', 'pricing', 'v2', 'proxy', 'glossary', 'vrf'],
         }
       },
       '/en/': {
         label: 'English',
+        // sidebar: {
+        //   '/en': ['/en/', '/en/architecture', '/en/deploy', '/en/pricing', '/en/v2', '/en/proxy', '/en/glossary', '/en/vrf'],
+        // }
         sidebar: {
-          '/en': ['/en/', '/en/architecture', '/en/deploy', '/en/pricing', '/en/v2', '/en/proxy', '/en/glossary', '/en/vrf'],
+          '/en': ['/en/', '/en/architecture', '/en/pricing', '/en/v2', '/en/ocr', '/en/proxy', '/en/glossary', '/en/vrf'],
         }
       }
     },
