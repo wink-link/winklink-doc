@@ -22,7 +22,6 @@ WINkLink 正是应时而生，解决了 TRON 上智能合约对外部世界数�
 
 取决于你想在 WINkLink 生态中的角色，你可以选择如下：
 
-- 如果你想 **部署 WINkLink 合约**：[部署文档](./deploy.md)
 - 如果你想在 DApp 中 **使用 WINkLink 价格服务**：[价格服务](./pricing.md)
 - 如果你想 **了解 WINkLink 的实现细节**：[架构介绍](./architecture.md)
 
@@ -32,5 +31,4 @@ WINkLink 正是应时而生，解决了 TRON 上智能合约对外部世界数�
 
 - Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
 - Github 项目: <https://github.com/wink-link/winklink>
-- Team E-mail: <developer@winklink.org>
-- Support E-mail: <service@winklink.org>
+- Support E-mail: <developer@winklink.org>
