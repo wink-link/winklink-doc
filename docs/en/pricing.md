@@ -14,7 +14,7 @@ Acquiring the latest price data in the consumer contract requires `AggregatorInt
 
 This interface defines the functions provided by the Price Feed Contract to the public. The code below demonstrates an example of using the AggregatorInterface to acquire the latest price:
 
-```js
+```solidity
 pragma solidity ^0.5.0;
 
 interface AggregatorInterface {
@@ -54,42 +54,83 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 
 ### Mainnet
 
-> :warning: Please do note that effective from 01 July onwards, the price feed mainnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
 
-| Pair       | Price Feed Contract Address          | Price Feed Contract Address (Off Chain Reporting) |
-|------------|--------------------------------------|---------------------------------------------------|
-| TRX-USD    | `TXwZqjjw4HtphG4tAm5i1j1fGHuXmYKeeP` | TL8uHo6y289Us6eWnNGeBEJowvUTuWFczC                |
-| JST-USD    | `TPMkqBh7kU16Zmv9EAtm6vfWYrTax4Aucb` | TVpgekkACDNXcn3iHUBWTDXoVJnPJsL5Yn                |
-| SUNOLD-USD | `TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy` | TSas5zYik8Pt7XNqyYpaLzwDxyW76cuTtx                |
-| BTC-USD    | `TTzPaLxJMy8nwXe9NRfHopHW4KyUeavLdF` | TU5dpGzXAZwrpFfCrFzDBPWNxPm4diREqu                |
-| WIN-USD    | `TQU2nPFvemv6hbtmJ48Z749a7VcAmacV4D` | TRKgP4QEf56K4rpPisWVbgCURrv6GT5cqp                |
-| USDJ-USD   | `TBxnH94m2Zsp869QpiAoCHt54wCsFSUsSP` | TV1i3T6d2wSY2j292nGBS7LGf6RbZ1GSbR                |
-| JST-TRX    | `TXMSfKwBfvY6THwnTzRRteYHdB125rKBKK` | TQqt6DE5zXYGhMwjuox51PEDJjx2qRyZ2V                |
-| WIN-TRX    | `TFtL1Kdb2n5yrVTxa6qYgwnNEAAGnKiuDT` | TPqoZD9poPLAe9adrMGWYF1FTcGzKtQ62H                |
-| LIVE-USD   | `TFFVcMViFUn3UEXVMPeuWjb4xo6TwUacog` | TFdrzVi58EUC4SiVP9PsBAGD6kqYhnc6jX                |
-| USDT-USD   | `TYWY6L4mECH2Gtiq3sg4zY4fvD1XZpwGrb` | TTX7YL4NxknJfbMx5PhcZzc7uFj2LBTsES                |
-| SUNOLD-TRX | `TGoKRdiC9TrEoVZcKNFRa7oDEdC4S6Ra9r` | TJWUVrffrCgaUagnpyeEWEMXgr7C6oQrQU                |
-| BTC-TRX    | `TPdsKCrr3SJ2HMvt9tTVy3CjhN1CuvEUqc` | TC2Y7a2y31zh2ps8i4uYAuxXiEXag2QhE1                |
-| BTT-TRX    |                                      | TYoB3RQAGeSDvf12W62CkdyP6FUnLCF67c                |
-| USDJ-TRX   | `TRTpP7TN186YAncgn5Yfjnw4Kds56BneAc` | TERbLaKKsccAEmzu7fXeAfRZFWy4Wpt9oc                |
-| USDT-TRX   | `TRf25FSQQzHQ7j1Td7dtYUBPb8R5yVCx2L` | TQYBsKkLUuMUzF6fuUbgYnh7LN7GjH1E5b                |
-| BTTOLD-USD | `TM2CEasFpeREBtLWgkzMqASkn5mvtf12He` | TGLkgXfo6wsghJMHofVhe1X2mBhCqP7aUc                |
-| BTTOLD-TRX | `TEDsjLSWQjERk4baV2NjPUDAzfxxACBgQE` | TLyJU9M92N5PVBbPwaG6ztuD7as6JJ5MSi                |
-| ETH-TRX    | `TBnthNeA1wjNDquD6kXYY2zTRLFyg5eMmj` | TWFDXQe8XdJKGa7ygmS7A1F4gZA1Zz1rzY                |
-| TUSD-USD   | `TXyKzmu2J2eXcVspbLnnzuQmU2krLxb8dG` | TH6ebTijzy9vrjj6A6cM89QauXYEA3Fd96                |
-| TUSD-TRX   | `TDtUKwNXhFp7HrKcAGR5jYEJBEURod8s2f` | TFEvAdi5FCk1HtC3g6TGJP43QQudUf5uVi                |
-| NFT-USD    | `TS15kJyth5F7vAE5bpzAUumEGFDsnYkEGF` | TGosrYP5feJ18mtB1afh5cz6GMXafUKtyR                |
-| NFT-TRX    | `TXSf7X1Dw7CGmykSQeNBDgKhCPw8Ehvggq` | TLNk9fuxtvy7YdkZHavpDFv9iLMmqCL2Dw                |
-| SUN-USD    | `TAKUV2gwwmAG7fCtwSW9VwSrGnPikuuw5p` | TWbptpQjkDjAfBhoUD84BvRHnALHPGiRgk                |
-| SUN-TRX    | `TPVW4azkkthtLdYGLUPdQGLvU9Tciuhq5a` | TJtMzMVZV1uZkkhu3nkjcEF27HiAUsSLdU                |
-| USDC-USD   | `THL5y573nNXkHbHY8ZkZNLPZTMXdkq9aFr` | TYRAdCShPaTadcEUDzWTTmcAXL5TbBKJQx                |
-| USDC-TRX   | `TSLmB88ek8npjBKeQRzdYZJMpabwfvj2PT` | TGDyBY4FaZjdQtcMCLa3rGfrETDDPe5V7P                |
- | USDD-TRX   |                                      | TUWPcsRhh5g5P2satCdCCwsVdWvbqdMews                |
-| ETH-USD    | `TZCPyp7fWW3xnQ6gv5LG9v7S7VYbr4h2H1` | TEDSqFMsZPXDR45TSRCExWwTLYgVf3XqP4                |
-| LTC-USD    | `TFhAq2W3fEse2rj8cLmQ29k4zP3X5CFc7z` | TCVW2G6ank9F8JfbtanZtGdDo3U6PQDCtV                |
-| LTC-TRX    | `TA2DUPP9Nufru5QoRQSpVzVrTpmMRyLSU9` | TGMqrC3qLup42NZ7q5YUTn7gf4eN7tMhiS                |
-| BUSD-USD   | `TWQjWbMjkiMGcR5pbkdRcUgcXmyspxqSkD` | TCbjeNG6hRwjvuiHfrtDtV7wDBQdeKpJLo                |
-| BUSD-TRX   | `TQBSnLu654t21xf5R3nNrvNs8q422RmZyo` | TR9cBfG1UuH7S9gWp9YgxHvnAL5UyaS4eo                |
+| Pair       | Contract Address (Proxy)           |
+|------------|------------------------------------|
+| BTC-TRX    | TX4rin6u2SaF3TqANqRgzfSCGi95azQNVY |
+| BTC-USD    | TQoijQ1iZKRgJsAAWNPMu6amgtCJ3WMUV7 |
+| BTT-TRX    | TS26cn4GmmipyGTcgvRRwqL6AyEU6vK4rw |
+| BTT-USD    | TBAAW545oJ6iTxqzezGvagrSUzCpz1S8eR |
+| BTTOLD-TRX | TUjTmKMxGmH78t5DmY7YsfJFoGw6XyX9VZ |
+| BTTOLD-USD | TEEnwU47Fgx4Ehii7Xs9bLWK3XKo4fs6sV |
+| BUSD-TRX   | TNjd3CCfdbpYZVNz6Tzf7LtjU3wT4Pit8w |
+| BUSD-USD   | TTwxWVbsLfQTBLqWiremnZtzddeUCYDC8r |
+| ETH-TRX    | TXZ9AUk6nC2454NSDGUWvPB72JxSNJrezX |
+| ETH-USD    | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL |
+| JST-TRX    | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP |
+| JST-USD    | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47 |
+| LIVE-USD   | TNdLmxVhdj1H1yGjhhSp33cMaAJKjyTAM4 |
+| LTC-TRX    | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6 |
+| LTC-USD    | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ |
+| NFT-TRX    | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY |
+| NFT-USD    | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU |
+| SUN-TRX    | TLLyqXr5cbYEMjzeThe1esss1SVBbxxubu |
+| SUN-USD    | TRMgzSPsuWEcVpd5hv19XtLeCk8Z799sZa |
+| SUNOLD-TRX | TWAob1YsNzh7bfgkjfAD9MAdarcoSWScWw |
+| SUNOLD-USD | TEEuSdqyv2NFREtNoUXMTDSmJVK3KCuLac |
+| TRX-USD    | TR5HtpPK4gX4RFC4DCBUHfFgsGkGFEzSAb |
+| TUSD-TRX   | TLXMULb1SRpv841Q54C4DhWkmmGfRA2rUH |
+| TUSD-USD   | TBc3yBP8xcyQ1E3hDTUhRxToMrgekLH2kh |
+| USDC-TRX   | TNTm5ezUGHxYc9Mvst58yYTAjxDmqWWGZc |
+| USDC-USD   | TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm |
+| USDD-TRX   | TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb |
+| USDD-USD   | TJ7jEgoYVaeymVfYZ3bS57dYArwVDS1mhW |
+| USDJ-TRX   | TCBKyYMP4YQFHxYznuUaResHDTaEWLuJNW |
+| USDJ-USD   | TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k |
+| USDT-TRX   | TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp |
+| USDT-USD   | TKePc46n5CiUCR8LL788TFeKA4kjvNnuem |
+| WIN-TRX    | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg |
+| WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2 |
+
+:::warning
+Please do note that effective from 01 July onwards, the price feed mainnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
+:::
+
+| Pair        | Price Feed Contract Address (Flux Aggregator) | Price Feed Contract Address (Proxy) |
+|:------------|:----------------------------------------------|:------------------------------------|
+| TRX-USD     | TXwZqjjw4HtphG4tAm5i1j1fGHuXmYKeeP          | TVoALT2EWuYz61pSGk3vdaA2v7nDWkXcF5  |
+| JST-USD     | TPMkqBh7kU16Zmv9EAtm6vfWYrTax4Aucb          | TCfrPgHFNULydpUxarqXgGQ6nEkpao1g22  |
+| SUNOLD-USD  | TYzFE7fC46yjs3p5JUidvxzg9XMFT7qWZy          | TKXb4abDXFKoUa9H7HT7NShutYqpyS2KjJ  |
+| BTC-USD     | TTzPaLxJMy8nwXe9NRfHopHW4KyUeavLdF          | TGH14QFybmBrpbF86MZ1UKXHZb3gJkufwh  |
+| WIN-USD     | TQU2nPFvemv6hbtmJ48Z749a7VcAmacV4D          | TUe9QMxwBEXvpfKxBLmcrsHLEWCeqVjG1x  |
+| USDJ-USD    | TBxnH94m2Zsp869QpiAoCHt54wCsFSUsSP          | TGDMT5GEieh5QkypNuZPZdkoUMuLnbRoNP  |
+| JST-TRX     | TXMSfKwBfvY6THwnTzRRteYHdB125rKBKK          | TJBgJXjjTjWz9XVoE1G4MGUf9CuttSpnA3  |
+| WIN-TRX     | TFtL1Kdb2n5yrVTxa6qYgwnNEAAGnKiuDT          | TRE6DK5dMrPPntN5J7W4Y4dCZ6XdBABPmm  |
+| LIVE-USD    | TFFVcMViFUn3UEXVMPeuWjb4xo6TwUacog          | TAuP3UiVv3bsCEXKP3ZFfQoqbXnWKnFfpA  |
+| USDT-USD    | TYWY6L4mECH2Gtiq3sg4zY4fvD1XZpwGrb          | TKEP3W34Ax46VG5qWwz3JEaHT3sd6nwhum  |
+| SUNOLD-TRX  | TGoKRdiC9TrEoVZcKNFRa7oDEdC4S6Ra9r          | TDoQw5Kdvtb42c468UYFKHTtk5NuHGRMCy  |
+| BTC-TRX     | TPdsKCrr3SJ2HMvt9tTVy3CjhN1CuvEUqc          | TVvW94Pg3nMdDERy2hn4BLqWaDhYZT2rPD  |
+| BTT-TRX     | TVcrYnkgdKmZTEUWkgJNVPjRHUCf4aVX1a          | TDWaNo684w5VGS1vWd3d2aCRfdPuNjxxtJ  |
+| USDJ-TRX    | TRTpP7TN186YAncgn5Yfjnw4Kds56BneAc          | TBSR4KnxqQYNpX7aBcgZxAV9uWQytywunb  |
+| USDT-TRX    | TRf25FSQQzHQ7j1Td7dtYUBPb8R5yVCx2L          | TAVMLy2shiFGJgBpQHZbWPg1FDMQ1VAF15  |
+| BTTOLD-USD  | TM2CEasFpeREBtLWgkzMqASkn5mvtf12He          | TNEWUFk4dBfqeBXBHnnLWUimsN8gDQgS8o  |
+| BTTOLD-TRX  | TEDsjLSWQjERk4baV2NjPUDAzfxxACBgQE          | TJyFLjXXNY2LQpxeZSKmaMe4YMYb8K78LQ  |
+| ETH-TRX     | TBnthNeA1wjNDquD6kXYY2zTRLFyg5eMmj          | TJ4gcqPg4PCCvds8CEGjPC8RCZQuaMEKhH  |
+| TUSD-USD    | TXyKzmu2J2eXcVspbLnnzuQmU2krLxb8dG          | THJwwJp3NPmUPkQqwPmstnoSAhTotghP1g  |
+| TUSD-TRX    | TDtUKwNXhFp7HrKcAGR5jYEJBEURod8s2f          | TFoqeWwf3vFcbCqdU8ZjzGVgZ4TYK8nHPa  |
+| NFT-USD     | TS15kJyth5F7vAE5bpzAUumEGFDsnYkEGF          | TEDMTefgJghimW5ZFFg4dWLZ6HNL4bWBsd  |
+| NFT-TRX     | TXSf7X1Dw7CGmykSQeNBDgKhCPw8Ehvggq          | TYH5pXgks8YJAnFqWjbkxFdN4QBj12vM2i  |
+| SUN-USD     | TAKUV2gwwmAG7fCtwSW9VwSrGnPikuuw5p          | TNo43wgMc7TZWm8odPXNnYXp2EGx5WTxNT  |
+| SUN-TRX     | TPVW4azkkthtLdYGLUPdQGLvU9Tciuhq5a          | TFC7kdChdTnY2C7de3Qn5J9boKkRJNCjFy  |
+| USDC-USD    | THL5y573nNXkHbHY8ZkZNLPZTMXdkq9aFr          | TRD4xaVdMefgbrk13brFZpM7JxMxUgrFLP  |
+| USDC-TRX    | TSLmB88ek8npjBKeQRzdYZJMpabwfvj2PT          | TAHJuuuNVVsZtxLiHuvPmJJvFPA2NVkdVo  |
+ | USDD-TRX    | TRH63ix5DoZwoNEtYTpzykiJ7mW8Ak1fh7          | NA                                  |
+| ETH-USD     | TZCPyp7fWW3xnQ6gv5LG9v7S7VYbr4h2H1          | TJFwQstZKR6qUr5Mts6SVsAKrSoq1jx1MS  |
+| LTC-USD     | TFhAq2W3fEse2rj8cLmQ29k4zP3X5CFc7z          | NA                                  |
+| LTC-TRX     | TA2DUPP9Nufru5QoRQSpVzVrTpmMRyLSU9          | NA                                  |
+| BUSD-USD    | TWQjWbMjkiMGcR5pbkdRcUgcXmyspxqSkD          | NA                                  |
+| BTT-USD     | TTQh9bGPDyEKQH8KFXDPxzES4ZGYELTEUc          | TRzbLXUwQCT93bxMnphugmZkzHAVWug4h4  |
+| BUSD-TRX    | TQBSnLu654t21xf5R3nNrvNs8q422RmZyo          | NA                                  |
 
 ### Nile Testnet
 
@@ -97,39 +138,62 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 - WinkMid Contract Address: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
 List of price service contract addresses:
-> :warning: Please do note that effective from 01 July onwards, the price feed Nile Testnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
+
+| Pair       | Nile (Proxy)                       |
+|:-----------|:-----------------------------------|
+| BTC-TRX    | TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE |
+| BTC-USD    | TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE |
+| BTT-TRX    | TKbeHN2hdrgSShG6iF3mDsJTu9fFzNrHjo |
+| BTT-USD    | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7 |
+| BTTOLD-TRX | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6 |
+| BTTOLD-USD | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE |
+| BUSD-TRX   | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe |
+| BUSD-USD   | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx |
+| ETH-TRX    | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ |
+| ETH-USD    | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX |
+| JST-TRX    | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj |
+| JST-USD    | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj |
+| LIVE-USD   | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH |
+| LTC-TRX    | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22 |
+| LTC-USD    | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19 |
+| NFT-TRX    | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum |
+| NFT-USD    | TX5KVe4sp24w5HJ4nfk2ZstRhV8RTFm67W |
+| SUN-TRX    | TTxxeWGpSDV3zPDxnYXzG1ue7RpTYTvDpY |
+| SUN-USD    | TJjENuVH7TD8RJdGtj22ac6Bt1ktpBGURR |
+| SUNOLD-TRX | TNfn4qt4QJ7LAndM2aWbxrGGH8CRGvzxui |
+| SUNOLD-USD | TMKzWKMA1gSwjYSL6VpfCUXLuwPKdjEsQ2 |
+| TRX-USD    | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1 |
+| TUSD-TRX   | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW |
+| TUSD-USD   | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz |
+| USDC-TRX   | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB |
+| USDC-USD   | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER |
+| USDD-TRX   | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ |
+| USDD-USD   | TX264fxRmdhNfUgkruk9orzAVvtCehyowq |
+| USDJ-TRX   | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd |
+| USDJ-USD   | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1 |
+| USDT-TRX   | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK |
+| USDT-USD   | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ |
+| WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj |
+| WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9 | 
+
+
+:::warning
+Please do note that effective from 01 July onwards, the price feed Nile Testnet contract address will be switched over from Flux Aggregator to Off Chain Reporting as indicated in the following table.
+:::
 
 <!-- NOTE: multiline table, auto-formated -->
 
-| Pair      | Price Feed Contract Address                        |
-|-----------|----------------------------------------------------|
-| TRX-USD   | `TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy`               |
-| USDT-USD  | `TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb`               |
-| ETH-USD   | `TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM`               |
-| LTC-USD   | `TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ`               |
-| LTC-TRX   | `TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1`               |
-| BUSD-USD | `TWn3oCuk4un2h2uZmkDQjYynm1u4iQHzQz`               |
-| BUSD-TRX | `TWVmGA1vtcWiigAZcxDJBCSrCjaj828MKa`               |
+| Pair      | Price Feed Contract Address (FluxAggregator)  |
+|-----------|-----------------------------------------------|
+| TRX-USD   | TZEy2S7pTc69awGEPrRdARZ8FrjBUpbuRy          |
+| USDT-USD  | TP3dn7bgNT6eygNhF33XZYfcXiswsNyTnb          |
+| ETH-USD   | TYvj7PaHUrPLC1vhjgL9PGvJ5FyA931KqM          |
+| LTC-USD   | TY4mKLTkC2eNF26Ax58VZG3nBg3vzYeKfJ          |
+| LTC-TRX   | TWmu8NugztyGXuYh2qxEAGmkESmJGbXNp1          |
+| BUSD-USD  | TWn3oCuk4un2h2uZmkDQjYynm1u4iQHzQz          |
+| BUSD-TRX  | TWVmGA1vtcWiigAZcxDJBCSrCjaj828MKa          |
                                                  
 
-| Pair       | Price Feed Contract Address (Off Chain Reporting) |
-|------------|---------------------------------------------------|
-| BTC-TRX    | TDc1uQoPPnkYTnheTM1HanZta3MokzT3ec                |
-| BTT-TRX    | TA37XouyKMTarNRWUzEuViG3Q18dPD33a2                |
-| BTTOLD-TRX | TWEfkCoX9KmcF59k3zRySUyhB4pgQRR1Zx                |
-| ETH-TRX    | TCL3PCMyT91rtdKA3RU48F82modHS6ruTY                |
-| JST-TRX    | TABJQBswQ5bQqXLeZdTHLpYkuPpLDZPJBi                |
-| NFT-TRX    | TUoUcMURKBmdRGbpbmtZM7F7KEn3PXNPQv                |
-| SUN-TRX    | TUM8k7t4hmA4gRnkPCXmoMDboaQThDVDqx                |
-| SUNOLD-TRX | TZ3mcBEUbxfKdLNUzyL2Tqn7FM98XG8E1x                |
-| TUSD-TRX   | TUKMTMDt6i1itFdifDPSNXTLddo8uzMf1C                |
-| USDC-TRX   | TDbYHS4qR3UNg1QdxCgVa1YocWTmJMDP52                |
-| USDD-TRX   | TPvtPmQM94bVkrLMwh2ZS5pRkx5PZG6Sus                |
-| USDJ-TRX   | TYrqa6xmkPg7Fp1HU9Sf4oPk9Ax9wYh5ib                |
-| USDT-TRX   | TAfx3XnfqgwKavCXuVVqdDX3VHfv6KPLVg                |
-| WIN-TRX    | TL92yYSBBVTVyuWmEstfxKzpbRyeVKePEx                |
-| TRX-USD    | TA9XdKp9qzCZ1qrZKqp4iKYT4soDH4f7tT                |
-| BUSD-TRX   | TKcZpwtUzsohaUwbs6rb3v8hCNAMg93ZrY                |
 
 
 

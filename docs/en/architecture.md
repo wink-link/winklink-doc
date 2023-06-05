@@ -73,7 +73,7 @@ In actual implementation, multiple oracles need to be aggregated to obtain more 
 
 For example, the price aggregation feature retrieves information from multiple oracles and generates a median price.
 
-To learn more about the logic of price aggregation, please refer to: [AggregatorInterface](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol).
+To learn more about the logic of price aggregation, please refer to: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol).
 
 ## Off-Chain Reporting
 Off-Chain Reporting (OCR) is a new method for aggregating data that promises to improve scalability, stability, and decentralization in the WINkLink network.

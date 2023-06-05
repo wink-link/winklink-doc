@@ -24,7 +24,7 @@ module.exports = {
         //   '/': ['', 'architecture', 'deploy', 'pricing', 'v2', 'proxy', 'glossary', 'vrf'],
         // }
         sidebar: {
-          '/': ['', 'architecture', 'pricing', 'v2', 'proxy', 'glossary', 'vrf'],
+          '/': ['', 'architecture', 'pricing', 'v2', 'ocr', 'glossary', 'vrf'],
         }
       },
       '/en/': {
@@ -33,7 +33,7 @@ module.exports = {
         //   '/en': ['/en/', '/en/architecture', '/en/deploy', '/en/pricing', '/en/v2', '/en/proxy', '/en/glossary', '/en/vrf'],
         // }
         sidebar: {
-          '/en': ['/en/', '/en/architecture', '/en/pricing', '/en/v2', '/en/ocr', '/en/proxy', '/en/glossary', '/en/vrf'],
+          '/en': ['/en/', '/en/architecture', '/en/pricing', '/en/v2', '/en/ocr',  '/en/glossary', '/en/vrf'],
         }
       }
     },

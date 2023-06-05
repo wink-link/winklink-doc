@@ -1,5 +1,5 @@
 # Off Chain Reporting
->ℹ️ :information_source: Dear Developers,
+>:information_source: Dear Developers,
 >
 >We hope this announcement finds you well. We would like to inform you that we are currently monitoring the Off Chain Reporting (OCR) function to ensure its stability and optimal performance. As we strive to deliver the best possible experience for our users, it is crucial that we thoroughly evaluate and refine this feature.
 >
