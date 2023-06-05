@@ -75,4 +75,14 @@ sequenceDiagram
 
 例如价格聚合功能，从多个交易所提供的预言机服务聚合得到平均价格或中位数价格。
 
-价格聚合相关逻辑参考: [AggregatorInterface](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
+价格聚合相关逻辑参考: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
+
+## 链下报告(OCR)
+
+链下报告（OCR）是一种新的数据聚合方法，旨在提高WINkLink网络的可扩展性、稳定性和去中心化。
+
+通过OCR，网络中的所有节点通过点对点（P2P）网络进行交互，其中一个节点充当领导者，其他节点充当跟随者。P2P网络在通信过程中使用轻量级共识算法。每个节点将其签名的数据观察结果报告给领导者，领导者生成一个合并报告。如果满足传输条件，该报告作为单个聚合交易广播到区块链上。这个过程会产生一个单一的聚合交易，大大降低了燃气消耗。
+
+聚合交易包含了由一组预言机签名的报告，其中包含了他们所有的观察结果。为了维护WINkLink预言机网络的不可信任特性，该报告在链上进行验证，并且验证预言机组的签名。
+
+目前，链下报告模型仍处于测试阶段，一旦稳定下来，将会提供更多的信息。
