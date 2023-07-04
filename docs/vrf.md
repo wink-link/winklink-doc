@@ -55,17 +55,17 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
   :::
   
 ## Tron主网WINkLink VRF信息
-|Item|Value|
-|:--|:--|
-|WIN Token  | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7 |
-|WinkMid  | TKy2MGKR6rQKBwM7dneUEnh2kvsodRR1Jo |
-|VRFCoordinator  | TTMLZ9e14KVCXkQrCSGRBS4r5iQPXGP1bA |
-|Key Hash 1 | 0x284367a1c6c6cfee60d3343b399e8353da9a1482bdfddb549d217787a4c558f2 |
-|Fee 1 | 4 WIN |
-|Key Hash 2 | 0x489db76c028fb5020e0c3d4fd7126f9c2750c7f52f3e03941c5bfcbe1c27d2a5 |
-|Fee 2 | 4 WIN |
-|Key Hash 3 | 0xe90fbf3bd9cce99d28f7110a4afaa965f03061a6d6dd5a6f6dd6b0f937d73a63 |
-|Fee 3 | 4 WIN |
+| Item           | Value                                                              |
+|:---------------|:-------------------------------------------------------------------|
+| WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |
+| WinkMid        | TKy2MGKR6rQKBwM7dneUEnh2kvsodRR1Jo                                 |
+| VRFCoordinator | TTMLZ9e14KVCXkQrCSGRBS4r5iQPXGP1bA                                 |
+| Key Hash 1     | 0x284367a1c6c6cfee60d3343b399e8353da9a1482bdfddb549d217787a4c558f2 |
+| Fee 1          | 4 WIN                                                              |
+| Key Hash 2     | 0x489db76c028fb5020e0c3d4fd7126f9c2750c7f52f3e03941c5bfcbe1c27d2a5 |
+| Fee 2          | 4 WIN                                                              |
+| Key Hash 3     | 0xe90fbf3bd9cce99d28f7110a4afaa965f03061a6d6dd5a6f6dd6b0f937d73a63 |
+| Fee 3          | 4 WIN                                                              |
 
 ## 节点部署
 节点部署部分可以参考[WINkLink](https://doc.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分仅列出VRF节点部署的不同之处。
