@@ -3,9 +3,10 @@
 Proxy contracts are on-chain proxies that store the most up-to-date Aggregator for a particular price feed. Using proxies enables the underlying Aggregator to be upgraded without any interruption of service for consuming contracts.
 
 A trusted proxy is for updating where current answers are read from. notice This contract provides a consistent address for the `CurrentAnwerInterface` but delegates where it reads from to the owner, who is trusted to update it.
+:::warning
+Please do note that effective from 01 July onwards, the proxy contract address will be switched over to the V2 Version as indicated in the following table.
+:::
 
-> ⚠️ :warning: Please do note that effective from 01 July onwards, the proxy contract address will be switched over to the V2 Version as indicated in the following table.
- 
 | Pair       | Proxy Address (FluxAggregator)     | Proxy Address (`AccessControlledOCRAggregator`) |
 |:-----------|:-----------------------------------|:------------------------------------------------|
 | TRX/USD    | TVoALT2EWuYz61pSGk3vdaA2v7nDWkXcF5 | TR5HtpPK4gX4RFC4DCBUHfFgsGkGFEzSAb              |
