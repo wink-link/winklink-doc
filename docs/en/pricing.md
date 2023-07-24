@@ -92,6 +92,7 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 | USDT-USD   | TKePc46n5CiUCR8LL788TFeKA4kjvNnuem  |
 | WIN-TRX    | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg  |
 | WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
+| WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
 
 ### Nile Testnet
 
@@ -100,43 +101,44 @@ The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` fu
 
 List of price service contract addresses:
 
-| Pair       | Nile (Proxy)                        |
-|:-----------|:------------------------------------|
-| BTC-TRX    | TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE  |
-| BTC-USD    | TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE  |
-| BTT-TRX    | TKbeHN2hdrgSShG6iF3mDsJTu9fFzNrHjo  |
-| BTT-USD    | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7  |
-| BTTOLD-TRX | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6  |
-| BTTOLD-USD | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE  |
-| BUSD-TRX   | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe  |
-| BUSD-USD   | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx  |
-| ETH-TRX    | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ  |
-| ETH-USD    | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX  |
-| JST-TRX    | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj  |
-| JST-USD    | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj  |
-| LIVE-USD   | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH  |
-| LTC-TRX    | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22  |
-| LTC-USD    | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19  |
-| NFT-TRX    | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum  |
-| NFT-USD    | TX5KVe4sp24w5HJ4nfk2ZstRhV8RTFm67W  |
-| STRX-TRX   | TEbUQ4gohuK5wdtKmpnGd2kvyzhhznJDCx  |
-| SUN-TRX    | TTxxeWGpSDV3zPDxnYXzG1ue7RpTYTvDpY  |
-| SUN-USD    | TJjENuVH7TD8RJdGtj22ac6Bt1ktpBGURR  |
-| SUNOLD-TRX | TNfn4qt4QJ7LAndM2aWbxrGGH8CRGvzxui  |
-| SUNOLD-USD | TMKzWKMA1gSwjYSL6VpfCUXLuwPKdjEsQ2  |
-| TRX-USD    | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1  |
-| TUSD-TRX   | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW  |
-| TUSD-USD   | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz  |
-| USDC-TRX   | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB  |
-| USDC-USD   | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER  |
-| USDD-TRX   | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ  |
-| USDD-USD   | TX264fxRmdhNfUgkruk9orzAVvtCehyowq  |
-| USDJ-TRX   | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd  |
-| USDJ-USD   | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1  |
-| USDT-TRX   | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK  |
-| USDT-USD   | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ  |
-| WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj  |
-| WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9  |
+| Pair       | Nile (Proxy)                          |
+|:-----------|:--------------------------------------|
+| BTC-TRX    | TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE    |
+| BTC-USD    | TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE    |
+| BTT-TRX    | TKbeHN2hdrgSShG6iF3mDsJTu9fFzNrHjo    |
+| BTT-USD    | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7    |
+| BTTOLD-TRX | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6    |
+| BTTOLD-USD | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE    |
+| BUSD-TRX   | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe    |
+| BUSD-USD   | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx    |
+| ETH-TRX    | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ    |
+| ETH-USD    | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX    |
+| JST-TRX    | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj    |
+| JST-USD    | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj    |
+| LIVE-USD   | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH    |
+| LTC-TRX    | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22    |
+| LTC-USD    | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19    |
+| NFT-TRX    | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum    |
+| NFT-USD    | TX5KVe4sp24w5HJ4nfk2ZstRhV8RTFm67W    |
+| STRX-TRX   | TEbUQ4gohuK5wdtKmpnGd2kvyzhhznJDCx    |
+| SUN-TRX    | TTxxeWGpSDV3zPDxnYXzG1ue7RpTYTvDpY    |
+| SUN-USD    | TJjENuVH7TD8RJdGtj22ac6Bt1ktpBGURR    |
+| SUNOLD-TRX | TNfn4qt4QJ7LAndM2aWbxrGGH8CRGvzxui    |
+| SUNOLD-USD | TMKzWKMA1gSwjYSL6VpfCUXLuwPKdjEsQ2    |
+| TRX-USD    | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1    |
+| TUSD-TRX   | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW    |
+| TUSD-USD   | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz    |
+| USDC-TRX   | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB    |
+| USDC-USD   | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER    |
+| USDD-TRX   | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ    |
+| USDD-USD   | TX264fxRmdhNfUgkruk9orzAVvtCehyowq    |
+| USDJ-TRX   | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd    |
+| USDJ-USD   | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1    |
+| USDT-TRX   | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK    |
+| USDT-USD   | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ    |
+| WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj    |
+| WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9    |
+| WSTUSDT-TRX  | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P  |
 
 ### Apply for New Trading Pairs
 
