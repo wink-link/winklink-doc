@@ -14,7 +14,28 @@ VRF（Verifiable Random Function)，即可验证的随机函数，其可生成�
 - 职责和资源的随机分配（例如随机分配法官审理案件）
 - 为共识机制选择代表性样本
 
+WINkLink VRF解决方案包含了以下链上和链下的组件：
+
+- VRF Coordinator（链上合约）：用于与VRF服务进行交互的合约。当发出随机数请求时，它会触发一个事件，然后通过VRF服务验证随机数以及关于其生成方式的证明。
+- VRF Wrapper（链上合约）：封装了VRF Coordinator，提供了接口以便用户Dapp调用。
+- VRF 服务（链下节点）：此链下组件通过订阅VRFCoordinator事件日志来监听随机数请求，并基于区块hash和随机数生成一个随机数，然后向VRFCoordinator发起一个交易，其中包括随机数和关于其生成方式的证明
+
 本文介绍如何部署和使用VRF合约。
+
+## VRF请求流程
+1. Dapp合约调用`VRFV2Wrapper`的`calculateRequestPrice`函数来估算完成随机数生成所需的总交易成本
+
+2. Dapp合约调用`WinkMid`的`transferAndCall`函数，以支付Wrapper所计算的请求价格。该方法发送Wink代币，并执行`VRFV2Wrapper`的`onTokenTransfer`逻辑。
+
+3. `VRFV2Wrapper`的`onTokenTransfer`逻辑触发`VRFCoordinatorV2`的`requestRandomWords`函数以请求随机数。
+
+4. `VRFCoordinatorV2`合约emit`RandomWordsRequested`事件。
+
+5. VRF节点捕捉该事件，并等待指定数量的区块确认，然后把随机值和证明通过函数`fulfillRandomWords`返回`VRFCoordinatorV2`合约。
+
+6. `VRFCoordinatorV2`在链上验证证明，然后回调`VRFV2Wrapper`的`fulfillRandomWords`函数。
+
+7. 最后，`VRFV2Wrapper`回调Dapp合约完成请求。
 
 ## 准备工作
 
@@ -23,9 +44,9 @@ WINkLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部�
 
 完成节点账号申请,建议参考[节点账号准备文档](https://doc.winklink.org/v1/doc/deploy.html#%E5%87%86%E5%A4%87%E8%8A%82%E7%82%B9%E5%B8%90%E5%8F%B7) 。
 
-## VRFCoordinator 合约
+## VRFCoordinatorV2 合约
 
-VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功能如下
+VRFCoordinatorV2 合约是部署在 TRON 公链上的预言机合约。主要功能如下
 
 - 接收消费者合约(Consumer Contract)的数据请求，触发 Event Log
     - 数据请求发送时会附带 WIN 转账作为使用费用
@@ -34,12 +55,16 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 - 对数据请求的 WIN 代币费用进行结算，提取收益
 
 
-合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。
+<!-- 合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。-->
 
 
-部署 VRFCoordinator 合约时需要在构造函数提供相关参数：
+部署 VRFCoordinatorV2 合约时需要在构造函数提供相关参数：
 ```js
-  constructor(address _win, address _winkMid, address _blockHashStore)
+  constructor(
+    address wink,
+    address blockhashStore,
+    address winkMid
+  )
 ```
 `_blockHashStore` 为BlockHashStore合约地址，`_win` 为WIN代币地址, `_winkMid` 为WinkMid合约地址。
 
@@ -50,24 +75,22 @@ VRFCoordinator 合约是部署在 TRON 公链上的预言机合约。主要功�
 ::: tip Nile 测试网
 
 - WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- WinkMid 合约地址: `TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb`
+- WinkMid 合约地址: `TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw`
+- BlockHashStore 合约地址: `TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA`
 - 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
-  
-## Tron主网WINkLink VRF信息
-| Item           | Value                                                              |
-|:---------------|:-------------------------------------------------------------------|
-| WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |
-| WinkMid        | TKy2MGKR6rQKBwM7dneUEnh2kvsodRR1Jo                                 |
-| VRFCoordinator | TTMLZ9e14KVCXkQrCSGRBS4r5iQPXGP1bA                                 |
-| Key Hash 1     | 0x284367a1c6c6cfee60d3343b399e8353da9a1482bdfddb549d217787a4c558f2 |
-| Fee 1          | 4 WIN                                                              |
-| Key Hash 2     | 0x489db76c028fb5020e0c3d4fd7126f9c2750c7f52f3e03941c5bfcbe1c27d2a5 |
-| Fee 2          | 4 WIN                                                              |
-| Key Hash 3     | 0xe90fbf3bd9cce99d28f7110a4afaa965f03061a6d6dd5a6f6dd6b0f937d73a63 |
-| Fee 3          | 4 WIN                                                              |
 
-## 节点部署
+## VRFV2Wrapper 合约
+VRFV2Wrapper封装了与VRFCoordinatorV2的交互，作为dapp与VRFCoordinatorV2的中间层,供Dapp直接调用。
+
+
+**配置参数**\
+`keyHash` : 节点keyhash\
+`maxNumWords` : 单次请求词数限制，当前设置为10
+
+
+<!--## 节点部署
+
 节点部署部分可以参考[WINkLink](https://doc.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分仅列出VRF节点部署的不同之处。
 
 VRFCoordinator 合约部署完毕后，就可以开始 WINkLink 节点部署。
@@ -169,99 +192,201 @@ curl --location --request POST 'http://localhost:8081/job/specs' \
 ```sh
 curl --location --request GET 'http://localhost:8081/job/specs'
 ```
+-->
 ## 为节点账户授权
 
-节点账户需要授权才能向 VRFCoordinator 合约提交数据，否则会报错 。
+节点账户需要授权才能向 VRFCoordinatorV2 合约提交数据，否则会报错 。
 
-需要使用 VRFCoordinator 合约的 owner 执行如下合约调用，将节点账户添加到白名单:
+需要使用 VRFCoordinatorV2 合约的 owner 执行如下合约调用，将节点账户添加到白名单:
 
 ```js
-  function registerProvingKey(uint256 _fee, address _oracle, bytes calldata _publicProvingKey, bytes32 _jobID)
+  function registerProvingKey(address oracle, uint256[2] calldata publicProvingKey) external onlyOwner
 ```
 
-其中 `_fee` 为注册节点生成随机数最小的WIN代币费用，`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的WIN代币，
-`_publicProvingKey` 为注册节点用于生成随机数的公钥，即x||y， `_jobID` 为节点VRF服务的JobID。
+其中`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的WIN代币，`_publicProvingKey` 为注册节点用于生成随机数的公钥。
 
-示例调用例如 `registerProvingKey（10,TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,
-0x4e6bda4373bea59ec613b8721bcbb56222ab2ec10b18ba24ae369b7b74ab145224d509bc2778e6d1c8a093522ba7f9b6669a9aef57d2231f856e4b594ad5f4ac,
-04d773890bc347f88544dc85bea24985）`。
+示例调用例如 `registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])`。
 
 ## Dapp合约
 
-
-示例Dapp合约： [VRFDemo.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFDemo.sol)
-
-
-该示例为权力游戏合约，WINkLink VRF请求随机数，将随机值转换为1~20，每个数字代表一个房间，如经转换后的数字为1，则被分配到Targaryan房间，2对应Lannister房间，以此类推。
-
 当编写新的Dapp合约时，需遵循以下规则：
+- a) 引入VRFV2WrapperConsumerBase.sol
+```js
+// SPDX-License-Identifier: MIT
+// An example of a consumer contract that directly pays for each request.
+pragma solidity ^0.8.7;
 
-- a) 引入 VRFConsumerBase:
-```js
-  pragma solidity ^0.6.0;
+import "./VRFV2WrapperConsumerBase.sol";
 
-  import "./VRFConsumerBase.sol";
-  
-  contract VRFDemo is VRFConsumerBase {
-  
-  }
-```
-- b) 设置 `s_keyHash` 为生成随机数所使用的VRF key；`s_fee` 为单次随机数请求所支付的费用。
-```js
-  bytes32 private s_keyHash;
-  uint256 private s_fee;
-```
-- c) Dapp合约初始化：
-```js
-  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
-    public
-    VRFConsumerBase(vrfCoordinator, win, winkMid)
-  {
-    s_keyHash = keyHash;
-    s_fee = fee;   
-  }
-```
-- d) 调用 `requestRandomness` 来发起随机数请求，记录相应的`requestId`:
-```js
-  function rollDice(uint256 userProvidedSeed, address roller)
-  {
-    require(winkMid.balanceOf(address(this)) >= s_fee, "Not enough WIN to pay fee");
-    requestId = requestRandomness(s_keyHash, s_fee, userProvidedSeed);
-    emit DiceRolled(requestId, roller);
-  }
-```
-- e) 实现 `fulfillRandomness` 来接收 VRFCoordinator合约回调的经验证通过的随机数`requestId`和`randomness`。
-```js
-  function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
-    uint256 d20Value = randomness.mod(20).add(1);
-    s_results[s_rollers[requestId]] = d20Value; 
-    emit DiceLanded(requestId, d20Value);
-  }
+contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
-### 部署Dapp合约
-部署 VRFDemo 合约时需要向构造函数中填充参数
+- b) 合约需实现vrf回调函数`fulfillRandomWords`，在这里你可以编写获取随机数结果后的业务处理逻辑.
 ```js
-  constructor(address vrfCoordinator, address win, address winkMid, bytes32 keyHash, uint256 fee)
+ function fulfillRandomWords(
+        uint256 _requestId,
+        uint256[] memory _randomWords
+    )
 ```
-其中 `vrfCoordinator` 为 VRFCoordinator 合约地址，`win` 为 WIN 代币合约地址，`winkMid` 为 WinkMid 合约地址，
-`keyHash` 为注册节点公钥的Hash值，可通过调用 VRFCoordinator 合约的 hashOfKeyBytes 函数获得(输入为x||y)。
-`fee` 支付随机数生成的WIN代币费用，可修改，其值应大于随机数节点注册时要求的fee。
 
-例如 `constructor（TUeVYd9ZYeKh87aDA9Tp7F5Ljc47JKC37x,TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2,
-TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb,0xe4f280f6d621db4bccd8568197e3c84e3f402c963264369a098bb2f0922cb125,12）`。
+- c) 调用`requestRandomness`发起vrf请求。
+```js
+ function requestRandomWords()
+    external
+    onlyOwner
+    returns (uint256 requestId)
+    {
+        requestId = requestRandomness(
+            msg.sender,
+            callbackGasLimit,
+            requestConfirmations,
+            numWords
+        );
+        s_requests[requestId] = RequestStatus({
+            paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
+            randomWords: new uint256[](0),
+            fulfilled: false
+        });
+        requestIds.push(requestId);
+        lastRequestId = requestId;
+        emit RequestSent(requestId, numWords);
+        return requestId;
+    }
+```
 
-### 为合约转入WIN代币
 
-VRFDemo 合约需要调用 VRFCoordinator 合约，所以合约账户需要有足够的 WIN 代币。可以通过转账或测试网水龙头为合约转入若干 WIN 代币。
+**示例Dapp合约**
 
-### 调用Dapp合约
+部署实例合约VRFv2DirectFundingConsumer.sol。
 
-使用如下接口请求生成随机数：
+构造函数参数：\
+`_winkAddress`：wink代币合约地址
+`_winkMid`： winkMid合约地址
+`_wrapper`：VRFV2Wrapper合约地址
+`_numWords`： 单次请求随机词数量
 
 ```js
-function rollDice(uint256 userProvidedSeed, address roller)
-```
-其中 `userProvidedSeed` 为用户提供的种子，`roller` 为使用随机数的地址
+// SPDX-License-Identifier: MIT
+// An example of a consumer contract that directly pays for each request.
+pragma solidity ^0.8.7;
 
-调用示例 `rollDice(0x852f725894485e4979af5ea47ddd90cc68ea1ac0f4b99e52e9b91fa35a7204e2, TL44GNkjETr2JumQHgYJF842oyE6h2inoR)`。
+import "./ConfirmedOwner.sol";
+import "./VRFV2WrapperConsumerBase.sol";
+
+/**
+ * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
+ * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
+ * DO NOT USE THIS CODE IN PRODUCTION.
+ */
+
+contract VRFv2DirectFundingConsumer is
+VRFV2WrapperConsumerBase,
+ConfirmedOwner
+{
+    address winkAddress;
+
+    event RequestSent(uint256 requestId, uint32 numWords);
+    event RequestFulfilled(
+        uint256 requestId,
+        uint256[] randomWords,
+        uint256 payment
+    );
+
+    struct RequestStatus {
+        uint256 paid; // amount paid in link
+        bool fulfilled; // whether the request has been successfully fulfilled
+        uint256[] randomWords;
+    }
+    mapping(uint256 => RequestStatus)
+    public s_requests; /* requestId --> requestStatus */
+
+    // past requests Id.
+    uint256[] public requestIds;
+    uint256 public lastRequestId;
+
+    // Depends on the number of requested values that you want sent to the
+    // fulfillRandomWords() function. Test and adjust
+    // this limit based on the network that you select, the size of the request,
+    // and the processing of the callback request in the fulfillRandomWords()
+    // function.
+    uint32 callbackGasLimit = 0;
+
+    // The default is 3, but you can set this higher.
+    uint16 requestConfirmations = 3;
+
+    // For this example, retrieve 2 random values in one request.
+    // Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
+    uint32 numWords;
+
+    constructor(
+        address _winkAddress,
+        address _winkMid,
+        address _wrapper,
+        uint32 _numWords
+    )
+    ConfirmedOwner(msg.sender)
+    VRFV2WrapperConsumerBase(_winkMid, _wrapper) {
+        winkAddress = _winkAddress;
+        numWords = _numWords;
+    }
+
+    function requestRandomWords()
+    external
+    onlyOwner
+    returns (uint256 requestId)
+    {
+        requestId = requestRandomness(
+            msg.sender,
+            callbackGasLimit,
+            requestConfirmations,
+            numWords
+        );
+        s_requests[requestId] = RequestStatus({
+            paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
+            randomWords: new uint256[](0),
+            fulfilled: false
+        });
+        requestIds.push(requestId);
+        lastRequestId = requestId;
+        emit RequestSent(requestId, numWords);
+        return requestId;
+    }
+
+    function fulfillRandomWords(
+        uint256 _requestId,
+        uint256[] memory _randomWords
+    ) internal override {
+        require(s_requests[_requestId].paid > 0, "request not found");
+        s_requests[_requestId].fulfilled = true;
+        s_requests[_requestId].randomWords = _randomWords;
+        emit RequestFulfilled(
+            _requestId,
+            _randomWords,
+            s_requests[_requestId].paid
+        );
+    }
+
+    function getRequestStatus(
+        uint256 _requestId
+    )
+    external
+    view
+    returns (uint256 paid, bool fulfilled, uint256[] memory randomWords)
+    {
+        require(s_requests[_requestId].paid > 0, "request not found");
+        RequestStatus memory request = s_requests[_requestId];
+        return (request.paid, request.fulfilled, request.randomWords);
+    }
+}
+
+```
+
+## Tron主网WINkLink VRF信息
+| Item           | Value                                                              |
+|:---------------|:-------------------------------------------------------------------|
+| WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |
+| WinkMid        | TSG1B8DKDGY5sRFXwQ6xJofVr75DCFUA64                                 |
+| BlockHashStore | TRGmef4qUdNJ4xTEL96hToGuMTNst57aS1                                 |
+| VRFCoordinatorV2 | TD7hF84Xwf8Cu2zscmqxrgiGaEBziZhXqf                                 |
+| VRFV2Wrapper | TYMSMoitSkxuKUF1oiZp2fse4MEgsM86WT                                 |
+| Fee           | 10 WIN                                                              |
