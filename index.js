@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.argv[2] ? process.argv[2] : 8085;
+const prefix = "/v1/doc"
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -14,8 +15,16 @@ app.all('*', function (req, res, next) {
     }
 });
 
+app.use((req, res, next) => {
+    if (!req.url.startsWith(prefix)) {
+        res.redirect(302, prefix + req.url)
+    } else {
+        next();
+    }
+});
+
 app.use(express.json());
-app.use('/v1/doc', express.static('docs/.vuepress/dist'));
+app.use(prefix, express.static('docs/.vuepress/dist'));
 
 app.use(function (req, res, next) {
     res.status(404).sendFile('docs/.vuepress/dist/404.html', {
