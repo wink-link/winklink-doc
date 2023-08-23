@@ -1428,7 +1428,7 @@ library SignedSafeMath {
 | BlockHashStore | TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA                                 |
 | VRFCoordinatorV2 | TMvQdnsahiJRiJpA7YgcpLUdKFi2LswPrb                                 |
 | VRFV2Wrapper | TJSP3zzmEH84y2W8hjfTgpqwhQsdWwn3N5                                 |
-| Fee           | 3 WIN                                                              |
+| Fee           | 10 WIN                                                              |
 
 测试网水龙头: <https://nileex.io/join/getJoinPage>
 
