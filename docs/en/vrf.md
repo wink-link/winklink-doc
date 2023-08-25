@@ -524,7 +524,7 @@ import "./VRFV2WrapperInterface.sol";
  * @dev USAGE
  *
  * @dev Calling contracts must inherit from VRFV2WrapperConsumerBase. The consumer must be funded
- * @dev with enough LINK to make the request, otherwise requests will revert. To request randomness,
+ * @dev with enough WINK to make the request, otherwise requests will revert. To request randomness,
  * @dev call the 'requestRandomness' function with the desired VRF parameters. This function handles
  * @dev paying for the request based on the current pricing.
  *
@@ -1177,7 +1177,7 @@ contract WinklinkClient {
     using Winklink for Winklink.Request;
     using SafeMathTron for uint256;
 
-    uint256 constant internal LINK = 10 ** 18;
+    uint256 constant internal WINK = 10 ** 18;
     uint256 constant private AMOUNT_OVERRIDE = 0;
     address constant private SENDER_OVERRIDE = address(0);
     uint256 constant private ARGS_VERSION = 1;
@@ -1203,8 +1203,8 @@ contract WinklinkClient {
     }
 
     /**
-     * @notice Sets the LINK token address
-     * @param _link The address of the LINK token contract
+     * @notice Sets the WINK token address
+     * @param _link The address of the WINK token contract
      */
     function setWinklinkToken(address _link) internal {
         token = TRC20Interface(_link);
@@ -1215,8 +1215,8 @@ contract WinklinkClient {
     }
 
     /**
-     * @notice Retrieves the stored address of the LINK token
-     * @return The address of the LINK token
+     * @notice Retrieves the stored address of the WINK token
+     * @return The address of the WINK token
      */
     function winkMidAddress()
     public
@@ -1241,7 +1241,7 @@ contract WinklinkClient {
         return abi.encodeWithSelector(
             oracle.vrfRequest.selector,
             SENDER_OVERRIDE, // Sender value - overridden by onTokenTransfer by the requesting contract's address
-            AMOUNT_OVERRIDE, // Amount value - overridden by onTokenTransfer by the actual amount of LINK sent
+            AMOUNT_OVERRIDE, // Amount value - overridden by onTokenTransfer by the actual amount of WINK sent
             _req.id,
             _req.callbackAddress,
             _req.callbackFunctionId,
