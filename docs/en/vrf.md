@@ -70,8 +70,7 @@ Some parameters are needed in the constructor function when deploying a VRFCoord
 ```
 `_blockHashStore` BlockHashStore address, `_win` WIN token address, `_winkMid` WinkMid contract address.
 
-For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers can use this contract address directly without additional deployment. Users can also claim test TRX and WIN tokens from the Faucet address provided by Nile testnet.
-
+<!--
 ::: tip Nile Testnet
 
 - WIN TRC20 Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
@@ -80,6 +79,7 @@ For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated t
 - Testnet Faucet: <https://nileex.io/join/getJoinPage>
   :::
 
+-->
 ## VRFV2Wrapper Contract
 VRFV2Wrapper streamlining the interaction and allowing direct calls from the Dapp to the VRFCoordinatorV2 contract.
 
@@ -1426,6 +1426,8 @@ library SignedSafeMath {
 
 
 ## Tron Nile VRF Contracts
+For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated the `WIN` token on it. Developers can use this contract address directly without additional deployment. Users can also claim test TRX and WIN tokens from the Faucet address provided by Nile testnet.
+
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                 |

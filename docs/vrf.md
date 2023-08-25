@@ -1421,6 +1421,9 @@ library SignedSafeMath {
 
 
 ## Tron Nile网VRF合约
+为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
+
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                 |
