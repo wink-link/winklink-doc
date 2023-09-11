@@ -26,7 +26,7 @@ The WINkLink VRF solution contains both off-chain and on-chain components:
 - VRF Wrapper (on-chain component): A wrapper for the VRF Coordinator that offers an interface for consuming contracts.
 - VRF service (off-chain node): Listens for requests by subscribing to the VRF Coordinator event logs and calculates a random number based on the block hash and nonce. The VRF service then sends a transaction to the VRFCoordinator including the random number and a proof of how it was generated.
 
-![vrf-flow.png](images/vrf-flow.png)
+![vrf-flow.png](~@source/images/vrf-flow.png)
 
 ### Tron Nile VRF Contracts
 

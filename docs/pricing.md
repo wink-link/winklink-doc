@@ -312,4 +312,4 @@ The sub-tabs are as follows:
 - Errors: cumulative count of different errors encountered since job creation
 - Runs: list of all job runs
 
-![job-page-ui.png](images/job-page-ui.png)
+![job-page-ui.png](~@source/images/job-page-ui.png)
