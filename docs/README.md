@@ -1,34 +1,100 @@
-# 项目介绍
+# Introduction to WINkLink
+## What is Oracle
+For quite some time, smart contracts powered by blockchain have been unable to directly communicate with external systems, which has limited the variety of smart contract-based applications.
+The introduction of an oracle provides a solution to connect smart contracts with the outside world. However, most oracles on the market are currently centralized, which exposes corresponding smart contracts to the risk of a single point of failure, compromising the benefits promised by their decentralized nature.
+What is WINkLink
+WINkLink is a decentralized oracle project that operates on the TRON network. For more information about the TRON Network and its development basics, please visit TRON Developer Hub
+WINkLink has created a decentralized oracle project that provides external data for smart contracts. It connects smart contracts with various real-life events while ensuring a high level of security and reliability
+With the sharp rise of various DeFi applications, a stable and reliable decentralized oracle service is essential for premium DeFi projects. This is where WINkLink comes in, as it addresses the needs of TRON-based smart contracts to access external data.
 
-## 什么是 WINkLink
+## How WINkLink Works
+WINkLink Node Model
+```mermaid
+flowchart LR
+A[External data source] <--> B[WINkLink node] <--> C[TRON BlockChain API]
+```
 
-WINkLink 是运行在 TRON 网络上的去中心化预言机项目。关于 TRON 网络及其基础开发相关知识，
-请参考 [TRON 开发者中心](https://cn.developers.tron.network/)。
+The WINkLink oracle node structure consists of three main modules, as illustrated above:
 
-## 什么是预言机
+- External data source 
+- WINkLink node
+- TRON blockchain
 
-长久以来，区块链上运行的智能合约无法直接的与外部系统进行交流，这一瓶颈限制了智能合约应用场景。
+Let us take a closer look at each of these modules.
 
-如今，我们可以通过引入预言机(Oracle)来解决这一问题，预言机为智能合约提供了与外部世界的连接性。
-但是目前的预言机大都是中心化的服务，这会给使用预言机服务的智能合约带来单点故障的风险，使得智能合约的去中心化特性变得毫无意义。
+### External Data Source
 
-由此, WINkLink 开发了去中心化预言机项目，
-来向智能合约提供外部数据。在不失安全性和确定性的前提下，智能合约与真实世界中发生的各类事件联系了起来。
+The external data source module encompasses all the external data that is available to the native blockchain. This includes centralized exchanges, centralized oracles, stock exchange APIs, and other such sources of data.
 
-目前各类 DeFi 应用不断涌现，高质量的 DeFi 往往依赖稳定准确的去中心化预言机服务。
-WINkLink 正是应时而生，解决了 TRON 上智能合约对外部世界数据的需求。
+### WINkLink Node
 
-## 如何参与 WINkLink
+The WINkLink node is responsible for running task processing, monitoring on-chain contract requests (via Event), retrieving data from external data sources, and submitting results to the blockchain.
 
-取决于你想在 WINkLink 生态中的角色，你可以选择如下：
+### TRON blockchain
 
-- 如果你想在 DApp 中 **使用 WINkLink 价格服务**：[价格服务](./pricing.md)
-- 如果你想 **了解 WINkLink 的实现细节**：[架构介绍](./architecture.md)
+The TRON blockchain node primarily consists of the API services provided by the TRON blockchain. These include Fullnode API and Event API services. Through these APIs, the WINkLink node can monitor specific contract events to trigger tasks, sign and broadcast transactions, and return data back to the **consumer contract**.
 
-## 社区
+As indicated by the double-headed arrow, the WINkLink node subscribes to blockchain events while broadcasting transactions via API and returning data results.
 
-欢迎加入 WINkLink 生态。
+## WINkLink Request Model
+
+### Create a Request
+
+```mermaid
+sequenceDiagram
+Caller->>ConsumerContract: request an oracle data update
+activate ConsumerContract
+ConsumerContract->>OracleContract: transferAndCall send token and request
+activate OracleContract
+OracleContract->>OracleContract: emit OracleRequest event
+OracleContract-->>ConsumerContract: request ID
+deactivate OracleContract
+ConsumerContract-->>Caller: request ID
+deactivate ConsumerContract
+```
+
+### Process a Request
+
+The Oracle's contract events asynchronously trigger the following procedure:
+
+```mermaid
+sequenceDiagram
+Note over WINKLinkNode: get an event from Event API
+activate WINKLinkNode
+WINKLinkNode->>WINKLinkNode: call different adapter according to job ID
+WINKLinkNode->>OracleContract: fulfill call, submit data
+activate OracleContract
+OracleContract->>ConsumerContract: call callback function
+activate ConsumerContract
+ConsumerContract->>ConsumerContract: update data according to callback logic
+ConsumerContract-->>OracleContract: success?
+deactivate ConsumerContract
+deactivate OracleContract
+deactivate WINKLinkNode
+```
+
+## WINkLink Off-Chain Reporting Model
+
+Off-Chain Reporting (OCR) is a new method for aggregating data that promises to improve scalability, stability, and decentralization in the WINkLink network.
+
+With OCR, all nodes in the network interact through a peer-to-peer (P2P) network, with one node acting as the leader and the others as followers. The P2P network uses a lightweight consensus algorithm during communication. Each node reports its signed data observation back to the leader, who generates a consolidated report. If the transmission conditions are met, this report is broadcast onto the blockchain as a single aggregate transaction. This process leads to a single aggregate transaction, which greatly reduces gas consumption.
+
+The aggregated transaction contains a report that is signed by a quorum of oracles and includes all their observations. To maintain the trustlessness properties of WINkLink oracle networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
+
+Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.
+
+## How to Participate in WINkLink
+
+Depending on the role you want to assume in the WINkLink ecosystem, you can choose to do the following:
+
+For using WINkLink price service in DApps: [Price Service](pricing.md)
+
+For using WINKLink Verifiable Random Function (VRF) service in Dapps: [VRF](vrf.md)
+
+## WINkLink Community
+
+Welcome to the WINkLink ecosystem.
 
 - Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
-- Github 项目: <https://github.com/wink-link/winklink>
-- Support E-mail: <developer@winklink.org>
+- Github Project: <https://github.com/wink-link/winklink>
+- Developer E-mail: <developer@winklink.org>
