@@ -255,6 +255,8 @@ After building, we can tag and push it to the desired repository for deployment.
 
 ### Start a Node from source code
 
+Install [go1.20](https://go.dev/dl/)
+
 Go into the base directory of the source code winklink-2.0
 
 Build the command line interface with
