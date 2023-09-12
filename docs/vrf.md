@@ -682,17 +682,6 @@ Here we assume that the username and the password for the PostgreSQL instance de
 
 WINkLink node is written in Go programming language and requires Golang environment.
 
-### Building a docker image for the node
-
-Use the following command to build a standard linux docker image:
-
-```
-# build a docker image
-docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
-```
-
-After building, we can tag and push it to the desired repository for deployment.
-
 ### Node Configuration
 
 WINkLink node is configured using TOML files. Main config is tools/config/config.toml. With secrets.toml you can specify a db instance to be used. Below is a sample template for reference.
@@ -726,7 +715,18 @@ totallyNotFakePassword
 It is important that you keep private information safe.
 :::
 
-## Start a Node
+### Building a docker image for the node
+
+Use the following command to build a standard linux docker image:
+
+```
+# build a docker image
+docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
+```
+
+After building, we can tag and push it to the desired repository for deployment.
+
+### Start a Node from source code
 
 Go into the base directory of the source code winklink-2.0
 
