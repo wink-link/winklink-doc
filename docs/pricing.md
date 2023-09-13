@@ -320,7 +320,7 @@ tvmChainID         = 2
 name               = "OCR: TUSD-TRX"
 contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
 p2pBootstrapPeers  = [
-"BOOTSTRAP-SERVICE-P2P",
+"/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
 ]
 isBootstrapPeer    = false
 keyBundleID        = "NODE-KEY-BUNDLE"
