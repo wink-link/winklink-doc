@@ -211,7 +211,7 @@ WINkLink node is written in Go programming language and requires Golang environm
 
 WINkLink node is configured using TOML files. Main config is `tools/config/config.toml`. With `secrets.toml` you can specify a db instance to be used. Below is a sample template for reference.
 
-```
+```toml
 # secrets.toml
 [Database]
 URL = 'postgresql://root:root@localhost:5432/winklink?sslmode=disable' # Require
@@ -224,17 +224,17 @@ Keystore = 'keystorePassword' # Required
 TronApiKey = 'apiKey'
 ```
 
-After the node configuration file is confirmed, it is required to create `vrfpassword` and `apicredentials` files and write the userid and password to access the node’s api:
+After the node configuration file is confirmed, it is required to create `password` and `apicredentials` files and write the userid and password to access the node’s api:
 
-```
+```toml
 # apicredentials
 example.user@fake.email
-totallyNotFakePassword
+totallyNotFakePassword (16 characters long)
 ```
 
-```
-# vrfpassword
-totallyNotFakePassword
+```toml
+# password
+totallyNotFakePassword (16 characters long)
 ```
 
 ::: tip
@@ -281,8 +281,29 @@ The job of your node represents the data service that your node supports, and ea
 
 When your WINkLink node is running properly, you can add a job to your node via Operator UI:
 
-Example: (change the  parameters below to the Oracle contract address deployed in the steps above)
+Example: (change the parameters below to the Oracle contract address deployed in the steps above)
 
+::: tip
+For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.
+Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6nBrf7hDz25NXFSFNk7vgsTxj9bHskWEct4xh']
+::: 
+
+### Bootstrap node
+```json
+type               = "offchainreporting"
+schemaVersion      = 1
+tvmChainID         = 1
+name               = "TUSD-TRX"
+contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
+p2pBootstrapPeers  = [
+  "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
+]
+isBootstrapPeer = true
+keyBundleID = "NODE-KEY-BUNDLE"
+forwardingAllowed = false
+maxTaskDuration = "0s"
+```
+### Oracle node
 ```json
 type               = "offchainreporting"
 schemaVersion      = 1

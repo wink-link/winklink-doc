@@ -703,12 +703,12 @@ After the node configuration file is confirmed, it is required to create `vrfpas
 ```toml
 # apicredentials
 example.user@fake.email
-totallyNotFakePassword
+totallyNotFakePassword (16 characters long)
 ```
 
 ```toml
 # vrfpassword
-totallyNotFakePassword
+totallyNotFakePassword (16 characters long)
 ```
 
 ::: tip
