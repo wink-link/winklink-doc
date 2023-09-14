@@ -303,6 +303,10 @@ keyBundleID = "NODE-KEY-BUNDLE"
 forwardingAllowed = false
 maxTaskDuration = "0s"
 ```
+::: tip
+The bootstrap node and the oracle node should be set up as separate entities, each connecting to its distinct database instance. 
+:::
+
 ### Oracle node
 ```json
 type               = "offchainreporting"
