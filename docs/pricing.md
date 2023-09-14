@@ -304,7 +304,12 @@ forwardingAllowed = false
 maxTaskDuration = "0s"
 ```
 ::: tip
-The bootstrap node and the oracle node should be set up as separate entities, each connecting to its distinct database instance. 
+Ensure that the bootstrap node and the oracle node are configured as individual entities, each linking to its unique database instance. When operating locally, modify the `config.toml` file to designate different port numbers for each instance, facilitating access to the distinct Operator UIs for each.
+```json
+[WebServer]
+HTTPPort = 3000
+SecureCookies = false # Default
+```
 :::
 
 ### Oracle node
