@@ -199,7 +199,7 @@ Constructor parameters：\
 `_numWords`： number of random words per vrf request
 
 ```solidity
-/// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 // An example of a consumer contract that directly pays for each request.
 pragma solidity ^0.8.7;
 
@@ -207,110 +207,108 @@ import "./ConfirmedOwner.sol";
 import "./VRFV2WrapperConsumerBase.sol";
 
 /**
-* THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
-* THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
-* DO NOT USE THIS CODE IN PRODUCTION.
-  */
+ * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
+ * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
+ * DO NOT USE THIS CODE IN PRODUCTION.
+ */
 
 contract VRFv2DirectFundingConsumer is
 VRFV2WrapperConsumerBase,
 ConfirmedOwner
 {
-address winkAddress;
+    address winkAddress;
 
-event RequestSent(uint256 requestId, uint32 numWords);
-event RequestFulfilled(
-uint256 requestId,
-uint256[] randomWords,
-uint256 payment
-);
+    event RequestSent(uint256 requestId, uint32 numWords);
+    event RequestFulfilled(
+        uint256 requestId,
+        uint256[] randomWords,
+        uint256 payment
+    );
 
-struct RequestStatus {
-uint256 paid; // amount paid in wink
-bool fulfilled; // whether the request has been successfully fulfilled
-uint256[] randomWords;
-}
+    struct RequestStatus {
+        uint256 paid; // amount paid in wink
+        bool fulfilled; // whether the request has been successfully fulfilled
+        uint256[] randomWords;
+    }
+    mapping(uint256 => RequestStatus)
+    public s_requests; /* requestId --> requestStatus */
 
-mapping(uint256 => RequestStatus)
-public s_requests; /* requestId --> requestStatus */
+    // past requests Id.
+    uint256[] public requestIds;
+    uint256 public lastRequestId;
 
-// past requests Id.
-uint256[] public requestIds;
-uint256 public lastRequestId;
+    // Depends on the number of requested values that you want sent to the
+    // fulfillRandomWords() function. Test and adjust
+    // this limit based on the network that you select, the size of the request,
+    // and the processing of the callback request in the fulfillRandomWords()
+    // function.
+    uint32 callbackGasLimit = 0;
 
-// Depends on the number of requested values that you want sent to the
-// fulfillRandomWords() function. Test and adjust
-// this limit based on the network that you select, the size of the request,
-// and the processing of the callback request in the fulfillRandomWords()
-// function.
-uint32 callbackGasLimit = 0;
+    // The default is 3, but you can set this higher.
+    uint16 requestConfirmations = 3;
 
-// The default is 3, but you can set this higher.
-uint16 requestConfirmations = 3;
+    // For this example, retrieve 2 random values in one request.
+    // Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
+    uint32 numWords;
 
-// For this example, retrieve 2 random values in one request.
-// Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
-uint32 numWords;
+    constructor(
+        address _winkAddress,
+        address _winkMid,
+        address _wrapper,
+        uint32 _numWords
+    )
+    ConfirmedOwner(msg.sender)
+    VRFV2WrapperConsumerBase(_winkAddress, _winkMid, _wrapper) {
+        winkAddress = _winkAddress;
+        numWords = _numWords;
+    }
 
-constructor(
-address _winkAddress,
-address _winkMid,
-address _wrapper,
-uint32 _numWords
-)
-ConfirmedOwner(msg.sender)
-VRFV2WrapperConsumerBase(_winkMid, _wrapper) {
-winkAddress = _winkAddress;
-numWords = _numWords;
-}
+    function requestRandomWords()
+    external
+    onlyOwner
+    returns (uint256 requestId)
+    {
+        requestId = requestRandomness(
+            callbackGasLimit,
+            requestConfirmations,
+            numWords
+        );
+        s_requests[requestId] = RequestStatus({
+            paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
+            randomWords: new uint256[](0),
+            fulfilled: false
+        });
+        requestIds.push(requestId);
+        lastRequestId = requestId;
+        emit RequestSent(requestId, numWords);
+        return requestId;
+    }
 
-function requestRandomWords()
-external
-onlyOwner
-returns (uint256 requestId)
-{
-requestId = requestRandomness(
-msg.sender,
-callbackGasLimit,
-requestConfirmations,
-numWords
-);
-s_requests[requestId] = RequestStatus({
-paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
-randomWords: new uint256[](0),
-fulfilled: false
-});
-requestIds.push(requestId);
-lastRequestId = requestId;
-emit RequestSent(requestId, numWords);
-return requestId;
-}
+    function fulfillRandomWords(
+        uint256 _requestId,
+        uint256[] memory _randomWords
+    ) internal override {
+        require(s_requests[_requestId].paid > 0, "request not found");
+        s_requests[_requestId].fulfilled = true;
+        s_requests[_requestId].randomWords = _randomWords;
+        emit RequestFulfilled(
+            _requestId,
+            _randomWords,
+            s_requests[_requestId].paid
+        );
+    }
 
-function fulfillRandomWords(
-uint256 _requestId,
-uint256[] memory _randomWords
-) internal override {
-require(s_requests[_requestId].paid > 0, "request not found");
-s_requests[_requestId].fulfilled = true;
-s_requests[_requestId].randomWords = _randomWords;
-emit RequestFulfilled(
-_requestId,
-_randomWords,
-s_requests[_requestId].paid
-);
-}
-
-function getRequestStatus(
-uint256 _requestId
-)
-external
-view
-returns (uint256 paid, bool fulfilled, uint256[] memory randomWords)
-{
-require(s_requests[_requestId].paid > 0, "request not found");
-RequestStatus memory request = s_requests[_requestId];
-return (request.paid, request.fulfilled, request.randomWords);
-}
+    function getRequestStatus(
+        uint256 _requestId
+    )
+    external
+    view
+    returns (uint256 paid, bool fulfilled, uint256[] memory randomWords)
+    {
+        require(s_requests[_requestId].paid > 0, "request not found");
+        RequestStatus memory request = s_requests[_requestId];
+        return (request.paid, request.fulfilled, request.randomWords);
+    }
 }
 ```
 
@@ -321,12 +319,12 @@ pragma solidity ^0.8.0;
 import "./ConfirmedOwnerWithProposal.sol";
 
 /**
-* @title The ConfirmedOwner contract
-* @notice A contract with helpers for basic contract ownership.
-  */
-  contract ConfirmedOwner is ConfirmedOwnerWithProposal {
-  constructor(address newOwner) ConfirmedOwnerWithProposal(newOwner, address(0)) {}
-  }
+ * @title The ConfirmedOwner contract
+ * @notice A contract with helpers for basic contract ownership.
+ */
+contract ConfirmedOwner is ConfirmedOwnerWithProposal {
+    constructor(address newOwner) ConfirmedOwnerWithProposal(newOwner, address(0)) {}
+}
 ```
 
 ```solidity
@@ -336,79 +334,79 @@ pragma solidity ^0.8.0;
 import "./OwnableInterface.sol";
 
 /**
-* @title The ConfirmedOwner contract
-* @notice A contract with helpers for basic contract ownership.
-  */
-  contract ConfirmedOwnerWithProposal is OwnableInterface {
-  address private s_owner;
-  address private s_pendingOwner;
+ * @title The ConfirmedOwner contract
+ * @notice A contract with helpers for basic contract ownership.
+ */
+contract ConfirmedOwnerWithProposal is OwnableInterface {
+    address private s_owner;
+    address private s_pendingOwner;
 
-event OwnershipTransferRequested(address indexed from, address indexed to);
-event OwnershipTransferred(address indexed from, address indexed to);
+    event OwnershipTransferRequested(address indexed from, address indexed to);
+    event OwnershipTransferred(address indexed from, address indexed to);
 
-constructor(address newOwner, address pendingOwner) {
-require(newOwner != address(0), "Cannot set owner to zero");
+    constructor(address newOwner, address pendingOwner) {
+        require(newOwner != address(0), "Cannot set owner to zero");
 
-    s_owner = newOwner;
-    if (pendingOwner != address(0)) {
-      _transferOwnership(pendingOwner);
+        s_owner = newOwner;
+        if (pendingOwner != address(0)) {
+            _transferOwnership(pendingOwner);
+        }
+    }
+
+    /**
+     * @notice Allows an owner to begin transferring ownership to a new address,
+   * pending.
+   */
+    function transferOwnership(address to) public override onlyOwner {
+        _transferOwnership(to);
+    }
+
+    /**
+     * @notice Allows an ownership transfer to be completed by the recipient.
+   */
+    function acceptOwnership() external override {
+        require(msg.sender == s_pendingOwner, "Must be proposed owner");
+
+        address oldOwner = s_owner;
+        s_owner = msg.sender;
+        s_pendingOwner = address(0);
+
+        emit OwnershipTransferred(oldOwner, msg.sender);
+    }
+
+    /**
+     * @notice Get the current owner
+   */
+    function owner() public view override returns (address) {
+        return s_owner;
+    }
+
+    /**
+     * @notice validate, transfer ownership, and emit relevant events
+   */
+    function _transferOwnership(address to) private {
+        require(to != msg.sender, "Cannot transfer to self");
+
+        s_pendingOwner = to;
+
+        emit OwnershipTransferRequested(s_owner, to);
+    }
+
+    /**
+     * @notice validate access
+   */
+    function _validateOwnership() internal view {
+        require(msg.sender == s_owner, "Only callable by owner");
+    }
+
+    /**
+     * @notice Reverts if called by anyone other than the contract owner.
+   */
+    modifier onlyOwner() {
+        _validateOwnership();
+        _;
     }
 }
-
-/**
-* @notice Allows an owner to begin transferring ownership to a new address,
-* pending.
-  */
-  function transferOwnership(address to) public override onlyOwner {
-  _transferOwnership(to);
-  }
-
-/**
-* @notice Allows an ownership transfer to be completed by the recipient.
-  */
-  function acceptOwnership() external override {
-  require(msg.sender == s_pendingOwner, "Must be proposed owner");
-
-    address oldOwner = s_owner;
-    s_owner = msg.sender;
-    s_pendingOwner = address(0);
-
-    emit OwnershipTransferred(oldOwner, msg.sender);
-}
-
-/**
-* @notice Get the current owner
-  */
-  function owner() public view override returns (address) {
-  return s_owner;
-  }
-
-/**
-* @notice validate, transfer ownership, and emit relevant events
-  */
-  function _transferOwnership(address to) private {
-  require(to != msg.sender, "Cannot transfer to self");
-
-    s_pendingOwner = to;
-
-    emit OwnershipTransferRequested(s_owner, to);
-}
-
-/**
-* @notice validate access
-  */
-  function _validateOwnership() internal view {
-  require(msg.sender == s_owner, "Only callable by owner");
-  }
-
-/**
-* @notice Reverts if called by anyone other than the contract owner.
-  */
-  modifier onlyOwner() {
-  _validateOwnership();
-  _;
-  }
-  }
 ```
 
 ```solidity
@@ -416,11 +414,11 @@ require(newOwner != address(0), "Cannot set owner to zero");
 pragma solidity ^0.8.0;
 
 interface OwnableInterface {
-function owner() external returns (address);
+    function owner() external returns (address);
 
-function transferOwnership(address recipient) external;
+    function transferOwnership(address recipient) external;
 
-function acceptOwnership() external;
+    function acceptOwnership() external;
 }
 ```
 
@@ -432,81 +430,83 @@ import "./TRC20Interface.sol";
 import "./VRFV2WrapperInterface.sol";
 
 /** *******************************************************************************
-* @notice Interface for contracts using VRF randomness through the VRF V2 wrapper
+ * @notice Interface for contracts using VRF randomness through the VRF V2 wrapper
  * ********************************************************************************
-* @dev PURPOSE
-*
-* @dev Create VRF V2 requests without the need for subscription management. Rather than creating
-* @dev and funding a VRF V2 subscription, a user can use this wrapper to create one off requests,
-* @dev paying up front rather than at fulfillment.
-*
-* @dev Since the price is determined using the gas price of the request transaction rather than
-* @dev the fulfillment transaction, the wrapper charges an additional premium on callback gas
-* @dev usage, in addition to some extra overhead costs associated with the VRFV2Wrapper contract.
+ * @dev PURPOSE
+ *
+ * @dev Create VRF V2 requests without the need for subscription management. Rather than creating
+ * @dev and funding a VRF V2 subscription, a user can use this wrapper to create one off requests,
+ * @dev paying up front rather than at fulfillment.
+ *
+ * @dev Since the price is determined using the gas price of the request transaction rather than
+ * @dev the fulfillment transaction, the wrapper charges an additional premium on callback gas
+ * @dev usage, in addition to some extra overhead costs associated with the VRFV2Wrapper contract.
  * *****************************************************************************
-* @dev USAGE
-*
-* @dev Calling contracts must inherit from VRFV2WrapperConsumerBase. The consumer must be funded
-* @dev with enough WINK to make the request, otherwise requests will revert. To request randomness,
-* @dev call the 'requestRandomness' function with the desired VRF parameters. This function handles
-* @dev paying for the request based on the current pricing.
-*
-* @dev Consumers must implement the fullfillRandomWords function, which will be called during
-* @dev fulfillment with the randomness result.
-  */
-  abstract contract VRFV2WrapperConsumerBase {
-  WinkMid internal immutable WINK_MID;
-  VRFV2WrapperInterface internal immutable VRF_V2_WRAPPER;
+ * @dev USAGE
+ *
+ * @dev Calling contracts must inherit from VRFV2WrapperConsumerBase. The consumer must be funded
+ * @dev with enough WINK to make the request, otherwise requests will revert. To request randomness,
+ * @dev call the 'requestRandomness' function with the desired VRF parameters. This function handles
+ * @dev paying for the request based on the current pricing.
+ *
+ * @dev Consumers must implement the fullfillRandomWords function, which will be called during
+ * @dev fulfillment with the randomness result.
+ */
+abstract contract VRFV2WrapperConsumerBase {
+    TRC20Interface internal immutable WINK_TOKEN;
+    WinkMid internal immutable WINK_MID;
+    VRFV2WrapperInterface internal immutable VRF_V2_WRAPPER;
 
-/**
-* @param _winkMid is the address of WinkMid
-* @param _vrfV2Wrapper is the address of the VRFV2Wrapper contract
-  */
-  constructor(address _winkMid, address _vrfV2Wrapper) {
-  WINK_MID = WinkMid(_winkMid);
-  VRF_V2_WRAPPER = VRFV2WrapperInterface(_vrfV2Wrapper);
-  }
+    /**
+     * @param _winkMid is the address of WinkMid
+   * @param _vrfV2Wrapper is the address of the VRFV2Wrapper contract
+   */
+    constructor(address _wink, address _winkMid, address _vrfV2Wrapper) {
+        WINK_TOKEN = TRC20Interface(_wink);
+        WINK_MID = WinkMid(_winkMid);
+        VRF_V2_WRAPPER = VRFV2WrapperInterface(_vrfV2Wrapper);
+    }
 
-/**
-* @dev Requests randomness from the VRF V2 wrapper.
-*
-* @param _callbackGasLimit is the gas limit that should be used when calling the consumer's
-*        fulfillRandomWords function.
-* @param _requestConfirmations is the number of confirmations to wait before fulfilling the
-*        request. A higher number of confirmations increases security by reducing the likelihood
-*        that a chain re-org changes a published randomness outcome.
-* @param _numWords is the number of random words to request.
-*
-* @return requestId is the VRF V2 request ID of the newly created randomness request.
-  */
-  function requestRandomness(
-  address _from,
-  uint32 _callbackGasLimit,
-  uint16 _requestConfirmations,
-  uint32 _numWords
-  ) internal returns (uint256 requestId) {
-  WINK_MID.transferAndCall(
-  _from,
-  address(VRF_V2_WRAPPER),
-  VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords),
-  abi.encode(_callbackGasLimit, _requestConfirmations, _numWords)
-  );
-  return VRF_V2_WRAPPER.lastRequestId();
-  }
+    /**
+     * @dev Requests randomness from the VRF V2 wrapper.
+   *
+   * @param _callbackGasLimit is the gas limit that should be used when calling the consumer's
+   *        fulfillRandomWords function.
+   * @param _requestConfirmations is the number of confirmations to wait before fulfilling the
+   *        request. A higher number of confirmations increases security by reducing the likelihood
+   *        that a chain re-org changes a published randomness outcome.
+   * @param _numWords is the number of random words to request.
+   *
+   * @return requestId is the VRF V2 request ID of the newly created randomness request.
+   */
+    function requestRandomness(
+        uint32 _callbackGasLimit,
+        uint16 _requestConfirmations,
+        uint32 _numWords
+    ) internal returns (uint256 requestId) {
+        uint64 amount = VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords);
+        WINK_TOKEN.approve(address(WINK_MID), amount);
+        WINK_MID.transferAndCall(
+            address(VRF_V2_WRAPPER),
+            amount,
+            abi.encode(_callbackGasLimit, _requestConfirmations, _numWords)
+        );
+        return VRF_V2_WRAPPER.lastRequestId();
+    }
 
-/**
-* @notice fulfillRandomWords handles the VRF V2 wrapper response. The consuming contract must
-* @notice implement it.
-*
-* @param _requestId is the VRF V2 request ID.
-* @param _randomWords is the randomness result.
-  */
-  function fulfillRandomWords(uint256 _requestId, uint256[] memory _randomWords) internal virtual;
+    /**
+     * @notice fulfillRandomWords handles the VRF V2 wrapper response. The consuming contract must
+   * @notice implement it.
+   *
+   * @param _requestId is the VRF V2 request ID.
+   * @param _randomWords is the randomness result.
+   */
+    function fulfillRandomWords(uint256 _requestId, uint256[] memory _randomWords) internal virtual;
 
-function rawFulfillRandomWords(uint256 _requestId, uint256[] memory _randomWords) external {
-require(msg.sender == address(VRF_V2_WRAPPER), "only VRF V2 wrapper can fulfill");
-fulfillRandomWords(_requestId, _randomWords);
-}
+    function rawFulfillRandomWords(uint256 _requestId, uint256[] memory _randomWords) external {
+        require(msg.sender == address(VRF_V2_WRAPPER), "only VRF V2 wrapper can fulfill");
+        fulfillRandomWords(_requestId, _randomWords);
+    }
 }
 ```
 
@@ -515,33 +515,33 @@ fulfillRandomWords(_requestId, _randomWords);
 pragma solidity ^0.8.0;
 
 interface VRFV2WrapperInterface {
-/**
-* @return the request ID of the most recent VRF V2 request made by this wrapper. This should only
-* be relied option within the same transaction that the request was made.
-  */
-  function lastRequestId() external view returns (uint256);
+    /**
+     * @return the request ID of the most recent VRF V2 request made by this wrapper. This should only
+   * be relied option within the same transaction that the request was made.
+   */
+    function lastRequestId() external view returns (uint256);
 
-/**
-* @notice Calculates the price of a VRF request with the given callbackGasLimit at the current
-* @notice block.
-*
-* @dev This function relies on the transaction gas price which is not automatically set during
-* @dev simulation. To estimate the price at a specific gas price, use the estimatePrice function.
-*
-* @param _callbackGasLimit is the gas limit used to estimate the price.
-  */
-  function calculateRequestPrice(uint32 _callbackGasLimit, uint32 _numWords) external view returns (uint64);
+    /**
+     * @notice Calculates the price of a VRF request with the given callbackGasLimit at the current
+   * @notice block.
+   *
+   * @dev This function relies on the transaction gas price which is not automatically set during
+   * @dev simulation. To estimate the price at a specific gas price, use the estimatePrice function.
+   *
+   * @param _callbackGasLimit is the gas limit used to estimate the price.
+   */
+    function calculateRequestPrice(uint32 _callbackGasLimit, uint32 _numWords) external view returns (uint64);
 
-//   /**
-//   * @notice Estimates the price of a VRF request with a specific gas limit and gas price.
-//   *
-//   * @dev This is a convenience function that can be called in simulation to better understand
-//   * @dev pricing.
-//   *
-//   * @param _callbackGasLimit is the gas limit used to estimate the price.
-//   * @param _requestGasPriceWei is the gas price in wei used for the estimation.
-//   */
-//   function estimateRequestPrice(uint32 _callbackGasLimit, uint256 _requestGasPriceWei) external view returns (uint256);
+    //   /**
+    //   * @notice Estimates the price of a VRF request with a specific gas limit and gas price.
+    //   *
+    //   * @dev This is a convenience function that can be called in simulation to better understand
+    //   * @dev pricing.
+    //   *
+    //   * @param _callbackGasLimit is the gas limit used to estimate the price.
+    //   * @param _requestGasPriceWei is the gas price in wei used for the estimation.
+    //   */
+    //   function estimateRequestPrice(uint32 _callbackGasLimit, uint256 _requestGasPriceWei) external view returns (uint256);
 }
 ```
 
@@ -551,33 +551,31 @@ pragma solidity ^0.8.0;
 
 abstract contract TRC20Interface {
 
-function totalSupply() public view virtual returns (uint);
+    function totalSupply() public view virtual returns (uint);
 
-function balanceOf(address guy) public view virtual returns (uint);
+    function balanceOf(address guy) public view virtual returns (uint);
 
-function allowance(address src, address guy) public view virtual returns (uint);
+    function allowance(address src, address guy) public view virtual returns (uint);
 
-function approve(address guy, uint wad) public virtual returns (bool);
+    function approve(address guy, uint wad) public  virtual returns (bool);
 
-function transfer(address dst, uint wad) public virtual returns (bool);
+    function transfer(address dst, uint wad) public virtual returns (bool);
 
-function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
+    function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
 
-event Transfer(address indexed from, address indexed to, uint tokens);
-event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+    event Transfer(address indexed from, address indexed to, uint tokens);
+    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
 abstract contract WinkMid {
 
-function setToken(address tokenAddress) public virtual;
+    function setToken(address tokenAddress) public virtual;
 
-function transferAndCall(address from, address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
+    function transferAndCall(address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
 
-function balanceOf(address guy) public view virtual returns (uint);
+    function balanceOf(address guy) public view virtual returns (uint);
 
-function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
-
-function allowance(address src, address guy) public view virtual returns (uint);
+    function allowance(address src, address guy) public view virtual returns (uint);
 
 }
 ```
@@ -612,10 +610,6 @@ Developers do not need to call WinkMid contract directly, as it's wink a helper 
 
 WIN token address and WinkMid contract address are needed in the constructor function when deploying an Coordinator contract.
 
-::: important
-Any account that triggers `transferAndCall` method needs to approve WinkMid contract as a spender with an allowance, otherwise the transaction will be reverted
-:::
-
 ### VRFCoordinatorV2
 
 The coordinator is the main contract that handles all VRF requests and fulfillments. Deploy the contract with respective arguments.
@@ -644,7 +638,7 @@ keyhash refers to the oracle node’s keyhash, it can be obtained through Operat
 
   Subscription consumer requires a subscription manager to maintain an active subscription. This consumer interfaces directly with the coordinator contract using a valid subscription id for requests.
 
-::: important
+::: warning
 The consumer contracts provided in the code is a working sample, users are expected to write their own consumer contracts based on their use cases.
 :::
 
@@ -668,7 +662,7 @@ After generating the account address and the private key, the developer can test
 
 Account will be generated on the initial run of the node and the private key will be stored in the keychain. Node will use this account for price feed transmissions.
 
-::: important
+::: warning
 account generated is not activated, please transfer any amount of TRX into the account for activation
 :::
 

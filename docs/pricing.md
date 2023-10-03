@@ -193,7 +193,7 @@ After generating the account address and the private key, the developer can test
 
 Account will be generated on the initial run of the node and the private key will be stored in the keychain. Node will use this account for price feed transmissions.
 
-::: important
+::: warning
 Account generated is not activated, please transfer any amount of TRX into the account for activation
 :::
 
