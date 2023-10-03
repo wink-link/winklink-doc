@@ -274,7 +274,7 @@ Constructor parameters：\
 `_numWords`： number of random words per vrf request\
 
 ```js
-/// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 // An example of a consumer contract that directly pays for each request.
 pragma solidity ^0.8.7;
 
@@ -305,7 +305,6 @@ VRFV2WrapperConsumerBase,
   bool fulfilled; // whether the request has been successfully fulfilled
   uint256[] randomWords;
 }
-
   mapping(uint256 => RequestStatus)
   public s_requests; /* requestId --> requestStatus */
 
@@ -334,7 +333,7 @@ VRFV2WrapperConsumerBase,
         uint32 _numWords
 )
   ConfirmedOwner(msg.sender)
-  VRFV2WrapperConsumerBase(_winkMid, _wrapper) {
+  VRFV2WrapperConsumerBase(_winkAddress, _winkMid, _wrapper) {
   winkAddress = _winkAddress;
   numWords = _numWords;
 }
@@ -345,7 +344,6 @@ VRFV2WrapperConsumerBase,
   returns (uint256 requestId)
   {
     requestId = requestRandomness(
-            msg.sender,
             callbackGasLimit,
             requestConfirmations,
             numWords
@@ -529,6 +527,7 @@ import "./VRFV2WrapperInterface.sol";
  * @dev fulfillment with the randomness result.
  */
 abstract contract VRFV2WrapperConsumerBase {
+  TRC20Interface internal immutable WINK_TOKEN;
   WinkMid internal immutable WINK_MID;
   VRFV2WrapperInterface internal immutable VRF_V2_WRAPPER;
 
@@ -536,7 +535,8 @@ abstract contract VRFV2WrapperConsumerBase {
    * @param _winkMid is the address of WinkMid
    * @param _vrfV2Wrapper is the address of the VRFV2Wrapper contract
    */
-  constructor(address _winkMid, address _vrfV2Wrapper) {
+  constructor(address _wink, address _winkMid, address _vrfV2Wrapper) {
+    WINK_TOKEN = TRC20Interface(_wink);
     WINK_MID = WinkMid(_winkMid);
     VRF_V2_WRAPPER = VRFV2WrapperInterface(_vrfV2Wrapper);
   }
@@ -554,15 +554,15 @@ abstract contract VRFV2WrapperConsumerBase {
    * @return requestId is the VRF V2 request ID of the newly created randomness request.
    */
   function requestRandomness(
-          address _from,
           uint32 _callbackGasLimit,
           uint16 _requestConfirmations,
           uint32 _numWords
 ) internal returns (uint256 requestId) {
+    uint64 amount = VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords);
+    WINK_TOKEN.approve(address(WINK_MID), amount);
     WINK_MID.transferAndCall(
-            _from,
             address(VRF_V2_WRAPPER),
-            VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords),
+            amount,
             abi.encode(_callbackGasLimit, _requestConfirmations, _numWords)
     );
     return VRF_V2_WRAPPER.lastRequestId();
@@ -632,7 +632,7 @@ abstract contract TRC20Interface {
 
   function allowance(address src, address guy) public view virtual returns (uint);
 
-  function approve(address guy, uint wad) public virtual returns (bool);
+  function approve(address guy, uint wad) public  virtual returns (bool);
 
   function transfer(address dst, uint wad) public virtual returns (bool);
 
@@ -646,11 +646,9 @@ abstract contract WinkMid {
 
   function setToken(address tokenAddress) public virtual;
 
-  function transferAndCall(address from, address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
+  function transferAndCall(address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
 
   function balanceOf(address guy) public view virtual returns (uint);
-
-  function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
 
   function allowance(address src, address guy) public view virtual returns (uint);
 
@@ -664,10 +662,10 @@ For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated t
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                 |
-| WinkMid        | TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw                                 |
+| WinkMid        | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro                                 |
 | BlockHashStore | TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA                                 |
-| VRFCoordinatorV2 | TMvQdnsahiJRiJpA7YgcpLUdKFi2LswPrb                                 |
-| VRFV2Wrapper | TJSP3zzmEH84y2W8hjfTgpqwhQsdWwn3N5                                 |
+| VRFCoordinatorV2 | TDidecxMyGMgqvYS7nmpMQCZ16HqqV5Fke                                 |
+| VRFV2Wrapper | TMNRLGXhe3gzbUyWccuQAKhfVKFyqmLE1W                                 |
 | Fee           | 10 WIN                                                              |
 
 Testnet Faucet: <https://nileex.io/join/getJoinPage>
@@ -677,8 +675,8 @@ Testnet Faucet: <https://nileex.io/join/getJoinPage>
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |
-| WinkMid        | TSG1B8DKDGY5sRFXwQ6xJofVr75DCFUA64                                 |
+| WinkMid        | TVMhaFMynYqTRLB1xShYL7wBwdmQHH6bKV                                 |
 | BlockHashStore | TRGmef4qUdNJ4xTEL96hToGuMTNst57aS1                                 |
-| VRFCoordinatorV2 | TD7hF84Xwf8Cu2zscmqxrgiGaEBziZhXqf                                 |
-| VRFV2Wrapper | TYMSMoitSkxuKUF1oiZp2fse4MEgsM86WT                                 |
+| VRFCoordinatorV2 | TZCz1BcnYviUNDiLvG6ZeuC477YupDgDA7                                 |
+| VRFV2Wrapper | TGDVwQRKwtNHrwy4RFG49b2HTHkvWckP5N                                 |
 | Fee           | 10 WIN                                                              |
