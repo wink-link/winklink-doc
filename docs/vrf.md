@@ -59,7 +59,7 @@ VRFCoordinatorV2 合约是部署在 TRON 公链上的预言机合约。主要功
 
 
 部署 VRFCoordinatorV2 合约时需要在构造函数提供相关参数：
-```js
+```
   constructor(
     address wink,
     address blockhashStore,
@@ -90,130 +90,28 @@ VRFV2Wrapper封装了与VRFCoordinatorV2的交互，作为dapp与VRFCoordinatorV
 `keyHash` : 节点keyhash\
 `maxNumWords` : 单次请求词数限制，当前设置为10
 
-
-<!--## 节点部署
-
-节点部署部分可以参考[WINkLink](https://doc.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分仅列出VRF节点部署的不同之处。
-
-VRFCoordinator 合约部署完毕后，就可以开始 WINkLink 节点部署。
-
-WINkLink 节点代码位于: <https://github.com/wink-link/winklink/tree/master/node>，
-编译完成后 node-v1.0.jar 位于项目源码目录下的 node/build/libs/ 中
-
-###节点配置
-
-节点配置文件确认完毕后，还需要创建 `vrfKeyStore.yml` 文件, 写入用于生成VRF的私钥(支持添加多个VRF私钥):
-
-```text
-privateKeys:
-  - *****(32字节 hex 编码私钥)
-```
-
-支持在无需重启节点server的情况下，动态更新vrfKeyStore，步骤如下：
-首先在`vrfKeyStore.yml` 文件中添加新的VRF私钥
-然后执行如下指令：
-```sh
-curl --location --request GET 'http://localhost:8081/vrf/updateVRFKey/vrfKeyStore.yml'
-```
-
-::: tip
-通过文件而非命令行参数提供私密信息是重要的安全性考虑，在生产环境需要设定私密文件 `vrfKeyStore.yml` 权限为 600,
-即只有拥有者可读写。
-:::
-
-### 启动节点
-
-所有配置文件都需要被复制到节点程序当前运行时目录，即 `cp node/src/main/resource/*.yml ./`，同时application-dev文件中的 `tronApiKey` 部分需要填充apikey.
-
-使用如下命令启动 WINkLink 节点程序：
-
-```sh
-java -jar node/build/libs/node-v1.0.jar -k key.store -vrfK vrfKeyStore.yml
-```
-
-具体的配置项目也可以通过命令行指定，例如：
-
-主网:
-```sh
-java -jar node/build/libs/node-v1.0.jar --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
-```
-nile测试网:
-```sh
-java -jar node/build/libs/node-v1.0.jar --env dev --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
-```
-
-使用如下命令判断 WINkLink 节点是否正常运行：
-
-```sh
-tail -f logs/tron.log
-```
-
-::: warning 注意
-节点帐号必须有足够的 TRX 代币，用于合约调用。可以通过测试网水龙头地址申请。
-:::
-### 为节点添加 job
-节点的 job 代表了节点所支持的数据服务, job ID 通过一个 32 字节唯一标识。
-
-WINkLink 节点正常运行后，就可以通过 HTTP API 为节点添加 job:
-
-示例：(修改下面代码中 `address` 参数为上述步骤中部署的 VRFCoordinator 合约地址；`publicKey` 参数为节点公钥的压缩值，该值可通过查看节点运行后的终端显示获得,对应项为`ecKey compressed`)
-
-```sh
-curl --location --request POST 'http://localhost:8081/job/specs' \
-  --header 'Content-Type: application/json' \
-    --data-raw '{
-    "initiators": [
-        {
-        "type": "randomnesslog",
-        "params": {
-            "address": "TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb"
-        }
-        }
-    ],
-    "tasks": [
-        {
-        "type": "random",
-        "params": {
-        "publicKey":"0x024e6bda4373bea59ec613b8721bcbb56222ab2ec10b18ba24ae369b7b74ab1452"
-        }
-        },
-        {
-        "type": "trontx",
-        "params": {
-            "type": "TronVRF"
-        }
-	}
-    ]
-    }'
-```
-
-### 查询节点 job
-
-请求示例：
-
-```sh
-curl --location --request GET 'http://localhost:8081/job/specs'
-```
--->
 ## 为节点账户授权
 
 节点账户需要授权才能向 VRFCoordinatorV2 合约提交数据，否则会报错 。
 
 需要使用 VRFCoordinatorV2 合约的 owner 执行如下合约调用，将节点账户添加到白名单:
 
-```js
+```
   function registerProvingKey(address oracle, uint256[2] calldata publicProvingKey) external onlyOwner
 ```
 
 其中`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的WIN代币，`_publicProvingKey` 为注册节点用于生成随机数的公钥。
 
-示例调用例如 `registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])`。
+示例调用例如:
+```
+registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])
+```
 
 ## Dapp合约
 
 当编写新的Dapp合约时，需遵循以下规则：
 - a) 引入VRFV2WrapperConsumerBase.sol
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 // An example of a consumer contract that directly pays for each request.
 pragma solidity ^0.8.7;
@@ -224,7 +122,7 @@ contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
 - b) 合约需实现vrf回调函数`fulfillRandomWords`，在这里你可以编写获取随机数结果后的业务处理逻辑.
-```js
+```
  function fulfillRandomWords(
         uint256 _requestId,
         uint256[] memory _randomWords
@@ -232,7 +130,7 @@ contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
 - c) 调用`requestRandomness`发起vrf请求。
-```js
+```solidity
  function requestRandomWords()
     external
     onlyOwner
@@ -267,7 +165,7 @@ contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 `_wrapper`：VRFV2Wrapper合约地址
 `_numWords`： 单次请求随机词数量
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 // An example of a consumer contract that directly pays for each request.
 pragma solidity ^0.8.7;
@@ -383,7 +281,7 @@ ConfirmedOwner
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -399,7 +297,7 @@ contract ConfirmedOwner is ConfirmedOwnerWithProposal {
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -482,7 +380,7 @@ contract ConfirmedOwnerWithProposal is OwnableInterface {
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -496,7 +394,7 @@ interface OwnableInterface {
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -583,7 +481,7 @@ abstract contract VRFV2WrapperConsumerBase {
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -620,7 +518,7 @@ interface VRFV2WrapperInterface {
 ```
 
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -1248,7 +1146,7 @@ contract WinklinkClient {
 
 ```
 
-```js
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
