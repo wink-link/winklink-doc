@@ -1,64 +1,64 @@
-# WINkLink 隨機數服務
+# WINkLink 随机数服务
 
-## 介紹
-VRF（Verifiable Random Function)，即可驗證的隨機函數，其可生成安全可靠的隨機數。
-隨機數由用戶提供的seed、nonce(VRFCoordinator合約的私有狀態)、請求所在區塊hash 和 隨機數生成節點的私鑰共同決定，隨機數節點不可作弊。且該隨機數在返回給用戶Dapp之前經過了驗證，從而保證了該隨機數的安全性。
+## 介绍
+VRF（Verifiable Random Function)，即可验证的随机函数，其可生成安全可靠的随机数。
+随机数由用户提供的seed、nonce(VRFCoordinator合约的私有状态)、请求所在区块hash 和 随机数生成节点的私钥共同决定，随机数节点不可作弊。且该随机数在返回给用户Dapp之前经过了验证，从而保证了该随机数的安全性。
 
-隨機數生成流程如下：
-- 由用戶合約在鏈上發出生成隨機數的請求；
-- 節點監聽到該請求後，會在鏈下生成隨機數和證明，然後在鏈上合約中響應；
-- 鏈上合約對生成的隨機數進行驗證並通過後，以回調函數反饋到用戶Dapp。
+随机数生成流程如下：
+- 由用户合约在链上发出生成随机数的请求；
+- 节点监听到该请求后，会在链下生成随机数和证明，然后在链上合约中响应； 
+- 链上合约对生成的随机数进行验证并通过后，以回调函数反馈到用户Dapp。
 
-它可以用於任何需要可靠隨機數的應用程序：
-- 區塊鏈遊戲和NFTs
-- 職責和資源的隨機分配（例如隨機分配法官審理案件）
-- 為共識機制選擇代表性樣本
+它可以用于任何需要可靠随机数的应用程序：
+- 区块链游戏和NFTs
+- 职责和资源的随机分配（例如随机分配法官审理案件）
+- 为共识机制选择代表性样本
 
-WINkLink VRF解決方案包含了以下鏈上和鏈下的組件：
+WINkLink VRF解决方案包含了以下链上和链下的组件：
 
-- VRF Coordinator（鏈上合約）：用於與VRF服務進行交互的合約。當發出隨機數請求時，它會觸發一個事件，然後對VRF服務生成的隨機數和證明進行驗證。
-- VRF Wrapper（鏈上合約）：封裝了VRF Coordinator，提供了接口以便用戶Dapp調用。
-- VRF 服務（鏈下節點）：此鏈下組件通過訂閱VRFCoordinator事件日誌來監聽隨機數請求，並基於區塊hash和隨機數生成一個隨機數，然後向VRFCoordinator發起一筆交易，其中包括隨機數和關於其生成方式的證明
+- VRF Coordinator（链上合约）：用于与VRF服务进行交互的合约。当发出随机数请求时，它会触发一个事件，然后对VRF服务生成的随机数和证明进行验证。
+- VRF Wrapper（链上合约）：封装了VRF Coordinator，提供了接口以便用户Dapp调用。
+- VRF 服务（链下节点）：此链下组件通过订阅VRFCoordinator事件日志来监听随机数请求，并基于区块hash和随机数生成一个随机数，然后向VRFCoordinator发起一个交易，其中包括随机数和关于其生成方式的证明
 
-本文介紹如何部署和使用VRF合約。
+本文介绍如何部署和使用VRF合约。
 
-## VRF請求流程
-1. Dapp合約調用`VRFV2Wrapper`的`calculateRequestPrice`函數來估算完成隨機數生成所需的總交易成本
+## VRF请求流程
+1. Dapp合约调用`VRFV2Wrapper`的`calculateRequestPrice`函数来估算完成随机数生成所需的总交易成本
 
-2. Dapp合約調用`WinkMid`的`transferAndCall`函數，以支付Wrapper所計算的請求價格。該方法發送Wink代幣，並執行`VRFV2Wrapper`的`onTokenTransfer`邏輯。
+2. Dapp合约调用`WinkMid`的`transferAndCall`函数，以支付Wrapper所计算的请求价格。该方法发送Wink代币，并执行`VRFV2Wrapper`的`onTokenTransfer`逻辑。
 
-3. `VRFV2Wrapper`的`onTokenTransfer`邏輯觸發`VRFCoordinatorV2`的`requestRandomWords`函數以請求隨機數。
+3. `VRFV2Wrapper`的`onTokenTransfer`逻辑触发`VRFCoordinatorV2`的`requestRandomWords`函数以请求随机数。
 
-4. `VRFCoordinatorV2`合約emit`RandomWordsRequested`事件。
+4. `VRFCoordinatorV2`合约emit`RandomWordsRequested`事件。
 
-5. VRF節點捕捉該事件，並等待指定數量的區塊確認，然後把隨機值和證明通過函數`fulfillRandomWords`返回`VRFCoordinatorV2`合約。
+5. VRF节点捕捉该事件，并等待指定数量的区块确认，然后把随机值和证明通过函数`fulfillRandomWords`返回`VRFCoordinatorV2`合约。
 
-6. `VRFCoordinatorV2`在鏈上驗證證明，然後回調`VRFV2Wrapper`的`fulfillRandomWords`函數
+6. `VRFCoordinatorV2`在链上验证证明，然后回调`VRFV2Wrapper`的`fulfillRandomWords`函数。
 
-7. 最後，`VRFV2Wrapper`回調Dapp合約完成請求。
+7. 最后，`VRFV2Wrapper`回调Dapp合约完成请求。
 
-## 準備工作
+## 准备工作
 
-WINkLink 的維護者需要對 TRON 有一定的了解，熟悉智能合約部署和調用流程。
-建議參考 [官方文檔](https://cn.developers.tron.network/) 。
+WINkLink 的维护者需要对 TRON 有一定的了解，熟悉智能合约部署和调用流程。
+建议参考 [官方文档](https://cn.developers.tron.network/) 。
 
-完成節點帳號申請,建議參考[節點帳號準備文檔](./deploy.md) 。
+完成节点账号申请,建议参考[节点账号准备文档](https://doc.winklink.org/v1/doc/deploy.html#%E5%87%86%E5%A4%87%E8%8A%82%E7%82%B9%E5%B8%90%E5%8F%B7) 。
 
-## VRFCoordinatorV2 合約
+## VRFCoordinatorV2 合约
 
-VRFCoordinatorV2 合約是部署在 TRON 公鏈上的預言機合約。主要功能如下
+VRFCoordinatorV2 合约是部署在 TRON 公链上的预言机合约。主要功能如下
 
-- 接收消費者合約(Consumer Contract)的數據請求，觸發 Event Log
-    - 數據請求發送時會附帶 WIN 轉賬作為使用費用
-- 接受 WINkLink 節點所提交的隨機數和證明  
-    - VRFCoordinator收到合約後會對隨機數進行驗證
-- 對數據請求的 WIN 代幣費用進行結算，提取收益
-
-
-<!-- 合約代碼位於 [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。-->
+- 接收消费者合约(Consumer Contract)的数据请求，触发 Event Log
+    - 数据请求发送时会附带 WIN 转账作为使用费用
+- 接受 WINkLink 节点所提交的随机数和证明  
+    - VRFCoordinator收到合约后会对随机数进行验证
+- 对数据请求的 WIN 代币费用进行结算，提取收益
 
 
-部署 VRFCoordinatorV2 合約時需要在構造函數提供相關參數：
+<!-- 合约代码位于 [VRFCoordinator.sol](https://github.com/wink-link/winklink/tree/master/tvm-contracts/v1.0/VRF/VRFCoordinator.sol) 。-->
+
+
+部署 VRFCoordinatorV2 合约时需要在构造函数提供相关参数：
 ```
   constructor(
     address wink,
@@ -66,155 +66,50 @@ VRFCoordinatorV2 合約是部署在 TRON 公鏈上的預言機合約。主要功
     address winkMid
   )
 ```
-`_blockHashStore` 為BlockHashStore合約地址，`_win` 為WIN代幣地址, `_winkMid` 為WinkMid合約地址。
+`_blockHashStore` 为BlockHashStore合约地址，`_win` 为WIN代币地址, `_winkMid` 为WinkMid合约地址。
 
 
 <!--
-為方便開發者, Nile 測試網已經部署了 `WinkMid` 合約，封裝了 Nile 測試網 `WIN` 代幣。
-開發者可直接使用該合約地址，無需額外部署。 Nile 測試網同時提供了水龍頭地址可以領取測試 TRX 和 WIN 代幣。
+为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
 
-::: tip Nile 測試網
+::: tip Nile 测试网
 
-- WIN 代幣合約地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- WinkMid 合約地址: `TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw`
-- BlockHashStore 合約地址:: `TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA`
-- 測試網水龍頭: <https://nileex.io/join/getJoinPage>
+- WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
+- WinkMid 合约地址: `TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw`
+- BlockHashStore 合约地址: `TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA`
+- 测试网水龙头: <https://nileex.io/join/getJoinPage>
   :::
   -->
 
-## VRFV2Wrapper 合約
-VRFV2Wrapper封裝了與VRFCoordinatorV2的互動，作為dapp與VRFCoordinatorV2的中間層,供Dapp直接調用。
+## VRFV2Wrapper 合约
+VRFV2Wrapper封装了与VRFCoordinatorV2的交互，作为dapp与VRFCoordinatorV2的中间层,供Dapp直接调用。
 
 
-**配置參數**\
-`keyHash` : 節點keyhash\
-`maxNumWords` : 單次請求詞數限制，當前設置為10
+**配置参数**\
+`keyHash` : 节点keyhash\
+`maxNumWords` : 单次请求词数限制，当前设置为10
 
+## 为节点账户授权
 
-<!--## 節點部署
+节点账户需要授权才能向 VRFCoordinatorV2 合约提交数据，否则会报错 。
 
-節點部署部分可以參考[WINkLink](https://doc.winklink.org/v1/doc/deploy.html#%E8%8A%82%E7%82%B9%E9%83%A8%E7%BD%B2) ，本部分僅列出VRF節點部署的不同之處。
-
-VRFCoordinator 合約部署完畢後，就可以開始 WINkLink 節點部署。
-
-WINkLink 節點代碼位於: <https://github.com/wink-link/winklink/tree/master/node>，
-編譯完成後 node-v1.0.jar 位於項目源碼目錄下的 node/build/libs/ 中
-
-###節點配置
-
-節點配置文件確認完畢後，還需要創建 `vrfKeyStore.yml` 文件, 寫入用於生成VRF的私鑰(支持添加多個VRF私鑰):
-
-```text
-privateKeys:
-  - *****(32字节 hex 编码私钥)
-```
-
-支持在無需重啟節點server的情況下，動態更新vrfKeyStore，步驟如下：
-首先在`vrfKeyStore.yml` 文件中添加新的VRF私鑰
-然後執行如下指令：
-```sh
-curl --location --request GET 'http://localhost:8081/vrf/updateVRFKey/vrfKeyStore.yml'
-```
-
-::: tip
-通過文件而非命令行參數提供私密信息是重要的安全性考慮，在生產環境需要設定私密文件 `vrfKeyStore.yml` 權限為 600，
-即只有擁有者可讀寫。
-:::
-
-### 启动節點
-
-所有配置文件都需要被複製到節點程序當前運行時目錄，即 `cp node/src/main/resource/*.yml ./`，同時application-dev文件中的 `tronApiKey` 部分需要填充apikey.
-
-使用如下命令啟動 WINkLink 節點程序：
-
-```sh
-java -jar node/build/libs/node-v1.0.jar -k key.store -vrfK vrfKeyStore.yml
-```
-
-具體的配置項目也可以通過命令行指定，例如：
-
-主網:
-```sh
-java -jar node/build/libs/node-v1.0.jar --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
-```
-nile測試網:
-```sh
-java -jar node/build/libs/node-v1.0.jar --env dev --server.port=8081 --spring.profiles.active=dev --key key.store  --vrfKey vrfKeyStore.yml
-```
-
-使用以下命令檢查 WINkLink 節點是否正常運行：
-
-```sh
-tail -f logs/tron.log
-```
-
-::: warning 注意
-節點帳號必須有足夠的 TRX 代幣，用於合約調用。可以通過測試網水龍頭地址申請。
-:::
-### 為節點添加 job
-節點的 job 代表了節點所支持的數據服務, job ID 通過一個 32 字節唯一標識。
-
-WINkLink 節點正常運行後，就可以通過 HTTP API 為節點添加 job:
-
-示例：(修改下面代碼中 `address` 參數為上述步驟中部署的 VRFCoordinator 合約地址；`publicKey` 參數為節點公鑰的壓縮值，該值可通過查看節點運行後的終端顯示獲得,對應項為`ecKey compressed`)
-
-```sh
-curl --location --request POST 'http://localhost:8081/job/specs' \
-  --header 'Content-Type: application/json' \
-    --data-raw '{
-    "initiators": [
-        {
-        "type": "randomnesslog",
-        "params": {
-            "address": "TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb"
-        }
-        }
-    ],
-    "tasks": [
-        {
-        "type": "random",
-        "params": {
-        "publicKey":"0x024e6bda4373bea59ec613b8721bcbb56222ab2ec10b18ba24ae369b7b74ab1452"
-        }
-        },
-        {
-        "type": "trontx",
-        "params": {
-            "type": "TronVRF"
-        }
-	}
-    ]
-    }'
-```
-
-### 查询節點 job
-
-請求示例：
-
-```sh
-curl --location --request GET 'http://localhost:8081/job/specs'
-```
--->
-## 為節點帳戶授權
-
-節點帳戶需要授權才能向 VRFCoordinatorV2 合約提交數據，否則會報錯。
-
-需要使用 VRFCoordinatorV2 合約的擁有者執行如下合約調用，將節點帳戶添加到白名單：
+需要使用 VRFCoordinatorV2 合约的 owner 执行如下合约调用，将节点账户添加到白名单:
 
 ```
   function registerProvingKey(address oracle, uint256[2] calldata publicProvingKey) external onlyOwner
 ```
 
-其中 `_oracle` 為註冊節點的地址，用於接收 Dapp 應用對其支付的 WIN 代幣，`_publicProvingKey` 為註冊節點用於生成隨機數的公鑰。
+其中`_oracle` 为注册节点的地址,用于接收Dapp应用对其支付的WIN代币，`_publicProvingKey` 为注册节点用于生成随机数的公钥。
 
-示例調用例如:
+示例调用例如:
 ```
 registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])
 ```
 
-## Dapp合約
+## Dapp合约
 
-當編寫新的 Dapp 合約時，需遵循以下規則：
+当编写新的Dapp合约时，需遵循以下规则：
 - a) 引入VRFV2WrapperConsumerBase.sol
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -226,7 +121,7 @@ import "./VRFV2WrapperConsumerBase.sol";
 contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
-- b) 合約需實現VRF回調函數 `fulfillRandomWords`，在這裡你可以編寫獲取隨機數結果後的業務處理邏輯。
+- b) 合约需实现vrf回调函数`fulfillRandomWords`，在这里你可以编写获取随机数结果后的业务处理逻辑.
 ```
  function fulfillRandomWords(
         uint256 _requestId,
@@ -234,7 +129,7 @@ contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
     )
 ```
 
-- c) 調用 `requestRandomness` 發起VRF請求。
+- c) 调用`requestRandomness`发起vrf请求。
 ```solidity
  function requestRandomWords()
     external
@@ -260,15 +155,15 @@ contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
 
-**示例Dapp合約**
+**示例Dapp合约**
 
-部署示例合約VRFv2DirectFundingConsumer.sol。
+部署实例合约VRFv2DirectFundingConsumer.sol。
 
-構造函數參數：\
-`_winkAddress`：wink代币合約地址
-`_winkMid`： winkMid合約地址
-`_wrapper`：VRFV2Wrapper合約地址
-`_numWords`： 單次請求隨機詞數量
+构造函数参数：\
+`_winkAddress`：wink代币合约地址
+`_winkMid`： winkMid合约地址
+`_wrapper`：VRFV2Wrapper合约地址
+`_numWords`： 单次请求随机词数量
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -1423,9 +1318,9 @@ library SignedSafeMath {
 ```
 
 
-## TRON Nile網VRF合約
-為了方便開發者，Nile測試網已經部署了`WinkMid`合約，封裝了Nile測試網的`WIN`代幣。
-開發者可直接使用該合約地址，無需額外部署。Nile測試網同時提供了水龍頭地址可以領取測試TRX和WIN代幣。
+## Tron Nile网VRF合约
+为方便开发者, Nile 测试网已经部署了 `WinkMid` 合约，封装了 Nile 测试网 `WIN` 代币。
+开发者可直接使用该合约地址，无需额外部署。 Nile 测试网同时提供了水龙头地址可以领取测试 TRX 和 WIN 代币。
 
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
@@ -1436,9 +1331,9 @@ library SignedSafeMath {
 | VRFV2Wrapper | TJSP3zzmEH84y2W8hjfTgpqwhQsdWwn3N5                                 |
 | Fee           | 10 WIN                                                              |
 
-測試網水龍頭: <https://nileex.io/join/getJoinPage>
+测试网水龙头: <https://nileex.io/join/getJoinPage>
 
-## Tron主網VRF合約
+## Tron主网VRF合约
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |

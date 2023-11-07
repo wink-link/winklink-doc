@@ -1,22 +1,21 @@
-# 术语表
+# Glossary
 
-## 预言机 Oracle
+## Oracle
 
-将链上计算与链下资源联系起来的实体。由两部分构成: Oracle 节点和 Oracle 合约。
+An entity that connects on-chain computation and off-chain resources .It consists of the Oracle node and Oracle contract.
 
-## 预言机合约 Oracle Contract
+## Oracle Contract
 
-Oracle 的链上组成部分。Oracle合约是消费合约传递和接受链下资源的接口。
+The on-chain component of Oracle. It is the interface for passing consumer contracts and receiving off-chain resources.
 
-## 预言机节点 Oracle Node
+## Oracle Node
 
-Oracle 的链下组成部分。
+The off-chain component of Oracle.
 
-## 消费者合约 Consumer Contract
+## Consumer Contract
 
-Oracle 所获取到结果的接受者。
-例如 `TronUser` 喂价合约请求多个 Oracle 更新最新价格，并聚合结果。
+The recipient of Oracle's acquired results. For example, the `TronUser` price feed contract can request that multiple Oracles update to the latest prices and aggregate the results.
 
-消费者一般来说是发起请求的合约，但也可以不是。
-例如 `PriceConsumer` 通过 `AggregatorInterface` 查询最新价格，并没有请求 Oracle, 而是查询喂价合约的最新结果。
-它也是一个消费者合约。
+Generally, consumers are the contracts that initiate requests, but with exceptions.
+
+For example, the `PriceConsumer` can inquire the latest prices using `AggregatorInterface`, not by requesting Oracle, but by inquiring the latest results on the price feed contract, which makes it a consumer contract as well.

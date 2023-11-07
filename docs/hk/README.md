@@ -30,5 +30,5 @@ WINkLink 正是應時而生，解決了 TRON 上智能合約對外部世界數�
 歡迎加入 WINkLink 生態。
 
 - Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
-- Github 项目: <https://github.com/wink-link/winklink>
+- Github 項目: <https://github.com/wink-link/winklink>
 - Support E-mail: <developer@winklink.org>

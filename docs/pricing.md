@@ -1,19 +1,18 @@
-# WINkLink 价格服务
+# WINkLink Price Service
 
-## 介绍
+## Overview
 
-智能合约经常需要对真实世界的代币资产价格做响应，在 DeFi 领域更是如此，资产价格必须和真实世界价格高度对应，
-否则用户和开发者可能承受合约被套利或攻击带来的损失。
+To ensure that smart contracts reflect token prices in real-world time, it is necessary to frequently update them. In particular, the prices of assets in DeFi must closely match those of the real world. Otherwise, arbitrage or contract attacks may cause losses for users and developers.
 
-WINkLink 价格服务专注于数字货币价格对, 为 DApp 提供准确稳定的外部世界数字货币价格信息。
+WINkLink's price service focuses on digital currency pairs, providing decentralized applications (DApps) with accurate and stable price information on real-world digital currencies. The solution offered by WINkLink aggregates price data from multiple oracle nodes, resulting in a stable price service known as the Price Feed Contract.
 
-WINkLink 官方提供了聚合多个 WINkLink 预言机节点价格数据的方案，最终得到稳定的价格服务，称作喂价合约(Price Feed Contract).
+This article explains how you may utilise the WINkLink price service contract.
 
-本文介绍如何使用和部署 WINkLink 价格服务合约。
+## Acquire Latest Prices
 
-## 获取最新价格
+Acquiring the latest price data in the consumer contract requires `AggregatorInterface`. 
 
-消费者合约中获取最新价格数据需要引入 `AggregatorInterface`, 该接口定义了喂价服务对外提供的接口。
+This interface defines the functions provided by the Price Feed Contract to the public. The code below demonstrates an example of using the AggregatorInterface to acquire the latest price:
 
 ```solidity
 pragma solidity ^0.5.0;
@@ -47,14 +46,14 @@ contract PriceConsumer {
 }
 ```
 
-### 历史价格
+### Price History
 
-由 `AggregatorInterface` 接口函数列表，通过 `getAnswer(uint256 roundId)` 可以获取历史价格信息。对应的时间戳通过
-`getTimestamp(uint256 roundId)` 获得。
+The `AggregatorInterface` interface provides the `getAnswer(uint256 roundId)` function to obtain the price history. The corresponding timestamp can be acquired via `getTimestamp(uint256 roundId)`.
 
-## 喂价合约
+## Price Feed Contract
 
-### 主网
+### Mainnet
+
 
 | Pair       | Contract Address (Proxy)            |
 |------------|-------------------------------------|
@@ -74,8 +73,8 @@ contract PriceConsumer {
 | LTC-TRX    | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6  |
 | LTC-USD    | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ  |
 | NFT-TRX    | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY  |
-| NFT-USD    | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU  |
 | STRX-TRX   | TW9bNueyJZA9iZnNXGYkJuPJJ7KFN3o5qw  |
+| NFT-USD    | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU  |
 | SUN-TRX    | TLLyqXr5cbYEMjzeThe1esss1SVBbxxubu  |
 | SUN-USD    | TRMgzSPsuWEcVpd5hv19XtLeCk8Z799sZa  |
 | SUNOLD-TRX | TWAob1YsNzh7bfgkjfAD9MAdarcoSWScWw  |
@@ -95,108 +94,55 @@ contract PriceConsumer {
 | WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
 | WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
 
-### Nile 测试网
+### Nile Testnet
 
-- WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- WinkMid 合约地址: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
+- WIN Token Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
+- WinkMid Contract Address: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
-价格服务合约地址列表：
+List of price service contract addresses:
 
-| Pair         | Nile (Proxy)                         |
-|:-------------|:-------------------------------------|
-| BTC-TRX      | TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE   |
-| BTC-USD      | TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE   |
-| BTT-TRX      | TKbeHN2hdrgSShG6iF3mDsJTu9fFzNrHjo   |
-| BTT-USD      | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7   |
-| BTTOLD-TRX   | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6   |
-| BTTOLD-USD   | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE   |
-| BUSD-TRX     | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe   |
-| BUSD-USD     | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx   |
-| ETH-TRX      | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ   |
-| ETH-USD      | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX   |
-| JST-TRX      | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj   |
-| JST-USD      | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj   |
-| LIVE-USD     | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH   |
-| LTC-TRX      | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22   |
-| LTC-USD      | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19   |
-| NFT-TRX      | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum   |
-| NFT-USD      | TX5KVe4sp24w5HJ4nfk2ZstRhV8RTFm67W   |
-| STRX-TRX     | TEbUQ4gohuK5wdtKmpnGd2kvyzhhznJDCx   |
-| SUN-TRX      | TTxxeWGpSDV3zPDxnYXzG1ue7RpTYTvDpY   |
-| SUN-USD      | TJjENuVH7TD8RJdGtj22ac6Bt1ktpBGURR   |
-| SUNOLD-TRX   | TNfn4qt4QJ7LAndM2aWbxrGGH8CRGvzxui   |
-| SUNOLD-USD   | TMKzWKMA1gSwjYSL6VpfCUXLuwPKdjEsQ2   |
-| TRX-USD      | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1   |
-| TUSD-TRX     | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW   |
-| TUSD-USD     | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz   |
-| USDC-TRX     | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB   |
-| USDC-USD     | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER   |
-| USDD-TRX     | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ   |
-| USDD-USD     | TX264fxRmdhNfUgkruk9orzAVvtCehyowq   |
-| USDJ-TRX     | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd   |
-| USDJ-USD     | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1   |
-| USDT-TRX     | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK   |
-| USDT-USD     | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ   |
-| WIN-TRX      | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj   |
-| WIN-USD      | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9   |
- | WSTUSDT-TRX  | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P   |
+| Pair       | Nile (Proxy)                          |
+|:-----------|:--------------------------------------|
+| BTC-TRX    | TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE    |
+| BTC-USD    | TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE    |
+| BTT-TRX    | TKbeHN2hdrgSShG6iF3mDsJTu9fFzNrHjo    |
+| BTT-USD    | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7    |
+| BTTOLD-TRX | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6    |
+| BTTOLD-USD | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE    |
+| BUSD-TRX   | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe    |
+| BUSD-USD   | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx    |
+| ETH-TRX    | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ    |
+| ETH-USD    | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX    |
+| JST-TRX    | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj    |
+| JST-USD    | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj    |
+| LIVE-USD   | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH    |
+| LTC-TRX    | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22    |
+| LTC-USD    | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19    |
+| NFT-TRX    | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum    |
+| NFT-USD    | TX5KVe4sp24w5HJ4nfk2ZstRhV8RTFm67W    |
+| STRX-TRX   | TEbUQ4gohuK5wdtKmpnGd2kvyzhhznJDCx    |
+| SUN-TRX    | TTxxeWGpSDV3zPDxnYXzG1ue7RpTYTvDpY    |
+| SUN-USD    | TJjENuVH7TD8RJdGtj22ac6Bt1ktpBGURR    |
+| SUNOLD-TRX | TNfn4qt4QJ7LAndM2aWbxrGGH8CRGvzxui    |
+| SUNOLD-USD | TMKzWKMA1gSwjYSL6VpfCUXLuwPKdjEsQ2    |
+| TRX-USD    | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1    |
+| TUSD-TRX   | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW    |
+| TUSD-USD   | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz    |
+| USDC-TRX   | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB    |
+| USDC-USD   | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER    |
+| USDD-TRX   | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ    |
+| USDD-USD   | TX264fxRmdhNfUgkruk9orzAVvtCehyowq    |
+| USDJ-TRX   | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd    |
+| USDJ-USD   | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1    |
+| USDT-TRX   | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK    |
+| USDT-USD   | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ    |
+| WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj    |
+| WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9    |
+| WSTUSDT-TRX  | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P  |
 
-### 申请新交易对
+### Apply for New Trading Pairs
 
-如果您需要 WINkLink 提供新的交易对，请填写并提交[申请表单](https://forms.gle/YiQWuBwNmHpzVckp7)
+To request for new trading pair to be added to WINkLink officially, please fill in and submit [this form.](https://forms.gle/bSdwYa2mHRjdWCgt6)
 
-## 部署价格服务
-
-开发者也可以部署自己的价格服务，自定义价格来源和最少响应预言机个数。
-
-生产环境情况下，应该需要多个预言机节点来喂价，然后通过聚合得到一个最终的价格。
-但在测试的流程下，我们暂且只设置一个节点来喂价。简化测试展示流程。
-
-### 部署喂价合约
-
-TronUser 合约是 WINkLink 官方推出的聚合价格服务合约模板，该合约实现了 `AggregatorInterface` 接口，开发者可以直接使用。
-
-合约代码位于 [TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
-
-部署 TronUser 合约时需要在构造函数提供 WIN 代币地址和 WinkMid 合约地址。例如 Nile 测试网中，需要提供
-`(TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`.
-
-### 添加预言机节点以及 job ID
-
-TronUser 合约部署完毕后，合约 owner 需要为其设置所聚合请求的预言机服务列表。使用如下接口：
-
-```solidity
-function updateRequestDetails(uint128 _paymentAmount, uint128 _minimumResponses, address[] _oracles, bytes32[] _jobIds)
-```
-
-其中 `_paymentAmount` 表示每次更新调用所支付代币数量。
-
-`_oracles` 和 `_jobIds` 是一对等长列表，每组对应一个 WINkLink 预言机 job 唯一标识。
-
-`_minimumResponses` 表示需要的最少响应预言机个数，必须大于等于 `_oracles` 长度。
-例如可以设置要求至少 5/10 个预言机响应后，本次更新值才有效。
-
-示例调用 `updateRequestDetails(10, 1, ["TR9jYcLWAcQfbKcP5oau1ccSbeW7mdnqg8"], ["db22ccf4b4a14d0cae2a0757632e425d"])`.
-
-### 为合约转入 WIN 代币
-
-TronUser 合约需要使用 `transferAndCall` 调用 Oracle 合约，所以合约账户需要有足够的 WIN 代币。
-可以通过转账或测试网水龙头为合约转入若干 WIN 代币。
-
-### 调用喂价合约
-
-#### 更新价格 requestRateUpdate
-
-使用如下接口请求 WINkLink 预言机节点从外部数据源获取最新价格：
-
-```solidity
-function requestRateUpdate() returns (bytes32)
-```
-
-接口返回 `requestID`. 通过 `requestID` 可以取消更新价格请求。
-
-#### 获取最新价格 latestAnswer
-
-使用 `AggregatorInterface` 中的 `latestAnswer()` 调用可以获取最新价格。
-
-TronScan 的合约信息页面可以直接调用该方法获得最新值。
+#### Acquire Latest Prices with latestAnswer
+Acquire the latest prices by calling `latestAnswer()` in `AggregatorInterface`.
