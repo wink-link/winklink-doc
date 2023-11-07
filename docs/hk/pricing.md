@@ -7,9 +7,9 @@
 
 WINkLink 價格服務專注於數字貨幣價格對, 為 DApp 提供準確穩定的外部世界數字貨幣價格信息。
 
-WINkLink 官方提供了聚合多個 WINkLink 預言機節點價格數據的方案，最終得到穩定的價格服務，稱作餵價合約(Price Feed Contract).
+WINkLink 官方提供了聚合多個 WINkLink 預言機節點價格數據的方案，最終得到穩定的價格服務，稱作餵價合約(Price Feed Contract)。
 
-本文介紹如何使用和部署 WINkLink 價格服務合約
+本文介紹如何使用和部署 WINkLink 價格服務合約。
 
 ## 獲取最新價格
 
@@ -95,7 +95,7 @@ contract PriceConsumer {
 | WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
 | WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
 
-### Nile 测试网
+### Nile 測試網
 
 - WIN 代幣合約地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - WinkMid 合約地址: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
@@ -158,7 +158,7 @@ TronUser 合約是 WINkLink 官方推出的聚合價格服務合約模板，該�
 合約代碼位於[TronUser.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v1.0/TronUser.sol)
 
 部署 TronUser 合約時需要在構造函數提供 WIN 代幣地址和 WinkMid 合約地址。例如 Nile 測試網中，需要提供
-`(TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`.
+`(TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2, TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb)`。
 
 ### 添加預言機節點以及 job ID
 
@@ -192,7 +192,7 @@ TronUser 合約需要使用 `transferAndCall` 調用 Oracle 合約，所以合�
 function requestRateUpdate() returns (bytes32)
 ```
 
-接口返回 `requestID`. 通過 `requestID` 可以取消更新價格請求。
+接口返回 `requestID`。 通過 `requestID` 可以取消更新價格請求。
 
 #### 獲取最新價格 latestAnswer
 

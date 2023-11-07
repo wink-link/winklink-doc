@@ -18,12 +18,12 @@ WINkLink VRF解決方案包含了以下鏈上和鏈下的組件：
 
 - VRF Coordinator（鏈上合約）：用於與VRF服務進行交互的合約。當發出隨機數請求時，它會觸發一個事件，然後對VRF服務生成的隨機數和證明進行驗證。
 - VRF Wrapper（鏈上合約）：封裝了VRF Coordinator，提供了接口以便用戶Dapp調用。
-- VRF 服務（鏈下節點）：此鏈下組件通過訂閱VRFCoordinator事件日誌來監聽隨機數請求，並基於區塊hash和隨機數生成一個隨機數，然後向VRFCoordinator發起一筆交易，其中包括隨機數和關於其生成方式的證明
+- VRF 服務（鏈下節點）：此鏈下組件通過訂閱VRFCoordinator事件日誌來監聽隨機數請求，並基於區塊hash和隨機數生成一個隨機數，然後向VRFCoordinator發起一筆交易，其中包括隨機數和關於其生成方式的證明。
 
 本文介紹如何部署和使用VRF合約。
 
 ## VRF請求流程
-1. Dapp合約調用`VRFV2Wrapper`的`calculateRequestPrice`函數來估算完成隨機數生成所需的總交易成本
+1. Dapp合約調用`VRFV2Wrapper`的`calculateRequestPrice`函數來估算完成隨機數生成所需的總交易成本。
 
 2. Dapp合約調用`WinkMid`的`transferAndCall`函數，以支付Wrapper所計算的請求價格。該方法發送Wink代幣，並執行`VRFV2Wrapper`的`onTokenTransfer`邏輯。
 
