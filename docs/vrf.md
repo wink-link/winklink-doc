@@ -292,105 +292,104 @@ import "./VRFV2WrapperConsumerBase.sol";
 
 contract VRFv2DirectFundingConsumer is
 VRFV2WrapperConsumerBase,
-ConfirmedOwner
+        ConfirmedOwner
 {
-    address winkAddress;
+  address winkAddress;
 
-    event RequestSent(uint256 requestId, uint32 numWords);
-    event RequestFulfilled(
+  event RequestSent(uint256 requestId, uint32 numWords);
+  event RequestFulfilled(
         uint256 requestId,
         uint256[] randomWords,
         uint256 payment
-    );
+);
 
-    struct RequestStatus {
-        uint256 paid; // amount paid in link
-        bool fulfilled; // whether the request has been successfully fulfilled
-        uint256[] randomWords;
-    }
-    mapping(uint256 => RequestStatus)
-    public s_requests; /* requestId --> requestStatus */
+  struct RequestStatus {
+  uint256 paid; // amount paid in wink
+  bool fulfilled; // whether the request has been successfully fulfilled
+  uint256[] randomWords;
+}
+  mapping(uint256 => RequestStatus)
+  public s_requests; /* requestId --> requestStatus */
 
-    // past requests Id.
-    uint256[] public requestIds;
-    uint256 public lastRequestId;
+  // past requests Id.
+  uint256[] public requestIds;
+  uint256 public lastRequestId;
 
-    // Depends on the number of requested values that you want sent to the
-    // fulfillRandomWords() function. Test and adjust
-    // this limit based on the network that you select, the size of the request,
-    // and the processing of the callback request in the fulfillRandomWords()
-    // function.
-    uint32 callbackGasLimit = 0;
+  // Depends on the number of requested values that you want sent to the
+  // fulfillRandomWords() function. Test and adjust
+  // this limit based on the network that you select, the size of the request,
+  // and the processing of the callback request in the fulfillRandomWords()
+  // function.
+  uint32 callbackGasLimit = 0;
 
-    // The default is 3, but you can set this higher.
-    uint16 requestConfirmations = 3;
+  // The default is 3, but you can set this higher.
+  uint16 requestConfirmations = 3;
 
-    // For this example, retrieve 2 random values in one request.
-    // Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
-    uint32 numWords;
+  // For this example, retrieve 2 random values in one request.
+  // Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.
+  uint32 numWords;
 
-    constructor(
-        address _winkAddress,
+  constructor(
+          address _winkAddress,
         address _winkMid,
         address _wrapper,
         uint32 _numWords
-    )
-    ConfirmedOwner(msg.sender)
-    VRFV2WrapperConsumerBase(_winkMid, _wrapper) {
-        winkAddress = _winkAddress;
-        numWords = _numWords;
-    }
+)
+  ConfirmedOwner(msg.sender)
+  VRFV2WrapperConsumerBase(_winkAddress, _winkMid, _wrapper) {
+  winkAddress = _winkAddress;
+  numWords = _numWords;
+}
 
-    function requestRandomWords()
-    external
-    onlyOwner
-    returns (uint256 requestId)
-    {
-        requestId = requestRandomness(
-            msg.sender,
+  function requestRandomWords()
+  external
+  onlyOwner
+  returns (uint256 requestId)
+  {
+    requestId = requestRandomness(
             callbackGasLimit,
             requestConfirmations,
             numWords
-        );
-        s_requests[requestId] = RequestStatus({
-            paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
-            randomWords: new uint256[](0),
-            fulfilled: false
-        });
-        requestIds.push(requestId);
-        lastRequestId = requestId;
-        emit RequestSent(requestId, numWords);
-        return requestId;
-    }
+    );
+    s_requests[requestId] = RequestStatus({
+      paid: VRF_V2_WRAPPER.calculateRequestPrice(callbackGasLimit, numWords),
+      randomWords: new uint256[](0),
+      fulfilled: false
+    });
+    requestIds.push(requestId);
+    lastRequestId = requestId;
+    emit RequestSent(requestId, numWords);
+    return requestId;
+  }
 
-    function fulfillRandomWords(
-        uint256 _requestId,
+  function fulfillRandomWords(
+          uint256 _requestId,
         uint256[] memory _randomWords
-    ) internal override {
-        require(s_requests[_requestId].paid > 0, "request not found");
-        s_requests[_requestId].fulfilled = true;
-        s_requests[_requestId].randomWords = _randomWords;
-        emit RequestFulfilled(
-            _requestId,
-            _randomWords,
-            s_requests[_requestId].paid
-        );
-    }
-
-    function getRequestStatus(
-        uint256 _requestId
-    )
-    external
-    view
-    returns (uint256 paid, bool fulfilled, uint256[] memory randomWords)
-    {
-        require(s_requests[_requestId].paid > 0, "request not found");
-        RequestStatus memory request = s_requests[_requestId];
-        return (request.paid, request.fulfilled, request.randomWords);
-    }
+) internal override {
+  require(s_requests[_requestId].paid > 0, "request not found");
+  s_requests[_requestId].fulfilled = true;
+  s_requests[_requestId].randomWords = _randomWords;
+  emit RequestFulfilled(
+          _requestId,
+          _randomWords,
+          s_requests[_requestId].paid
+  );
 }
 
+  function getRequestStatus(
+          uint256 _requestId
+)
+  external
+  view
+  returns (uint256 paid, bool fulfilled, uint256[] memory randomWords)
+  {
+    require(s_requests[_requestId].paid > 0, "request not found");
+    RequestStatus memory request = s_requests[_requestId];
+    return (request.paid, request.fulfilled, request.randomWords);
+  }
+}
 ```
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -404,7 +403,6 @@ import "./ConfirmedOwnerWithProposal.sol";
 contract ConfirmedOwner is ConfirmedOwnerWithProposal {
   constructor(address newOwner) ConfirmedOwnerWithProposal(newOwner, address(0)) {}
 }
-
 ```
 
 ```solidity
@@ -487,7 +485,6 @@ contract ConfirmedOwnerWithProposal is OwnableInterface {
     _;
   }
 }
-
 ```
 
 ```solidity
@@ -501,7 +498,6 @@ interface OwnableInterface {
 
   function acceptOwnership() external;
 }
-
 ```
 
 ```solidity
@@ -527,7 +523,7 @@ import "./VRFV2WrapperInterface.sol";
  * @dev USAGE
  *
  * @dev Calling contracts must inherit from VRFV2WrapperConsumerBase. The consumer must be funded
- * @dev with enough LINK to make the request, otherwise requests will revert. To request randomness,
+ * @dev with enough WINK to make the request, otherwise requests will revert. To request randomness,
  * @dev call the 'requestRandomness' function with the desired VRF parameters. This function handles
  * @dev paying for the request based on the current pricing.
  *
@@ -535,6 +531,7 @@ import "./VRFV2WrapperInterface.sol";
  * @dev fulfillment with the randomness result.
  */
 abstract contract VRFV2WrapperConsumerBase {
+  TRC20Interface internal immutable WINK_TOKEN;
   WinkMid internal immutable WINK_MID;
   VRFV2WrapperInterface internal immutable VRF_V2_WRAPPER;
 
@@ -542,7 +539,8 @@ abstract contract VRFV2WrapperConsumerBase {
    * @param _winkMid is the address of WinkMid
    * @param _vrfV2Wrapper is the address of the VRFV2Wrapper contract
    */
-  constructor(address _winkMid, address _vrfV2Wrapper) {
+  constructor(address _wink, address _winkMid, address _vrfV2Wrapper) {
+    WINK_TOKEN = TRC20Interface(_wink);
     WINK_MID = WinkMid(_winkMid);
     VRF_V2_WRAPPER = VRFV2WrapperInterface(_vrfV2Wrapper);
   }
@@ -560,16 +558,16 @@ abstract contract VRFV2WrapperConsumerBase {
    * @return requestId is the VRF V2 request ID of the newly created randomness request.
    */
   function requestRandomness(
-    address _from,
-    uint32 _callbackGasLimit,
-    uint16 _requestConfirmations,
-    uint32 _numWords
-  ) internal returns (uint256 requestId) {
+          uint32 _callbackGasLimit,
+          uint16 _requestConfirmations,
+          uint32 _numWords
+) internal returns (uint256 requestId) {
+    uint64 amount = VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords);
+    WINK_TOKEN.approve(address(WINK_MID), amount);
     WINK_MID.transferAndCall(
-      _from,
-      address(VRF_V2_WRAPPER),
-      VRF_V2_WRAPPER.calculateRequestPrice(_callbackGasLimit, _numWords),
-      abi.encode(_callbackGasLimit, _requestConfirmations, _numWords)
+            address(VRF_V2_WRAPPER),
+            amount,
+            abi.encode(_callbackGasLimit, _requestConfirmations, _numWords)
     );
     return VRF_V2_WRAPPER.lastRequestId();
   }
@@ -588,7 +586,6 @@ abstract contract VRFV2WrapperConsumerBase {
     fulfillRandomWords(_requestId, _randomWords);
   }
 }
-
 ```
 
 ```solidity
@@ -624,7 +621,6 @@ interface VRFV2WrapperInterface {
   //   */
   //   function estimateRequestPrice(uint32 _callbackGasLimit, uint256 _requestGasPriceWei) external view returns (uint256);
 }
-
 ```
 
 
@@ -632,79 +628,34 @@ interface VRFV2WrapperInterface {
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./SafeMathTron.sol";
-
 abstract contract TRC20Interface {
 
-    function totalSupply() public view virtual returns (uint);
+  function totalSupply() public view virtual returns (uint);
 
-    function balanceOf(address guy) public view virtual returns (uint);
+  function balanceOf(address guy) public view virtual returns (uint);
 
-    function allowance(address src, address guy) public view virtual returns (uint);
+  function allowance(address src, address guy) public view virtual returns (uint);
 
-    function approve(address guy, uint wad) public  virtual returns (bool);
+  function approve(address guy, uint wad) public  virtual returns (bool);
 
-    function transfer(address dst, uint wad) public virtual returns (bool);
+  function transfer(address dst, uint wad) public virtual returns (bool);
 
-    function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
+  function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
 
-    event Transfer(address indexed from, address indexed to, uint tokens);
-    event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+  event Transfer(address indexed from, address indexed to, uint tokens);
+  event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
 }
 
 abstract contract WinkMid {
 
-    function setToken(address tokenAddress) public virtual;
+  function setToken(address tokenAddress) public virtual;
 
-    function transferAndCall(address from, address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
+  function transferAndCall(address to, uint64 tokens, bytes calldata _data) public virtual returns (bool success);
 
-    function balanceOf(address guy) public view virtual returns (uint);
+  function balanceOf(address guy) public view virtual returns (uint);
 
-    function transferFrom(address src, address dst, uint wad) public virtual returns (bool);
+  function allowance(address src, address guy) public view virtual returns (uint);
 
-    function allowance(address src, address guy) public view virtual returns (uint);
-
-}
-
-/**
-* @dev A library for working with mutable byte buffers in Solidity.
-*
-* Byte buffers are mutable and expandable, and provide a variety of primitives
-* for writing to them. At any time you can fetch a bytes object containing the
-* current contents of the buffer. The bytes object should not be stored between
-* operations, as it may change due to resizing of the buffer.
-*/
-library Buffer {
-    /**
-    * @dev Represents a mutable buffer. Buffers have a current value (buf) and
-    *      a capacity. The capacity may be longer than the current value, in
-    *      which case it can be extended without the need to allocate more memory.
-    */
-    struct buffer {
-        bytes buf;
-        uint capacity;
-    }
-
-    /**
-    * @dev Initializes a buffer with an initial capacity.
-    * @param buf The buffer to initialize.
-    * @param capacity The number of bytes of space to allocate the buffer.
-    * @return The buffer, for chaining.
-    */
-    function init(buffer memory buf, uint capacity) internal pure returns (buffer memory) {
-        if (capacity % 32 != 0) {
-            capacity += 32 - (capacity % 32);
-        }
-        // Allocate space for the buffer data
-        buf.capacity = capacity;
-        assembly {
-            let ptr := mload(0x40)
-            mstore(buf, ptr)
-            mstore(ptr, 0)
-            mstore(0x40, add(32, add(ptr, capacity)))
-        }
-        return buf;
-    }
 
     /**
     * @dev Initializes a new buffer from an existing bytes object.
@@ -1434,10 +1385,10 @@ For convenience, Nile testnet has deployed `WinkMid` contract and encapsulated t
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                 |
-| WinkMid        | TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw                                 |
+| WinkMid        | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro                                 |
 | BlockHashStore | TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA                                 |
-| VRFCoordinatorV2 | TMvQdnsahiJRiJpA7YgcpLUdKFi2LswPrb                                 |
-| VRFV2Wrapper | TJSP3zzmEH84y2W8hjfTgpqwhQsdWwn3N5                                 |
+| VRFCoordinatorV2 | TDidecxMyGMgqvYS7nmpMQCZ16HqqV5Fke                                 |
+| VRFV2Wrapper | TMNRLGXhe3gzbUyWccuQAKhfVKFyqmLE1W                                 |
 | Fee           | 10 WIN                                                              |
 
 Testnet Faucet: <https://nileex.io/join/getJoinPage>
@@ -1447,8 +1398,8 @@ Testnet Faucet: <https://nileex.io/join/getJoinPage>
 | Item           | Value                                                              |
 |:---------------|:-------------------------------------------------------------------|
 | WIN Token      | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7                                 |
-| WinkMid        | TSG1B8DKDGY5sRFXwQ6xJofVr75DCFUA64                                 |
+| WinkMid        | TVMhaFMynYqTRLB1xShYL7wBwdmQHH6bKV                                 |
 | BlockHashStore | TRGmef4qUdNJ4xTEL96hToGuMTNst57aS1                                 |
-| VRFCoordinatorV2 | TD7hF84Xwf8Cu2zscmqxrgiGaEBziZhXqf                                 |
-| VRFV2Wrapper | TYMSMoitSkxuKUF1oiZp2fse4MEgsM86WT                                 |
+| VRFCoordinatorV2 | TZCz1BcnYviUNDiLvG6ZeuC477YupDgDA7                                 |
+| VRFV2Wrapper | TGDVwQRKwtNHrwy4RFG49b2HTHkvWckP5N                                 |
 | Fee           | 10 WIN                                                              |
