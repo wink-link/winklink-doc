@@ -1,88 +1,85 @@
-# 系统架构设计
+# Design of System Architecture
 <!-- Architecture Overview -->
 
-## WINkLink 节点模型
+## WINkLink Node Model
 
 ```mermaid
 flowchart LR
-    外部数据源 <--> B[WINkLink Node] <--> C[TRON BlockChain API]
+    A[External data source] <--> B[WINkLink node] <--> C[TRON BlockChain API]
 ```
 
-如上图，我们可以看到三个主要模块：
+The WINkLink oracle node structure consists of three main modules, as illustrated above:
 
-* 外部数据源
-* WINkLink 节点
-* TRON blockchain
+- External data source
+- WINkLink node
+- TRON blockchain
 
-这些是 WINkLink 预言机节点架构的主要组成部分，下面我们将逐个介绍。
+Let us take a closer look at each of these modules.
 
-### 外部数据源
+### External Data Source
 
-外部数据源代表原生区块链外部可获取的数据，例如中心化交易所、中心化预言机、股票交易所的 API 接口等。
+The external data source module encompasses all the external data that is available to the native blockchain. This includes centralized exchanges, centralized oracles, stock exchange APIs, and other such sources of data.
 
-### WINkLink 节点
+### WINkLink Node
 
-WINkLink 节点运行任务处理，监听链上合约请求(以 Event 方式监听)，从外部数据源获取数据，然后向区块链提交数据结果。
+The WINkLink node is responsible for running task processing, monitoring on-chain contract requests (via Event), retrieving data from external data sources, and submitting results to the blockchain.
 
 ### TRON blockchain
 
-区块链节点主要指 TRON 区块链提供的 API 服务，包括 Fullnode API 和 Event API 服务。
-通过这些 API, WINkLink 节点可以监听特定合约事件来启动任务，同时也可以通过 API 服务签名广播交易，
-将数据返回给**消费者合约**。
+The TRON blockchain node primarily consists of the API services provided by the TRON blockchain. These include Fullnode API and Event API services. Through these APIs, the WINkLink node can monitor specific contract events to trigger tasks, sign and broadcast transactions, and return data back to the **consumer contract**.
 
-箭头表示的连接性是双向的, WINkLink 节点既订阅区块链事件，又通过 API 发布交易，提交数据结果。
+As indicated by the double-headed arrow, the WINkLink node subscribes to blockchain events while broadcasting transactions via API and returning data results.
 
-## WINkLink 请求模型
+## WINkLink Request Model
 
-### 创建请求
+### Create a Request
 
 ```mermaid
 sequenceDiagram
-    调用者->>消费者合约: 请求更新预言机数据
-    activate 消费者合约
-    消费者合约->>预言机合约: transferAndCall 发送代币和请求
-    activate 预言机合约
-    预言机合约->>预言机合约: emit OracleRequest
-    预言机合约-->>消费者合约: request ID
-    deactivate 预言机合约
-    消费者合约-->>调用者: request ID
-    deactivate 消费者合约
+    Caller->>ConsumerContract: request an oracle data update
+    activate ConsumerContract
+    ConsumerContract->>OracleContract: transferAndCall send token and request
+    activate OracleContract
+    OracleContract->>OracleContract: emit OracleRequest event
+    OracleContract-->>ConsumerContract: request ID
+    deactivate OracleContract
+    ConsumerContract-->>Caller: request ID
+    deactivate ConsumerContract
 ```
 
-### 处理请求
+### Process a Request
 
-预言机合约的事件会异步触发如下流程：
+The Oracle's contract events asynchronously trigger the following procedure:
 
 ```mermaid
 sequenceDiagram
-    Note over WINKLinkNode: 从 Event API 监听到事件
+    Note over WINKLinkNode: get an event from Event API
     activate WINKLinkNode
-    WINKLinkNode->>WINKLinkNode: 依 job ID 调用不同的适配器获得数据
-    WINKLinkNode->>预言机合约: fulfill 调用提交结果
-    activate 预言机合约
-    预言机合约->>消费者合约: 调用回调函数
-    activate 消费者合约
-    消费者合约->>消费者合约: 按回调逻辑更新数据
-    消费者合约-->>预言机合约: success?
-    deactivate 消费者合约
-    deactivate 预言机合约
+    WINKLinkNode->>WINKLinkNode: call different adapter according to job ID
+    WINKLinkNode->>OracleContract: fulfill call, submit data
+    activate OracleContract
+    OracleContract->>ConsumerContract: call callback function
+    activate ConsumerContract
+    ConsumerContract->>ConsumerContract: update data according to callback logic
+    ConsumerContract-->>OracleContract: success?
+    deactivate ConsumerContract
+    deactivate OracleContract
     deactivate WINKLinkNode
 ```
 
-## 聚合请求模型
+## Aggregation Request Model
 
-在实际应用中，往往需要通过聚合多个预言机的方法来获得更准确的结果，同时过滤掉异常值。
+In actual implementation, multiple oracles need to be aggregated to obtain more accurate results and filter out outliers.
 
-例如价格聚合功能，从多个交易所提供的预言机服务聚合得到平均价格或中位数价格。
+For example, the price aggregation feature retrieves information from multiple oracles and generates a median price.
 
-价格聚合相关逻辑参考: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
+To learn more about the logic of price aggregation, please refer to: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol).
 
-## 链下报告(OCR)
+## Off-Chain Reporting
+Off-Chain Reporting (OCR) is a new method for aggregating data that promises to improve scalability, stability, and decentralization in the WINkLink network.
 
-链下报告（OCR）是一种新的数据聚合方法，旨在提高WINkLink网络的可扩展性、稳定性和去中心化。
+With OCR, all nodes in the network interact through a peer-to-peer (P2P) network, with one node acting as the leader and the others as followers. The P2P network uses a lightweight consensus algorithm during communication. Each node reports its signed data observation back to the leader, who generates a consolidated report. If the transmission conditions are met, this report is broadcast onto the blockchain as a single aggregate transaction. This process leads to a single aggregate transaction, which greatly reduces gas consumption.
 
-通过OCR，网络中的所有节点通过点对点（P2P）网络进行交互，其中一个节点充当领导者，其他节点充当跟随者。P2P网络在通信过程中使用轻量级共识算法。每个节点将其签名的数据观察结果报告给领导者，领导者生成一个合并报告。如果满足传输条件，该报告作为单个聚合交易广播到区块链上。这个过程会产生一个单一的聚合交易，大大降低了燃气消耗。
+The aggregated transaction contains a report that is signed by a quorum of oracles and includes all their observations. To maintain the trustlessness properties of WINkLink oracle networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
 
-聚合交易包含了由一组预言机签名的报告，其中包含了他们所有的观察结果。为了维护WINkLink预言机网络的不可信任特性，该报告在链上进行验证，并且验证预言机组的签名。
-
-目前，链下报告模型仍处于测试阶段，一旦稳定下来，将会提供更多的信息。
+Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.

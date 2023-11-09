@@ -1,14 +1,18 @@
 # Off Chain Reporting
-> :information_source: 亲爱的开发者， 
-> 
-> 希望您一切顺利。我们希望向您通报，我们目前正在监控离链报告（OCR）功能，以确保其稳定性和最佳性能。为了给我们的用户提供最佳体验，我们必须对这个功能进行彻底评估和改进。 
+>:information_source: Dear Developers,
 >
-> 在这个监控阶段，我们正在密切观察OCR功能，并积极努力稳定其性能。我们专门的专家团队正在进行严格的测试和调试，以确保其可靠性和准确性。我们理解OCR对您项目的顺利运作的重要性，并承诺及时解决任何潜在问题。 
-> 
->一旦我们成功稳定OCR功能，我们将在开发者文档中更新有关如何部署OCR节点的详细信息。您将收到通知，并且更新后的文档将随时可用，指导您完成部署过程。
+>We hope this announcement finds you well. We would like to inform you that we are currently monitoring the Off Chain Reporting (OCR) function to ensure its stability and optimal performance. As we strive to deliver the best possible experience for our users, it is crucial that we thoroughly evaluate and refine this feature.
 >
-> 感谢您在这个监控阶段的耐心和理解。请放心，我们将采取必要的措施解决任何问题，并在使用OCR功能时为您提供无缝体验。 
-> 
->如果您有任何紧急问题或需要进一步的帮助，请随时联系我们的支持团队，邮箱为developer@winklink.org。 感谢您一直以来的支持与合作。 
-> 
-> WINkLink团队
+>During this monitoring phase, we are closely observing the OCR function and actively working on stabilizing its performance. Our dedicated team of experts is rigorously testing and fine-tuning the system to ensure its reliability and accuracy. We understand the significance of OCR for the smooth operation of your projects and are committed to resolving any potential issues promptly.
+>
+>Once we have successfully stabilized the OCR function, we will update the details on how to deploy OCR nodes in the developer documentation. You will receive a notification and the updated documentation will be readily available to guide you through the deployment process.
+>
+>We appreciate your patience and understanding during this monitoring phase. Rest assured, we are taking the necessary steps to address any concerns and provide you with a seamless experience when utilizing the OCR function.
+>
+>If you have any urgent questions or require further assistance, please don't hesitate to reach out to our support team at [developer@winklink.org](developer@winklink.org).
+>
+>Thank you for your continued support and cooperation.
+>
+>Sincerely,
+>
+>WINkLink Team
