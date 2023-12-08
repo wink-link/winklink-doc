@@ -47,7 +47,7 @@ Consumer contracts and jobs deployed are only provided as a sample for learning 
 To utilize WINkLink's operator contract and nodes users have to craft their own consumer contracts and job specifications and fund their own contracts for making requests.
 
 
-## How to launch a Verifiable Random Number Service Node
+## How to launch an AnyAPI Service Node
 
 ### Getting started
 
