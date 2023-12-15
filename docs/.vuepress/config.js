@@ -36,7 +36,7 @@ module.exports = {
         //   '/en': ['/en/', '/en/architecture', '/en/pricing', '/en/v2', '/en/ocr',  '/en/glossary', '/en/vrf'],
         // }
         sidebar: {
-          '/': ['', 'pricing', 'vrf', 'pipeline', 'glossary'],
+          '/': ['', 'pricing', 'vrf', 'anyapi', 'pipeline', 'glossary'],
         }
       }
     },
