@@ -64,8 +64,6 @@ contract PriceConsumer {
 | BTT-USD    | TBAAW545oJ6iTxqzezGvagrSUzCpz1S8eR  |
 | BTTOLD-TRX | TUjTmKMxGmH78t5DmY7YsfJFoGw6XyX9VZ  |
 | BTTOLD-USD | TEEnwU47Fgx4Ehii7Xs9bLWK3XKo4fs6sV  |
-| BUSD-TRX   | TNjd3CCfdbpYZVNz6Tzf7LtjU3wT4Pit8w  |
-| BUSD-USD   | TTwxWVbsLfQTBLqWiremnZtzddeUCYDC8r  |
 | ETH-TRX    | TXZ9AUk6nC2454NSDGUWvPB72JxSNJrezX  |
 | ETH-USD    | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL  |
 | JST-TRX    | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP  |
@@ -110,8 +108,6 @@ contract PriceConsumer {
 | BTT-USD      | TJdzg4wqBt4JkP1ehbYQufg1cLjbomT2j7   |
 | BTTOLD-TRX   | TETkTRbnyB4ptWiK9qXgiyFxQQ9d8ZacT6   |
 | BTTOLD-USD   | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE   |
-| BUSD-TRX     | TDBQRjnrdrDKcgPDyLuP11UC8CV8hwZGxe   |
-| BUSD-USD     | TAiAAKcD4FtNhcJ8q9ZpkpnvSJ5R9XqYVx   |
 | ETH-TRX      | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ   |
 | ETH-USD      | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX   |
 | JST-TRX      | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj   |
