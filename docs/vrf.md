@@ -141,7 +141,10 @@ function registerProvingKey(address oracle, uint256[2] calldata publicProvingKey
 
 _`oracle` is the address of the registered node, which is used to receive the WIN token paid by DAPP , _`publicProvingKey` is the public key used by the registration node to generate random numbers,
 
-Call example: `registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])`
+Call example: 
+```
+registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])
+```
 
 ### Dapp Contract
 

@@ -281,7 +281,9 @@ Example: (change the parameters below to the Oracle contract address deployed in
 
 ::: tip
 For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.
+```
 Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6nBrf7hDz25NXFSFNk7vgsTxj9bHskWEct4xh']
+```
 ::: 
 
 ### Bootstrap node
