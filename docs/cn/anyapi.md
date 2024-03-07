@@ -1,24 +1,24 @@
-# WINkLink AnyAPI Service
+# WINkLink AnyAPI 服务
 
-## Overview
+## 概览
 
-AnyAPI service provides users the ability to take advantage of the robustness of WinkLink node to generate custom data. This is enabled through the wide range of supported internal adapters.
+AnyAPI 服务提供一系列内部适配器，让用户可以借助 WINkLink 节点的强大功能生成自定义数据。
 
-This service helps developers to obtain data from any off-chain source and perform the necessary transformations and eventually feed it back to the chain. Such data can be airline arrival/departure timings, sporting match results, traffic conditions and many more.
+该服务能够帮助开发者从链下渠道获取数据，进行必要的数据变换后将其喂到链上。这些数据可以是航司抵达/起飞时刻表、体育赛事的结果、交通状况等等。
 
 ![anyapi-flow.png](~@source/images/anyapi-flow.png)
 
-The WINkLink AnyAPI solution contains both off-chain and on-chain components:
+WINkLink AnyAPI 解决方案由链上和链下两部分组成：
 
-- AnyAPI Consumer (on-chain component): Crafted to interact with the AnyApi Operator contract. User is to topup this contract with Wink tokens and initiate the request.
-- AnyAPI Operator (on-chain component): A handler contract created to process all AnyAPI requests initiated from consumer contracts. It emits an event when a request is initiated and then forwards the answer back to the consumer contract.
-- AnyAPI service (off-chain node): Listens for requests by subscribing to the AnyAPI operator event logs and performs designated operations to obtain custom data. Jobs are triggered based on the external job ID specified in the request.
+- AnyAPI Consumer（链上组件）：用于同 AnyApi Operator 合约交互。用户需向该合约充值 Wink 代币以发起请求。
+- AnyAPI Operator（链上组件）：用于处理 Consumer 合约发起的所有 AnyAPI 请求的合约，它会在用户发起请求时发布一个事件，并把结果转发给 Consumer 合约。
+- AnyAPI 服务（链下节点）：通过订阅 AnyAPI Operator 事件日志监听请求，并执行指定操作以获取自定义数据。服务将根据请求中指定的外部任务 ID 触发对应的任务。
 
-### Contracts
+### 合约
 
-A set of contracts are deployed in the nile environment for testing
+Nile 环境中（测试环境）部署了一组用于测试的合约。
 
-| Item                | Value                                                              |
+| 项目                | 数值                                                              |
 |:--------------------|:-------------------------------------------------------------------|
 | WIN Token           | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                 |
 | WinkMid             | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro                                 |
@@ -28,48 +28,47 @@ A set of contracts are deployed in the nile environment for testing
 | Single Word Spec ID | 0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000 |
 | Multi Word Spec ID  | 0x1145310598fc4c25b825f4dae83e921e00000000000000000000000000000000 |
 
-## How to use existing WINkLink AnyAPI
+## 使用现有的 WINkLink AnyAPI
 
 ::: warning
-Consumer contracts and jobs deployed are only provided as a sample for learning and testing. Users are advised to craft their own consumer contracts with bespoke jobs specifications.
+当前部署的 Consumer 合约和任务仅为示例，用于学习和测试。建议用户自主设定任务规范，创建专属的 Consumer 合约。
 :::
 
-### AnyAPI Request Process
+### AnyAPI 请求步骤
 
-1. Dapp/Consumer contract invokes a either single word/multi word request with the corresponding external job ID.
+1. Dapp/Consumer 合约发起单变量/多变量请求，对应不同的外部任务 ID。
 
-2. The Dapp contract calls the transferAndCall function of WinkMid to pay the required request price to the Operator. This method sends Wink tokens and executes the onTokenTransfer.
+2. Dapp 合约调用 WinkMid transferAndCall 函数向 Operator 支付请求所需的费用。这一方法将发送 Wink 代币并执行 onTokenTransfer。
 
-3. The onTokenTransfer logic of the Operator will trigger the oracle request method and emit OracleRequest event.
+3. Operator 中的 onTokenTransfer 逻辑将触发预言机请求方法并发布 OracleRequest 事件。
 
-4. AnyAPI node subscribed to the chain will pick up this event and process it based on the external job ID.
+4. 订阅该链的 AnyAPI 节点在收到事件后根据所含的外部任务 ID 进行处理。
 
-5. Once operator contract receives callback response from the node, it will return the answer back to the Dapp/consumer contract.
+5. Operator 合约收到节点的回调函数后将结果返回给 Dapp/Consumer 合约。
 
-To utilize WINkLink's operator contract and nodes users have to craft their own consumer contracts and job specifications and fund their own contracts for making requests.
+使用 WINkLink Operator 合约和节点前，用户需创建自己的 Consumer 合约和任务规范，并向合约内充值以发起请求。
 
+## 启动 AnyAPI 服务节点
 
-## How to launch an AnyAPI Service Node
+### 入门指南
 
-### Getting started
+WINkLink 的维护者需要对波场 TRON 有一定的了解，且熟悉智能合约的部署和调用流程。建议阅读波场相关的官方文档，特别是 TronIDE 上进行合约部署的相关文章。
 
-Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related TRON official documents, particularly those on contract deployment on TronIDE.
+准备节点账户，建议阅读节点账户准备相关的文档。
 
-Prepare the node account. You should read related Node account preparation doc.
+### 所需环境
 
-### Required Environment
-
-WINkLink node relies on a running PostgreSQL database. Developers can find more information in the official documentation [postgresql official site](https://www.postgresql.org) .
+WINkLink 节点依赖 PostgreSQL 数据库，开发者可在 [postgresql 官网的官方文档](https://www.postgresql.org)中获取更多信息。
 
 ::: tip
-Here we assume that the username and the password for the PostgreSQL instance deployed locally are root:root respectively. Please use a strong password or other verification methods in the production environment.
+这里假定本机部署的 PostgreSQL 实例的用户名和密码分别是 root:root。在生产环境中请使用强密码或其他验证方式。
 :::
 
-WINkLink node is written in Go programming language and requires Golang environment.
+WINkLink 节点使用的编程语言为 Go，因此需要搭建 Golang 环境。
 
-### Node Configuration
+### 节点配置
 
-WINkLink node is configured using TOML files. Main config is tools/config/config.toml. With secrets.toml you can specify a db instance to be used. Below is a sample template for reference.
+WINkLink 节点的配置文件格式为 TOML，主配置为 tools/config/config.toml。你可以使用 secrets.toml 指定要使用的 db 实例。以下为参考模板。
 
 ```toml
 # secrets.toml
@@ -83,7 +82,7 @@ Keystore = 'keystorePassword' # Required
 [Tron]
 TronApiKey = 'apiKey'
 ```
-After the node configuration file is confirmed, it is required to create `password` and `apicredentials` files and write the userid and password to access the node’s api:
+节点配置文件确认完毕后，还需要创建 `apicredentials` 文件和 `password`，然后写入用户 ID 和密码访问节点 API：
 
 ```toml
 # apicredentials
@@ -97,43 +96,43 @@ totallyNotFakePassword (16 characters long)
 ```
 
 ::: tip
-It is important that you keep private information safe.
+请妥善托管您的个人信息。
 :::
 
-### Building a docker image for the node
+### 搭建节点 Docker 镜像
 
-Use the following command to build a standard linux docker image:
+使用以下指令构建标准的 Linux 镜像：
 
 ```
 # build a docker image
 docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
 ```
 
-After building, we can tag and push it to the desired repository for deployment.
+将构建好的 Docker 镜像打上标签并推送到所需的存储库进行部署。
 
-### Start a Node from source code
+### 用源代码启动节点
 
-Install [go1.20](https://go.dev/dl/)
+安装 [go1.20](https://go.dev/dl/)
 
-Go into the base directory of the source code winklink-2.0
+前往 winklink-2.0 源代码的基本目录
 
-Build the command line interface with
+搭建命令行界面
 
 ```
 make install
 ```
 
-Start your WINkLink node using the following command with the respective configuration items:
+使用以下指令及对应配置项启动 WINkLink 节点：
 
 ```
 winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/password -a /tools/secrets/apicredentials
 ```
 
 ::: warning
-Your node account must have enough TRX tokens for contract calls. You can apply testnet tokens at Testnet Faucet.
+节点帐号必须有足够的 TRX 代币，用于合约调用。可以通过测试网水龙头申请测试代币。
 :::
 
-### Operator Contract
+### Operator 合约
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -741,69 +740,69 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
   }
 }
 ```
-## How to setup AnyAPI contracts and jobs
+## 设置 AnyAPI 合约及任务
 
-### WinkMid Contract
+### WinkMid 合约
 
-WINkLink uses WIN (TRC20) as the base token for the whole platform.
+WINkLink 用 WIN 代币（TRC20）作为整个生态的基础代币
 
-WINkLink adopts the `transferAndCall` feature, i.e. calling one of the callback functions while transferring `TRC20` tokens to contracts, a feature similar to `ERC677` yet adopting different interface parameters.
+WINkLink 使用了 `transferAndCall` 功能，即在转账 `TRC20` 代币给合约的同时调用合约的某一回调函数，该功能类似 `ERC677`，但接口参数不同。
 
-Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides WinkMid wrapper contract, which helps wrapping any TRC20 token and provides transferAndCall interface.
+考虑到绝大多数已发行的代币无法再修改合约或增加接口，WINkLink 提供 WinkMid 包装合约，可用来包装任一 TRC20 代币，并提供 transferAndCall 接口。
 
-The contract code is available at `WinkMid.sol`.
+合约代码可于 `WinkMid.sol` 查看。
 
-For convenience, Nile TestNet has deployed WinkMid contract and encapsulated the WIN token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
+为方便开发者使用，Nile 测试网部署了 WinkMid 合约，并封装了 WIN 代币。开发者可直接使用该合约地址，无需额外部署。Nile 测试网还提供水龙头地址，用户可以领取 TRX 和 WIN 测试代币。
 
 ::: tip
-**Nile Testnet**
+**Nile 测试网**
 
-WIN TRC20 Contract Address: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合约地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid Contract Address: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合约地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-Testnet Faucet: <https://nileex.io/join/getJoinPage>
+测试网水龙头地址: <https://nileex.io/join/getJoinPage>
 :::
 
-When deploying WinkMid contract, developers need to provide the encapsulated `TRC20` token address (i.e. WIN token address) for the constructor.
+部署 WinkMid 合约时，开发者需在构造函数中提供被封装的 `TRC20` 代币地址（即 WIN 代币地址）。
 
-Developers do not need to call WinkMid contract directly, as it's a wink helper for caller contracts.
+WinkMid 合约可帮助用户进行合约调用，开发者无需直接进行调用操作。
 
-WIN token address and WinkMid contract address are needed in the constructor function when deploying an Coordinator contract.
+部署 Coordinator 合约时需在构造函数中提供 WIN 代币地址和 WinkMid 合约地址。
 
+### Operator 合约
 
-### Operator Contract
+Operator 合约是处理来自 Consumer 合约的所有请求和 WINkLink 节点所有执行操作的主要合约，部署合约时需用对应参数。
 
-The operator contract is main contract to handle all requests from the consumer contract and fulfillment from the WINkLink node. Deploy with the respective arguments.
+部署 Operator 合约后，需使用 setAuthorizedSender 方法将 Oracle 添加到列表中，以授权其进行执行操作。
 
-After deploying the operator contract, Oracle needs to be approved for fulfillment by adding it to the list using setAuthorizedSender method.
+### Consumer 合约
 
-### Consumer Contract
-
-In the example below, we have 2 main types of consumer contracts
+以下示例包含两种主要的 Consumer 合约类型：
 
 - SingleWordConsumer
 
-Returns a single value from a single request.
+单次请求返回单个值。
 
 - MultiWordConsumer
 
-Returns multi values from a single request.
+单次请求返回多个值。
 
-Either of the contracts can be deployed with the respective arguments based on the user's requirements.
+可以根据用户需求，使用相应参数部署任一合约。
 
 ::: warning
-Set Spec ID in the consumer contract to the corresponding external job ID after removing '-' and right pad zeroes in bytes32
+删除 bytes32 的“-”和右侧填充的“0”后，将 Consumer 合约中的 Spec ID 设置为对应的外部任务 ID
+
 ```
-e.g. 0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000
+如：0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000
 ```
 :::
 
-### Single word request
+### 单变量请求
 
-This example provides a sample user contract that request for a single word response.
+下面是一个请求单变量响应的 Consumer 合约示例。
 
-The contract takes in a user entered URL with the desired path to the data. The configured job for this example retrieves either USD, EUR or SGD prices for TRX. 
+该合约接收用户输入的 URL 以及期望的数据路径。示例中配置的任务可检索 TRX 的美元、欧元或新加坡元价格。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -876,7 +875,7 @@ contract SingleWordConsumer is WinklinkClient {
 }
 ```
 
-Within WinkLink Node, we need to setup a specific job to handle and do the required 
+我们需在 WinkLink 节点中设置一个特定任务来处理和完成所需工作。
 
 ```json
 type = "directrequest"
@@ -904,20 +903,20 @@ decode_log->decode_cbor->ds1 -> ds1_parse -> ds1_multiply->encode_data->encode_t
 """
 ```
 
-The single word job specification does the following:
-1. Decode the event message retrieved from the chain
-2. Perform http operation using the given URL
-3. Retrieve the data from the given path using the path provided
-4. Apply any required transformations to the data
-5. Encode data into a response and submit to operator 
+单变量任务规范有如下功能：
+1. 解码链上获取的事件消息 
+2. 用指定 URL 执行 http 操作 
+3. 用提供的路径从指定路径检索数据 
+4. 进行所需的数据变换 
+5. 将编码的数据作为响应并提交给Operator
 
-The operator contract will receive the response and forward it back to the user contract.
+Operator 合约将接收响应并将其转发回 Consumer 合约。
 
-### Multi word request
+### 多变量请求
 
-This example provides a sample user contract for multi word request.
+下面是一个多变量请求的 Consumer 合约示例。
 
-The contract takes in a user entered URL with all desired paths to the data.
+该合约接收用户输入的 URL 以及所有期望的数据路径。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -1004,7 +1003,7 @@ contract MultiWordConsumer is WinklinkClient {
 }
 ```
 
-In the node, we add the job specification to support getting all the data and respective transformations
+我们在节点中添加任务规范来支持获取所有数据和相应的数据变换。
 
 ```json
 type = "directrequest"
@@ -1071,43 +1070,43 @@ observationSource = """
 """
 ```
 
-The multi word job specification does the following:
-1. Decode the event message retrieved from the chain
-2. Perform http operation using the given URL
+多变量任务规范有如下功能：
+1. 解码链上获取的事件消息 
+2. 用指定 URL 执行 http 操作
 ***
-3. Retrieve the data from the given path using the path provided
-4. Apply any required transformations to the data
+3. 用提供的路径从指定路径检索数据 
+4. 进行所需的数据变换
 
-Steps 3 & 4 are repeated for as many times as needed for the number of data it needs to obtain.
+根据需要获取的数据量，重复进行步骤 3 和步骤 4。
 ***
-5. Encode data into a response and submit to operator
+5. 将编码的数据作为响应并提交给Operator。
 
-This job specification is mostly similar to the single word above with the exception of steps 3 and 4 which consists of data retrieval and transformation which is required for all the data.
+除步骤 3 和步骤 4 需要对所有数据进行检索和变换外，此任务规范与上述单变量请求基本一样。
 
-## Internal Adapters 
+## 内部适配器
 
-This section shows the available internal adapters that can be used to craft job specifications to obtain the desired data.
+本节展示了可用的内部适配器，可用于制定任务规范以获取所需数据。
 
-| Task               | Description                            | Input Type                                                                                                                      | Output Type                                                                                                                                           |
-|:-------------------|:---------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
-| tvm abi decode log | Decode events retrieved from the chain | []byte                                                                                                                          | map[string]                                                                                                                                           |
-| tvm call           | Perform call to contracts on tvm chain | []byte                                                                                                                          | Contract call [`Return`](https://github.com/tron-oracle/winklink-2.0/blob/develop/core/chains/tvm/tron-sdk/proto/api/api.pb.go#L214-L222) struct      |
-| hex decode         | Decode hexadecimal into string         | string                                                                                                                          | string                                                                                                                                                |
-| hex encode         | Encode string into hexadecimal         | string/[]byte/decimal/big.Int                                                                                                   | string                                                                                                                                                |
-| base64 decode      | Decode string to base64                | string                                                                                                                          | []byte                                                                                                                                                |
-| base64 encode      | Encode base64 to string                | string/[]byte                                                                                                                   | string                                                                                                                                                |
-| http               | Perform HTTP call                      | string (method)<br/>url (url)<br/>map[string] (requestData)<br/>bool (allowUnrestrictedNetworkAccess)<br/>[]string (reqHeaders) | string                                                                                                                                                |
-| json parse         | Obtain value from json                 | string (Path)<br/>string (Separator)<br/>string (Data)                                                                          | map[string]interface{}/[]interface{}                                                                                                                  |
-| length             | Obtain length of string                | string                                                                                                                          | decimal                                                                                                                                               |
-| less than          | Check whether input is less than limit | string (input)<br/>string (limit)                                                                                               | bool                                                                                                                                                  |
-| lower case         | Convert string to lower case           | string                                                                                                                          | string                                                                                                                                                |
-| upper case         | Convert string to upper case           | string                                                                                                                          | string                                                                                                                                                |
-| any                | Obtain any value within the input      | decimal/string                                                                                                                  | string                                                                                                                                                |
-| mean               | Obtain the mean value given inputs     | string (Values)<br/>string (AllowedFaults)<br/>string (Precision)                                                               | decimal                                                                                                                                               |
-| median             | Obtain the median value given inputs   | string (Values)<br/>string (AllowedFaults)                                                                                      | decimal                                                                                                                                               |
-| memo               | Return input value                     | string                                                                                                                          | string                                                                                                                                                |
-| merge              | Merge two string inputs                | string (left)<br/>string (right)                                                                                                | map[string]interface{}                                                                                                                                |
-| multiply           | Multiply two input values              | string (Input)<br/>string (Times)                                                                                               | decimal                                                                                                                                               |
-| divide             | Divide input by divisor                | string (Input)<br/>string (Divisor)<br/>string (Precision)                                                                      | decimal                                                                                                                                               |
-| sum                | Sum of two input values                | string (Values)<br/>string (AllowedFaults)                                                                                      | decimal                                                                                                                                               |
-| cbor parse         | Cbor decodes the input                 | string (Data)<br/>string (Mode)                                                                                                 | interface{}                                                                                                                                           |
+| 任务                 | 描述              | 输入类型                                                                                                                            | 输出类型                                                                                                                                             |
+|:-------------------|:----------------|:--------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| tvm abi decode log | 解码链上检索的事件       | []byte                                                                                                                          | map[string]                                                                                                                                      |
+| tvm call           | 在 TVM 链上调用合约    | []byte                                                                                                                          | Contract call [`Return`](https://github.com/tron-oracle/winklink-2.0/blob/develop/core/chains/tvm/tron-sdk/proto/api/api.pb.go#L214-L222) struct |
+| hex decode         | 将十六进制解码为字符串     | string                                                                                                                          | string                                                                                                                                           |
+| hex encode         | 将字符串编码为十六进制     | string/[]byte/decimal/big.Int                                                                                                   | string                                                                                                                                           |
+| base64 decode      | 将字符串解码为 Base64  | string                                                                                                                          | []byte                                                                                                                                           |
+| base64 encode      | 将 Base64 编码为字符串 | string/[]byte                                                                                                                   | string                                                                                                                                           |
+| http               | 发起 HTTP 调用      | string (method)<br/>url (url)<br/>map[string] (requestData)<br/>bool (allowUnrestrictedNetworkAccess)<br/>[]string (reqHeaders) | string                                                                                                                                           |
+| json parse         | 从 JSON 获取值      | string (Path)<br/>string (Separator)<br/>string (Data)                                                                          | map[string]interface{}/[]interface{}                                                                                                             |
+| length             | 获取字符串长度         | string                                                                                                                          | decimal                                                                                                                                          |
+| less than          | 检查输入值是否小于限制值    | string (input)<br/>string (limit)                                                                                               | bool                                                                                                                                             |
+| lower case         | 将字符串转为小写        | string                                                                                                                          | string                                                                                                                                           |
+| upper case         | 将字符串转为大写        | string                                                                                                                          | string                                                                                                                                           |
+| any                | 从输入值获取任意值       | decimal/string                                                                                                                  | string                                                                                                                                           |
+| mean               | 根据输入值获取均值       | string (Values)<br/>string (AllowedFaults)<br/>string (Precision)                                                               | decimal                                                                                                                                          |
+| median             | 根据输入值获取中位数      | string (Values)<br/>string (AllowedFaults)                                                                                      | decimal                                                                                                                                          |
+| memo               | 返回输入值           | string                                                                                                                          | string                                                                                                                                           |
+| merge              | 合并两个字符串输入值      | string (left)<br/>string (right)                                                                                                | map[string]interface{}                                                                                                                           |
+| multiply           | 两个输入值相乘         | string (Input)<br/>string (Times)                                                                                               | decimal                                                                                                                                          |
+| divide             | 输入值除以除数         | string (Input)<br/>string (Divisor)<br/>string (Precision)                                                                      | decimal                                                                                                                                          |
+| sum                | 两个输入值相加         | string (Values)<br/>string (AllowedFaults)                                                                                      | decimal                                                                                                                                          |
+| cbor parse         | Cbor 解码输入值      | string (Data)<br/>string (Mode)                                                                                                 | interface{}                                                                                                                                      |
