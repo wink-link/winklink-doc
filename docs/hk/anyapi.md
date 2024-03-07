@@ -58,7 +58,7 @@ WINkLink 的維護者需要對波場 TRON 有一定的了解，且熟悉智能�
 
 ### 所需環境
 
-WINkLink 節點依賴 PostgreSQL 數據庫，開發者可在 [postgresql 官网的官方文档](https://www.postgresql.org)中獲取更多信息。
+WINkLink 節點依賴 PostgreSQL 數據庫，開發者可在 [postgresql 官網的官方文檔](https://www.postgresql.org)中獲取更多信息。
 
 ::: tip
 這裏假定本機部署的 PostgreSQL 實例的用戶名和密碼分別是 root:root。在生產環境中請使用強密碼或其他驗證方式。

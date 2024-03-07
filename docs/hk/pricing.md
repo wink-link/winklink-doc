@@ -175,7 +175,7 @@ WINkLink 生態采用去中心化架構，所有智能合約開源，任何組�
 
 合約部署完畢後，即可開始 WINLink 節點部署。
 
-WINkLink 節點（項目目錄節點）代碼可點此查看：https://github.com/tron-oracle/winklink-2.0/tree/main — 連接您的 Github 賬戶。
+WINkLink 節點（項目目錄節點）代碼可點此查看：<https://github.com/tron-oracle/winklink-2.0/tree/main> — 連接您的 Github 賬戶。
 
 ::: warning
 當前節點實現包含通過交易所 API 訪問代幣價格的適配器。 請在中國大陸以外的穩定網絡環境中運行節點。
