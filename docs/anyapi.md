@@ -10,7 +10,7 @@ This service helps developers to obtain data from any off-chain source and perfo
 
 The WINkLink AnyAPI solution contains both off-chain and on-chain components:
 
-- AnyAPI Consumer (on-chain component): Crafted to interact with the AnyApi Operator contract. User is to topup this contract with Wink tokens and initiate the request.
+- AnyAPI Consumer (on-chain component): Crafted to interact with the AnyAPI Operator contract. User is to topup this contract with Wink tokens and initiate the request.
 - AnyAPI Operator (on-chain component): A handler contract created to process all AnyAPI requests initiated from consumer contracts. It emits an event when a request is initiated and then forwards the answer back to the consumer contract.
 - AnyAPI service (off-chain node): Listens for requests by subscribing to the AnyAPI operator event logs and performs designated operations to obtain custom data. Jobs are triggered based on the external job ID specified in the request.
 

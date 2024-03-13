@@ -10,7 +10,7 @@ AnyAPI 服务提供一系列内部适配器，让用户可以借助 WINkLink 节
 
 WINkLink AnyAPI 解决方案由链上和链下两部分组成：
 
-- AnyAPI Consumer（链上组件）：用于同 AnyApi Operator 合约交互。用户需向该合约充值 Wink 代币以发起请求。
+- AnyAPI Consumer（链上组件）：用于同 AnyAPI Operator 合约交互。用户需向该合约充值 Wink 代币以发起请求。
 - AnyAPI Operator（链上组件）：用于处理 Consumer 合约发起的所有 AnyAPI 请求的合约，它会在用户发起请求时发布一个事件，并把结果转发给 Consumer 合约。
 - AnyAPI 服务（链下节点）：通过订阅 AnyAPI Operator 事件日志监听请求，并执行指定操作以获取自定义数据。服务将根据请求中指定的外部任务 ID 触发对应的任务。
 
