@@ -723,7 +723,7 @@ docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dock
 
 ### 用源代碼啟動節點
 
-Install [go1.20](https://go.dev/dl/)
+安裝 [go1.20](https://go.dev/dl/)
 
 前往 winklink-2.0 源代碼的基本目錄
 
