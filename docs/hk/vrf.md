@@ -41,10 +41,10 @@ WINkLink VRF 解決方案由鏈上和鏈下兩部分組成：
 | 内容               | 值                                  |
 |:-----------------|:-----------------------------------|
 | WIN Token        | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2 |
-| WinkMid          | TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw |
+| WinkMid          | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro |
 | BlockHashStore   | TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA |
-| VRFCoordinatorV2 | TMvQdnsahiJRiJpA7YgcpLUdKFi2LswPrb |
-| VRFV2Wrapper     | TJSP3zzmEH84y2W8hjfTgpqwhQsdWwn3N5 |
+| VRFCoordinatorV2 | TDidecxMyGMgqvYS7nmpMQCZ16HqqV5Fke |
+| VRFV2Wrapper     | TMNRLGXhe3gzbUyWccuQAKhfVKFyqmLE1W |
 | Fee              | 10 WIN                             |
 
 測試網水龍頭地址：<https://nileex.io/join/getJoinPage>
@@ -53,10 +53,10 @@ WINkLink VRF 解決方案由鏈上和鏈下兩部分組成：
 | 内容               | 值                                  |
 |:-----------------|:-----------------------------------|
 | WIN Token        | TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7 |
-| WinkMid          | TSG1B8DKDGY5sRFXwQ6xJofVr75DCFUA64 |
+| WinkMid          | TVMhaFMynYqTRLB1xShYL7wBwdmQHH6bKV |
 | BlockHashStore   | TRGmef4qUdNJ4xTEL96hToGuMTNst57aS1 |
-| VRFCoordinatorV2 | TD7hF84Xwf8Cu2zscmqxrgiGaEBziZhXqf |
-| VRFV2Wrapper     | TYMSMoitSkxuKUF1oiZp2fse4MEgsM86WT |
+| VRFCoordinatorV2 | TZCz1BcnYviUNDiLvG6ZeuC477YupDgDA7 |
+| VRFV2Wrapper     | TGDVwQRKwtNHrwy4RFG49b2HTHkvWckP5N |
 | Fee              | 10 WIN                             |
 
 ## 如何使用現有的 WINkLink 可驗證隨機數服務
