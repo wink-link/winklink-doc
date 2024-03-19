@@ -724,7 +724,7 @@ docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dock
 
 ### 用源代码启动节点
 
-安裝 [go1.20](https://go.dev/dl/)
+安装 [go1.20](https://go.dev/dl/)
 
 前往 winklink-2.0 源代码的基本目录
 
