@@ -1,7 +1,7 @@
 module.exports = {
   title: 'WINkLink',
   description: 'WINkLink Documentation',
-  base: '/v1/doc/',
+  base: '/v2/doc/',
   locales: {
     '/hk/': {
       lang: 'zh-HK',
