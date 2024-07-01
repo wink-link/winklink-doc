@@ -2,7 +2,7 @@
 
 ## Overview
 
-Automation service provides users the ability to automate their contracts containing custom logic. This is realized through on-chain registration and an off-chain service to constantly monitor and track contracts that needs to be executed.
+The automation services enables users to automate contracts containing custom logic. This automation is achieved though on-chain registration and an off-chain service that continuously monitors and tracks contracts for execution.
 
 This service allows users to register their custom logic contract with a managed central registry. The off-chain node will interact with the registry to obtain the list of active contracts that needed to be executed based on individual criteria.
 
@@ -10,8 +10,8 @@ This service allows users to register their custom logic contract with a managed
 
 The WINkLink Automation solution contains both off-chain and on-chain components:
 
-- Automation Custom Logic contract (on-chain component): User created contract with defined trigger condition and runnable logic. User is to top-up this contract with Wink tokens and initiate the request.
-- Automation Registry & Registrar (on-chain component): These consists a set of contracts that are used to keep track of registered contracts and their states. Funds for individual contracts are also kept and calculated.
+- Automation Custom Logic contract (on-chain component): A user-created contract with defined trigger conditions and executable logic. Users are required to fund this contract with WINK tokens and initiate the request.
+- Automation Registry & Registrar (on-chain component): These are a set of contracts designed to track and manage both the registration and the operational states of other contracts. Funds for individual contracts are also kept and calculated.
 - Automation Node service (off-chain node): Subscribed to event logs to listen for new registered contracts and modifications to existing contracts. It also checks the trigger condition every 3 seconds to ensure timely execution of the user's logic.
 
 ### Contracts
@@ -40,15 +40,15 @@ e.g TCvpP3Fu5nXMJqFJEVGdCZoLZoUfkDPcn2
 
 1. User creates a custom logic contract and deployed on chain.
 2. The contract is registered with the registrar with a forwarder created during the process.
-3. User tops ups his own contract in the registry using the `addFunds` method
+3. User tops ups their own contract in the registry using the `addFunds` method
 
-To utilize WINkLink's Automation feature, users have to craft their own consumer contracts and job specifications and fund their own contracts for making requests.
+To utilize WINkLink's Automation feature, users have to craft their own consumer contracts and job specifications and fund these contracts to initiate requests.
 
 ### Automation execution Process
 
-1. WINkLink node will obtain the list of all active user contracts that needs to be checked and executed on startup. Continuously listening to the chain events for new contract registration, pause and unpause of existing contracts, and cancellation.
+1. The WINkLink node obtains the list of all active user contracts for checking and execution on startup. It continuously listens for the chain events for new contract registration, pauses, unpauses and cancellation of existing contracts.
 2. Every 3 seconds, the node will take the active list and `checkUpkeep`, `simulateUpkeep`, `performUpkeep`.
-3. Each stage have to return a positive boolean result before the next stage is executed.
+3. Each stage has to return a positive boolean result before the next stage can be executed.
 4. Contracts will not execute if Wink funds is insufficient.
 
 ## How to launch an Automation Service Node
@@ -56,9 +56,9 @@ To utilize WINkLink's Automation feature, users have to craft their own consumer
 ### Getting started
 
 
-Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. You're suggested to read related TRON official documents, particularly those on contract deployment on TronIDE.
+Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. It is suggested to read related TRON official documentation, particularly the section on contract deployment on TronIDE.
 
-Prepare the node account. You should read related Node account preparation doc.
+The node account should be prepared according to the instructions in the Node account preparation documentation.
 
 ### Required Environment
 
@@ -72,7 +72,7 @@ WINkLink node is written in Go programming language and requires Golang environm
 
 ### Node Configuration
 
-WINkLink node is configured using TOML files. Main config is tools/config/config.toml. With secrets.toml you can specify a db instance to be used. Below is a sample template for reference.
+WINkLink node is configured using TOML files. The main configuration files is `tools/config/config.toml`. The `secrets.toml` file is used to specify the database instance to be used. Below is a sample template for reference.
 
 ```toml
 # secrets.toml
@@ -112,13 +112,14 @@ Use the following command to build a standard linux docker image:
 docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
 ```
 
-After building, we can tag and push it to the desired repository for deployment.
+After building, the image can be tagged and pushed to the desired repository for deployment.
 
 ### Start a Node from source code
 
-Install [go1.20](https://go.dev/dl/)
+Install [go1.21](https://go.dev/dl/)
+ 
 
-Go into the base directory of the source code winklink-2.0
+Navigate to the base directory of Winklink-2.0 source code (e.g. `/path/to/winklink-2.0`).
 
 Build the command line interface with
 
@@ -133,7 +134,7 @@ winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -
 ```
 
 ::: warning
-Your node account must have enough TRX tokens for contract calls. You can apply testnet tokens at Testnet Faucet.
+The node account must have sufficient TRX tokens for contract calls. Testnet tokens can be obtained from the Testnet Faucet.
 :::
 
 ### Registry Contract
@@ -564,7 +565,7 @@ Given that we cannot modify contracts or add interfaces for most of the tokens i
 
 The contract code is available at `WinkMid.sol`.
 
-For convenience, Nile TestNet has deployed WinkMid contract and encapsulated the WIN token on it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
+ The WinkMid contract has been deployed on Nile TestNet and the Win token has been encapsulated within it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
 
 ::: tip
 **Nile Testnet**
@@ -578,22 +579,22 @@ Testnet Faucet: <https://nileex.io/join/getJoinPage>
 
 When deploying WinkMid contract, developers need to provide the encapsulated `TRC20` token address (i.e. WIN token address) for the constructor.
 
-Developers do not need to call WinkMid contract directly, as it's a wink helper for caller contracts.
+The WinkMid contract is designed as a helper for other contracts, so developers can utilize its functionality without directly calling it.
 
-WIN token address and WinkMid contract address are needed in the constructor function when deploying an Coordinator contract.
+WIN token address and WinkMid contract address are required arguments in the constructor function when deploying a Coordinator contract.
 
 
 ### Registry and Registrar Contract
 
-The registry contract is main contract to handle all new contract registrations. Deploy with the respective arguments.
+The registry contract is the primary contract for managing all new contract registrations. Deploy with the respective arguments specified within contract code itself.
 
-Due to the heavy logic involved, it is split into LogicB, LogicA, Registry with the deployment order as such.
+To manage the complex logic, the registry contract is divided into LogicB, LogicA and Registry components, which must be deployed in that order.
 
 After deploying the Registry contract, Oracle needs to be approved for `performUpkeep` by adding it to the list using setAuthorizedSender method.
 
 ### Upkeep Contract
 
-In the example below, we have a simple counter that will add 1 every time it is executed.
+The example below demonstrates a simple counter contract that increments by 1 with each execution.
 
 During deployment, it takes in an argument in seconds to specify the interval that needs it to be triggered.
 
@@ -704,14 +705,13 @@ The operator contract will receive the response and forward it back to the user 
 
 In the node, we add the job specification to support getting all the data and respective transformations
 
-```json
+```toml
 type = "keeper"
 schemaVersion = 1
 name = "keeper"
 gasLimit = 1_000_000_000
 forwardingAllowed = false
 contractAddress = "<Registry Address>"
-evmChainID= '3448148188'
 tvmChainID = 3448148188
 fromAddress = "<Node Address>"
 ```
