@@ -1,22 +1,22 @@
-# WINkLink Automation Service
+# WINkLink 自動化服務
 
-## Overview
+## 概覽
 
-The automation services enables users to automate contracts containing custom logic. This automation is achieved though on-chain registration and an off-chain service that continuously monitors and tracks contracts for execution.
+用戶可使用 WINkLink 自動化服務實現含有自定義邏輯的合約的自動執行。該服務分爲鏈上註冊和鏈下服務兩部分，其中鏈下服務可持續監測並追蹤合約執行情況。
 
-This service allows users to register their custom logic contract with a managed central registry. The off-chain node will interact with the registry to obtain the list of active contracts that needed to be executed based on individual criteria.
+藉助 WINkLink 自動化服務，用戶可在受管理的 Registry 註冊其自定義邏輯合約。鏈下節點將與 Registry 進行交互，獲取需要根據特定標準執行的有效合約列表。
 
 ![automation-flow.png](~@source/images/automation-flow.png)
 
-The WINkLink Automation solution contains both off-chain and on-chain components:
+WINkLink 自動化解決方案由鏈上和鏈下兩部分組成：
 
-- Automation Custom Logic contract (on-chain component): A user-created contract with defined trigger conditions and executable logic. Users are required to fund this contract with WINK tokens and initiate the request.
-- Automation Registry & Registrar (on-chain component): These are a set of contracts designed to track and manage both the registration and the operational states of other contracts. Funds for individual contracts are also kept and calculated.
-- Automation Node service (off-chain node): Subscribed to event logs to listen for new registered contracts and modifications to existing contracts. It also checks the trigger condition every 3 seconds to ensure timely execution of the user's logic.
+- 自動化自定義邏輯合約（鏈上部分）：由用戶創建的合約，包含其定義的觸發條件和可執行邏輯。用戶需使用 WINK 代幣爲該合約提供資金併發起請求。
+- 自動化 Registry 與 Registrar（鏈上部分）：該套合約負責追蹤、管理其他合約的註冊和運行狀態，同時保存並計算各個合約的資金。
+- 自動化節點服務（鏈下節點）：訂閱事件日誌，監聽新註冊的合約以及對現有合約進行的修改。該服務每 3 秒檢查一次觸發條件，確保及時執行用戶邏輯。
 
-### Contracts
+### 合約
 
-A set of contracts are deployed in the nile environment for testing
+Nile 環境（測試環境）中部署了一組用於測試的合約。
 
 | Item                     | Value                                                             |
 |:-------------------------|:------------------------------------------------------------------|
@@ -29,50 +29,48 @@ A set of contracts are deployed in the nile environment for testing
 | KeeperRegistrar          | TRrFfgs8p3f1MY3rxqnc9c1DrZKHkxZosd                                |
 | AutomationRegistration   | TXj5cG2zxtofHoLWLXpecckSwmfDdnoXTa                                |
 
-## How to use existing WINkLink Automation
+## 使用現有的 WINkLink 自動化服務
 
 ::: warning
-Consumer contracts and jobs deployed are only provided as a sample for learning and testing. Users are advised to craft their own consumer contracts with bespoke jobs specifications.
-e.g TCvpP3Fu5nXMJqFJEVGdCZoLZoUfkDPcn2
+當前部署的 `Consumer` 合約和任務僅爲示例，用於學習和測試。建議用戶自主設定任務規範，創建專屬的 `Consumer` 合約。例：TCvpP3Fu5nXMJqFJEVGdCZoLZoUfkDPcn2
 :::
 
-### Automation Registration Process
+### 自動化註冊流程
 
-1. User creates a custom logic contract and deployed on chain.
-2. The contract is registered with the registrar with a forwarder created during the process.
-3. User tops ups their own contract in the registry using the `addFunds` method
+1. 用戶創建自定義邏輯合約並部署上鍊。
+2. 合約在 `Registrar` 中完成註冊，並在過程中創建了一個轉發器。
+3. 用戶用 `addFunds` 方法在 `Registry` 中爲合約充值資金。
 
-To utilize WINkLink's Automation feature, users have to craft their own consumer contracts and job specifications and fund these contracts to initiate requests.
+如需使用 WINkLink 的自動化功能，用戶需創建自己的 Consumer 合約和任務規範，併爲合約提供資金以發起請求。
 
-### Automation execution Process
+### 自動化執行流程
 
-1. The WINkLink node obtains the list of all active user contracts for checking and execution on startup. It continuously listens for the chain events for new contract registration, pauses, unpauses and cancellation of existing contracts.
-2. Every 3 seconds, the node will take the active list and `checkUpkeep`, `simulateUpkeep`, `performUpkeep`.
-3. Each stage has to return a positive boolean result before the next stage can be executed.
-4. Contracts will not execute if Wink funds is insufficient.
+1. WINkLink 節點獲取所有活躍用戶合約的列表，以便在啓動時進行檢查和執行操作。節點持續監聽新合約註冊、暫停、取消暫停以及現有合約取消的事件鏈。
+2. 節點每三秒對活躍列表進行 `checkUpkeep`、`simulateUpkeep` 和 `performUpkeep` 操作。
+3. 在執行下一階段之前，每一階段都需先返回一個正布爾值。
+4. Wink 資金不足時合約無法執行。
 
-## How to launch an Automation Service Node
+## 啓動自動化服務節點
 
-### Getting started
+### 入門指南
 
+WINkLink 的維護者需要對波場 TRON 有一定的瞭解，且熟悉智能合約的部署和調用流程。建議閱讀波場相關的官方文檔 ，尤其是在 TronIDE 進行合約部署的相關章節。
 
-Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. It is suggested to read related TRON official documentation, particularly the section on contract deployment on TronIDE.
+請參照節點賬戶準備文檔中的說明設置節點賬戶。
 
-The node account should be prepared according to the instructions in the Node account preparation documentation.
+### 所需環境
 
-### Required Environment
-
-WINkLink node relies on a running PostgreSQL database. Developers can find more information in the official documentation [postgresql official site](https://www.postgresql.org) .
+WINkLink 節點依賴 PostgreSQL 數據庫。開發者可在 postgresql [官網](https://www.postgresql.org)的官方文檔中獲取更多信息。
 
 ::: tip
-Here we assume that the username and the password for the PostgreSQL instance deployed locally are root:root respectively. Please use a strong password or other verification methods in the production environment.
+這裏假定本地部署的 PostgreSQL 實例的用戶名和密碼分別是 root:root。在生產環境中請使用強密碼或其他驗證方式。
 :::
 
-WINkLink node is written in Go programming language and requires Golang environment.
+WINkLink 節點使用的編程語言爲 Go，因此需要搭建 Golang 環境。
 
-### Node Configuration
+### 節點配置
 
-WINkLink node is configured using TOML files. The main configuration files is `tools/config/config.toml`. The `secrets.toml` file is used to specify the database instance to be used. Below is a sample template for reference.
+WINkLink 節點的配置文件格式爲 TOML，主配置文件爲 `tools/config/config.toml`。`secrets.toml` 文件用於指定要使用的數據庫實例。以下爲參考模板。
 
 ```toml
 # secrets.toml
@@ -86,7 +84,8 @@ Keystore = 'keystorePassword' # Required
 [Tron]
 TronApiKey = 'apiKey'
 ```
-After the node configuration file is confirmed, it is required to create `password` and `apicredentials` files and write the userid and password to access the node’s api:
+
+確認好節點配置文件後，需創建 `password` 和 `apicredentials` 文件，並寫入用戶 ID 和密碼以訪問節點 API：
 
 ```toml
 # apicredentials
@@ -100,44 +99,44 @@ totallyNotFakePassword (16 characters long)
 ```
 
 ::: tip
-It is important that you keep private information safe.
+請妥善託管您的個人信息。
 :::
 
-### Building a docker image for the node
+### 搭建節點 Docker 鏡像
 
-Use the following command to build a standard linux docker image:
+使用以下指令構建標準的 Linux 鏡像：
 
 ```
 # build a docker image
 docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
 ```
 
-After building, the image can be tagged and pushed to the desired repository for deployment.
+構建完成後，可爲鏡像打上標籤並推送到所需的存儲庫進行部署。
 
-### Start a Node from source code
+### 用源代碼啓動節點
 
-Install [go1.21](https://go.dev/dl/)
- 
+安裝 [go1.21](https://go.dev/dl/)
 
-Navigate to the base directory of Winklink-2.0 source code (e.g. `/path/to/winklink-2.0`).
 
-Build the command line interface with
+前往 WINkLink-2.0 源代碼的基本目錄 (例如 `/path/to/winklink-2.0`).
+
+使用以下指令搭建命令行界面
 
 ```
 make install
 ```
 
-Start your WINkLink node using the following command with the respective configuration items:
+使用以下指令及對應配置項啓動 WINkLink 節點：
 
 ```
 winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/password -a /tools/secrets/apicredentials
 ```
 
 ::: warning
-The node account must have sufficient TRX tokens for contract calls. Testnet tokens can be obtained from the Testnet Faucet.
+節點賬戶必須持有足夠的 TRX 代幣進行合約調用。您可以通過測試網水龍頭申請測試代幣。
 :::
 
-### Registry Contract
+### Registry 合約
 
 ```solidity
 /// SPDX-License-Identifier: BUSL-1.1
@@ -553,56 +552,55 @@ contract KeeperRegistry2_1 is KeeperRegistryBase2_1, OCR2Abstract, Chainable, TR
     }
 }
 ```
-## How to setup Automation contracts and jobs
+## 設置 Automation 合約以及任務
 
-### WinkMid Contract
+### WinkMid 合約
 
-WINkLink uses WIN (TRC20) as the base token for the whole platform.
+WINkLink 採用 WIN 代幣（TRC20）作爲整個生態的基礎代幣。
 
-WINkLink adopts the `transferAndCall` feature, i.e. calling one of the callback functions while transferring `TRC20` tokens to contracts, a feature similar to `ERC677` yet adopting different interface parameters.
+WINkLink 使用了 `transferAndCall` 功能，即在轉賬 `TRC20` 代幣給合約的同時調用合約的某一回調函數，該功能類似 `ERC677`，但接口參數不同。
 
-Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides WinkMid wrapper contract, which helps wrapping any TRC20 token and provides transferAndCall interface.
+考慮到絕大多數已發行的代幣無法再修改合約或增加接口，`WINkLink` 提供 `WinkMid` 包裝合約，可用來包裝任一 `TRC20` 代幣，並提供 `transferAndCall` 接口。
 
-The contract code is available at `WinkMid.sol`.
+合約代碼可在 `WinkMid.sol` 查看。
 
- The WinkMid contract has been deployed on Nile TestNet and the Win token has been encapsulated within it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.
+WinkMid 合約已部署至 Nile 測試網，並封裝了 WIN 代幣。開發者可直接使用該合約地址，無需額外部署。Nile 測試網還提供水龍頭地址，用戶可以領取 TRX 和 WIN 測試代幣。
 
 ::: tip
-**Nile Testnet**
+**Nile 測試網**
 
-WIN TRC20 Contract Address: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合約地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid Contract Address: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合約地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-Testnet Faucet: <https://nileex.io/join/getJoinPage>
+測試水龍頭: <https://nileex.io/join/getJoinPage>
 :::
 
-When deploying WinkMid contract, developers need to provide the encapsulated `TRC20` token address (i.e. WIN token address) for the constructor.
+部署 WinkMid 合約時，開發者需在構造函數中提供被封裝的 `TRC20` 代幣地址（即 WIN 代幣地址）。
 
-The WinkMid contract is designed as a helper for other contracts, so developers can utilize its functionality without directly calling it.
+WinkMid 合約是其他合約的輔助工具，因此開發者可以直接使用其功能而無需調用它。
 
-WIN token address and WinkMid contract address are required arguments in the constructor function when deploying a Coordinator contract.
+部署 Registry 合約時需在構造函數中提供 WIN 代幣地址和 WinkMid 合約地址。
 
+### Registry 和 Registrar 合約
 
-### Registry and Registrar Contract
+Registry 合約是負責管理新合約註冊的主要合約。請使用合約代碼本身指定的相應參數進行部署。
 
-The registry contract is the primary contract for managing all new contract registrations. Deploy with the respective arguments specified within contract code itself.
+爲了管理複雜的邏輯，Registry 合約包括 LogicB、LogicA 和 Registry 組件；進行部署時請務必按照上述順序依次部署。
 
-To manage the complex logic, the registry contract is divided into LogicB, LogicA and Registry components, which must be deployed in that order.
+在部署 Registry 合約後，需要通過使用 setAuthorizedSender 方法將 Oracle 添加到列表中，以便批准執行  `performUpkeep` 操作。
 
-After deploying the Registry contract, Oracle needs to be approved for `performUpkeep` by adding it to the list using setAuthorizedSender method.
+### Upkeep 合約
 
-### Upkeep Contract
+下例展示了每次執行時遞增 1 的一個簡單計數器合約。
 
-The example below demonstrates a simple counter contract that increments by 1 with each execution.
+該合約在部署期間接收以秒爲單位的參數，用於指定觸發所需的時間間隔。
 
-During deployment, it takes in an argument in seconds to specify the interval that needs it to be triggered.
+### 自定義邏輯 upkeep
 
-### Custom logic upkeep
+下面是一個請求自定義邏輯upkeep的用戶合約示例。
 
-This example provides a sample user contract that request for a custom logic upkeep.
-
-The contract serves as a simple demonstration on the custom logic a user can have using the automation feature. This simple contract will run a counter for which will increment one whenever the condition of the time interval is met.
+該合約簡單展示了用戶可以使用自動化功能進行邏輯自定義。它會運行一個計數器，在時間間隔條件滿足時遞增 1。
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -695,15 +693,15 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 }
 ```
 
-Every user defined contract is required to implement `AutomationCompatibleInterface` and its methods. This is to allow the registry to be able to pick up the corresponding method signature during execution.
+每個用戶定義的合約都需要實現 `AutomationCompatibleInterface`  及其方法，這樣 Registry 便能在執行期間獲取相應的方法簽名。
 
-`checkUpkeep`: Logic that is checked by the node to determine if the upkeep needs to be performed
-`simulateUpkeep`: A static call for node to simulate the run of the core logic
-`performUpkeep`: Core logic that is to be executed
+`checkUpkeep`: 節點檢查以確定是否需要執行維護的邏輯
+`simulateUpkeep`: 節點靜態調用來模擬核心邏輯的運行
+`performUpkeep`: 需要執行的核心邏輯
 
-### Node
+### 節點
 
-In the node, we add the job specification to support getting all the data and respective transformations
+我們在節點中添加任務規範來支持獲取所有數據和相應的數據變換。
 
 ```toml
 type = "keeper"
@@ -716,4 +714,4 @@ tvmChainID = 3448148188
 fromAddress = "<Node Address>"
 ```
 
-The keeper job specs specifies the registry address and the node address that is used to interact with the on-chain contracts.
+Keeper 任務規範指定了用於鏈上合約交互的 Registry 地址和節點地址。

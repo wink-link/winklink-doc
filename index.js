@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.argv[2] ? process.argv[2] : 8085;
-const prefix = "/v1/doc"
+const prefix = "/v2/doc"
 
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
