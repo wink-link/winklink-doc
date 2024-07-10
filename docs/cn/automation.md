@@ -696,7 +696,9 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 每个用户定义的合约都需要实现 `AutomationCompatibleInterface` 及其方法，这样 Registry 便能在执行期间获取相应的方法签名。
 
 `checkUpkeep`: 节点检查以确定是否需要执行维护的逻辑
+
 `simulateUpkeep`: 节点静态调用来模拟核心逻辑的运行
+
 `performUpkeep`: 需要执行的核心逻辑
 
 ### 节点

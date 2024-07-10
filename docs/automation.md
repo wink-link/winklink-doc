@@ -698,7 +698,9 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 Every user defined contract is required to implement `AutomationCompatibleInterface` and its methods. This is to allow the registry to be able to pick up the corresponding method signature during execution.
 
 `checkUpkeep`: Logic that is checked by the node to determine if the upkeep needs to be performed
+
 `simulateUpkeep`: A static call for node to simulate the run of the core logic
+
 `performUpkeep`: Core logic that is to be executed
 
 ### Node
