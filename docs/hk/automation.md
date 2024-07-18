@@ -695,11 +695,11 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 
 每個用戶定義的合約都需要實現 `AutomationCompatibleInterface`  及其方法，這樣 Registry 便能在執行期間獲取相應的方法簽名。
 
-`checkUpkeep`: 節點檢查以確定是否需要執行維護的邏輯
+`checkUpkeep`: 節點檢查以確定是否需要執行維護的邏輯。
 
-`simulateUpkeep`: 節點靜態調用來模擬核心邏輯的運行
+`simulateUpkeep`: 節點靜態調用來模擬核心邏輯的運行。
 
-`performUpkeep`: 需要執行的核心邏輯
+`performUpkeep`: 需要執行的核心邏輯。
 
 ### 節點
 

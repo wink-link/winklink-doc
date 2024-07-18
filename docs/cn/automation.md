@@ -68,7 +68,7 @@ WINkLink 节点依赖 PostgreSQL 数据库。开发者可在 postgresql [官网]
 
 WINkLink 节点使用的编程语言为 Go，因此需要搭建 Golang 环境。
 
-### 節點配置
+### 节点配置
 
 WINkLink 节点的配置文件格式为 TOML，主配置文件为 `tools/config/config.toml`。`secrets.toml` 文件用于指定要使用的数据库实例。以下为参考模板。
 
