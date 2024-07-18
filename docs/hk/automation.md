@@ -18,7 +18,7 @@ WINkLink 自動化解決方案由鏈上和鏈下兩部分組成：
 
 Nile 環境（測試環境）中部署了一組用於測試的合約。
 
-| Item                     | Value                                                             |
+| 項目                     | 數值                                                             |
 |:-------------------------|:------------------------------------------------------------------|
 | WIN Token                | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2                                |
 | WinkMid                  | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro                                |

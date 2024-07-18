@@ -18,16 +18,16 @@ WINkLink 自动化解决方案由链上和链下两部分组成：
 
 Nile 环境（测试环境）中部署了一组用于测试的合约。
 
-| 项目                     | 数值                                               |
-|:-------------------------|:-------------------------------------------------|
-| WIN Token                | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2               |
-| WinkMid                  | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro               |
-| AutomationForwarderLogic | TJh6cdC2yxuVoHQ3i72AyQVcJd5ZWcYK6m               |
-| KeeperRegistryLogicB     | TMCRXdfPaedr8mhoZCrA96P3dBEt8zRQwx               |
-| KeeperRegistryLogicA     | TCrR2XfAJDF3NyH6RL7xwpnebswzsesLK9               |
-| KeeperRegistry           | TQauX3xDe7NJdWeauYWfTv8u3hLaVecB7k               |
-| KeeperRegistrar          | TRrFfgs8p3f1MY3rxqnc9c1DrZKHkxZosd               |
-| AutomationRegistration   | TXj5cG2zxtofHoLWLXpecckSwmfDdnoXTa               |
+| 项目                       | 数值                                 |
+|:-------------------------|:-----------------------------------|
+| WIN Token                | TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2 |
+| WinkMid                  | TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro |
+| AutomationForwarderLogic | TJh6cdC2yxuVoHQ3i72AyQVcJd5ZWcYK6m |
+| KeeperRegistryLogicB     | TMCRXdfPaedr8mhoZCrA96P3dBEt8zRQwx |
+| KeeperRegistryLogicA     | TCrR2XfAJDF3NyH6RL7xwpnebswzsesLK9 |
+| KeeperRegistry           | TQauX3xDe7NJdWeauYWfTv8u3hLaVecB7k |
+| KeeperRegistrar          | TRrFfgs8p3f1MY3rxqnc9c1DrZKHkxZosd |
+| AutomationRegistration   | TXj5cG2zxtofHoLWLXpecckSwmfDdnoXTa |
 
 ## 使用现有的 WINkLink 自动化服务
 
