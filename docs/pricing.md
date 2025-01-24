@@ -12,42 +12,44 @@ WINkLink's price service focuses on digital currency pairs, providing decentrali
 
 ### Mainnet
 
-| Pair       | Contract Address (Proxy)            |
-|------------|-------------------------------------|
-| BTC-TRX    | TX4rin6u2SaF3TqANqRgzfSCGi95azQNVY  |
-| BTC-USD    | TQoijQ1iZKRgJsAAWNPMu6amgtCJ3WMUV7  |
-| BTT-TRX    | TS26cn4GmmipyGTcgvRRwqL6AyEU6vK4rw  |
-| BTT-USD    | TBAAW545oJ6iTxqzezGvagrSUzCpz1S8eR  |
-| BTTOLD-TRX | TUjTmKMxGmH78t5DmY7YsfJFoGw6XyX9VZ  |
-| BTTOLD-USD | TEEnwU47Fgx4Ehii7Xs9bLWK3XKo4fs6sV  |
-| ETH-TRX    | TXZ9AUk6nC2454NSDGUWvPB72JxSNJrezX  |
-| ETH-USD    | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL  |
-| JST-TRX    | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP  |
-| JST-USD    | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47  |
-| LIVE-USD   | TNdLmxVhdj1H1yGjhhSp33cMaAJKjyTAM4  |
-| LTC-TRX    | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6  |
-| LTC-USD    | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ  |
-| NFT-TRX    | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY  |
-| STRX-TRX   | TW9bNueyJZA9iZnNXGYkJuPJJ7KFN3o5qw  |
-| NFT-USD    | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU  |
-| SUN-TRX    | TLLyqXr5cbYEMjzeThe1esss1SVBbxxubu  |
-| SUN-USD    | TRMgzSPsuWEcVpd5hv19XtLeCk8Z799sZa  |
-| SUNOLD-TRX | TWAob1YsNzh7bfgkjfAD9MAdarcoSWScWw  |
-| SUNOLD-USD | TEEuSdqyv2NFREtNoUXMTDSmJVK3KCuLac  |
-| TRX-USD    | TR5HtpPK4gX4RFC4DCBUHfFgsGkGFEzSAb  |
-| TUSD-TRX   | TLXMULb1SRpv841Q54C4DhWkmmGfRA2rUH  |
-| TUSD-USD   | TBc3yBP8xcyQ1E3hDTUhRxToMrgekLH2kh  |
-| USDC-TRX   | TNTm5ezUGHxYc9Mvst58yYTAjxDmqWWGZc  |
-| USDC-USD   | TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm  |
-| USDD-TRX   | TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb  |
-| USDD-USD   | TJ7jEgoYVaeymVfYZ3bS57dYArwVDS1mhW  |
-| USDJ-TRX   | TCBKyYMP4YQFHxYznuUaResHDTaEWLuJNW  |
-| USDJ-USD   | TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k  |
-| USDT-TRX   | TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp  |
-| USDT-USD   | TKePc46n5CiUCR8LL788TFeKA4kjvNnuem  |
-| WIN-TRX    | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg  |
-| WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
+| Pair        | Contract Address (Proxy)            |
+|-------------|-------------------------------------|
+| BTC-TRX     | TX4rin6u2SaF3TqANqRgzfSCGi95azQNVY  |
+| BTC-USD     | TQoijQ1iZKRgJsAAWNPMu6amgtCJ3WMUV7  |
+| BTT-TRX     | TS26cn4GmmipyGTcgvRRwqL6AyEU6vK4rw  |
+| BTT-USD     | TBAAW545oJ6iTxqzezGvagrSUzCpz1S8eR  |
+| BTTOLD-TRX  | TUjTmKMxGmH78t5DmY7YsfJFoGw6XyX9VZ  |
+| BTTOLD-USD  | TEEnwU47Fgx4Ehii7Xs9bLWK3XKo4fs6sV  |
+| ETH-TRX     | TXZ9AUk6nC2454NSDGUWvPB72JxSNJrezX  |
+| ETH-USD     | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL  |
+| JST-TRX     | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP  |
+| JST-USD     | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47  |
+| LIVE-USD    | TNdLmxVhdj1H1yGjhhSp33cMaAJKjyTAM4  |
+| LTC-TRX     | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6  |
+| LTC-USD     | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ  |
+| NFT-TRX     | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY  |
+| STRX-TRX    | TW9bNueyJZA9iZnNXGYkJuPJJ7KFN3o5qw  |
+| NFT-USD     | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU  |
+| SUN-TRX     | TLLyqXr5cbYEMjzeThe1esss1SVBbxxubu  |
+| SUN-USD     | TRMgzSPsuWEcVpd5hv19XtLeCk8Z799sZa  |
+| SUNOLD-TRX  | TWAob1YsNzh7bfgkjfAD9MAdarcoSWScWw  |
+| SUNOLD-USD  | TEEuSdqyv2NFREtNoUXMTDSmJVK3KCuLac  |
+| TRX-USD     | TR5HtpPK4gX4RFC4DCBUHfFgsGkGFEzSAb  |
+| TUSD-TRX    | TLXMULb1SRpv841Q54C4DhWkmmGfRA2rUH  |
+| TUSD-USD    | TBc3yBP8xcyQ1E3hDTUhRxToMrgekLH2kh  |
+| USDC-TRX    | TNTm5ezUGHxYc9Mvst58yYTAjxDmqWWGZc  |
+| USDC-USD    | TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm  |
+| USDD-TRX    | TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb  |
+| USDD-USD    | TJ7jEgoYVaeymVfYZ3bS57dYArwVDS1mhW  |
+| USDJ-TRX    | TCBKyYMP4YQFHxYznuUaResHDTaEWLuJNW  |
+| USDJ-USD    | TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k  |
+| USDT-TRX    | TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp  |
+| USDT-USD    | TKePc46n5CiUCR8LL788TFeKA4kjvNnuem  |
+| WIN-TRX     | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg  |
+| WIN-USD     | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
 | WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
+| USDDOLD-USD | TJrtqTiWkzsdCSU7Jz4JiBswc3Sv8FCw1i |
+| USDDOLD-TRX | TGJ7FspL9bftnXKrRFah1yU7VxHkgBpzVB |
 
 ### Nile Testnet
 
@@ -92,6 +94,8 @@ List of price service contract addresses:
 | WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj    |
 | WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9    |
 | WSTUSDT-TRX  | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P  |
+| USDDOLD-USD | THoshmYmTfmcNTqYLKAhMYTDNYBhJH3mbt |
+| USDDOLD-TRX | TKxxkv4CkJANRVNay8C2eY9E2zMjmWViE7 |
 
 ### Apply for New Trading Pairs
 

@@ -48,6 +48,8 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 | WIN-TRX    | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg  |
 | WIN-USD    | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2  |
 | WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
+| USDDOLD-USD | TJrtqTiWkzsdCSU7Jz4JiBswc3Sv8FCw1i |
+| USDDOLD-TRX | TGJ7FspL9bftnXKrRFah1yU7VxHkgBpzVB |
 
 ### Nile 测试网
 
@@ -92,6 +94,8 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 | WIN-TRX    | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj    |
 | WIN-USD    | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9    |
 | WSTUSDT-TRX  | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P  |
+| USDDOLD-USD | THoshmYmTfmcNTqYLKAhMYTDNYBhJH3mbt |
+| USDDOLD-TRX | TKxxkv4CkJANRVNay8C2eY9E2zMjmWViE7 |
 
 ### 申请新价格对
 
