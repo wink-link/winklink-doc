@@ -27,20 +27,19 @@ module.exports = {
       '/hk/': {
         label: '繁体中文',
         sidebar: {
-          '/hk/': ['', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/hk/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       },
       '/cn/': {
         label: '简体中文',
         sidebar: {
-          '/cn/': ['', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/cn/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       },
       '/': {
         label: 'English',
-
         sidebar: {
-          '/': ['', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       }
     },
