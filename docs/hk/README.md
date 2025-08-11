@@ -70,10 +70,10 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    Note over WINKLinkNode: 從 Event API 監聽到事件
-    activate WINKLinkNode
-    WINKLinkNode->>WINKLinkNode: 依 job ID 調用不同的適配器獲得數據
-    WINKLinkNode->>預言機合約: fulfill 調用提交結果
+    Note over WINkLinkNode: 從 Event API 監聽到事件
+    activate WINkLinkNode
+    WINkLinkNode->>WINkLinkNode: 依 job ID 調用不同的適配器獲得數據
+    WINkLinkNode->>預言機合約: fulfill 調用提交結果
     activate 預言機合約
     預言機合約->>消費者合約: 調用回調函數
     activate 消費者合約
@@ -81,7 +81,7 @@ sequenceDiagram
     消費者合約-->>預言機合約: success?
     deactivate 消費者合約
     deactivate 預言機合約
-    deactivate WINKLinkNode
+    deactivate WINkLinkNode
 
 ```
 
