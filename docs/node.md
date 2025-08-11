@@ -1,4 +1,4 @@
-# Building a WinkLink Node
+# Build a WinkLink Node
 
 ## Node Deployment
 
