@@ -1,6 +1,6 @@
-# Starting WinkLink Service Node
+# Building a WinkLink Node
 
-### Node Deployment
+## Node Deployment
 
 WINkLink node can be deployed after the contract is deployed.
 
@@ -10,7 +10,7 @@ WINkLink node (project directory node) code is available at: <https://github.com
 Current node implementation includes the adapter for accessing token price via exchange APIs. Please run the node in a stable network environment outside Mainland China.
 :::
 
-### Prepare Node Account
+## Prepare Node Account
 
 Each WINkLink node must be linked to a TRON account for calling Aggregator contract to transmit data.
 
@@ -22,7 +22,7 @@ Account will be generated on the initial run of the node and the private key wil
 Account generated is not activated, please transfer any amount of TRX into the account for activation
 :::
 
-### Required Environment
+## Required Environment
 
 WINkLink node relies on a running PostgreSQL database. Developers can find more information in the official documentation PostgreSQL .
 
@@ -32,7 +32,7 @@ Here we assume that the username and the password for the PostgreSQL instance de
 
 WINkLink node is written in Go programming language and requires Golang environment.
 
-### Node Configuration
+## Node Configuration
 
 WINkLink node is configured using TOML files. Main config is `tools/config/config.toml`. With `secrets.toml` you can specify a db instance to be used. Below is a sample template for reference.
 
@@ -67,7 +67,7 @@ It is important that you keep private information safe.
 :::
 
 
-### Building a docker image for the node
+## Building a docker image for the node
 
 Use the following command to build a standard linux docker image:
 
@@ -78,7 +78,7 @@ docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dock
 
 After building, we can tag and push it to the desired repository for deployment.
 
-### Start a Node from source code
+## Start a Node from source code
 
 Install [go1.20](https://go.dev/dl/)
 

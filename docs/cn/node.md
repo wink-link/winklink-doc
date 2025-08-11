@@ -1,6 +1,6 @@
-## 启动WinkLink服务节点
+# 启动WinkLink服务节点
 
-### 节点部署
+## 节点部署
 
 合约部署完毕后，即可开始 WINLink 节点部署。
 
@@ -10,7 +10,7 @@ WINkLink 节点（项目目录节点）代码可点此查看：<https://github.c
 当前节点实现包含通过交易所 API 访问代币价格的适配器。 请在中国大陆以外的稳定网络环境中运行节点。
 :::
 
-### 准备节点账户
+## 准备节点账户
 
 每个 WINLink 节点必须与一个波场帐户关联，以便调用聚合器合约传输数据。
 
@@ -22,7 +22,7 @@ WINkLink 节点（项目目录节点）代码可点此查看：<https://github.c
 账户尚未激活，请转账任意数量的 TRX 到该账户以进行激活
 :::
 
-### 所需环境
+## 所需环境
 
 WINkLink 节点依赖 PostgreSQL 数据库， 开发者可在 PostgreSQL 的官方文档中获取更多信息。
 
@@ -32,7 +32,7 @@ WINkLink 节点依赖 PostgreSQL 数据库， 开发者可在 PostgreSQL 的官�
 
 WINkLink 节点使用的编程语言为 Go，因此需要搭建 Golang 环境。
 
-### 节点配置
+## 节点配置
 
 WINkLink 节点的配置文件格式为 TOML， 主配置为 tools/config/config.toml。 你可以使用 secrets.toml 指定要使用的 db 实例。 以下为参考模板。
 
@@ -67,7 +67,7 @@ totallyNotFakePassword (16 characters long)
 :::
 
 
-### 搭建节点 Docker 镜像
+## 搭建节点 Docker 镜像
 
 使用以下指令构建标准的 Linux 镜像：
 
@@ -78,7 +78,7 @@ docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dock
 
 将构建好的 Docker 镜像打上标签并推送到所需的存储库进行部署。
 
-### 用源代码启动节点
+## 用源代码启动节点
 
 安装 [go1.20](https://go.dev/dl/)
 
