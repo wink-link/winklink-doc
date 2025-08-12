@@ -588,7 +588,7 @@ abstract contract WinkMid {
 
 ### WinkMid 合約
 
-WWINkLink 用 WIN 代幣（TRC20）作為整個生態的基礎代幣。
+WINkLink 用 WIN 代幣（TRC20）作為整個生態的基礎代幣。
 
 WINkLink 使用了 transferAndCall 功能，即在轉賬 TRC20 代幣給合約的同時調用合約的某一回調函數，該功能類似 ERC677，但接口參數不同。
 

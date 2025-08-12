@@ -1,4 +1,4 @@
-# 創建WinkLink服務節點
+# 創建WINkLink節點
 
 ## 入門指南
 

@@ -1,4 +1,4 @@
-# 创建WinkLink服务节点
+# 创建WINkLink节点
 
 ## 节点部署
 

@@ -792,7 +792,7 @@ contract SingleWordConsumer is WinklinkClient {
 }
 ```
 
-我們需在 WinkLink 節點中設置一個特定任務來處理和完成所需工作。
+我們需在 WINkLink 節點中設置一個特定任務來處理和完成所需工作。
 
 ```json
 type = "directrequest"
