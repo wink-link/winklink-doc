@@ -169,7 +169,7 @@ You may use any of the following tools or libraries for contract deployment and 
 
 Aggregator contract is deployed on the TRON public chain with the following features:
 
-- Accepts transmission from WINKLink node's off-chain aggregation
+- Accepts transmission from WINkLink node's off-chain aggregation
 - Calculate the WIN fee on data requests and allow Oracle nodes to claim rewards
 - Implements the Owned interface. This provides access control on different methods of exposed by the aggregator contract.
 
