@@ -94,7 +94,7 @@ Depending on the role you want to assume in the WINkLink ecosystem, you can choo
 
 For using WINkLink price service in DApps: [Price Service](pricing.md)
 
-For using WINKLink Verifiable Random Function (VRF) service in Dapps: [VRF](vrf.md)
+For using WINkLink Verifiable Random Function (VRF) service in Dapps: [VRF](vrf.md)
 
 ## WINkLink Community
 

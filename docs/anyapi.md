@@ -2,7 +2,7 @@
 
 ## Overview
 
-AnyAPI service provides users the ability to take advantage of the robustness of WinkLink node to generate custom data. This is enabled through the wide range of supported internal adapters.
+AnyAPI service provides users the ability to take advantage of the robustness of WINkLink node to generate custom data. This is enabled through the wide range of supported internal adapters.
 
 This service helps developers to obtain data from any off-chain source and perform the necessary transformations and eventually feed it back to the chain. Such data can be airline arrival/departure timings, sporting match results, traffic conditions and many more.
 
