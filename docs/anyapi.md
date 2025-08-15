@@ -791,7 +791,7 @@ contract SingleWordConsumer is WinklinkClient {
 }
 ```
 
-Within WinkLink Node, we need to setup a specific job to handle and do the required 
+Within WINkLink Node, we need to setup a specific job to handle and do the required 
 
 ```json
 type = "directrequest"
