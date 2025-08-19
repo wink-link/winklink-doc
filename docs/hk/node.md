@@ -2,9 +2,9 @@
 
 ## 節點部署
 
-合約部署完畢後，即可開始 WINLink 節點部署。
+合約部署完畢後，即可開始 WINkLink 節點部署。
 
-WINkLink 節點（項目目錄節點）代碼可點此查看：https://github.com/tron-oracle/winklink-2.0/tree/main (opens new window) — 連接您的 Github 賬戶。
+WINkLink 節點（項目目錄節點）代碼可點此查看：<https://github.com/tron-oracle/winklink-2.0/tree/main> — 連接您的 Github 賬戶。
 
 ::: warning
 當前節點實現包含通過交易所 API 訪問代幣價格的適配器。 請在中國大陸以外的穩定網絡環境中運行節點。
@@ -12,7 +12,7 @@ WINkLink 節點（項目目錄節點）代碼可點此查看：https://github.co
 
 ## 準備節點賬戶
 
-每個 WINLink 節點必須與一個波場帳戶關聯，以便調用聚合器合約傳輸數據。
+每個 WINkLink 節點必須與一個波場帳戶關聯，以便調用聚合器合約傳輸數據。
 
 賬戶地址和私鑰生成後，開發人員可以在測試網水龍頭頁面測試 TRX 代幣。該代幣用於支付調用智能合約產生的手續費。
 
