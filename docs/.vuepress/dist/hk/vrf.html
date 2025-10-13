@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WINkLink 可驗證隨機數服務 | WINkLink 開發文档</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/v2/doc/favicon.ico">
+    <meta name="description" content="WINkLink 開發和使用手冊">
+    
+    <link rel="preload" href="/v2/doc/assets/css/0.styles.f394efb8.css" as="style"><link rel="preload" href="/v2/doc/assets/js/app.03bfa769.js" as="script"><link rel="preload" href="/v2/doc/assets/js/2.a93bf3eb.js" as="script"><link rel="preload" href="/v2/doc/assets/js/1.449454cc.js" as="script"><link rel="preload" href="/v2/doc/assets/js/22.f1d5d4c6.js" as="script"><link rel="prefetch" href="/v2/doc/assets/js/10.16d90ebb.js"><link rel="prefetch" href="/v2/doc/assets/js/11.13c650ee.js"><link rel="prefetch" href="/v2/doc/assets/js/12.55b16c22.js"><link rel="prefetch" href="/v2/doc/assets/js/13.962e7cfd.js"><link rel="prefetch" href="/v2/doc/assets/js/14.cfbd47f4.js"><link rel="prefetch" href="/v2/doc/assets/js/15.4dbeb83f.js"><link rel="prefetch" href="/v2/doc/assets/js/16.35a421bc.js"><link rel="prefetch" href="/v2/doc/assets/js/17.3e08682a.js"><link rel="prefetch" href="/v2/doc/assets/js/18.4faca617.js"><link rel="prefetch" href="/v2/doc/assets/js/19.58a0d499.js"><link rel="prefetch" href="/v2/doc/assets/js/20.55d78c67.js"><link rel="prefetch" href="/v2/doc/assets/js/21.a90ef942.js"><link rel="prefetch" href="/v2/doc/assets/js/23.3063150b.js"><link rel="prefetch" href="/v2/doc/assets/js/24.c8d68107.js"><link rel="prefetch" href="/v2/doc/assets/js/25.efac722e.js"><link rel="prefetch" href="/v2/doc/assets/js/26.61b32239.js"><link rel="prefetch" href="/v2/doc/assets/js/27.5ec9b61f.js"><link rel="prefetch" href="/v2/doc/assets/js/28.3486a5d3.js"><link rel="prefetch" href="/v2/doc/assets/js/29.1e3aa466.js"><link rel="prefetch" href="/v2/doc/assets/js/3.2d08496e.js"><link rel="prefetch" href="/v2/doc/assets/js/30.5a431eb8.js"><link rel="prefetch" href="/v2/doc/assets/js/31.2e1adf9a.js"><link rel="prefetch" href="/v2/doc/assets/js/32.6525a1e9.js"><link rel="prefetch" href="/v2/doc/assets/js/33.c2ba9b78.js"><link rel="prefetch" href="/v2/doc/assets/js/34.272f28aa.js"><link rel="prefetch" href="/v2/doc/assets/js/35.9390522c.js"><link rel="prefetch" href="/v2/doc/assets/js/36.7749d9ba.js"><link rel="prefetch" href="/v2/doc/assets/js/37.26eb83b6.js"><link rel="prefetch" href="/v2/doc/assets/js/38.a0147385.js"><link rel="prefetch" href="/v2/doc/assets/js/39.396a0113.js"><link rel="prefetch" href="/v2/doc/assets/js/4.2a0c902e.js"><link rel="prefetch" href="/v2/doc/assets/js/40.4e3b23ef.js"><link rel="prefetch" href="/v2/doc/assets/js/41.f0dd511f.js"><link rel="prefetch" href="/v2/doc/assets/js/42.393f4efc.js"><link rel="prefetch" href="/v2/doc/assets/js/43.8564e0ba.js"><link rel="prefetch" href="/v2/doc/assets/js/5.0f6ba89b.js"><link rel="prefetch" href="/v2/doc/assets/js/6.85ab809a.js"><link rel="prefetch" href="/v2/doc/assets/js/7.46648f82.js"><link rel="prefetch" href="/v2/doc/assets/js/vendors~docsearch.5cff1987.js">
+    <link rel="stylesheet" href="/v2/doc/assets/css/0.styles.f394efb8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/v2/doc/hk/" class="home-link router-link-active"><!----> <span class="site-name">WINkLink 開發文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/vrf.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/vrf.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/vrf.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/vrf.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/vrf.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/vrf.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/v2/doc/hk/" aria-current="page" class="sidebar-link">項目介紹</a></li><li><a href="/v2/doc/hk/pricing.html" class="sidebar-link">WINkLink 價格服務</a></li><li><a href="/v2/doc/hk/vrf.html" aria-current="page" class="active sidebar-link">WINkLink 可驗證隨機數服務</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#概覽" class="sidebar-link">概覽</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#直接資金流" class="sidebar-link">直接資金流</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#訂閱流" class="sidebar-link">訂閱流</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#波場-nile-vrf-合約" class="sidebar-link">波場 Nile VRF 合約</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#波場主網-vrf-合约" class="sidebar-link">波場主網 VRF 合约</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#如何使用現有的-winklink-可驗證隨機數服務" class="sidebar-link">如何使用現有的 WINkLink 可驗證隨機數服務</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#vrf-請求流程" class="sidebar-link">VRF 請求流程</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#準備事項" class="sidebar-link">準備事項</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#vrfcoordinatorv2-合約" class="sidebar-link">VRFCoordinatorV2 合約</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#vrfv2wrapper-合約" class="sidebar-link">VRFV2Wrapper 合約</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#授權節點賬戶" class="sidebar-link">授權節點賬戶</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#dapp-合約" class="sidebar-link">Dapp 合約</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#dapp-合約示例" class="sidebar-link">Dapp 合約示例</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#如何設置可驗證隨機函數合約" class="sidebar-link">如何設置可驗證隨機函數合約</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#winkmid-合約" class="sidebar-link">WinkMid 合約</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#vrfcoordinatorv2" class="sidebar-link">VRFCoordinatorV2</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#vrfv2wrapper" class="sidebar-link">VRFV2Wrapper</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#consumers" class="sidebar-link">Consumers</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#如何啟動可驗證隨機數服務節點" class="sidebar-link">如何啟動可驗證隨機數服務節點</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#節點部署" class="sidebar-link">節點部署</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#準備節點賬戶" class="sidebar-link">準備節點賬戶</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#所需環境" class="sidebar-link">所需環境</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#節點配置" class="sidebar-link">節點配置</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#搭建節點-docker-鏡像" class="sidebar-link">搭建節點 Docker 鏡像</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#用源代碼啟動節點" class="sidebar-link">用源代碼啟動節點</a></li><li class="sidebar-sub-header"><a href="/v2/doc/hk/vrf.html#為節點添加-vrf-任務" class="sidebar-link">為節點添加 VRF 任務</a></li></ul></li></ul></li><li><a href="/v2/doc/hk/anyapi.html" class="sidebar-link">WINkLink AnyAPI 服務</a></li><li><a href="/v2/doc/hk/automation.html" class="sidebar-link">WINkLink 自動化服務</a></li><li><a href="/v2/doc/hk/pipeline.html" class="sidebar-link">管線任務</a></li><li><a href="/v2/doc/hk/glossary.html" class="sidebar-link">術語表</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="winklink-可驗證隨機數服務"><a href="#winklink-可驗證隨機數服務" class="header-anchor">#</a> WINkLink 可驗證隨機數服務</h1> <h2 id="概覽"><a href="#概覽" class="header-anchor">#</a> 概覽</h2> <p>可驗證隨機函數（VRF）是公鑰版密鑰加密哈希，可作為隨機數使用。 僅私鑰持有者可進行哈希運算，但任何公鑰持有者均可驗證哈希運算結果是否正確。 VRF 可用於生成安全可靠的隨機數。</p> <p>隨機數由 seed（由用戶提供）、nonce（VRFCoordinator 合約的私有狀態）、區塊哈希（請求事件所在區塊）和預言機節點的密鑰決定。</p> <p>VRF 的生成過程如下：</p> <ul><li>Dapp 合約發出生成隨機數的鏈上請求；</li> <li>鏈下預言機節點監聽到該請求後，將生成隨機數並附上加密證明以供驗證，隨後將其回傳至預言機合約（VRFCoordinator）；</li> <li>經預言機合約驗證後，該隨機數將通過回調函數發布至 Dapp 合約。</li></ul> <p>上述流程可確保預言機運營商、礦工、用戶乃至智能合約開發人員等任何人都無法篡改或操縱隨機數。</p> <p>WINkLink VRF 是專為 Dapp 合約設計的公平、可驗證的隨機數生成來源。 Dapp 合約的開發者可將 WINkLink VRF 用作防篡改隨機數生成器（RNG），為任何依賴隨機數的應用程序創建可靠的智能合約，包括：</p> <ul><li>區塊鏈遊戲和 NFT</li> <li>職責和資源的隨機分配（例如隨機分配法官審理案件）</li> <li>選擇具有代表性的共識機制樣本</li></ul> <p>WINkLink VRF 解決方案由鏈上和鏈下兩部分組成：</p> <ul><li>VRF Coordinator（鏈上部分）：可與 VRF 服務交互。 當發起隨機數請求後，VRF Coordinator 將觸發一個事件，並對VRF 服務生成的隨機數和證明進行驗證。</li> <li>VRF Wrapper（鏈上部分）：對 VRF Coordinator 進行封裝，為調用合約提供接口。</li> <li>VRF 服務（鏈下部分）：通過訂閱 VRF Coordinator 事件日誌監聽請求，並根據區塊哈希和 nonce 計算隨機數， 隨後將包含隨機數和隨機數生成證明的交易發送至 VRFCoordinator。</li></ul> <h3 id="直接資金流"><a href="#直接資金流" class="header-anchor">#</a> 直接資金流</h3> <p><img src="/v2/doc/assets/img/vrf-direct-funding-flow.c5967464.png" alt="vrf-direct-funding-flow.png"></p> <h3 id="訂閱流"><a href="#訂閱流" class="header-anchor">#</a> 訂閱流</h3> <p><img src="/v2/doc/assets/img/vrf-subscription-flow.0e207f09.png" alt="vrf-subscription-flow.png"></p> <h3 id="波場-nile-vrf-合約"><a href="#波場-nile-vrf-合約" class="header-anchor">#</a> 波場 Nile VRF 合約</h3> <p>為方便開發者使用，Nile 測試網部署了 WinkMid 合約，並封裝了 WIN 代幣。 開發者可直接使用該合約地址，無需額外部署。 Nile 測試網還提供水龍頭地址，可供用戶領取 TRX 和 WIN 測試代幣。</p> <table><thead><tr><th style="text-align:left;">内容</th> <th style="text-align:left;">值</th></tr></thead> <tbody><tr><td style="text-align:left;">WIN Token</td> <td style="text-align:left;">TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</td></tr> <tr><td style="text-align:left;">WinkMid</td> <td style="text-align:left;">TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro</td></tr> <tr><td style="text-align:left;">BlockHashStore</td> <td style="text-align:left;">TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA</td></tr> <tr><td style="text-align:left;">VRFCoordinatorV2</td> <td style="text-align:left;">TDidecxMyGMgqvYS7nmpMQCZ16HqqV5Fke</td></tr> <tr><td style="text-align:left;">VRFV2Wrapper</td> <td style="text-align:left;">TMNRLGXhe3gzbUyWccuQAKhfVKFyqmLE1W</td></tr> <tr><td style="text-align:left;">Fee</td> <td style="text-align:left;">10 WIN</td></tr></tbody></table> <p>測試網水龍頭地址：<a href="https://nileex.io/join/getJoinPage" target="_blank" rel="noopener noreferrer">https://nileex.io/join/getJoinPage<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h3 id="波場主網-vrf-合约"><a href="#波場主網-vrf-合约" class="header-anchor">#</a> 波場主網 VRF 合约</h3> <table><thead><tr><th style="text-align:left;">内容</th> <th style="text-align:left;">值</th></tr></thead> <tbody><tr><td style="text-align:left;">WIN Token</td> <td style="text-align:left;">TLa2f6VPqDgRE67v1736s7bJ8Ray5wYjU7</td></tr> <tr><td style="text-align:left;">WinkMid</td> <td style="text-align:left;">TVMhaFMynYqTRLB1xShYL7wBwdmQHH6bKV</td></tr> <tr><td style="text-align:left;">BlockHashStore</td> <td style="text-align:left;">TRGmef4qUdNJ4xTEL96hToGuMTNst57aS1</td></tr> <tr><td style="text-align:left;">VRFCoordinatorV2</td> <td style="text-align:left;">TZCz1BcnYviUNDiLvG6ZeuC477YupDgDA7</td></tr> <tr><td style="text-align:left;">VRFV2Wrapper</td> <td style="text-align:left;">TGDVwQRKwtNHrwy4RFG49b2HTHkvWckP5N</td></tr> <tr><td style="text-align:left;">Fee</td> <td style="text-align:left;">10 WIN</td></tr></tbody></table> <h2 id="如何使用現有的-winklink-可驗證隨機數服務"><a href="#如何使用現有的-winklink-可驗證隨機數服務" class="header-anchor">#</a> 如何使用現有的 WINkLink 可驗證隨機數服務</h2> <h3 id="vrf-請求流程"><a href="#vrf-請求流程" class="header-anchor">#</a> VRF 請求流程</h3> <ol><li><p>Dapp 合約調用 VRFV2Wrapper 的 calculateRequestPrice 函數，估算生成隨機數需要的交易成本。</p></li> <li><p>Dapp 合約調用 WinkMid 的 transferAndCall 函數，向 Wrapper 支付計算出的請求價格。 此方法會發送 Wink 代幣並執行 VRFV2Wrapper 的 onTokenTransfer 邏輯。</p></li> <li><p>VRFV2Wrapper 的 onTokenTransfer 邏輯觸發 VRFCoordinatorV2 的 requestRandomWords 函數，並請求隨機數。</p></li> <li><p>VRFCoordinatorV2 合約發布 RandomWordsRequested 事件。</p></li> <li><p>VRF 節點捕獲此事件並等待指定數量的區塊確認， 隨後通過 fulfillRandomWords 函數向 VRFCoordinatorV2 合約返回隨機值及其證明。</p></li> <li><p>The VRFCoordinatorV2 合約在鏈上對證明進行驗證，隨即調用 VRFV2Wrapper 的 fulfillRandomWords 函數。</p></li> <li><p>最後，VRFV2Wrapper 回調 Dapp 合約，完成請求。</p></li></ol> <h3 id="準備事項"><a href="#準備事項" class="header-anchor">#</a> 準備事項</h3> <p>WINkLink 的維護者需要對波場 TRON 有一定的了解，且熟悉智能合約的部署和調用流程。 建議閱讀波場相關的官方文檔 ，特別是 TronIDE 上進行合約部署的相關文章。</p> <p>準備節點賬戶。 建議閱讀節點賬戶準備相關的文檔。</p> <h3 id="vrfcoordinatorv2-合約"><a href="#vrfcoordinatorv2-合約" class="header-anchor">#</a> VRFCoordinatorV2 合約</h3> <p>VRFCoordinatorV2 合約部署在波場 TRON 公鏈上，擁有以下功能：</p> <ul><li>接收 Dapp 合約的隨機數請求並發布 VRFRequest 事件</li> <li>數據請求發送時會附帶WIN轉賬，作為使用費用</li> <li>接受 WINkLink 節點提交的隨機數和證明</li> <li>將隨機數發送至 Dapp 合約之前，VRFCoordinator 合約會對其證明進行驗證</li> <li>計算履行請求對應的 WINkLink 節點獎勵</li></ul> <p>部署 VRFCoordinator 合約時，構造函數所需的參數如下：</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token keyword">constructor</span><span class="token punctuation">(</span>
+<span class="token builtin">address</span> wink<span class="token punctuation">,</span>
+<span class="token builtin">address</span> blockhashStore<span class="token punctuation">,</span>
+<span class="token builtin">address</span> winkMid
+<span class="token punctuation">)</span>
+</code></pre></div><p><em><code>blockHashStore</code> 為 BlockHashStore 地址；</em><code>win</code> WIN 為 WIN 代幣地址；_<code>winkMid</code> 為 WinkMid 合約地址。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>Nile 測試網</p> <ul><li>WIN TRC20 合約地址：TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</li> <li>WinkMid 合約地址：TFbci8j8Ja3hMLPsupsuYcUMsgXniG1TWb</li> <li>BlockHashStore 合約地址：TBpTbK9KQzagrN7eMKFr5QM2pgZf6FN7KA</li> <li>測試網水龍頭地址：<a href="https://nileex.io/join/getJoinPage" target="_blank" rel="noopener noreferrer">https://nileex.io/join/getJoinPage<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div> <h3 id="vrfv2wrapper-合約"><a href="#vrfv2wrapper-合約" class="header-anchor">#</a> VRFV2Wrapper 合約</h3> <p>VRFV2Wrapper 可簡化交互，允許 Dapp 直接調用 VRFCoordinatorV2 合約。</p> <p><strong>配置参数</strong><br> <code>keyHash</code> : 節點 keyhash<br> <code>maxNumWords</code> : 每個 VRF 請求包含的隨機數個數上限，目前為 10</p> <h3 id="授權節點賬戶"><a href="#授權節點賬戶" class="header-anchor">#</a> 授權節點賬戶</h3> <p>節點賬戶需要授權才能向 VRFCoordinatorV2 合約提交數據，否則將報錯。</p> <p>VRFCoordinatorV2 合約的所有者需要調用以下合約，並將節點賬戶添加到白名單：</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token keyword">function</span> <span class="token function">registerProvingKey</span><span class="token punctuation">(</span><span class="token builtin">address</span> oracle<span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> publicProvingKey<span class="token punctuation">)</span> <span class="token keyword">external</span> onlyOwner
+</code></pre></div><p><em><code>oracle</code> 為註冊節點地址，用於接收支付的 WIN 代幣 Dapp；</em><code>publicProvingKey</code> 為註冊節點使用的公鑰，用於生成隨機數。</p> <p>調用示例：</p> <div class="language- extra-class"><pre class="language-text"><code>registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['6273228386041830135141271310112248407537170435188969735053134748570771583756',67273502359025519559461602732298865784327759914690240925031700564257821594585'])
+</code></pre></div><h3 id="dapp-合約"><a href="#dapp-合約" class="header-anchor">#</a> Dapp 合約</h3> <p>設置 Consumer 合約的主要步驟如下：</p> <ul><li>a) 導入並繼承 <code>VRFV2WrapperConsumerBase</code></li></ul> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token comment">// An example of a consumer contract that directly pays for each request.</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.7</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./VRFV2WrapperConsumerBase.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">VRFv2DirectFundingConsumer</span> <span class="token keyword">is</span> VRFV2WrapperConsumerBase<span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre></div><ul><li>b) 合約必須執行 fulfillRandomWords 函數，該函數為 VRF 回調函數。 隨機數返回合約後，添加處理邏輯。</li></ul> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token keyword">function</span> <span class="token function">fulfillRandomWords</span><span class="token punctuation">(</span>
+<span class="token builtin">uint256</span> _requestId<span class="token punctuation">,</span>
+<span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> _randomWords
+<span class="token punctuation">)</span>
+</code></pre></div><ul><li>c) 合約調用 requestRandomness 函數，觸發 VRF 請求。</li></ul> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token keyword">function</span> <span class="token function">requestRandomWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">external</span>
+onlyOwner
+<span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> requestId<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  requestId <span class="token operator">=</span> <span class="token function">requestRandomness</span><span class="token punctuation">(</span>
+  msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span>
+  callbackGasLimit<span class="token punctuation">,</span>
+  requestConfirmations<span class="token punctuation">,</span>
+  numWords
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+s_requests<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">RequestStatus</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  paid<span class="token punctuation">:</span> VRF_V2_WRAPPER<span class="token punctuation">.</span><span class="token function">calculateRequestPrice</span><span class="token punctuation">(</span>callbackGasLimit<span class="token punctuation">,</span> numWords<span class="token punctuation">)</span><span class="token punctuation">,</span>
+  randomWords<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  fulfilled<span class="token punctuation">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+requestIds<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+lastRequestId <span class="token operator">=</span> requestId<span class="token punctuation">;</span>
+<span class="token keyword">emit</span> <span class="token function">RequestSent</span><span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> numWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> requestId<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="dapp-合約示例"><a href="#dapp-合約示例" class="header-anchor">#</a> Dapp 合約示例</h3> <p>部署 Consumer 合約VRFv2DirectFundingConsumer.sol</p> <p>構造參數：<br> <code>_winkAddress</code>：Wink 代幣合約地址<br> <code>_winkMid</code>： winkMid 合約地址<br> <code>_wrapper</code>：VRFV2Wrapper 合約地址<br> <code>_numWords</code>： 每個 vrf 請求的隨機數個數上限</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token comment">// An example of a consumer contract that directly pays for each request.</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.7</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./ConfirmedOwner.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./VRFV2WrapperConsumerBase.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
+ * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
+ * DO NOT USE THIS CODE IN PRODUCTION.
+ */</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">VRFv2DirectFundingConsumer</span> <span class="token keyword">is</span>
+VRFV2WrapperConsumerBase<span class="token punctuation">,</span>
+ConfirmedOwner
+<span class="token punctuation">{</span>
+    <span class="token builtin">address</span> winkAddress<span class="token punctuation">;</span>
+
+    <span class="token keyword">event</span> <span class="token function">RequestSent</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> requestId<span class="token punctuation">,</span> <span class="token builtin">uint32</span> numWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">event</span> <span class="token function">RequestFulfilled</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint256</span> requestId<span class="token punctuation">,</span>
+        <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> randomWords<span class="token punctuation">,</span>
+        <span class="token builtin">uint256</span> payment
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">struct</span> <span class="token class-name">RequestStatus</span> <span class="token punctuation">{</span>
+        <span class="token builtin">uint256</span> paid<span class="token punctuation">;</span> <span class="token comment">// amount paid in wink</span>
+        <span class="token builtin">bool</span> fulfilled<span class="token punctuation">;</span> <span class="token comment">// whether the request has been successfully fulfilled</span>
+        <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> randomWords<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> <span class="token operator">=&gt;</span> RequestStatus<span class="token punctuation">)</span>
+    <span class="token keyword">public</span> s_requests<span class="token punctuation">;</span> <span class="token comment">/* requestId --&gt; requestStatus */</span>
+
+    <span class="token comment">// past requests Id.</span>
+    <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">public</span> requestIds<span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> <span class="token keyword">public</span> lastRequestId<span class="token punctuation">;</span>
+
+    <span class="token comment">// Depends on the number of requested values that you want sent to the</span>
+    <span class="token comment">// fulfillRandomWords() function. Test and adjust</span>
+    <span class="token comment">// this limit based on the network that you select, the size of the request,</span>
+    <span class="token comment">// and the processing of the callback request in the fulfillRandomWords()</span>
+    <span class="token comment">// function.</span>
+    <span class="token builtin">uint32</span> callbackGasLimit <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// The default is 3, but you can set this higher.</span>
+    <span class="token builtin">uint16</span> requestConfirmations <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// For this example, retrieve 2 random values in one request.</span>
+    <span class="token comment">// Cannot exceed VRFV2Wrapper.getConfig().maxNumWords.</span>
+    <span class="token builtin">uint32</span> numWords<span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>
+        <span class="token builtin">address</span> _winkAddress<span class="token punctuation">,</span>
+        <span class="token builtin">address</span> _winkMid<span class="token punctuation">,</span>
+        <span class="token builtin">address</span> _wrapper<span class="token punctuation">,</span>
+        <span class="token builtin">uint32</span> _numWords
+    <span class="token punctuation">)</span>
+    <span class="token function">ConfirmedOwner</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span>
+    <span class="token function">VRFV2WrapperConsumerBase</span><span class="token punctuation">(</span>_winkAddress<span class="token punctuation">,</span> _winkMid<span class="token punctuation">,</span> _wrapper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        winkAddress <span class="token operator">=</span> _winkAddress<span class="token punctuation">;</span>
+        numWords <span class="token operator">=</span> _numWords<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">requestRandomWords</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">external</span>
+    onlyOwner
+    <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> requestId<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        requestId <span class="token operator">=</span> <span class="token function">requestRandomness</span><span class="token punctuation">(</span>
+            callbackGasLimit<span class="token punctuation">,</span>
+            requestConfirmations<span class="token punctuation">,</span>
+            numWords
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_requests<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">RequestStatus</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            paid<span class="token punctuation">:</span> VRF_V2_WRAPPER<span class="token punctuation">.</span><span class="token function">calculateRequestPrice</span><span class="token punctuation">(</span>callbackGasLimit<span class="token punctuation">,</span> numWords<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            randomWords<span class="token punctuation">:</span> <span class="token keyword">new</span> <span class="token class-name">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            fulfilled<span class="token punctuation">:</span> <span class="token boolean">false</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        requestIds<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        lastRequestId <span class="token operator">=</span> requestId<span class="token punctuation">;</span>
+        <span class="token keyword">emit</span> <span class="token function">RequestSent</span><span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> numWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> requestId<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">fulfillRandomWords</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint256</span> _requestId<span class="token punctuation">,</span>
+        <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> _randomWords
+    <span class="token punctuation">)</span> <span class="token keyword">internal</span> override <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paid <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;request not found&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>fulfilled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>randomWords <span class="token operator">=</span> _randomWords<span class="token punctuation">;</span>
+        <span class="token keyword">emit</span> <span class="token function">RequestFulfilled</span><span class="token punctuation">(</span>
+            _requestId<span class="token punctuation">,</span>
+            _randomWords<span class="token punctuation">,</span>
+            s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paid
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">getRequestStatus</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint256</span> _requestId
+    <span class="token punctuation">)</span>
+    <span class="token keyword">external</span>
+    <span class="token keyword">view</span>
+    <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> paid<span class="token punctuation">,</span> <span class="token builtin">bool</span> fulfilled<span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> randomWords<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paid <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;request not found&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        RequestStatus <span class="token keyword">memory</span> request <span class="token operator">=</span> s_requests<span class="token punctuation">[</span>_requestId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>paid<span class="token punctuation">,</span> request<span class="token punctuation">.</span>fulfilled<span class="token punctuation">,</span> request<span class="token punctuation">.</span>randomWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./ConfirmedOwnerWithProposal.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @title The ConfirmedOwner contract
+ * @notice A contract with helpers for basic contract ownership.
+ */</span>
+<span class="token keyword">contract</span> <span class="token class-name">ConfirmedOwner</span> <span class="token keyword">is</span> ConfirmedOwnerWithProposal <span class="token punctuation">{</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> newOwner<span class="token punctuation">)</span> <span class="token function">ConfirmedOwnerWithProposal</span><span class="token punctuation">(</span>newOwner<span class="token punctuation">,</span> <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./OwnableInterface.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @title The ConfirmedOwner contract
+ * @notice A contract with helpers for basic contract ownership.
+ */</span>
+<span class="token keyword">contract</span> <span class="token class-name">ConfirmedOwnerWithProposal</span> <span class="token keyword">is</span> OwnableInterface <span class="token punctuation">{</span>
+    <span class="token builtin">address</span> <span class="token keyword">private</span> s_owner<span class="token punctuation">;</span>
+    <span class="token builtin">address</span> <span class="token keyword">private</span> s_pendingOwner<span class="token punctuation">;</span>
+
+    <span class="token keyword">event</span> <span class="token function">OwnershipTransferRequested</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">indexed</span> <span class="token keyword">from</span><span class="token punctuation">,</span> <span class="token builtin">address</span> <span class="token keyword">indexed</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">event</span> <span class="token function">OwnershipTransferred</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">indexed</span> <span class="token keyword">from</span><span class="token punctuation">,</span> <span class="token builtin">address</span> <span class="token keyword">indexed</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> newOwner<span class="token punctuation">,</span> <span class="token builtin">address</span> pendingOwner<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>newOwner <span class="token operator">!=</span> <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Cannot set owner to zero&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        s_owner <span class="token operator">=</span> newOwner<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>pendingOwner <span class="token operator">!=</span> <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">_transferOwnership</span><span class="token punctuation">(</span>pendingOwner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice Allows an owner to begin transferring ownership to a new address,
+   * pending.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">transferOwnership</span><span class="token punctuation">(</span><span class="token builtin">address</span> to<span class="token punctuation">)</span> <span class="token keyword">public</span> override onlyOwner <span class="token punctuation">{</span>
+        <span class="token function">_transferOwnership</span><span class="token punctuation">(</span>to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice Allows an ownership transfer to be completed by the recipient.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">acceptOwnership</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> s_pendingOwner<span class="token punctuation">,</span> <span class="token string">&quot;Must be proposed owner&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token builtin">address</span> oldOwner <span class="token operator">=</span> s_owner<span class="token punctuation">;</span>
+        s_owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+        s_pendingOwner <span class="token operator">=</span> <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">emit</span> <span class="token function">OwnershipTransferred</span><span class="token punctuation">(</span>oldOwner<span class="token punctuation">,</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice Get the current owner
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">owner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> override <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> s_owner<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice validate, transfer ownership, and emit relevant events
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">_transferOwnership</span><span class="token punctuation">(</span><span class="token builtin">address</span> to<span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>to <span class="token operator">!=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> <span class="token string">&quot;Cannot transfer to self&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        s_pendingOwner <span class="token operator">=</span> to<span class="token punctuation">;</span>
+
+        <span class="token keyword">emit</span> <span class="token function">OwnershipTransferRequested</span><span class="token punctuation">(</span>s_owner<span class="token punctuation">,</span> to<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice validate access
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">_validateOwnership</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">view</span> <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> s_owner<span class="token punctuation">,</span> <span class="token string">&quot;Only callable by owner&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice Reverts if called by anyone other than the contract owner.
+   */</span>
+    <span class="token keyword">modifier</span> <span class="token function">onlyOwner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">_validateOwnership</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">_</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">OwnableInterface</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">owner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">transferOwnership</span><span class="token punctuation">(</span><span class="token builtin">address</span> recipient<span class="token punctuation">)</span> <span class="token keyword">external</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">acceptOwnership</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./TRC20Interface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./VRFV2WrapperInterface.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/** *******************************************************************************
+ * @notice Interface for contracts using VRF randomness through the VRF V2 wrapper
+ * ********************************************************************************
+ * @dev PURPOSE
+ *
+ * @dev Create VRF V2 requests without the need for subscription management. Rather than creating
+ * @dev and funding a VRF V2 subscription, a user can use this wrapper to create one off requests,
+ * @dev paying up front rather than at fulfillment.
+ *
+ * @dev Since the price is determined using the gas price of the request transaction rather than
+ * @dev the fulfillment transaction, the wrapper charges an additional premium on callback gas
+ * @dev usage, in addition to some extra overhead costs associated with the VRFV2Wrapper contract.
+ * *****************************************************************************
+ * @dev USAGE
+ *
+ * @dev Calling contracts must inherit from VRFV2WrapperConsumerBase. The consumer must be funded
+ * @dev with enough WINK to make the request, otherwise requests will revert. To request randomness,
+ * @dev call the 'requestRandomness' function with the desired VRF parameters. This function handles
+ * @dev paying for the request based on the current pricing.
+ *
+ * @dev Consumers must implement the fullfillRandomWords function, which will be called during
+ * @dev fulfillment with the randomness result.
+ */</span>
+abstract <span class="token keyword">contract</span> <span class="token class-name">VRFV2WrapperConsumerBase</span> <span class="token punctuation">{</span>
+    TRC20Interface <span class="token keyword">internal</span> immutable WINK_TOKEN<span class="token punctuation">;</span>
+    WinkMid <span class="token keyword">internal</span> immutable WINK_MID<span class="token punctuation">;</span>
+    VRFV2WrapperInterface <span class="token keyword">internal</span> immutable VRF_V2_WRAPPER<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param _winkMid is the address of WinkMid
+   * @param _vrfV2Wrapper is the address of the VRFV2Wrapper contract
+   */</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> _wink<span class="token punctuation">,</span> <span class="token builtin">address</span> _winkMid<span class="token punctuation">,</span> <span class="token builtin">address</span> _vrfV2Wrapper<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        WINK_TOKEN <span class="token operator">=</span> <span class="token function">TRC20Interface</span><span class="token punctuation">(</span>_wink<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        WINK_MID <span class="token operator">=</span> <span class="token function">WinkMid</span><span class="token punctuation">(</span>_winkMid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        VRF_V2_WRAPPER <span class="token operator">=</span> <span class="token function">VRFV2WrapperInterface</span><span class="token punctuation">(</span>_vrfV2Wrapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @dev Requests randomness from the VRF V2 wrapper.
+   *
+   * @param _callbackGasLimit is the gas limit that should be used when calling the consumer's
+   *        fulfillRandomWords function.
+   * @param _requestConfirmations is the number of confirmations to wait before fulfilling the
+   *        request. A higher number of confirmations increases security by reducing the likelihood
+   *        that a chain re-org changes a published randomness outcome.
+   * @param _numWords is the number of random words to request.
+   *
+   * @return requestId is the VRF V2 request ID of the newly created randomness request.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">requestRandomness</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint32</span> _callbackGasLimit<span class="token punctuation">,</span>
+        <span class="token builtin">uint16</span> _requestConfirmations<span class="token punctuation">,</span>
+        <span class="token builtin">uint32</span> _numWords
+    <span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> requestId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">uint64</span> amount <span class="token operator">=</span> VRF_V2_WRAPPER<span class="token punctuation">.</span><span class="token function">calculateRequestPrice</span><span class="token punctuation">(</span>_callbackGasLimit<span class="token punctuation">,</span> _numWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        WINK_TOKEN<span class="token punctuation">.</span><span class="token function">approve</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span>WINK_MID<span class="token punctuation">)</span><span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        WINK_MID<span class="token punctuation">.</span><span class="token function">transferAndCall</span><span class="token punctuation">(</span>
+            <span class="token builtin">address</span><span class="token punctuation">(</span>VRF_V2_WRAPPER<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            amount<span class="token punctuation">,</span>
+            abi<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>_callbackGasLimit<span class="token punctuation">,</span> _requestConfirmations<span class="token punctuation">,</span> _numWords<span class="token punctuation">)</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> VRF_V2_WRAPPER<span class="token punctuation">.</span><span class="token function">lastRequestId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice fulfillRandomWords handles the VRF V2 wrapper response. The consuming contract must
+   * @notice implement it.
+   *
+   * @param _requestId is the VRF V2 request ID.
+   * @param _randomWords is the randomness result.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">fulfillRandomWords</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> _requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> _randomWords<span class="token punctuation">)</span> <span class="token keyword">internal</span> virtual<span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">rawFulfillRandomWords</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> _requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> _randomWords<span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> <span class="token builtin">address</span><span class="token punctuation">(</span>VRF_V2_WRAPPER<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;only VRF V2 wrapper can fulfill&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">fulfillRandomWords</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">,</span> _randomWords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">VRFV2WrapperInterface</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * @return the request ID of the most recent VRF V2 request made by this wrapper. This should only
+   * be relied option within the same transaction that the request was made.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">lastRequestId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @notice Calculates the price of a VRF request with the given callbackGasLimit at the current
+   * @notice block.
+   *
+   * @dev This function relies on the transaction gas price which is not automatically set during
+   * @dev simulation. To estimate the price at a specific gas price, use the estimatePrice function.
+   *
+   * @param _callbackGasLimit is the gas limit used to estimate the price.
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">calculateRequestPrice</span><span class="token punctuation">(</span><span class="token builtin">uint32</span> _callbackGasLimit<span class="token punctuation">,</span> <span class="token builtin">uint32</span> _numWords<span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint64</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//   /**</span>
+    <span class="token comment">//   * @notice Estimates the price of a VRF request with a specific gas limit and gas price.</span>
+    <span class="token comment">//   *</span>
+    <span class="token comment">//   * @dev This is a convenience function that can be called in simulation to better understand</span>
+    <span class="token comment">//   * @dev pricing.</span>
+    <span class="token comment">//   *</span>
+    <span class="token comment">//   * @param _callbackGasLimit is the gas limit used to estimate the price.</span>
+    <span class="token comment">//   * @param _requestGasPriceWei is the gas price in wei used for the estimation.</span>
+    <span class="token comment">//   */</span>
+    <span class="token comment">//   function estimateRequestPrice(uint32 _callbackGasLimit, uint256 _requestGasPriceWei) external view returns (uint256);</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.0</span><span class="token punctuation">;</span>
+
+abstract <span class="token keyword">contract</span> <span class="token class-name">TRC20Interface</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">function</span> <span class="token function">totalSupply</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span> guy<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">allowance</span><span class="token punctuation">(</span><span class="token builtin">address</span> src<span class="token punctuation">,</span> <span class="token builtin">address</span> guy<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">approve</span><span class="token punctuation">(</span><span class="token builtin">address</span> guy<span class="token punctuation">,</span> <span class="token builtin">uint</span> wad<span class="token punctuation">)</span> <span class="token keyword">public</span>  virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span> dst<span class="token punctuation">,</span> <span class="token builtin">uint</span> wad<span class="token punctuation">)</span> <span class="token keyword">public</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">transferFrom</span><span class="token punctuation">(</span><span class="token builtin">address</span> src<span class="token punctuation">,</span> <span class="token builtin">address</span> dst<span class="token punctuation">,</span> <span class="token builtin">uint</span> wad<span class="token punctuation">)</span> <span class="token keyword">public</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">event</span> <span class="token function">Transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">indexed</span> <span class="token keyword">from</span><span class="token punctuation">,</span> <span class="token builtin">address</span> <span class="token keyword">indexed</span> to<span class="token punctuation">,</span> <span class="token builtin">uint</span> tokens<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">event</span> <span class="token function">Approval</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">indexed</span> tokenOwner<span class="token punctuation">,</span> <span class="token builtin">address</span> <span class="token keyword">indexed</span> spender<span class="token punctuation">,</span> <span class="token builtin">uint</span> tokens<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+abstract <span class="token keyword">contract</span> <span class="token class-name">WinkMid</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">function</span> <span class="token function">setToken</span><span class="token punctuation">(</span><span class="token builtin">address</span> tokenAddress<span class="token punctuation">)</span> <span class="token keyword">public</span> virtual<span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">transferAndCall</span><span class="token punctuation">(</span><span class="token builtin">address</span> to<span class="token punctuation">,</span> <span class="token builtin">uint64</span> tokens<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> _data<span class="token punctuation">)</span> <span class="token keyword">public</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span> guy<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">allowance</span><span class="token punctuation">(</span><span class="token builtin">address</span> src<span class="token punctuation">,</span> <span class="token builtin">address</span> guy<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="如何設置可驗證隨機函數合約"><a href="#如何設置可驗證隨機函數合約" class="header-anchor">#</a> 如何設置可驗證隨機函數合約</h2> <h3 id="winkmid-合約"><a href="#winkmid-合約" class="header-anchor">#</a> WinkMid 合約</h3> <p>WWINkLink 用 WIN 代幣（TRC20）作為整個生態的基礎代幣。</p> <p>WINkLink 使用了 transferAndCall 功能，即在轉賬 TRC20 代幣給合約的同時調用合約的某一回調函數，該功能類似 ERC677，但接口參數不同。</p> <p>考慮到絕大多數已發行的代幣無法再修改合約或增加接口，WINkLink 提供 WinkMid 包裝合約，可用來包裝任一 TRC20 代幣，並提供 transferAndCall 接口。</p> <p>合約代碼可於 WinkMid.sol 查看。</p> <p>為方便開發者使用，Nile 測試網部署了 WinkMid 合約，並封裝了 WIN 代幣。 開發者可直接使用該合約地址，無需額外部署。 Nile 測試網還提供水龍頭地址，用戶可以領取 TRX 和 WIN 測試代幣。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>Nile 測試網</p> <p>WIN TRC20 合約地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</p> <p>WinkMid 合約地址: TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw</p> <p>測試網水龍頭地址: <a href="https://nileex.io/join/getJoinPage" target="_blank" rel="noopener noreferrer">https://nileex.io/join/getJoinPage<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <p>部署 WinkMid 合約時，開發者需在構造函數中提供被封裝的 TRC20 代幣地址（即 WIN 代幣地址）。</p> <p>WinkMid 合約可幫助用戶進行合約調用，開發者無需直接進行調用操作。</p> <p>部署 Coordinator 合約時需在構造函數中提供 WIN 代幣地址和 WinkMid 合約地址。</p> <h3 id="vrfcoordinatorv2"><a href="#vrfcoordinatorv2" class="header-anchor">#</a> VRFCoordinatorV2</h3> <p>Coordinator 主要負責處理所有 VRF 請求和 fulfillment， 請使用相應的參數部署合約。</p> <p>發起請求之前，預言機必須以 base58 編碼的形式用證明密鑰向 Coordinator 註冊其節點地址，否則請求將失敗。</p> <h3 id="vrfv2wrapper"><a href="#vrfv2wrapper" class="header-anchor">#</a> VRFV2Wrapper</h3> <p>Wrapper 合約是直接付費 Consumer 的訪問層。該合約通過 WinkMid 的 transferAndCall 函數為訂閱服務提供充足的 Wink 代幣，保證內部流通。</p> <p>傳入數據為 ABI 編碼格式的訂閱 ID 值，例如，<code>0x0000000000000000000000000000000000000000000000000000000000000007</code> 表示訂閱 ID 為 7。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>keyhash 指的是預言機節點的 keyhash，可通過 Operator UI 或 CLI 獲取</p></div> <h3 id="consumers"><a href="#consumers" class="header-anchor">#</a> Consumers</h3> <ul><li>VRFv2DirectFundingConsumer</li></ul> <p>在發起請求時，直接付費的 Consumer 會直接從用戶賬戶中扣除 Wink 代幣。 請求時，該 Consumer 接口會與 Wrapper 合約進行交互。</p> <ul><li>VRFv2SubscriptionConsumer</li></ul> <p>為確保訂閱服務處於開啟狀態，訂閱服務 Consumer 需要使用訂閱服務管理器。 出現請求時，該 Consumer 接口憑有效的訂閱 ID 直接與 Coordinator 合約進行交互。</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>代碼中提供的 Consumer 合約僅作示例，用戶應根據自身情況編寫自己的 Consumer 合約。</p></div> <h2 id="如何啟動可驗證隨機數服務節點"><a href="#如何啟動可驗證隨機數服務節點" class="header-anchor">#</a> 如何啟動可驗證隨機數服務節點</h2> <h3 id="節點部署"><a href="#節點部署" class="header-anchor">#</a> 節點部署</h3> <p>合約部署完畢後，即可開始 WINLink 節點部署。
+WINkLink 節點（項目目錄節點）的代碼請參考：<a href="https://github.com/tron-oracle/winklink-2.0/tree/main" target="_blank" rel="noopener noreferrer">https://github.com/tron-oracle/winklink-2.0/tree/main<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>.</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>當前節點實現包含通過交易所 API 訪問代幣價格的適配器。 請在中國大陸以外的穩定網絡環境中運行節點。</p></div> <h3 id="準備節點賬戶"><a href="#準備節點賬戶" class="header-anchor">#</a> 準備節點賬戶</h3> <p>每個 WINLink 節點必須與一個波場帳戶關聯，以便調用聚合器合約傳輸數據。</p> <p>賬戶地址和私鑰生成後，開發人員可以在測試網水龍頭頁面測試 TRX 代幣。該代幣用於支付調用智能合約產生的手續費。</p> <p>節點初始運行時將生成賬戶，私鑰將存儲在密鑰鏈中。 節點將使用該賬戶進行餵價傳輸。</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>生成的賬戶尚未激活，請向該賬戶轉賬任意數量的 TRX 以完成激活</p></div> <h3 id="所需環境"><a href="#所需環境" class="header-anchor">#</a> 所需環境</h3> <p>WINkLink 節點依賴 PostgreSQL 數據庫。 詳情請參考官方文檔：<a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">https://www.postgresql.org<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> .</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>這裏假定本機部署的 PostgreSQL 實例的用戶名和密碼分別是 root:root。 在生產環境中請使用強密碼或其他驗證方式。</p></div> <p>WINkLink 節點使用的編程語言為 Go，因此需要搭建 Golang 環境。</p> <h3 id="節點配置"><a href="#節點配置" class="header-anchor">#</a> 節點配置</h3> <p>WINkLink 節點的配置文件格式為 TOML， 主配置為 tools/config/config.toml。 你可以使用 secrets.toml 指定要使用的 db 實例。 以下為參考模板。</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># secrets.toml</span>
+<span class="token punctuation">[</span><span class="token table class-name">Database</span><span class="token punctuation">]</span>
+<span class="token key property">URL</span> <span class="token punctuation">=</span> <span class="token string">'postgresql://root:root@localhost:5432/winklink?sslmode=disable'</span> <span class="token comment"># Require</span>
+<span class="token key property">AllowSimplePasswords</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Password</span><span class="token punctuation">]</span>
+<span class="token key property">Keystore</span> <span class="token punctuation">=</span> <span class="token string">'keystorePassword'</span> <span class="token comment"># Required</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Tron</span><span class="token punctuation">]</span>
+<span class="token key property">TronApiKey</span> <span class="token punctuation">=</span> <span class="token string">'apiKey'</span>
+</code></pre></div><p>確認好節點配置文件後，需創建 <code>vrfpassword</code> 和 <code>apicredentials</code> 文件，並寫入用戶 ID 和密碼，以訪問節點 API：</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># apicredentials</span>
+example<span class="token punctuation">.</span>user@fake<span class="token punctuation">.</span>email
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># vrfpassword</span>
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>請妥善托管您的個人信息。</p></div> <h3 id="搭建節點-docker-鏡像"><a href="#搭建節點-docker-鏡像" class="header-anchor">#</a> 搭建節點 Docker 鏡像</h3> <p>使用以下指令構建標準的 Linux 鏡像：</p> <div class="language- extra-class"><pre class="language-text"><code># build a docker image
+docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
+</code></pre></div><p>將構建好的 Docker 鏡像打上標簽並推送到所需的存儲庫進行部署。</p> <h3 id="用源代碼啟動節點"><a href="#用源代碼啟動節點" class="header-anchor">#</a> 用源代碼啟動節點</h3> <p>安裝 <a href="https://go.dev/dl/" target="_blank" rel="noopener noreferrer">go1.20<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>前往 winklink-2.0 源代碼的基本目錄</p> <p>搭建命令行界面</p> <div class="language- extra-class"><pre class="language-text"><code>make install
+</code></pre></div><p>使用以下指令及對應配置項啟動 WINkLink 節點：</p> <div class="language- extra-class"><pre class="language-text"><code>winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/vrfpassword -a /tools/secrets/apicredentials
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>節點帳號必須有足夠的 TRX 代幣，用於合約調用。 可以通過測試網水龍頭申請測試代幣。</p></div> <h3 id="為節點添加-vrf-任務"><a href="#為節點添加-vrf-任務" class="header-anchor">#</a> 為節點添加 VRF 任務</h3> <p>以下是創建一個所需最少參數的 VRF 任務規範示例模版</p> <div class="language-json extra-class"><pre class="language-json"><code>type = <span class="token string">&quot;vrf&quot;</span>
+schemaVersion = <span class="token number">1</span>
+name = <span class="token string">&quot;vrf-delete-test&quot;</span>
+forwardingAllowed = <span class="token boolean">false</span>
+coordinatorAddress = <span class="token string">&quot;THE-SMART-CONTRACT-EIP55-COORDINATOR-ADDRESS&quot;</span>
+fromAddresses = <span class="token punctuation">[</span> <span class="token string">&quot;THE-CURRENT-NODE-EIP55-ADDRESS&quot;</span> <span class="token punctuation">]</span>
+minIncomingConfirmations = <span class="token number">1</span>
+publicKey = <span class="token string">&quot;THE-CURRENT-NODE-PUBLIC-KEY&quot;</span>
+observationSource = <span class="token string">&quot;&quot;</span>&quot;
+decode   <span class="token punctuation">[</span>type=<span class="token string">&quot;tvmabidecodelog&quot;</span><span class="token punctuation">]</span>
+vrf      <span class="token punctuation">[</span>type=vrfbuilder<span class="token punctuation">]</span>
+tvmcall  <span class="token punctuation">[</span>type=tvmcall contract=<span class="token string">&quot;THE-SMART-CONTRACT-TRON-ADDRESS&quot;</span> extractRevertReason=<span class="token boolean">true</span><span class="token punctuation">]</span>
+
+decode-&gt;vrf-&gt;tvmcall
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre></div><p>創建完成後，節點便可以處理收到的 VRF 請求。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/v2/doc/hk/pricing.html" class="prev">
+        WINkLink 價格服務
+      </a></span> <span class="next"><a href="/v2/doc/hk/anyapi.html">
+        WINkLink AnyAPI 服務
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/v2/doc/assets/js/app.03bfa769.js" defer></script><script src="/v2/doc/assets/js/2.a93bf3eb.js" defer></script><script src="/v2/doc/assets/js/1.449454cc.js" defer></script><script src="/v2/doc/assets/js/22.f1d5d4c6.js" defer></script>
+  </body>
+</html>
