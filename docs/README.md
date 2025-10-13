@@ -88,18 +88,20 @@ The aggregated transaction contains a report that is signed by a quorum of oracl
 
 Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.
 
-## How to Participate in WINkLink
+## Join the WINkLink Ecosystem
 
-Depending on the role you want to assume in the WINkLink ecosystem, you can choose to do the following:
+Welcome to the WINkLink ecosystem! Collaborate with WINkLink to create a trusted on-chain data network.
 
-For using WINkLink price service in DApps: [Price Service](pricing.md)
+**Community Channels:**
+- Telegram: [Join channel](https://t.me/WINkLink_Oracle_official)
+- GitHub Project: [GitHub - wink-link/winklink](https://github.com/wink-link/winklink)
 
-For using WINkLink Verifiable Random Function (VRF) service in Dapps: [VRF](vrf.md)
+**How to Participate:**
 
-## WINkLink Community
+Whether you are a data consumer, data provider, or node operator, you can contribute to the WINkLink ecosystem.
 
-Welcome to the WINkLink ecosystem.
+- Become a Data Consumer — Trusted Price Feeds for DeFi Security<br> 👉 [Apply Here](https://docs.google.com/forms/d/e/1FAIpQLSd-YWewuQcKDTEeL-IitHFUEAy6mXaRj_yLic2vtXi8FhFaVw/viewform)
 
-- Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
-- Github Project: <https://github.com/wink-link/winklink>
-- Developer E-mail: <developer@winklink.org>
+- Become a Data Provider — Unlock Value for Trusted Data Sources<br> 👉 [Apply Here](https://docs.google.com/forms/d/e/1FAIpQLScasXYrYtSG9VC9LK_QUEbXPL76jSVZd26dy-Z4T5IV76h2Kg/viewform)
+
+- Run a WINkLink Node — Join the node network to enhance the ecosystem’s security and decentralization.<br> 👉 [View Node Deployment Guide](https://doc.winklink.org/v2/doc/node.html)

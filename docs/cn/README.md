@@ -97,18 +97,20 @@ sequenceDiagram
 
 目前，链下报告模型仍处于测试阶段，一旦稳定下来，将会提供更多的信息。
 
-## 如何参与 WINkLink
+## 加入 WINkLink 生态
 
-取决于你想在 WINkLink 生态中的角色，你可以选择如下：
+欢迎加入 WINkLink 生态，与WINkLink共建可信链上数据生态！
 
-- 如果你想在 DApp 中 使用 WINkLink 价格服务：[价格服务](pricing.md)
+**社区入口：**
+- Telegram: [加入频道](https://t.me/WINkLink_Oracle_official)
+- GitHub Project: [GitHub - wink-link/winklink](https://github.com/wink-link/winklink)
 
-- 如果你想 了解 WINkLink 的实现细节：[架构介绍](vrf.md)
+**参与方式：**
 
-## WINkLink 社区
+无论你是数据使用者、数据提供者，还是节点运营者，都可以参与 WINkLink 生态建设。
 
-欢迎加入 WINkLink 生态。
+- 成为数据使用者 — 集成可信价格数据，构建安全DeFi协议。<br> 👉 [提交申请](https://docs.google.com/forms/d/e/1FAIpQLSd-YWewuQcKDTEeL-IitHFUEAy6mXaRj_yLic2vtXi8FhFaVw/viewform)
 
-- Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
-- Github 项目: <https://github.com/wink-link/winklink>
-- Support E-mail: <developer@winklink.org>
+- 成为数据提供者 — 成为可信数据源，释放数据价值。<br> 👉 [提交申请](https://docs.google.com/forms/d/e/1FAIpQLScasXYrYtSG9VC9LK_QUEbXPL76jSVZd26dy-Z4T5IV76h2Kg/viewform)
+
+- 运行 WINkLink 节点 — 加入节点网络，提升生态的安全性与去中心化程度。<br> 👉 [查看节点部署指南](https://doc.winklink.org/v2/doc/node.html)
