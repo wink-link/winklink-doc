@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WINkLink Automation Service | WINkLink Developer Documentation</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/v2/doc/favicon.ico">
+    <meta name="description" content="WINkLink Developer Documentation">
+    
+    <link rel="preload" href="/v2/doc/assets/css/0.styles.f394efb8.css" as="style"><link rel="preload" href="/v2/doc/assets/js/app.03bfa769.js" as="script"><link rel="preload" href="/v2/doc/assets/js/2.a93bf3eb.js" as="script"><link rel="preload" href="/v2/doc/assets/js/1.449454cc.js" as="script"><link rel="preload" href="/v2/doc/assets/js/26.61b32239.js" as="script"><link rel="prefetch" href="/v2/doc/assets/js/10.16d90ebb.js"><link rel="prefetch" href="/v2/doc/assets/js/11.13c650ee.js"><link rel="prefetch" href="/v2/doc/assets/js/12.55b16c22.js"><link rel="prefetch" href="/v2/doc/assets/js/13.962e7cfd.js"><link rel="prefetch" href="/v2/doc/assets/js/14.cfbd47f4.js"><link rel="prefetch" href="/v2/doc/assets/js/15.4dbeb83f.js"><link rel="prefetch" href="/v2/doc/assets/js/16.35a421bc.js"><link rel="prefetch" href="/v2/doc/assets/js/17.3e08682a.js"><link rel="prefetch" href="/v2/doc/assets/js/18.4faca617.js"><link rel="prefetch" href="/v2/doc/assets/js/19.58a0d499.js"><link rel="prefetch" href="/v2/doc/assets/js/20.55d78c67.js"><link rel="prefetch" href="/v2/doc/assets/js/21.a90ef942.js"><link rel="prefetch" href="/v2/doc/assets/js/22.f1d5d4c6.js"><link rel="prefetch" href="/v2/doc/assets/js/23.3063150b.js"><link rel="prefetch" href="/v2/doc/assets/js/24.c8d68107.js"><link rel="prefetch" href="/v2/doc/assets/js/25.efac722e.js"><link rel="prefetch" href="/v2/doc/assets/js/27.5ec9b61f.js"><link rel="prefetch" href="/v2/doc/assets/js/28.3486a5d3.js"><link rel="prefetch" href="/v2/doc/assets/js/29.1e3aa466.js"><link rel="prefetch" href="/v2/doc/assets/js/3.2d08496e.js"><link rel="prefetch" href="/v2/doc/assets/js/30.5a431eb8.js"><link rel="prefetch" href="/v2/doc/assets/js/31.2e1adf9a.js"><link rel="prefetch" href="/v2/doc/assets/js/32.6525a1e9.js"><link rel="prefetch" href="/v2/doc/assets/js/33.c2ba9b78.js"><link rel="prefetch" href="/v2/doc/assets/js/34.272f28aa.js"><link rel="prefetch" href="/v2/doc/assets/js/35.9390522c.js"><link rel="prefetch" href="/v2/doc/assets/js/36.7749d9ba.js"><link rel="prefetch" href="/v2/doc/assets/js/37.26eb83b6.js"><link rel="prefetch" href="/v2/doc/assets/js/38.a0147385.js"><link rel="prefetch" href="/v2/doc/assets/js/39.396a0113.js"><link rel="prefetch" href="/v2/doc/assets/js/4.2a0c902e.js"><link rel="prefetch" href="/v2/doc/assets/js/40.4e3b23ef.js"><link rel="prefetch" href="/v2/doc/assets/js/41.f0dd511f.js"><link rel="prefetch" href="/v2/doc/assets/js/42.393f4efc.js"><link rel="prefetch" href="/v2/doc/assets/js/43.8564e0ba.js"><link rel="prefetch" href="/v2/doc/assets/js/5.0f6ba89b.js"><link rel="prefetch" href="/v2/doc/assets/js/6.85ab809a.js"><link rel="prefetch" href="/v2/doc/assets/js/7.46648f82.js"><link rel="prefetch" href="/v2/doc/assets/js/vendors~docsearch.5cff1987.js">
+    <link rel="stylesheet" href="/v2/doc/assets/css/0.styles.f394efb8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/v2/doc/" class="home-link router-link-active"><!----> <span class="site-name">WINkLink Developer Documentation</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/automation.html" class="nav-link">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/automation.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/automation.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/automation.html" class="nav-link">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/automation.html" class="nav-link">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/automation.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/v2/doc/" aria-current="page" class="sidebar-link">Introduction to WINkLink</a></li><li><a href="/v2/doc/pricing.html" class="sidebar-link">WINkLink Price Feed Service</a></li><li><a href="/v2/doc/vrf.html" class="sidebar-link">WINkLink Verifiable Random Number Service</a></li><li><a href="/v2/doc/anyapi.html" class="sidebar-link">WINkLink AnyAPI Service</a></li><li><a href="/v2/doc/automation.html" aria-current="page" class="active sidebar-link">WINkLink Automation Service</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#overview" class="sidebar-link">Overview</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#contracts" class="sidebar-link">Contracts</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#how-to-use-existing-winklink-automation" class="sidebar-link">How to use existing WINkLink Automation</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#automation-registration-process" class="sidebar-link">Automation Registration Process</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#automation-execution-process" class="sidebar-link">Automation execution Process</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#how-to-launch-an-automation-service-node" class="sidebar-link">How to launch an Automation Service Node</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#getting-started" class="sidebar-link">Getting started</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#required-environment" class="sidebar-link">Required Environment</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#node-configuration" class="sidebar-link">Node Configuration</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#building-a-docker-image-for-the-node" class="sidebar-link">Building a docker image for the node</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#start-a-node-from-source-code" class="sidebar-link">Start a Node from source code</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#registry-contract" class="sidebar-link">Registry Contract</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#how-to-setup-automation-contracts-and-jobs" class="sidebar-link">How to setup Automation contracts and jobs</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#winkmid-contract" class="sidebar-link">WinkMid Contract</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#registry-and-registrar-contract" class="sidebar-link">Registry and Registrar Contract</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#upkeep-contract" class="sidebar-link">Upkeep Contract</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#custom-logic-upkeep" class="sidebar-link">Custom logic upkeep</a></li><li class="sidebar-sub-header"><a href="/v2/doc/automation.html#node" class="sidebar-link">Node</a></li></ul></li></ul></li><li><a href="/v2/doc/pipeline.html" class="sidebar-link">Pipeline Tasks</a></li><li><a href="/v2/doc/glossary.html" class="sidebar-link">Glossary</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="winklink-automation-service"><a href="#winklink-automation-service" class="header-anchor">#</a> WINkLink Automation Service</h1> <h2 id="overview"><a href="#overview" class="header-anchor">#</a> Overview</h2> <p>The automation services enables users to automate contracts containing custom logic. This automation is achieved though on-chain registration and an off-chain service that continuously monitors and tracks contracts for execution.</p> <p>This service allows users to register their custom logic contract with a managed central registry. The off-chain node will interact with the registry to obtain the list of active contracts that needed to be executed based on individual criteria.</p> <p><img src="/v2/doc/assets/img/automation-flow.3beeb98f.png" alt="automation-flow.png"></p> <p>The WINkLink Automation solution contains both off-chain and on-chain components:</p> <ul><li>Automation Custom Logic contract (on-chain component): A user-created contract with defined trigger conditions and executable logic. Users are required to fund this contract with WINK tokens and initiate the request.</li> <li>Automation Registry &amp; Registrar (on-chain component): These are a set of contracts designed to track and manage both the registration and the operational states of other contracts. Funds for individual contracts are also kept and calculated.</li> <li>Automation Node service (off-chain node): Subscribed to event logs to listen for new registered contracts and modifications to existing contracts. It also checks the trigger condition every 3 seconds to ensure timely execution of the user's logic.</li></ul> <h3 id="contracts"><a href="#contracts" class="header-anchor">#</a> Contracts</h3> <p>A set of contracts are deployed in the nile environment for testing</p> <table><thead><tr><th style="text-align:left;">Item</th> <th style="text-align:left;">Value</th></tr></thead> <tbody><tr><td style="text-align:left;">WIN Token</td> <td style="text-align:left;">TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</td></tr> <tr><td style="text-align:left;">WinkMid</td> <td style="text-align:left;">TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro</td></tr> <tr><td style="text-align:left;">AutomationForwarderLogic</td> <td style="text-align:left;">TJh6cdC2yxuVoHQ3i72AyQVcJd5ZWcYK6m</td></tr> <tr><td style="text-align:left;">KeeperRegistryLogicB</td> <td style="text-align:left;">TMCRXdfPaedr8mhoZCrA96P3dBEt8zRQwx</td></tr> <tr><td style="text-align:left;">KeeperRegistryLogicA</td> <td style="text-align:left;">TCrR2XfAJDF3NyH6RL7xwpnebswzsesLK9</td></tr> <tr><td style="text-align:left;">KeeperRegistry</td> <td style="text-align:left;">TQauX3xDe7NJdWeauYWfTv8u3hLaVecB7k</td></tr> <tr><td style="text-align:left;">KeeperRegistrar</td> <td style="text-align:left;">TRrFfgs8p3f1MY3rxqnc9c1DrZKHkxZosd</td></tr> <tr><td style="text-align:left;">AutomationRegistration</td> <td style="text-align:left;">TXj5cG2zxtofHoLWLXpecckSwmfDdnoXTa</td></tr></tbody></table> <h2 id="how-to-use-existing-winklink-automation"><a href="#how-to-use-existing-winklink-automation" class="header-anchor">#</a> How to use existing WINkLink Automation</h2> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>Consumer contracts and jobs deployed are only provided as a sample for learning and testing. Users are advised to craft their own consumer contracts with bespoke jobs specifications.
+e.g TCvpP3Fu5nXMJqFJEVGdCZoLZoUfkDPcn2</p></div> <h3 id="automation-registration-process"><a href="#automation-registration-process" class="header-anchor">#</a> Automation Registration Process</h3> <ol><li>User creates a custom logic contract and deployed on chain.</li> <li>The contract is registered with the registrar with a forwarder created during the process.</li> <li>User tops ups their own contract in the registry using the <code>addFunds</code> method</li></ol> <p>To utilize WINkLink's Automation feature, users have to craft their own consumer contracts and job specifications and fund these contracts to initiate requests.</p> <h3 id="automation-execution-process"><a href="#automation-execution-process" class="header-anchor">#</a> Automation execution Process</h3> <ol><li>The WINkLink node obtains the list of all active user contracts for checking and execution on startup. It continuously listens for the chain events for new contract registration, pauses, unpauses and cancellation of existing contracts.</li> <li>Every 3 seconds, the node will take the active list and <code>checkUpkeep</code>, <code>simulateUpkeep</code>, <code>performUpkeep</code>.</li> <li>Each stage has to return a positive boolean result before the next stage can be executed.</li> <li>Contracts will not execute if Wink funds is insufficient.</li></ol> <h2 id="how-to-launch-an-automation-service-node"><a href="#how-to-launch-an-automation-service-node" class="header-anchor">#</a> How to launch an Automation Service Node</h2> <h3 id="getting-started"><a href="#getting-started" class="header-anchor">#</a> Getting started</h3> <p>Maintainers for WINkLink need to understand how the TRON platform works, and know about smart contract deployment and the process of calling them. It is suggested to read related TRON official documentation, particularly the section on contract deployment on TronIDE.</p> <p>The node account should be prepared according to the instructions in the Node account preparation documentation.</p> <h3 id="required-environment"><a href="#required-environment" class="header-anchor">#</a> Required Environment</h3> <p>WINkLink node relies on a running PostgreSQL database. Developers can find more information in the official documentation <a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">postgresql official site<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> .</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>Here we assume that the username and the password for the PostgreSQL instance deployed locally are root:root respectively. Please use a strong password or other verification methods in the production environment.</p></div> <p>WINkLink node is written in Go programming language and requires Golang environment.</p> <h3 id="node-configuration"><a href="#node-configuration" class="header-anchor">#</a> Node Configuration</h3> <p>WINkLink node is configured using TOML files. The main configuration files is <code>tools/config/config.toml</code>. The <code>secrets.toml</code> file is used to specify the database instance to be used. Below is a sample template for reference.</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># secrets.toml</span>
+<span class="token punctuation">[</span><span class="token table class-name">Database</span><span class="token punctuation">]</span>
+<span class="token key property">URL</span> <span class="token punctuation">=</span> <span class="token string">'postgresql://root:root@localhost:5432/winklink?sslmode=disable'</span> <span class="token comment"># Require</span>
+<span class="token key property">AllowSimplePasswords</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Password</span><span class="token punctuation">]</span>
+<span class="token key property">Keystore</span> <span class="token punctuation">=</span> <span class="token string">'keystorePassword'</span> <span class="token comment"># Required</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Tron</span><span class="token punctuation">]</span>
+<span class="token key property">TronApiKey</span> <span class="token punctuation">=</span> <span class="token string">'apiKey'</span>
+</code></pre></div><p>After the node configuration file is confirmed, it is required to create <code>password</code> and <code>apicredentials</code> files and write the userid and password to access the node’s api:</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># apicredentials</span>
+example<span class="token punctuation">.</span>user@fake<span class="token punctuation">.</span>email
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># password</span>
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>It is important that you keep private information safe.</p></div> <h3 id="building-a-docker-image-for-the-node"><a href="#building-a-docker-image-for-the-node" class="header-anchor">#</a> Building a docker image for the node</h3> <p>Use the following command to build a standard linux docker image:</p> <div class="language- extra-class"><pre class="language-text"><code># build a docker image
+docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
+</code></pre></div><p>After building, the image can be tagged and pushed to the desired repository for deployment.</p> <h3 id="start-a-node-from-source-code"><a href="#start-a-node-from-source-code" class="header-anchor">#</a> Start a Node from source code</h3> <p>Install <a href="https://go.dev/dl/" target="_blank" rel="noopener noreferrer">go1.21<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>Navigate to the base directory of Winklink-2.0 source code (e.g. <code>/path/to/winklink-2.0</code>).</p> <p>Build the command line interface with</p> <div class="language- extra-class"><pre class="language-text"><code>make install
+</code></pre></div><p>Start your WINkLink node using the following command with the respective configuration items:</p> <div class="language- extra-class"><pre class="language-text"><code>winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/password -a /tools/secrets/apicredentials
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>The node account must have sufficient TRX tokens for contract calls. Testnet tokens can be obtained from the Testnet Faucet.</p></div> <h3 id="registry-contract"><a href="#registry-contract" class="header-anchor">#</a> Registry Contract</h3> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">/// SPDX-License-Identifier: BUSL-1.1</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token number">0.8</span><span class="token number">.18</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span>EnumerableSet<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/structs/EnumerableSet.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Address<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;../../vendor/openzeppelin-solidity/v4.7.3/contracts/utils/Address.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>KeeperRegistryBase2_1<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./KeeperRegistryBase2_1.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>KeeperRegistryLogicB2_1<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./KeeperRegistryLogicB2_1.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Chainable<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./Chainable.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>TRC20ReceiverInterface<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./TRC20ReceiverInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>OCR2Abstract<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;./OCR2Abstract.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @notice Registry for adding work for Chainlink Keepers to perform on client
+ * contracts. Clients must support the Upkeep interface.
+ */</span>
+<span class="token keyword">contract</span> <span class="token class-name">KeeperRegistry2_1</span> <span class="token keyword">is</span> KeeperRegistryBase2_1<span class="token punctuation">,</span> OCR2Abstract<span class="token punctuation">,</span> Chainable<span class="token punctuation">,</span> TRC20ReceiverInterface <span class="token punctuation">{</span>
+    <span class="token keyword">using</span> <span class="token class-name">Address</span> <span class="token keyword">for</span> <span class="token builtin">address</span><span class="token punctuation">;</span>
+    <span class="token keyword">using</span> <span class="token class-name">EnumerableSet</span> <span class="token keyword">for</span> EnumerableSet<span class="token punctuation">.</span>UintSet<span class="token punctuation">;</span>
+    <span class="token keyword">using</span> <span class="token class-name">EnumerableSet</span> <span class="token keyword">for</span> EnumerableSet<span class="token punctuation">.</span>AddressSet<span class="token punctuation">;</span>
+    
+    <span class="token builtin">string</span> <span class="token keyword">public</span> <span class="token keyword">constant</span> override typeAndVersion <span class="token operator">=</span> <span class="token string">&quot;KeeperRegistry 2.1.0&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * @param logicA the address of the first logic contract, but cast as logicB in order to call logicB functions
+   */</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span>
+        KeeperRegistryLogicB2_1 logicA
+    <span class="token punctuation">)</span>
+    <span class="token function">KeeperRegistryBase2_1</span><span class="token punctuation">(</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getMode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkMid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkNativeFeedAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">// logicA.getFastGasFeedAddress(),</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getAutomationForwarderLogic</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkPerPerform</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkOverhead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    logicA<span class="token punctuation">.</span><span class="token function">getWinkPremium</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    <span class="token function">Chainable</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span>logicA<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token comment">// ================================================================</span>
+    <span class="token comment">// |                           ACTIONS                            |</span>
+    <span class="token comment">// ================================================================</span>
+
+    <span class="token comment">/**
+     * @inheritdoc OCR2Abstract
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">transmit</span><span class="token punctuation">(</span>
+        <span class="token builtin">bytes32</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> reportContext<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> rawReport<span class="token punctuation">,</span>
+        <span class="token builtin">bytes32</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> rs<span class="token punctuation">,</span>
+        <span class="token builtin">bytes32</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> ss<span class="token punctuation">,</span>
+        <span class="token builtin">bytes32</span> rawVs
+    <span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+        <span class="token builtin">uint256</span> gasOverhead <span class="token operator">=</span> <span class="token function">gasleft</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        HotVars <span class="token keyword">memory</span> hotVars <span class="token operator">=</span> s_hotVars<span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>hotVars<span class="token punctuation">.</span>paused<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">RegistryPaused</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>s_transmitters<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span><span class="token punctuation">.</span>active<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">OnlyActiveTransmitters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">// Verify signatures</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s_latestConfigDigest <span class="token operator">!=</span> reportContext<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">ConfigDigestMismatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>rs<span class="token punctuation">.</span>length <span class="token operator">!=</span> hotVars<span class="token punctuation">.</span>f <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">||</span> rs<span class="token punctuation">.</span>length <span class="token operator">!=</span> ss<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">IncorrectNumberOfSignatures</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">_verifyReportSignature</span><span class="token punctuation">(</span>reportContext<span class="token punctuation">,</span> rawReport<span class="token punctuation">,</span> rs<span class="token punctuation">,</span> ss<span class="token punctuation">,</span> rawVs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        Report <span class="token keyword">memory</span> report <span class="token operator">=</span> <span class="token function">_decodeReport</span><span class="token punctuation">(</span>rawReport<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        UpkeepTransmitInfo<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> upkeepTransmitInfo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UpkeepTransmitInfo</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token builtin">uint16</span> numUpkeepsPassedChecks<span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>upkeep <span class="token operator">=</span> s_upkeep<span class="token punctuation">[</span>report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>triggerType <span class="token operator">=</span> <span class="token function">_getTriggerType</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>maxWinkPayment <span class="token operator">=</span> <span class="token function">_getMaxWinkPayment</span><span class="token punctuation">(</span>
+                hotVars<span class="token punctuation">,</span>
+                upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>triggerType<span class="token punctuation">,</span>
+                <span class="token builtin">uint32</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>gasLimits<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token builtin">uint32</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>performDatas<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                report<span class="token punctuation">.</span>winkNative
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">(</span>upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>earlyChecksPassed<span class="token punctuation">,</span> upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>dedupID<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_prePerformChecks</span><span class="token punctuation">(</span>
+                report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                report<span class="token punctuation">.</span>triggers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>earlyChecksPassed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                numUpkeepsPassedChecks <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token comment">// Actually perform the target upkeep</span>
+            <span class="token punctuation">(</span>upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>performSuccess<span class="token punctuation">,</span> upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gasUsed<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_performUpkeep</span><span class="token punctuation">(</span>
+                upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>upkeep<span class="token punctuation">.</span>forwarder<span class="token punctuation">,</span>
+                report<span class="token punctuation">.</span>gasLimits<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                report<span class="token punctuation">.</span>performDatas<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">// Deduct that gasUsed by upkeep from our running counter</span>
+            gasOverhead <span class="token operator">-=</span> upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gasUsed<span class="token punctuation">;</span>
+
+            <span class="token comment">// Store last perform block number / deduping key for upkeep</span>
+            <span class="token function">_updateTriggerMarker</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// No upkeeps to be performed in this report</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>numUpkeepsPassedChecks <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// This is the overall gas overhead that will be split across performed upkeeps</span>
+        <span class="token comment">// Take upper bound of 16 gas per callData bytes, which is approximated to be reportLength</span>
+        <span class="token comment">// Rest of msg.data is accounted for in accounting overheads</span>
+        gasOverhead <span class="token operator">=</span>
+            <span class="token punctuation">(</span>gasOverhead <span class="token operator">-</span> <span class="token function">gasleft</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">16</span> <span class="token operator">*</span> rawReport<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token operator">+</span>
+            ACCOUNTING_FIXED_GAS_OVERHEAD <span class="token operator">+</span>
+            <span class="token punctuation">(</span>ACCOUNTING_PER_SIGNER_GAS_OVERHEAD <span class="token operator">*</span> <span class="token punctuation">(</span>hotVars<span class="token punctuation">.</span>f <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        gasOverhead <span class="token operator">=</span> gasOverhead <span class="token operator">/</span> numUpkeepsPassedChecks <span class="token operator">+</span> ACCOUNTING_PER_UPKEEP_GAS_OVERHEAD<span class="token punctuation">;</span>
+
+        <span class="token builtin">uint96</span> totalReimbursement<span class="token punctuation">;</span>
+        <span class="token builtin">uint96</span> totalPremium<span class="token punctuation">;</span>
+        <span class="token punctuation">{</span>
+            <span class="token builtin">uint96</span> reimbursement<span class="token punctuation">;</span>
+            <span class="token builtin">uint96</span> premium<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>earlyChecksPassed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gasOverhead <span class="token operator">=</span> <span class="token function">_getCappedGasOverhead</span><span class="token punctuation">(</span>
+                        gasOverhead<span class="token punctuation">,</span>
+                        upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>triggerType<span class="token punctuation">,</span>
+                        <span class="token builtin">uint32</span><span class="token punctuation">(</span>report<span class="token punctuation">.</span>performDatas<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                        hotVars<span class="token punctuation">.</span>f
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token punctuation">(</span>reimbursement<span class="token punctuation">,</span> premium<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_postPerformPayment</span><span class="token punctuation">(</span>
+                        report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        report<span class="token punctuation">.</span>winkNative
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    totalPremium <span class="token operator">+=</span> premium<span class="token punctuation">;</span>
+                    totalReimbursement <span class="token operator">+=</span> reimbursement<span class="token punctuation">;</span>
+
+                    <span class="token keyword">emit</span> <span class="token function">UpkeepPerformed</span><span class="token punctuation">(</span>
+                        report<span class="token punctuation">.</span>upkeepIds<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+                        upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>performSuccess<span class="token punctuation">,</span>
+                        reimbursement <span class="token operator">+</span> premium<span class="token punctuation">,</span>
+                        upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gasUsed<span class="token punctuation">,</span>
+                        upkeepTransmitInfo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gasOverhead<span class="token punctuation">,</span>
+                        report<span class="token punctuation">.</span>triggers<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+                    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// record payments</span>
+        s_transmitters<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span><span class="token punctuation">.</span>balance <span class="token operator">+=</span> totalReimbursement<span class="token punctuation">;</span>
+        s_hotVars<span class="token punctuation">.</span>totalPremium <span class="token operator">+=</span> totalPremium<span class="token punctuation">;</span>
+
+        <span class="token builtin">uint40</span> epochAndRound <span class="token operator">=</span> <span class="token builtin">uint40</span><span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">(</span>reportContext<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token builtin">uint32</span> epoch <span class="token operator">=</span> <span class="token builtin">uint32</span><span class="token punctuation">(</span>epochAndRound <span class="token operator">&gt;&gt;</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>epoch <span class="token operator">&gt;</span> hotVars<span class="token punctuation">.</span>latestEpoch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            s_hotVars<span class="token punctuation">.</span>latestEpoch <span class="token operator">=</span> epoch<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">performUpkeep</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint256</span> upkeepId<span class="token punctuation">,</span>
+        <span class="token builtin">uint256</span> gasLimit<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> performData<span class="token punctuation">)</span>
+    <span class="token keyword">external</span> <span class="token function">onlyAuthorizedTriggeringNodes</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">uint96</span> winkPayment<span class="token punctuation">;</span>
+        <span class="token builtin">uint96</span> premium<span class="token punctuation">;</span>
+
+        Upkeep <span class="token keyword">memory</span> performableUpkeep <span class="token operator">=</span> s_upkeep<span class="token punctuation">[</span>upkeepId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_performUpkeep</span><span class="token punctuation">(</span>performableUpkeep<span class="token punctuation">.</span>forwarder<span class="token punctuation">,</span> gasLimit<span class="token punctuation">,</span> performData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>success<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">PerformUpkeepFailed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span>winkPayment<span class="token punctuation">,</span> premium<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_calculatePaymentAmount</span><span class="token punctuation">(</span>
+            s_winkPerPerform<span class="token punctuation">,</span>
+            s_winkOverhead<span class="token punctuation">,</span>
+            <span class="token number">1</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token builtin">uint96</span> payment <span class="token operator">=</span> winkPayment <span class="token operator">+</span> premium<span class="token punctuation">;</span>
+        s_upkeep<span class="token punctuation">[</span>upkeepId<span class="token punctuation">]</span><span class="token punctuation">.</span>balance <span class="token operator">-=</span> payment<span class="token punctuation">;</span>
+        s_upkeep<span class="token punctuation">[</span>upkeepId<span class="token punctuation">]</span><span class="token punctuation">.</span>amountSpent <span class="token operator">+=</span> payment<span class="token punctuation">;</span>
+        s_hotVars<span class="token punctuation">.</span>totalPremium <span class="token operator">+=</span> payment<span class="token punctuation">;</span>
+        Trigger trigger <span class="token operator">=</span> <span class="token function">_getTriggerType</span><span class="token punctuation">(</span>upkeepId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">emit</span> <span class="token function">UpkeepPerformed</span><span class="token punctuation">(</span>
+            upkeepId<span class="token punctuation">,</span>
+            success<span class="token punctuation">,</span>
+            winkPayment <span class="token operator">+</span> premium<span class="token punctuation">,</span>
+            s_winkPerPerform<span class="token punctuation">,</span>
+            s_winkOverhead<span class="token punctuation">,</span>
+            trigger
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice simulates the upkeep with the perform data returned from checkUpkeep
+   * @param id identifier of the upkeep to execute the data with.
+   * @param performData calldata parameter to be passed to the target upkeep.
+   * @return success whether the call reverted or not
+   * @return gasUsed the amount of gas the target contract consumed
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">simulatePerformUpkeep</span><span class="token punctuation">(</span>
+        <span class="token builtin">uint256</span> id<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> performData
+    <span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">,</span> <span class="token builtin">uint256</span> gasUsed<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s_hotVars<span class="token punctuation">.</span>paused<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">RegistryPaused</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Upkeep <span class="token keyword">memory</span> upkeep <span class="token operator">=</span> s_upkeep<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> simulatePerformCallData <span class="token operator">=</span> abi<span class="token punctuation">.</span><span class="token function">encodeWithSelector</span><span class="token punctuation">(</span>SIMULATE_PERFORM_SELECTOR<span class="token punctuation">,</span> performData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> forwardCallData <span class="token operator">=</span> abi<span class="token punctuation">.</span><span class="token function">encodeWithSelector</span><span class="token punctuation">(</span>FORWARD_SELECTOR<span class="token punctuation">,</span> upkeep<span class="token punctuation">.</span>performGas<span class="token punctuation">,</span> simulatePerformCallData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token punctuation">(</span><span class="token builtin">bool</span> forwardSuccess<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">memory</span> result<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token builtin">address</span><span class="token punctuation">(</span>upkeep<span class="token punctuation">.</span>forwarder<span class="token punctuation">)</span><span class="token punctuation">.</span>staticcall<span class="token punctuation">{</span>gas<span class="token punctuation">:</span> s_storage<span class="token punctuation">.</span>maxPerformGas<span class="token punctuation">}</span><span class="token punctuation">(</span>forwardCallData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>forwardSuccess<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">StaticCallFailed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">(</span>success<span class="token punctuation">,</span> gasUsed<span class="token punctuation">)</span> <span class="token operator">=</span> abi<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>success<span class="token punctuation">,</span> gasUsed<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @notice uses WINK's transferAndCall to LINK and add funding to an upkeep
+   * @dev safe to cast uint256 to uint96 as total LINK supply is under UINT96MAX
+   * @param sender the account which transferred the funds
+   * @param amount number of LINK transfer
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">onTokenTransfer</span><span class="token punctuation">(</span><span class="token builtin">address</span> sender<span class="token punctuation">,</span> <span class="token builtin">uint64</span> amount<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data<span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender <span class="token operator">!=</span> <span class="token builtin">address</span><span class="token punctuation">(</span>i_winkMid<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">OnlyCallableByWINKToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>data<span class="token punctuation">.</span>length <span class="token operator">!=</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">InvalidDataLength</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token builtin">uint256</span> id <span class="token operator">=</span> abi<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>s_upkeep<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span>maxValidBlocknumber <span class="token operator">!=</span> UINT32_MAX<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">UpkeepCancelled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_upkeep<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span>balance <span class="token operator">=</span> s_upkeep<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">.</span>balance <span class="token operator">+</span> <span class="token builtin">uint96</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_expectedWinkBalance <span class="token operator">=</span> s_expectedWinkBalance <span class="token operator">+</span> amount<span class="token punctuation">;</span>
+        <span class="token keyword">emit</span> <span class="token function">FundsAdded</span><span class="token punctuation">(</span>id<span class="token punctuation">,</span> sender<span class="token punctuation">,</span> <span class="token builtin">uint96</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// ================================================================</span>
+    <span class="token comment">// |                           SETTERS                            |</span>
+    <span class="token comment">// ================================================================</span>
+
+    <span class="token comment">/**
+     * @inheritdoc OCR2Abstract
+   * @dev prefer the type-safe version of setConfig (below) whenever possible
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">setConfig</span><span class="token punctuation">(</span>
+        <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> signers<span class="token punctuation">,</span>
+        <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> transmitters<span class="token punctuation">,</span>
+        <span class="token builtin">uint8</span> f<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> onchainConfigBytes<span class="token punctuation">,</span>
+        <span class="token builtin">uint64</span> offchainConfigVersion<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> offchainConfig
+    <span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+        <span class="token function">setConfigTypeSafe</span><span class="token punctuation">(</span>
+            signers<span class="token punctuation">,</span>
+            transmitters<span class="token punctuation">,</span>
+            f<span class="token punctuation">,</span>
+            abi<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>onchainConfigBytes<span class="token punctuation">,</span> <span class="token punctuation">(</span>OnchainConfig<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            offchainConfigVersion<span class="token punctuation">,</span>
+            offchainConfig
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">setConfigTypeSafe</span><span class="token punctuation">(</span>
+        <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> signers<span class="token punctuation">,</span>
+        <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> transmitters<span class="token punctuation">,</span>
+        <span class="token builtin">uint8</span> f<span class="token punctuation">,</span>
+        OnchainConfig <span class="token keyword">memory</span> onchainConfig<span class="token punctuation">,</span>
+        <span class="token builtin">uint64</span> offchainConfigVersion<span class="token punctuation">,</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> offchainConfig
+    <span class="token punctuation">)</span> <span class="token keyword">public</span> onlyOwner <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>signers<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> MAX_NUM_ORACLES<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">TooManyOracles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>f <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">IncorrectNumberOfFaultyOracles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//    if (signers.length != transmitters.length || signers.length &lt;= 3 * f) revert IncorrectNumberOfSigners();</span>
+
+        <span class="token comment">// move all pooled payments out of the pool to each transmitter's balance</span>
+        <span class="token builtin">uint96</span> totalPremium <span class="token operator">=</span> s_hotVars<span class="token punctuation">.</span>totalPremium<span class="token punctuation">;</span>
+        <span class="token builtin">uint96</span> oldLength <span class="token operator">=</span> <span class="token builtin">uint96</span><span class="token punctuation">(</span>s_transmittersList<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> oldLength<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">_updateTransmitterBalanceFromPool</span><span class="token punctuation">(</span>s_transmittersList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> totalPremium<span class="token punctuation">,</span> oldLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// remove any old signer/transmitter addresses</span>
+        <span class="token builtin">address</span> signerAddress<span class="token punctuation">;</span>
+        <span class="token builtin">address</span> transmitterAddress<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> oldLength<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            signerAddress <span class="token operator">=</span> s_signersList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            transmitterAddress <span class="token operator">=</span> s_transmittersList<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">delete</span> s_signers<span class="token punctuation">[</span>signerAddress<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment">// Do not delete the whole transmitter struct as it has balance information stored</span>
+            s_transmitters<span class="token punctuation">[</span>transmitterAddress<span class="token punctuation">]</span><span class="token punctuation">.</span>active <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">delete</span> s_signersList<span class="token punctuation">;</span>
+        <span class="token keyword">delete</span> s_transmittersList<span class="token punctuation">;</span>
+
+        <span class="token comment">// add new signer/transmitter addresses</span>
+        <span class="token punctuation">{</span>
+            Transmitter <span class="token keyword">memory</span> transmitter<span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> signers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>s_signers<span class="token punctuation">[</span>signers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span>active<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">RepeatedSigner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token builtin">address</span> temp<span class="token punctuation">;</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>signers<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> ZERO_ADDRESS<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">InvalidSigner</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                s_signers<span class="token punctuation">[</span>signers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Signer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>active<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> index<span class="token punctuation">:</span> <span class="token builtin">uint8</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                temp <span class="token operator">=</span> transmitters<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">==</span> ZERO_ADDRESS<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">InvalidTransmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                transmitter <span class="token operator">=</span> s_transmitters<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>transmitter<span class="token punctuation">.</span>active<span class="token punctuation">)</span> <span class="token keyword">revert</span> <span class="token function">RepeatedTransmitter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                transmitter<span class="token punctuation">.</span>active <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+                transmitter<span class="token punctuation">.</span>index <span class="token operator">=</span> <span class="token builtin">uint8</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment">// new transmitters start afresh from current totalPremium</span>
+                <span class="token comment">// some spare change of premium from previous pool will be forfeited</span>
+                transmitter<span class="token punctuation">.</span>lastCollected <span class="token operator">=</span> totalPremium<span class="token punctuation">;</span>
+                s_transmitters<span class="token punctuation">[</span>temp<span class="token punctuation">]</span> <span class="token operator">=</span> transmitter<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        s_signersList <span class="token operator">=</span> signers<span class="token punctuation">;</span>
+        s_transmittersList <span class="token operator">=</span> transmitters<span class="token punctuation">;</span>
+
+        s_hotVars <span class="token operator">=</span> <span class="token function">HotVars</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            f<span class="token punctuation">:</span> f<span class="token punctuation">,</span>
+            paymentPremiumPPB<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>paymentPremiumPPB<span class="token punctuation">,</span>
+            flatFeeMicroWink<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>flatFeeMicroWink<span class="token punctuation">,</span>
+            stalenessSeconds<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>stalenessSeconds<span class="token punctuation">,</span>
+            gasCeilingMultiplier<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>gasCeilingMultiplier<span class="token punctuation">,</span>
+            paused<span class="token punctuation">:</span> s_hotVars<span class="token punctuation">.</span>paused<span class="token punctuation">,</span>
+            reentrancyGuard<span class="token punctuation">:</span> s_hotVars<span class="token punctuation">.</span>reentrancyGuard<span class="token punctuation">,</span>
+            totalPremium<span class="token punctuation">:</span> totalPremium<span class="token punctuation">,</span>
+            latestEpoch<span class="token punctuation">:</span> <span class="token number">0</span> <span class="token comment">// DON restarts epoch</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        s_storage <span class="token operator">=</span> <span class="token function">Storage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            checkGasLimit<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>checkGasLimit<span class="token punctuation">,</span>
+            minUpkeepSpend<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>minUpkeepSpend<span class="token punctuation">,</span>
+            maxPerformGas<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>maxPerformGas<span class="token punctuation">,</span>
+            maxCheckDataSize<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>maxCheckDataSize<span class="token punctuation">,</span>
+            maxPerformDataSize<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>maxPerformDataSize<span class="token punctuation">,</span>
+            maxRevertDataSize<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>maxRevertDataSize<span class="token punctuation">,</span>
+            upkeepPrivilegeManager<span class="token punctuation">:</span> onchainConfig<span class="token punctuation">.</span>upkeepPrivilegeManager<span class="token punctuation">,</span>
+            nonce<span class="token punctuation">:</span> s_storage<span class="token punctuation">.</span>nonce<span class="token punctuation">,</span>
+            configCount<span class="token punctuation">:</span> s_storage<span class="token punctuation">.</span>configCount<span class="token punctuation">,</span>
+            latestConfigBlockNumber<span class="token punctuation">:</span> s_storage<span class="token punctuation">.</span>latestConfigBlockNumber<span class="token punctuation">,</span>
+            ownerWinkBalance<span class="token punctuation">:</span> s_storage<span class="token punctuation">.</span>ownerWinkBalance
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_fallbackGasPrice <span class="token operator">=</span> onchainConfig<span class="token punctuation">.</span>fallbackGasPrice<span class="token punctuation">;</span>
+        s_fallbackWinkPrice <span class="token operator">=</span> onchainConfig<span class="token punctuation">.</span>fallbackWinkPrice<span class="token punctuation">;</span>
+
+        <span class="token builtin">uint32</span> previousConfigBlockNumber <span class="token operator">=</span> s_storage<span class="token punctuation">.</span>latestConfigBlockNumber<span class="token punctuation">;</span>
+        s_storage<span class="token punctuation">.</span>latestConfigBlockNumber <span class="token operator">=</span> <span class="token builtin">uint32</span><span class="token punctuation">(</span><span class="token function">_blockNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        s_storage<span class="token punctuation">.</span>configCount <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+        <span class="token builtin">bytes</span> <span class="token keyword">memory</span> onchainConfigBytes <span class="token operator">=</span> abi<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>onchainConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        s_latestConfigDigest <span class="token operator">=</span> <span class="token function">_configDigestFromConfigData</span><span class="token punctuation">(</span>
+            block<span class="token punctuation">.</span>chainid<span class="token punctuation">,</span>
+            <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            s_storage<span class="token punctuation">.</span>configCount<span class="token punctuation">,</span>
+            signers<span class="token punctuation">,</span>
+            transmitters<span class="token punctuation">,</span>
+            f<span class="token punctuation">,</span>
+            onchainConfigBytes<span class="token punctuation">,</span>
+            offchainConfigVersion<span class="token punctuation">,</span>
+            offchainConfig
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> idx <span class="token operator">&lt;</span> s_registrars<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> idx<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            s_registrars<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>s_registrars<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>idx<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> idx <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> idx <span class="token operator">&lt;</span> onchainConfig<span class="token punctuation">.</span>registrars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> idx<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            s_registrars<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>onchainConfig<span class="token punctuation">.</span>registrars<span class="token punctuation">[</span>idx<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">emit</span> <span class="token function">ConfigSet</span><span class="token punctuation">(</span>
+            previousConfigBlockNumber<span class="token punctuation">,</span>
+            s_latestConfigDigest<span class="token punctuation">,</span>
+            s_storage<span class="token punctuation">.</span>configCount<span class="token punctuation">,</span>
+            signers<span class="token punctuation">,</span>
+            transmitters<span class="token punctuation">,</span>
+            f<span class="token punctuation">,</span>
+            onchainConfigBytes<span class="token punctuation">,</span>
+            offchainConfigVersion<span class="token punctuation">,</span>
+            offchainConfig
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// ================================================================</span>
+    <span class="token comment">// |                           GETTERS                            |</span>
+    <span class="token comment">// ================================================================</span>
+
+    <span class="token comment">/**
+     * @inheritdoc OCR2Abstract
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">latestConfigDetails</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">external</span>
+    <span class="token keyword">view</span>
+    override
+    <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint32</span> configCount<span class="token punctuation">,</span> <span class="token builtin">uint32</span> blockNumber<span class="token punctuation">,</span> <span class="token builtin">bytes32</span> configDigest<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>s_storage<span class="token punctuation">.</span>configCount<span class="token punctuation">,</span> s_storage<span class="token punctuation">.</span>latestConfigBlockNumber<span class="token punctuation">,</span> s_latestConfigDigest<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @inheritdoc OCR2Abstract
+   */</span>
+    <span class="token keyword">function</span> <span class="token function">latestConfigDigestAndEpoch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">external</span>
+    <span class="token keyword">view</span>
+    override
+    <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> scanLogs<span class="token punctuation">,</span> <span class="token builtin">bytes32</span> configDigest<span class="token punctuation">,</span> <span class="token builtin">uint32</span> epoch<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> s_latestConfigDigest<span class="token punctuation">,</span> s_hotVars<span class="token punctuation">.</span>latestEpoch<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="how-to-setup-automation-contracts-and-jobs"><a href="#how-to-setup-automation-contracts-and-jobs" class="header-anchor">#</a> How to setup Automation contracts and jobs</h2> <h3 id="winkmid-contract"><a href="#winkmid-contract" class="header-anchor">#</a> WinkMid Contract</h3> <p>WINkLink uses WIN (TRC20) as the base token for the whole platform.</p> <p>WINkLink adopts the <code>transferAndCall</code> feature, i.e. calling one of the callback functions while transferring <code>TRC20</code> tokens to contracts, a feature similar to <code>ERC677</code> yet adopting different interface parameters.</p> <p>Given that we cannot modify contracts or add interfaces for most of the tokens issued, WINkLink provides WinkMid wrapper contract, which helps wrapping any TRC20 token and provides transferAndCall interface.</p> <p>The contract code is available at <code>WinkMid.sol</code>.</p> <p>The WinkMid contract has been deployed on Nile TestNet and the Win token has been encapsulated within it. Developers may use this contract address directly without additional deployment. Users may also claim test TRX and WIN tokens from the Faucet address provided by Nile TestNet.</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p><strong>Nile Testnet</strong></p> <p>WIN TRC20 Contract Address: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</p> <p>WinkMid Contract Address: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro</p> <p>Testnet Faucet: <a href="https://nileex.io/join/getJoinPage" target="_blank" rel="noopener noreferrer">https://nileex.io/join/getJoinPage<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <p>When deploying WinkMid contract, developers need to provide the encapsulated <code>TRC20</code> token address (i.e. WIN token address) for the constructor.</p> <p>The WinkMid contract is designed as a helper for other contracts, so developers can utilize its functionality without directly calling it.</p> <p>WIN token address and WinkMid contract address are required arguments in the constructor function when deploying a Coordinator contract.</p> <h3 id="registry-and-registrar-contract"><a href="#registry-and-registrar-contract" class="header-anchor">#</a> Registry and Registrar Contract</h3> <p>The registry contract is the primary contract for managing all new contract registrations. Deploy with the respective arguments specified within contract code itself.</p> <p>To manage the complex logic, the registry contract is divided into LogicB, LogicA and Registry components, which must be deployed in that order.</p> <p>After deploying the Registry contract, Oracle needs to be approved for <code>performUpkeep</code> by adding it to the list using setAuthorizedSender method.</p> <h3 id="upkeep-contract"><a href="#upkeep-contract" class="header-anchor">#</a> Upkeep Contract</h3> <p>The example below demonstrates a simple counter contract that increments by 1 with each execution.</p> <p>During deployment, it takes in an argument in seconds to specify the interval that needs it to be triggered.</p> <h3 id="custom-logic-upkeep"><a href="#custom-logic-upkeep" class="header-anchor">#</a> Custom logic upkeep</h3> <p>This example provides a sample user contract that request for a custom logic upkeep.</p> <p>The contract serves as a simple demonstration on the custom logic a user can have using the automation feature. This simple contract will run a counter for which will increment one whenever the condition of the time interval is met.</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.8.7</span><span class="token punctuation">;</span>
+
+<span class="token comment">// AutomationCompatible.sol imports the functions from both ./AutomationBase.sol and</span>
+<span class="token comment">// ./interfaces/AutomationCompatibleInterface.sol</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./AutomationCompatibleInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./OwnerIsCreator.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @dev Example contract, use the Forwarder as needed for additional security.
+ *
+ * @notice important to implement {AutomationCompatibleInterface}
+ */</span>
+
+<span class="token comment">/**
+ * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
+ * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
+ * DO NOT USE THIS CODE IN PRODUCTION.
+ */</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Counter</span> <span class="token keyword">is</span> AutomationCompatibleInterface<span class="token punctuation">,</span> OwnerIsCreator <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * Public counter variable
+     */</span>
+    <span class="token builtin">uint256</span> <span class="token keyword">public</span> counter<span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Use an interval in seconds and a timestamp to slow execution of Upkeep
+     */</span>
+    <span class="token builtin">uint256</span> <span class="token keyword">public</span> immutable interval<span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> <span class="token keyword">public</span> lastTimeStamp<span class="token punctuation">;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> s_forwarderAddress<span class="token punctuation">;</span>
+
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> updateInterval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        interval <span class="token operator">=</span> updateInterval<span class="token punctuation">;</span>
+        lastTimeStamp <span class="token operator">=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">;</span>
+
+        counter <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">checkUpkeep</span><span class="token punctuation">(</span>
+        <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> <span class="token comment">/* checkData */</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">external</span>
+    <span class="token keyword">view</span>
+    override
+    <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> upkeepNeeded<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">memory</span> <span class="token comment">/* performData */</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        upkeepNeeded <span class="token operator">=</span> <span class="token punctuation">(</span>block<span class="token punctuation">.</span>timestamp <span class="token operator">-</span> lastTimeStamp<span class="token punctuation">)</span> <span class="token operator">&gt;</span> interval<span class="token punctuation">;</span>
+        <span class="token comment">// We don't use the checkData in this example. The checkData is defined when the Upkeep was registered.</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">function</span> <span class="token function">performUpkeep</span><span class="token punctuation">(</span><span class="token builtin">bytes</span> <span class="token keyword">calldata</span> <span class="token comment">/* performData */</span><span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>
+            msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> s_forwarderAddress<span class="token punctuation">,</span>
+            <span class="token string">&quot;This address does not have permission to call performUpkeep&quot;</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span>timestamp <span class="token operator">-</span> lastTimeStamp<span class="token punctuation">)</span> <span class="token operator">&gt;</span> interval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            lastTimeStamp <span class="token operator">=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">;</span>
+            counter <span class="token operator">=</span> counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// We don't use the performData in this example. The performData is generated by the Automation Node's call to your checkUpkeep function</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Used to perform a dry run and return if the logic failed</span>
+    <span class="token keyword">function</span> <span class="token function">simulatePerformUpkeep</span><span class="token punctuation">(</span><span class="token builtin">bytes</span> <span class="token keyword">calldata</span> <span class="token comment">/* performData */</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">view</span> override <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> performSuccess<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token builtin">uint256</span> simulateCounter <span class="token operator">=</span> counter<span class="token punctuation">;</span>
+        <span class="token builtin">uint256</span> simmulateLastTimeStamp<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span>timestamp <span class="token operator">-</span> lastTimeStamp<span class="token punctuation">)</span> <span class="token operator">&gt;</span> interval<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            simmulateLastTimeStamp <span class="token operator">=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">;</span>
+            simulateCounter <span class="token operator">=</span> simulateCounter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>simulateCounter <span class="token operator">==</span> counter <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/// @notice Set the address that `performUpkeep` is called from</span>
+    <span class="token comment">/// @dev Only callable by the owner</span>
+    <span class="token comment">/// @param forwarderAddress the address to set</span>
+    <span class="token keyword">function</span> <span class="token function">setForwarderAddress</span><span class="token punctuation">(</span><span class="token builtin">address</span> forwarderAddress<span class="token punctuation">)</span> <span class="token keyword">external</span> onlyOwner <span class="token punctuation">{</span>
+        s_forwarderAddress <span class="token operator">=</span> forwarderAddress<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Every user defined contract is required to implement <code>AutomationCompatibleInterface</code> and its methods. This is to allow the registry to be able to pick up the corresponding method signature during execution.</p> <p><code>checkUpkeep</code>: Logic that is checked by the node to determine if the upkeep needs to be performed.</p> <p><code>simulateUpkeep</code>: A static call for node to simulate the run of the core logic.</p> <p><code>performUpkeep</code>: Core logic that is to be executed.</p> <h3 id="node"><a href="#node" class="header-anchor">#</a> Node</h3> <p>In the node, we add the job specification to support getting all the data and respective transformations</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token key property">type</span> <span class="token punctuation">=</span> <span class="token string">&quot;keeper&quot;</span>
+<span class="token key property">schemaVersion</span> <span class="token punctuation">=</span> <span class="token number">1</span>
+<span class="token key property">name</span> <span class="token punctuation">=</span> <span class="token string">&quot;keeper&quot;</span>
+<span class="token key property">gasLimit</span> <span class="token punctuation">=</span> <span class="token number">1_000_000_000</span>
+<span class="token key property">forwardingAllowed</span> <span class="token punctuation">=</span> <span class="token boolean">false</span>
+<span class="token key property">contractAddress</span> <span class="token punctuation">=</span> <span class="token string">&quot;&lt;Registry Address&gt;&quot;</span>
+<span class="token key property">tvmChainID</span> <span class="token punctuation">=</span> <span class="token number">3448148188</span>
+<span class="token key property">fromAddress</span> <span class="token punctuation">=</span> <span class="token string">&quot;&lt;Node Address&gt;&quot;</span>
+</code></pre></div><p>The keeper job specs specifies the registry address and the node address that is used to interact with the on-chain contracts.</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/v2/doc/anyapi.html" class="prev">
+        WINkLink AnyAPI Service
+      </a></span> <span class="next"><a href="/v2/doc/pipeline.html">
+        Pipeline Tasks
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/v2/doc/assets/js/app.03bfa769.js" defer></script><script src="/v2/doc/assets/js/2.a93bf3eb.js" defer></script><script src="/v2/doc/assets/js/1.449454cc.js" defer></script><script src="/v2/doc/assets/js/26.61b32239.js" defer></script>
+  </body>
+</html>

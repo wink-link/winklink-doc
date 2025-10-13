@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WINkLink AnyAPI 服务 | WINkLink 开发文档</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/v2/doc/favicon.ico">
+    <meta name="description" content="WINkLink 开发和使用手册">
+    
+    <link rel="preload" href="/v2/doc/assets/css/0.styles.f394efb8.css" as="style"><link rel="preload" href="/v2/doc/assets/js/app.03bfa769.js" as="script"><link rel="preload" href="/v2/doc/assets/js/2.a93bf3eb.js" as="script"><link rel="preload" href="/v2/doc/assets/js/1.449454cc.js" as="script"><link rel="preload" href="/v2/doc/assets/js/27.5ec9b61f.js" as="script"><link rel="prefetch" href="/v2/doc/assets/js/10.16d90ebb.js"><link rel="prefetch" href="/v2/doc/assets/js/11.13c650ee.js"><link rel="prefetch" href="/v2/doc/assets/js/12.55b16c22.js"><link rel="prefetch" href="/v2/doc/assets/js/13.962e7cfd.js"><link rel="prefetch" href="/v2/doc/assets/js/14.cfbd47f4.js"><link rel="prefetch" href="/v2/doc/assets/js/15.4dbeb83f.js"><link rel="prefetch" href="/v2/doc/assets/js/16.35a421bc.js"><link rel="prefetch" href="/v2/doc/assets/js/17.3e08682a.js"><link rel="prefetch" href="/v2/doc/assets/js/18.4faca617.js"><link rel="prefetch" href="/v2/doc/assets/js/19.58a0d499.js"><link rel="prefetch" href="/v2/doc/assets/js/20.55d78c67.js"><link rel="prefetch" href="/v2/doc/assets/js/21.a90ef942.js"><link rel="prefetch" href="/v2/doc/assets/js/22.f1d5d4c6.js"><link rel="prefetch" href="/v2/doc/assets/js/23.3063150b.js"><link rel="prefetch" href="/v2/doc/assets/js/24.c8d68107.js"><link rel="prefetch" href="/v2/doc/assets/js/25.efac722e.js"><link rel="prefetch" href="/v2/doc/assets/js/26.61b32239.js"><link rel="prefetch" href="/v2/doc/assets/js/28.3486a5d3.js"><link rel="prefetch" href="/v2/doc/assets/js/29.1e3aa466.js"><link rel="prefetch" href="/v2/doc/assets/js/3.2d08496e.js"><link rel="prefetch" href="/v2/doc/assets/js/30.5a431eb8.js"><link rel="prefetch" href="/v2/doc/assets/js/31.2e1adf9a.js"><link rel="prefetch" href="/v2/doc/assets/js/32.6525a1e9.js"><link rel="prefetch" href="/v2/doc/assets/js/33.c2ba9b78.js"><link rel="prefetch" href="/v2/doc/assets/js/34.272f28aa.js"><link rel="prefetch" href="/v2/doc/assets/js/35.9390522c.js"><link rel="prefetch" href="/v2/doc/assets/js/36.7749d9ba.js"><link rel="prefetch" href="/v2/doc/assets/js/37.26eb83b6.js"><link rel="prefetch" href="/v2/doc/assets/js/38.a0147385.js"><link rel="prefetch" href="/v2/doc/assets/js/39.396a0113.js"><link rel="prefetch" href="/v2/doc/assets/js/4.2a0c902e.js"><link rel="prefetch" href="/v2/doc/assets/js/40.4e3b23ef.js"><link rel="prefetch" href="/v2/doc/assets/js/41.f0dd511f.js"><link rel="prefetch" href="/v2/doc/assets/js/42.393f4efc.js"><link rel="prefetch" href="/v2/doc/assets/js/43.8564e0ba.js"><link rel="prefetch" href="/v2/doc/assets/js/5.0f6ba89b.js"><link rel="prefetch" href="/v2/doc/assets/js/6.85ab809a.js"><link rel="prefetch" href="/v2/doc/assets/js/7.46648f82.js"><link rel="prefetch" href="/v2/doc/assets/js/vendors~docsearch.5cff1987.js">
+    <link rel="stylesheet" href="/v2/doc/assets/css/0.styles.f394efb8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/v2/doc/cn/" class="home-link router-link-active"><!----> <span class="site-name">WINkLink 开发文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/anyapi.html" class="nav-link">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/anyapi.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/anyapi.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Select language" class="dropdown-title"><span class="title">Languages</span> <span class="arrow down"></span></button> <button type="button" aria-label="Select language" class="mobile-dropdown-title"><span class="title">Languages</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/v2/doc/hk/anyapi.html" class="nav-link">
+  繁体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/cn/anyapi.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  简体中文
+</a></li><li class="dropdown-item"><!----> <a href="/v2/doc/anyapi.html" class="nav-link">
+  English
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/v2/doc/cn/" aria-current="page" class="sidebar-link">项目介绍</a></li><li><a href="/v2/doc/cn/pricing.html" class="sidebar-link">WINkLink 价格服务</a></li><li><a href="/v2/doc/cn/vrf.html" class="sidebar-link">WINkLink 可验证随机数服务</a></li><li><a href="/v2/doc/cn/anyapi.html" aria-current="page" class="active sidebar-link">WINkLink AnyAPI 服务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#概览" class="sidebar-link">概览</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#合约" class="sidebar-link">合约</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#使用现有的-winklink-anyapi" class="sidebar-link">使用现有的 WINkLink AnyAPI</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#anyapi-请求步骤" class="sidebar-link">AnyAPI 请求步骤</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#启动-anyapi-服务节点" class="sidebar-link">启动 AnyAPI 服务节点</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#入门指南" class="sidebar-link">入门指南</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#所需环境" class="sidebar-link">所需环境</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#节点配置" class="sidebar-link">节点配置</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#搭建节点-docker-镜像" class="sidebar-link">搭建节点 Docker 镜像</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#用源代码启动节点" class="sidebar-link">用源代码启动节点</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#operator-合约" class="sidebar-link">Operator 合约</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#设置-anyapi-合约及任务" class="sidebar-link">设置 AnyAPI 合约及任务</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#winkmid-合约" class="sidebar-link">WinkMid 合约</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#operator-合约-2" class="sidebar-link">Operator 合约</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#consumer-合约" class="sidebar-link">Consumer 合约</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#单变量请求" class="sidebar-link">单变量请求</a></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#多变量请求" class="sidebar-link">多变量请求</a></li></ul></li><li class="sidebar-sub-header"><a href="/v2/doc/cn/anyapi.html#内部适配器" class="sidebar-link">内部适配器</a></li></ul></li><li><a href="/v2/doc/cn/automation.html" class="sidebar-link">WINkLink 自动化服务</a></li><li><a href="/v2/doc/cn/pipeline.html" class="sidebar-link">管线任务</a></li><li><a href="/v2/doc/cn/glossary.html" class="sidebar-link">术语表</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="winklink-anyapi-服务"><a href="#winklink-anyapi-服务" class="header-anchor">#</a> WINkLink AnyAPI 服务</h1> <h2 id="概览"><a href="#概览" class="header-anchor">#</a> 概览</h2> <p>AnyAPI 服务提供一系列内部适配器，让用户可以借助 WINkLink 节点的强大功能生成自定义数据。</p> <p>该服务能够帮助开发者从链下渠道获取数据，进行必要的数据变换后将其喂到链上。这些数据可以是航司抵达/起飞时刻表、体育赛事的结果、交通状况等等。</p> <p><img src="/v2/doc/assets/img/anyapi-flow.09dbb954.png" alt="anyapi-flow.png"></p> <p>WINkLink AnyAPI 解决方案由链上和链下两部分组成：</p> <ul><li>AnyAPI Consumer（链上组件）：用于同 AnyAPI Operator 合约交互。用户需向该合约充值 Wink 代币以发起请求。</li> <li>AnyAPI Operator（链上组件）：用于处理 Consumer 合约发起的所有 AnyAPI 请求的合约，它会在用户发起请求时发布一个事件，并把结果转发给 Consumer 合约。</li> <li>AnyAPI 服务（链下节点）：通过订阅 AnyAPI Operator 事件日志监听请求，并执行指定操作以获取自定义数据。服务将根据请求中指定的外部任务 ID 触发对应的任务。</li></ul> <h3 id="合约"><a href="#合约" class="header-anchor">#</a> 合约</h3> <p>Nile 环境中（测试环境）部署了一组用于测试的合约。</p> <table><thead><tr><th style="text-align:left;">项目</th> <th style="text-align:left;">数值</th></tr></thead> <tbody><tr><td style="text-align:left;">WIN Token</td> <td style="text-align:left;">TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</td></tr> <tr><td style="text-align:left;">WinkMid</td> <td style="text-align:left;">TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro</td></tr> <tr><td style="text-align:left;">Operator</td> <td style="text-align:left;">THRs9Y3vqE4FMTE7LPjMB4LFEH8uUsZaE4</td></tr> <tr><td style="text-align:left;">SingleWordConsumer</td> <td style="text-align:left;">TP3yr6MYDTDsta9JchahunXk1vvKkw87LS</td></tr> <tr><td style="text-align:left;">MultiWordConsumer</td> <td style="text-align:left;">TNCqRNxC3epb6KAiVyUvfFHJEkN2miTTb1</td></tr> <tr><td style="text-align:left;">Single Word Spec ID</td> <td style="text-align:left;">0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000</td></tr> <tr><td style="text-align:left;">Multi Word Spec ID</td> <td style="text-align:left;">0x1145310598fc4c25b825f4dae83e921e00000000000000000000000000000000</td></tr></tbody></table> <h2 id="使用现有的-winklink-anyapi"><a href="#使用现有的-winklink-anyapi" class="header-anchor">#</a> 使用现有的 WINkLink AnyAPI</h2> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>当前部署的 Consumer 合约和任务仅为示例，用于学习和测试。建议用户自主设定任务规范，创建专属的 Consumer 合约。</p></div> <h3 id="anyapi-请求步骤"><a href="#anyapi-请求步骤" class="header-anchor">#</a> AnyAPI 请求步骤</h3> <ol><li><p>Dapp/Consumer 合约发起单变量/多变量请求，对应不同的外部任务 ID。</p></li> <li><p>Dapp 合约调用 WinkMid transferAndCall 函数向 Operator 支付请求所需的费用。这一方法将发送 Wink 代币并执行 onTokenTransfer。</p></li> <li><p>Operator 中的 onTokenTransfer 逻辑将触发预言机请求方法并发布 OracleRequest 事件。</p></li> <li><p>订阅该链的 AnyAPI 节点在收到事件后根据所含的外部任务 ID 进行处理。</p></li> <li><p>Operator 合约收到节点的回调函数后将结果返回给 Dapp/Consumer 合约。</p></li></ol> <p>使用 WINkLink Operator 合约和节点前，用户需创建自己的 Consumer 合约和任务规范，并向合约内充值以发起请求。</p> <h2 id="启动-anyapi-服务节点"><a href="#启动-anyapi-服务节点" class="header-anchor">#</a> 启动 AnyAPI 服务节点</h2> <h3 id="入门指南"><a href="#入门指南" class="header-anchor">#</a> 入门指南</h3> <p>WINkLink 的维护者需要对波场 TRON 有一定的了解，且熟悉智能合约的部署和调用流程。建议阅读波场相关的官方文档，特别是 TronIDE 上进行合约部署的相关文章。</p> <p>准备节点账户，建议阅读节点账户准备相关的文档。</p> <h3 id="所需环境"><a href="#所需环境" class="header-anchor">#</a> 所需环境</h3> <p>WINkLink 节点依赖 PostgreSQL 数据库，开发者可在 <a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer">postgresql 官网的官方文档<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>中获取更多信息。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>这里假定本机部署的 PostgreSQL 实例的用户名和密码分别是 root:root。在生产环境中请使用强密码或其他验证方式。</p></div> <p>WINkLink 节点使用的编程语言为 Go，因此需要搭建 Golang 环境。</p> <h3 id="节点配置"><a href="#节点配置" class="header-anchor">#</a> 节点配置</h3> <p>WINkLink 节点的配置文件格式为 TOML，主配置为 tools/config/config.toml。你可以使用 secrets.toml 指定要使用的 db 实例。以下为参考模板。</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># secrets.toml</span>
+<span class="token punctuation">[</span><span class="token table class-name">Database</span><span class="token punctuation">]</span>
+<span class="token key property">URL</span> <span class="token punctuation">=</span> <span class="token string">'postgresql://root:root@localhost:5432/winklink?sslmode=disable'</span> <span class="token comment"># Require</span>
+<span class="token key property">AllowSimplePasswords</span> <span class="token punctuation">=</span> <span class="token boolean">true</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Password</span><span class="token punctuation">]</span>
+<span class="token key property">Keystore</span> <span class="token punctuation">=</span> <span class="token string">'keystorePassword'</span> <span class="token comment"># Required</span>
+
+<span class="token punctuation">[</span><span class="token table class-name">Tron</span><span class="token punctuation">]</span>
+<span class="token key property">TronApiKey</span> <span class="token punctuation">=</span> <span class="token string">'apiKey'</span>
+</code></pre></div><p>节点配置文件确认完毕后，还需要创建 <code>apicredentials</code> 文件和 <code>password</code>，然后写入用户 ID 和密码访问节点 API：</p> <div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># apicredentials</span>
+example<span class="token punctuation">.</span>user@fake<span class="token punctuation">.</span>email
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="language-toml extra-class"><pre class="language-toml"><code><span class="token comment"># password</span>
+totallyNotFakePassword (<span class="token number">16</span> characters long)
+</code></pre></div><div class="custom-block tip"><p class="custom-block-title">TIP</p> <p>请妥善托管您的个人信息。</p></div> <h3 id="搭建节点-docker-镜像"><a href="#搭建节点-docker-镜像" class="header-anchor">#</a> 搭建节点 Docker 镜像</h3> <p>使用以下指令构建标准的 Linux 镜像：</p> <div class="language- extra-class"><pre class="language-text"><code># build a docker image
+docker buildx build --platform linux/amd64 -t winklink-2.0 -f core/winklink.Dockerfile .
+</code></pre></div><p>将构建好的 Docker 镜像打上标签并推送到所需的存储库进行部署。</p> <h3 id="用源代码启动节点"><a href="#用源代码启动节点" class="header-anchor">#</a> 用源代码启动节点</h3> <p>安装 <a href="https://go.dev/dl/" target="_blank" rel="noopener noreferrer">go1.20<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>前往 winklink-2.0 源代码的基本目录</p> <p>搭建命令行界面</p> <div class="language- extra-class"><pre class="language-text"><code>make install
+</code></pre></div><p>使用以下指令及对应配置项启动 WINkLink 节点：</p> <div class="language- extra-class"><pre class="language-text"><code>winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/password -a /tools/secrets/apicredentials
+</code></pre></div><div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>节点帐号必须有足够的 TRX 代币，用于合约调用。可以通过测试网水龙头申请测试代币。</p></div> <h3 id="operator-合约"><a href="#operator-合约" class="header-anchor">#</a> Operator 合约</h3> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.7.6</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./AuthorizedReceiver.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./TRC20ReceiverInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./ConfirmedOwner.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./TRC20Interface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./OperatorInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./OwnableInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./WithdrawalInterface.sol&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">&quot;./SafeMathWinklink.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * @title The Winklink Operator contract
+ * @notice Node operators can deploy this contract to fulfill requests sent to them
+ */</span>
+<span class="token keyword">contract</span> <span class="token class-name">Operator</span> <span class="token keyword">is</span> AuthorizedReceiver<span class="token punctuation">,</span> ConfirmedOwner<span class="token punctuation">,</span> TRC20ReceiverInterface<span class="token punctuation">,</span> OperatorInterface<span class="token punctuation">,</span> WithdrawalInterface <span class="token punctuation">{</span>
+  <span class="token keyword">using</span> <span class="token class-name">SafeMathWinklink</span> <span class="token keyword">for</span> <span class="token builtin">uint256</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">struct</span> <span class="token class-name">Commitment</span> <span class="token punctuation">{</span>
+    <span class="token builtin">bytes31</span> paramsHash<span class="token punctuation">;</span>
+    <span class="token builtin">uint8</span> dataVersion<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> <span class="token keyword">constant</span> getExpiryTime <span class="token operator">=</span> <span class="token number">5</span> minutes<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> MAXIMUM_DATA_VERSION <span class="token operator">=</span> <span class="token number">256</span><span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> MINIMUM_CONSUMER_GAS_LIMIT <span class="token operator">=</span> <span class="token number">400000</span><span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> SELECTOR_LENGTH <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> EXPECTED_REQUEST_WORDS <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> MINIMUM_REQUEST_LENGTH <span class="token operator">=</span> SELECTOR_LENGTH <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">*</span> EXPECTED_REQUEST_WORDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// We initialize fields to 1 instead of 0 so that the first invocation</span>
+  <span class="token comment">// does not cost more gas.</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> ONE_FOR_CONSISTENT_GAS_COST <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token comment">// oracleRequest is intended for version 1, enabling single word responses</span>
+  <span class="token builtin">bytes4</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> ORACLE_REQUEST_SELECTOR <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>oracleRequest<span class="token punctuation">.</span>selector<span class="token punctuation">;</span>
+  <span class="token comment">// operatorRequest is intended for version 2, enabling multi-word responses</span>
+  <span class="token builtin">bytes4</span> <span class="token keyword">private</span> <span class="token keyword">constant</span> OPERATOR_REQUEST_SELECTOR <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>operatorRequest<span class="token punctuation">.</span>selector<span class="token punctuation">;</span>
+
+  TRC20Interface <span class="token keyword">internal</span> immutable winkToken<span class="token punctuation">;</span>
+  WinkMid <span class="token keyword">internal</span> immutable winkMid<span class="token punctuation">;</span>
+  <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> <span class="token operator">=&gt;</span> Commitment<span class="token punctuation">)</span> <span class="token keyword">private</span> s_commitments<span class="token punctuation">;</span>
+  <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=&gt;</span> <span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token keyword">private</span> s_owned<span class="token punctuation">;</span>
+  <span class="token comment">// Tokens sent for requests that have not been fulfilled yet</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">private</span> s_tokensInEscrow <span class="token operator">=</span> ONE_FOR_CONSISTENT_GAS_COST<span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">OracleRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> specId<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> requester<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddr<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> cancelExpiration<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> dataVersion<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> data
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">CancelOracleRequest</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">OracleResponse</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">OwnableContractAccepted</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">indexed</span> acceptedContract<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">TargetsUpdatedAuthorizedSenders</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> targets<span class="token punctuation">,</span> <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> senders<span class="token punctuation">,</span> <span class="token builtin">address</span> changedBy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * @notice Deploy with the address of the WINK token
+   * @dev Sets the WinkToken address for the imported TRC20Interface
+   * @param wink The address of the WINK token
+   * @param owner The address of the owner
+   */</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> wink<span class="token punctuation">,</span> <span class="token builtin">address</span> _winkMid<span class="token punctuation">,</span> <span class="token builtin">address</span> owner<span class="token punctuation">)</span> <span class="token function">ConfirmedOwner</span><span class="token punctuation">(</span>owner<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    winkToken <span class="token operator">=</span> <span class="token function">TRC20Interface</span><span class="token punctuation">(</span>wink<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// external but already deployed and unalterable</span>
+    winkMid <span class="token operator">=</span> <span class="token function">WinkMid</span><span class="token punctuation">(</span>_winkMid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice The type and version of this contract
+   * @return Type and version string
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">typeAndVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">pure</span> virtual <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">string</span> <span class="token keyword">memory</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">&quot;Operator 1.0.0&quot;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Creates the Winklink request. This is a backwards compatible API
+   * with the Oracle.sol contract, but the behavior changes because
+   * callbackAddress is assumed to be the same as the request sender.
+   * @param callbackAddress The consumer of the request
+   * @param payment The amount of payment given (specified in wei)
+   * @param specId The Job Specification ID
+   * @param callbackAddress The address the oracle data will be sent to
+   * @param callbackFunctionId The callback function ID for the response
+   * @param nonce The nonce sent by the requester
+   * @param dataVersion The specified data version
+   * @param data The extra request parameters
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">oracleRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> sender<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> specId<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> nonce<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> dataVersion<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data
+  <span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span> expiration<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_verifyAndProcessOracleRequest</span><span class="token punctuation">(</span>
+      sender<span class="token punctuation">,</span>
+      payment<span class="token punctuation">,</span>
+      callbackAddress<span class="token punctuation">,</span>
+      callbackFunctionId<span class="token punctuation">,</span>
+      nonce<span class="token punctuation">,</span>
+      dataVersion
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">OracleRequest</span><span class="token punctuation">(</span>specId<span class="token punctuation">,</span> sender<span class="token punctuation">,</span> requestId<span class="token punctuation">,</span> payment<span class="token punctuation">,</span> sender<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">,</span> dataVersion<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Creates the Winklink request
+   * @dev Stores the hash of the params as the on-chain commitment for the request.
+   * Emits OracleRequest event for the Winklink node to detect.
+   * @param sender The sender of the request
+   * @param payment The amount of payment given (specified in wei)
+   * @param specId The Job Specification ID
+   * @param callbackFunctionId The callback function ID for the response
+   * @param nonce The nonce sent by the requester
+   * @param dataVersion The specified data version
+   * @param data The extra request parameters
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">operatorRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> sender<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> specId<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> nonce<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> dataVersion<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data
+  <span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span> expiration<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">_verifyAndProcessOracleRequest</span><span class="token punctuation">(</span>
+      sender<span class="token punctuation">,</span>
+      payment<span class="token punctuation">,</span>
+      sender<span class="token punctuation">,</span>
+      callbackFunctionId<span class="token punctuation">,</span>
+      nonce<span class="token punctuation">,</span>
+      dataVersion
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">OracleRequest</span><span class="token punctuation">(</span>specId<span class="token punctuation">,</span> sender<span class="token punctuation">,</span> requestId<span class="token punctuation">,</span> payment<span class="token punctuation">,</span> sender<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">,</span> dataVersion<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Called by the Winklink node to fulfill requests
+   * @dev Given params must hash back to the commitment stored from `oracleRequest`.
+   * Will call the callback address' callback function without bubbling up error
+   * checking in a `require` so that the node can get paid.
+   * @param requestId The fulfillment request ID that must match the requesters'
+   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param callbackAddress The callback address to call for fulfillment
+   * @param callbackFunctionId The callback function ID to use for fulfillment
+   * @param expiration The expiration that the node should respond by before the requester can cancel
+   * @param data The data to return to the consuming contract
+   * @return Status if the external call was successful
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">fulfillOracleRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> data
+  <span class="token punctuation">)</span>
+  <span class="token keyword">external</span>
+  override
+  validateAuthorizedSender
+  <span class="token function">validateRequestId</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span>
+  <span class="token function">validateCallbackAddress</span><span class="token punctuation">(</span>callbackAddress<span class="token punctuation">)</span>
+  <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">_verifyOracleRequestAndProcessPayment</span><span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> payment<span class="token punctuation">,</span> callbackAddress<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">OracleResponse</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//    require(gasleft() &gt;= MINIMUM_CONSUMER_GAS_LIMIT, &quot;Must provide consumer enough gas&quot;);</span>
+    <span class="token comment">// All updates to the oracle's fulfillment should come before calling the</span>
+    <span class="token comment">// callback(addr+functionId) as it is untrusted.</span>
+    <span class="token comment">// See: https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern</span>
+    <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token operator">=</span> callbackAddress<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodeWithSelector</span><span class="token punctuation">(</span>callbackFunctionId<span class="token punctuation">,</span> requestId<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// solhint-disable-line avoid-low-level-calls</span>
+    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Called by the Winklink node to fulfill requests with multi-word support
+   * @dev Given params must hash back to the commitment stored from `oracleRequest`.
+   * Will call the callback address' callback function without bubbling up error
+   * checking in a `require` so that the node can get paid.
+   * @param requestId The fulfillment request ID that must match the requester's
+   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param callbackAddress The callback address to call for fulfillment
+   * @param callbackFunctionId The callback function ID to use for fulfillment
+   * @param expiration The expiration that the node should respond by before the requester can cancel
+   * @param data The data to return to the consuming contract
+   * @return Status if the external call was successful
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">fulfillOracleRequest2</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data
+  <span class="token punctuation">)</span>
+  <span class="token keyword">external</span>
+  override
+  validateAuthorizedSender
+  <span class="token function">validateRequestId</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span>
+  <span class="token function">validateCallbackAddress</span><span class="token punctuation">(</span>callbackAddress<span class="token punctuation">)</span>
+  <span class="token function">validateMultiWordResponseId</span><span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+  <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token function">_verifyOracleRequestAndProcessPayment</span><span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> payment<span class="token punctuation">,</span> callbackAddress<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">OracleResponse</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//    require(gasleft() &gt;= MINIMUM_CONSUMER_GAS_LIMIT, &quot;Must provide consumer enough gas&quot;);</span>
+    <span class="token comment">// All updates to the oracle's fulfillment should come before calling the</span>
+    <span class="token comment">// callback(addr+functionId) as it is untrusted.</span>
+    <span class="token comment">// See: https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern</span>
+    <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token operator">=</span> callbackAddress<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodePacked</span><span class="token punctuation">(</span>callbackFunctionId<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// solhint-disable-line avoid-low-level-calls</span>
+    <span class="token keyword">return</span> success<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Transfer the ownership of ownable contracts. This is primarily
+   * intended for Authorized Forwarders but could possibly be extended to work
+   * with future contracts.
+   * @param ownable list of addresses to transfer
+   * @param newOwner address to transfer ownership to
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">transferOwnableContracts</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> ownable<span class="token punctuation">,</span> <span class="token builtin">address</span> newOwner<span class="token punctuation">)</span> <span class="token keyword">external</span> onlyOwner <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ownable<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      s_owned<span class="token punctuation">[</span>ownable<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token function">OwnableInterface</span><span class="token punctuation">(</span>ownable<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">transferOwnership</span><span class="token punctuation">(</span>newOwner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Accept the ownership of an ownable contract. This is primarily
+   * intended for Authorized Forwarders but could possibly be extended to work
+   * with future contracts.
+   * @dev Must be the pending owner on the contract
+   * @param ownable list of addresses of Ownable contracts to accept
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">acceptOwnableContracts</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> ownable<span class="token punctuation">)</span> <span class="token keyword">public</span> validateAuthorizedSenderSetter <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> ownable<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      s_owned<span class="token punctuation">[</span>ownable<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token keyword">emit</span> <span class="token function">OwnableContractAccepted</span><span class="token punctuation">(</span>ownable<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">OwnableInterface</span><span class="token punctuation">(</span>ownable<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">acceptOwnership</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Sets the fulfillment permission for
+   * @param targets The addresses to set permissions on
+   * @param senders The addresses that are allowed to send updates
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">setAuthorizedSendersOn</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> targets<span class="token punctuation">,</span> <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> senders<span class="token punctuation">)</span>
+  <span class="token keyword">public</span>
+  validateAuthorizedSenderSetter
+  <span class="token punctuation">{</span>
+    <span class="token function">TargetsUpdatedAuthorizedSenders</span><span class="token punctuation">(</span>targets<span class="token punctuation">,</span> senders<span class="token punctuation">,</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> targets<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">AuthorizedReceiverInterface</span><span class="token punctuation">(</span>targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAuthorizedSenders</span><span class="token punctuation">(</span>senders<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Accepts ownership of ownable contracts and then immediately sets
+   * the authorized sender list on each of the newly owned contracts. This is
+   * primarily intended for Authorized Forwarders but could possibly be
+   * extended to work with future contracts.
+   * @param targets The addresses to set permissions on
+   * @param senders The addresses that are allowed to send updates
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">acceptAuthorizedReceivers</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> targets<span class="token punctuation">,</span> <span class="token builtin">address</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> senders<span class="token punctuation">)</span>
+  <span class="token keyword">external</span>
+  validateAuthorizedSenderSetter
+  <span class="token punctuation">{</span>
+    <span class="token function">acceptOwnableContracts</span><span class="token punctuation">(</span>targets<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setAuthorizedSendersOn</span><span class="token punctuation">(</span>targets<span class="token punctuation">,</span> senders<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Allows the node operator to withdraw earned WINK to a given address
+   * @dev The owner of the contract can be another wallet and does not have to be a Winklink node
+   * @param recipient The address to send the WINK token to
+   * @param amount The amount to send (specified in wei)
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">withdraw</span><span class="token punctuation">(</span><span class="token builtin">address</span> recipient<span class="token punctuation">,</span> <span class="token builtin">uint256</span> amount<span class="token punctuation">)</span>
+  <span class="token keyword">external</span>
+  <span class="token function">override</span><span class="token punctuation">(</span>OracleInterface<span class="token punctuation">,</span> WithdrawalInterface<span class="token punctuation">)</span>
+  onlyOwner
+  <span class="token function">validateAvailableFunds</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">assert</span><span class="token punctuation">(</span>winkToken<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>recipient<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Displays the amount of WINK that is available for the node operator to withdraw
+   * @dev We use `ONE_FOR_CONSISTENT_GAS_COST` in place of 0 in storage
+   * @return The amount of withdrawable WINK on the contract
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">withdrawable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">view</span> <span class="token function">override</span><span class="token punctuation">(</span>OracleInterface<span class="token punctuation">,</span> WithdrawalInterface<span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">_fundsAvailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Forward a call to another contract
+   * @dev Only callable by the owner
+   * @param to address
+   * @param data to forward
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">ownerForward</span><span class="token punctuation">(</span><span class="token builtin">address</span> to<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data<span class="token punctuation">)</span> <span class="token keyword">external</span> onlyOwner <span class="token function">validateNotToWINK</span><span class="token punctuation">(</span>to<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token function">isContract</span><span class="token punctuation">(</span>to<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Must forward to a contract&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span><span class="token builtin">bool</span> status<span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token operator">=</span> to<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>status<span class="token punctuation">,</span> <span class="token string">&quot;Forwarded call failed&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Interact with other WINKTokenReceiver contracts by calling transferAndCall
+   * @param to The address to transfer to.
+   * @param value The amount to be transferred.
+   * @param data The extra data to be passed to the receiving contract.
+   * @return success bool
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">ownerTransferAndCall</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> to<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> value<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data
+  <span class="token punctuation">)</span> <span class="token keyword">external</span> override onlyOwner <span class="token function">validateAvailableFunds</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    winkToken<span class="token punctuation">.</span><span class="token function">approve</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span>winkMid<span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> winkMid<span class="token punctuation">.</span><span class="token function">transferAndCall</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> value<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Distribute funds to multiple addresses using ETH send
+   * to this payable function.
+   * @dev Array length must be equal, TRX sent must equal the sum of amounts.
+   * A malicious receiver could cause the distribution to revert, in which case
+   * it is expected that the address is removed from the list.
+   * @param receivers list of addresses
+   * @param amounts list of amounts
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">distributeFunds</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">payable</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> receivers<span class="token punctuation">,</span> <span class="token builtin">uint256</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">calldata</span> amounts<span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>receivers<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> receivers<span class="token punctuation">.</span>length <span class="token operator">==</span> amounts<span class="token punctuation">.</span>length<span class="token punctuation">,</span> <span class="token string">&quot;Invalid array length(s)&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> valueRemaining <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> receivers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token builtin">uint256</span> sendAmount <span class="token operator">=</span> amounts<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      valueRemaining <span class="token operator">=</span> valueRemaining<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span>sendAmount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      receivers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>sendAmount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>valueRemaining <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;Too much TRX sent&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Allows recipient to cancel requests sent to this oracle contract.
+   * Will transfer the WINK sent for the request back to the recipient address.
+   * @dev Given params must hash to a commitment stored on the contract in order
+   * for the request to be valid. Emits CancelOracleRequest event.
+   * @param requestId The request ID
+   * @param payment The amount of payment given (specified in wei)
+   * @param callbackFunc The requester's specified callback function selector
+   * @param expiration The time of the expiration for the request
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">cancelOracleRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunc<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration
+  <span class="token punctuation">)</span> <span class="token keyword">external</span> override <span class="token punctuation">{</span>
+    <span class="token builtin">bytes31</span> paramsHash <span class="token operator">=</span> <span class="token function">_buildParamsHash</span><span class="token punctuation">(</span>payment<span class="token punctuation">,</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> callbackFunc<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paramsHash <span class="token operator">==</span> paramsHash<span class="token punctuation">,</span> <span class="token string">&quot;Params do not match request ID&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// solhint-disable-next-line not-rely-on-time</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>expiration <span class="token operator">&lt;=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">,</span> <span class="token string">&quot;Request is not expired&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">delete</span> s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">CancelOracleRequest</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    winkToken<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Allows requester to cancel requests sent to this oracle contract.
+   * Will transfer the WINK sent for the request back to the recipient address.
+   * @dev Given params must hash to a commitment stored on the contract in order
+   * for the request to be valid. Emits CancelOracleRequest event.
+   * @param nonce The nonce used to generate the request ID
+   * @param payment The amount of payment given (specified in wei)
+   * @param callbackFunc The requester's specified callback function selector
+   * @param expiration The time of the expiration for the request
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">cancelOracleRequestByRequester</span><span class="token punctuation">(</span>
+    <span class="token builtin">uint256</span> nonce<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunc<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration
+  <span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token punctuation">{</span>
+    <span class="token builtin">bytes32</span> requestId <span class="token operator">=</span> <span class="token function">keccak256</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodePacked</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> nonce<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">bytes31</span> paramsHash <span class="token operator">=</span> <span class="token function">_buildParamsHash</span><span class="token punctuation">(</span>payment<span class="token punctuation">,</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> callbackFunc<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paramsHash <span class="token operator">==</span> paramsHash<span class="token punctuation">,</span> <span class="token string">&quot;Params do not match request ID&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// solhint-disable-next-line not-rely-on-time</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>expiration <span class="token operator">&lt;=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">,</span> <span class="token string">&quot;Request is not expired&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">delete</span> s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">emit</span> <span class="token function">CancelOracleRequest</span><span class="token punctuation">(</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    winkToken<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Returns the address of the WINK token
+   * @dev This is the public implementation for WinklinkTokenAddress, which is
+   * an internal method of the WinklinkClient contract
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">getWinklinkToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token builtin">address</span><span class="token punctuation">(</span>winkMid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Require that the token transfer action is valid
+   * @dev OPERATOR_REQUEST_SELECTOR = multiword, ORACLE_REQUEST_SELECTOR = singleword
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_validateTokenTransferAction</span><span class="token punctuation">(</span><span class="token builtin">bytes4</span> funcSelector<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">memory</span> data<span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">pure</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>length <span class="token operator">&gt;=</span> MINIMUM_REQUEST_LENGTH<span class="token punctuation">,</span> <span class="token string">&quot;Invalid request length&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>
+      funcSelector <span class="token operator">==</span> OPERATOR_REQUEST_SELECTOR <span class="token operator">||</span> funcSelector <span class="token operator">==</span> ORACLE_REQUEST_SELECTOR<span class="token punctuation">,</span>
+      <span class="token string">&quot;Must use whitelisted functions&quot;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Verify the Oracle Request and record necessary information
+   * @param sender The sender of the request
+   * @param payment The amount of payment given (specified in wei)
+   * @param callbackAddress The callback address for the response
+   * @param callbackFunctionId The callback function ID for the response
+   * @param nonce The nonce sent by the requester
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_verifyAndProcessOracleRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> sender<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> nonce<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> dataVersion
+  <span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token function">validateNotToWINK</span><span class="token punctuation">(</span>callbackAddress<span class="token punctuation">)</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span> expiration<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    requestId <span class="token operator">=</span> <span class="token function">keccak256</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodePacked</span><span class="token punctuation">(</span>sender<span class="token punctuation">,</span> nonce<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paramsHash <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;Must use a unique ID&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// solhint-disable-next-line not-rely-on-time</span>
+    expiration <span class="token operator">=</span> block<span class="token punctuation">.</span>timestamp<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>getExpiryTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">bytes31</span> paramsHash <span class="token operator">=</span> <span class="token function">_buildParamsHash</span><span class="token punctuation">(</span>payment<span class="token punctuation">,</span> callbackAddress<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">Commitment</span><span class="token punctuation">(</span>paramsHash<span class="token punctuation">,</span> <span class="token function">_safeCastToUint8</span><span class="token punctuation">(</span>dataVersion<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s_tokensInEscrow <span class="token operator">=</span> s_tokensInEscrow<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>requestId<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Verify the Oracle request and unlock escrowed payment
+   * @param requestId The fulfillment request ID that must match the requester's
+   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param callbackAddress The callback address to call for fulfillment
+   * @param callbackFunctionId The callback function ID to use for fulfillment
+   * @param expiration The expiration that the node should respond by before the requester can cancel
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_verifyOracleRequestAndProcessPayment</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> dataVersion
+  <span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token punctuation">{</span>
+    <span class="token builtin">bytes31</span> paramsHash <span class="token operator">=</span> <span class="token function">_buildParamsHash</span><span class="token punctuation">(</span>payment<span class="token punctuation">,</span> callbackAddress<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paramsHash <span class="token operator">==</span> paramsHash<span class="token punctuation">,</span> <span class="token string">&quot;Params do not match request ID&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>dataVersion <span class="token operator">&lt;=</span> <span class="token function">_safeCastToUint8</span><span class="token punctuation">(</span>dataVersion<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Data versions must match&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    s_tokensInEscrow <span class="token operator">=</span> s_tokensInEscrow<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span>payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">delete</span> s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Build the bytes31 hash from the payment, callback and expiration.
+   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param callbackAddress The callback address to call for fulfillment
+   * @param callbackFunctionId The callback function ID to use for fulfillment
+   * @param expiration The expiration that the node should respond by before the requester can cancel
+   * @return hash bytes31
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_buildParamsHash</span><span class="token punctuation">(</span>
+    <span class="token builtin">uint256</span> payment<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> callbackAddress<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> expiration
+  <span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">pure</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bytes31</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token builtin">bytes31</span><span class="token punctuation">(</span><span class="token function">keccak256</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodePacked</span><span class="token punctuation">(</span>payment<span class="token punctuation">,</span> callbackAddress<span class="token punctuation">,</span> callbackFunctionId<span class="token punctuation">,</span> expiration<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Safely cast uint256 to uint8
+   * @param number uint256
+   * @return uint8 number
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_safeCastToUint8</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> number<span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">pure</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>number <span class="token operator">&lt;</span> MAXIMUM_DATA_VERSION<span class="token punctuation">,</span> <span class="token string">&quot;number too big to cast&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token builtin">uint8</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice Returns the WINK available in this contract, not locked in escrow
+   * @return uint256 WINK tokens available
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_fundsAvailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token builtin">uint256</span> inEscrow <span class="token operator">=</span> s_tokensInEscrow<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span>ONE_FOR_CONSISTENT_GAS_COST<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> winkToken<span class="token punctuation">.</span><span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span>inEscrow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @notice concrete implementation of AuthorizedReceiver
+   * @return bool of whether sender is authorized
+   */</span>
+  <span class="token keyword">function</span> <span class="token function">_canSetAuthorizedSenders</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">internal</span> <span class="token keyword">view</span> override <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">isAuthorizedSender</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">owner</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">isContract</span><span class="token punctuation">(</span><span class="token builtin">address</span> _addr<span class="token punctuation">)</span> <span class="token keyword">private</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span> hasCode<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token builtin">uint</span> length<span class="token punctuation">;</span>
+    <span class="token keyword">assembly</span> <span class="token punctuation">{</span> length <span class="token operator">:=</span> <span class="token function">extcodesize</span><span class="token punctuation">(</span>_addr<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">onTokenTransfer</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> sender<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> amount<span class="token punctuation">,</span>
+    <span class="token builtin">bytes</span> <span class="token keyword">memory</span> data
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> override <span class="token punctuation">{</span>
+    <span class="token keyword">assembly</span> <span class="token punctuation">{</span>
+    <span class="token comment">// solhint-disable-next-line avoid-low-level-calls</span>
+      <span class="token function">mstore</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">36</span><span class="token punctuation">)</span><span class="token punctuation">,</span> sender<span class="token punctuation">)</span> <span class="token comment">// ensure correct sender is passed</span>
+    <span class="token comment">// solhint-disable-next-line avoid-low-level-calls</span>
+      <span class="token function">mstore</span><span class="token punctuation">(</span><span class="token function">add</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token number">68</span><span class="token punctuation">)</span><span class="token punctuation">,</span> amount<span class="token punctuation">)</span> <span class="token comment">// ensure correct amount is passed</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// solhint-disable-next-line avoid-low-level-calls</span>
+    <span class="token punctuation">(</span><span class="token builtin">bool</span> success<span class="token punctuation">,</span> <span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delegatecall</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// calls oracleRequest</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>success<span class="token punctuation">,</span> <span class="token string">&quot;Unable to create request&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// MODIFIERS</span>
+
+  <span class="token comment">/**
+   * @dev Reverts if the first 32 bytes of the bytes array is not equal to requestId
+   * @param requestId bytes32
+   * @param data bytes
+   */</span>
+  <span class="token keyword">modifier</span> <span class="token function">validateMultiWordResponseId</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> requestId<span class="token punctuation">,</span> <span class="token builtin">bytes</span> <span class="token keyword">calldata</span> data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>length <span class="token operator">&gt;=</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token string">&quot;Response must be &gt; 32 bytes&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">bytes32</span> firstDataWord<span class="token punctuation">;</span>
+    <span class="token keyword">assembly</span> <span class="token punctuation">{</span>
+      firstDataWord <span class="token operator">:=</span> <span class="token function">calldataload</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>offset<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>requestId <span class="token operator">==</span> firstDataWord<span class="token punctuation">,</span> <span class="token string">&quot;First word must be requestId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @dev Reverts if amount requested is greater than withdrawable balance
+   * @param amount The given amount to compare to `s_withdrawableTokens`
+   */</span>
+  <span class="token keyword">modifier</span> <span class="token function">validateAvailableFunds</span><span class="token punctuation">(</span><span class="token builtin">uint256</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token function">_fundsAvailable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;=</span> amount<span class="token punctuation">,</span> <span class="token string">&quot;Amount requested is greater than withdrawable balance&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @dev Reverts if request ID does not exist
+   * @param requestId The given request ID to check in stored `commitments`
+   */</span>
+  <span class="token keyword">modifier</span> <span class="token function">validateRequestId</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> requestId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>s_commitments<span class="token punctuation">[</span>requestId<span class="token punctuation">]</span><span class="token punctuation">.</span>paramsHash <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;Must have a valid requestId&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @dev Reverts if the callback address is the WINK token
+   * @param to The callback address
+   */</span>
+  <span class="token keyword">modifier</span> <span class="token function">validateNotToWINK</span><span class="token punctuation">(</span><span class="token builtin">address</span> to<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>to <span class="token operator">!=</span> <span class="token builtin">address</span><span class="token punctuation">(</span>winkToken<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Cannot call to WINK&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">/**
+   * @dev Reverts if the target address is owned by the operator
+   */</span>
+  <span class="token keyword">modifier</span> <span class="token function">validateCallbackAddress</span><span class="token punctuation">(</span><span class="token builtin">address</span> callbackAddress<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token operator">!</span>s_owned<span class="token punctuation">[</span>callbackAddress<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;Cannot call owned contract&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="设置-anyapi-合约及任务"><a href="#设置-anyapi-合约及任务" class="header-anchor">#</a> 设置 AnyAPI 合约及任务</h2> <h3 id="winkmid-合约"><a href="#winkmid-合约" class="header-anchor">#</a> WinkMid 合约</h3> <p>WINkLink 用 WIN 代币（TRC20）作为整个生态的基础代币</p> <p>WINkLink 使用了 <code>transferAndCall</code> 功能，即在转账 <code>TRC20</code> 代币给合约的同时调用合约的某一回调函数，该功能类似 <code>ERC677</code>，但接口参数不同。</p> <p>考虑到绝大多数已发行的代币无法再修改合约或增加接口，WINkLink 提供 WinkMid 包装合约，可用来包装任一 TRC20 代币，并提供 transferAndCall 接口。</p> <p>合约代码可于 <code>WinkMid.sol</code> 查看。</p> <p>为方便开发者使用，Nile 测试网部署了 WinkMid 合约，并封装了 WIN 代币。开发者可直接使用该合约地址，无需额外部署。Nile 测试网还提供水龙头地址，用户可以领取 TRX 和 WIN 测试代币。</p> <div class="custom-block tip"><p class="custom-block-title">TIP</p> <p><strong>Nile 测试网</strong></p> <p>WIN TRC20 合约地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2</p> <p>WinkMid 合约地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro</p> <p>测试网水龙头地址: <a href="https://nileex.io/join/getJoinPage" target="_blank" rel="noopener noreferrer">https://nileex.io/join/getJoinPage<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <p>部署 WinkMid 合约时，开发者需在构造函数中提供被封装的 <code>TRC20</code> 代币地址（即 WIN 代币地址）。</p> <p>WinkMid 合约可帮助用户进行合约调用，开发者无需直接进行调用操作。</p> <p>部署 Coordinator 合约时需在构造函数中提供 WIN 代币地址和 WinkMid 合约地址。</p> <h3 id="operator-合约-2"><a href="#operator-合约-2" class="header-anchor">#</a> Operator 合约</h3> <p>Operator 合约是处理来自 Consumer 合约的所有请求和 WINkLink 节点所有执行操作的主要合约，部署合约时需用对应参数。</p> <p>部署 Operator 合约后，需使用 setAuthorizedSender 方法将 Oracle 添加到列表中，以授权其进行执行操作。</p> <h3 id="consumer-合约"><a href="#consumer-合约" class="header-anchor">#</a> Consumer 合约</h3> <p>以下示例包含两种主要的 Consumer 合约类型：</p> <ul><li>SingleWordConsumer</li></ul> <p>单次请求返回单个值。</p> <ul><li>MultiWordConsumer</li></ul> <p>单次请求返回多个值。</p> <p>可以根据用户需求，使用相应参数部署任一合约。</p> <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p>删除 bytes32 的“-”和右侧填充的“0”后，将 Consumer 合约中的 Spec ID 设置为对应的外部任务 ID</p> <div class="language- extra-class"><pre class="language-text"><code>如：0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000
+</code></pre></div></div> <h3 id="单变量请求"><a href="#单变量请求" class="header-anchor">#</a> 单变量请求</h3> <p>下面是一个请求单变量响应的 Consumer 合约示例。</p> <p>该合约接收用户输入的 URL 以及期望的数据路径。示例中配置的任务可检索 TRX 的美元、欧元或新加坡元价格。</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.7.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./WinklinkClient.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">SingleWordConsumer</span> <span class="token keyword">is</span> WinklinkClient <span class="token punctuation">{</span>
+  <span class="token keyword">using</span> <span class="token class-name">Winklink</span> <span class="token keyword">for</span> Winklink<span class="token punctuation">.</span>Request<span class="token punctuation">;</span>
+
+  <span class="token builtin">bytes32</span> <span class="token keyword">internal</span> specId<span class="token punctuation">;</span>
+  <span class="token builtin">bytes32</span> <span class="token keyword">public</span> currentPrice<span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">RequestFulfilled</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> requestId<span class="token punctuation">,</span> <span class="token comment">// User-defined ID</span>
+    <span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> price
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> _wink<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> _winkMid<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> _oracle<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> _specId
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    <span class="token function">setWinklinkToken</span><span class="token punctuation">(</span>_wink<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setWinkMid</span><span class="token punctuation">(</span>_winkMid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setWinklinkOracle</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    specId <span class="token operator">=</span> _specId<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">setSpecID</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _specId<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    specId <span class="token operator">=</span> _specId<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//https://min-api.cryptocompare.com/data/price?fsym=TRX&amp;tsyms=USD,EUR,SGD</span>
+  <span class="token keyword">function</span> <span class="token function">requestTRXPrice</span><span class="token punctuation">(</span><span class="token builtin">string</span> <span class="token keyword">memory</span> _urlPriceCompare<span class="token punctuation">,</span> <span class="token builtin">string</span> <span class="token keyword">memory</span> _currency<span class="token punctuation">,</span> <span class="token builtin">uint64</span> _payment<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    Winklink<span class="token punctuation">.</span>Request <span class="token keyword">memory</span> req <span class="token operator">=</span> <span class="token function">buildOperatorRequest</span><span class="token punctuation">(</span>specId<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fulfill<span class="token punctuation">.</span>selector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;get&quot;</span><span class="token punctuation">,</span> _urlPriceCompare<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">memory</span> path <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    path<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> _currency<span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">addStringArray</span><span class="token punctuation">(</span><span class="token string">&quot;path&quot;</span><span class="token punctuation">,</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// version 2</span>
+    <span class="token function">sendWinklinkRequest</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> _payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">cancelRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> _oracle<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> _requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> _payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> _callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> _expiration
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    WinklinkRequestInterface requested <span class="token operator">=</span> <span class="token function">WinklinkRequestInterface</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    requested<span class="token punctuation">.</span><span class="token function">cancelOracleRequest</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">,</span> _payment<span class="token punctuation">,</span> _callbackFunctionId<span class="token punctuation">,</span> _expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">withdrawWink</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    TRC20Interface _wink <span class="token operator">=</span> <span class="token function">TRC20Interface</span><span class="token punctuation">(</span><span class="token function">WinklinkTokenAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>_wink<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> _wink<span class="token punctuation">.</span><span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Unable to transfer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">addExternalRequest</span><span class="token punctuation">(</span><span class="token builtin">address</span> _oracle<span class="token punctuation">,</span> <span class="token builtin">bytes32</span> _requestId<span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token punctuation">{</span>
+    <span class="token function">addWinklinkExternalRequest</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">,</span> _requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">fulfill</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _requestId<span class="token punctuation">,</span> <span class="token builtin">bytes32</span> _price<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token function">recordWinklinkFulfillment</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">emit</span> <span class="token function">RequestFulfilled</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">,</span> _price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    currentPrice <span class="token operator">=</span> _price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们需在 WinkLink 节点中设置一个特定任务来处理和完成所需工作。</p> <div class="language-json extra-class"><pre class="language-json"><code>type = <span class="token string">&quot;directrequest&quot;</span>
+schemaVersion = <span class="token number">1</span>
+name = <span class="token string">&quot;DR: SingleWordRequest&quot;</span>
+externalJobID = <span class="token string">&quot;8495b310-eb4a-479f-8982-ad6565213449&quot;</span>
+forwardingAllowed = <span class="token boolean">false</span>
+maxTaskDuration = <span class="token string">&quot;0s&quot;</span>
+contractAddress = <span class="token string">&quot;0x51d389Ce2ba948C9c2fc382Efc910B5776D50E4b&quot;</span>
+tvmChainID = <span class="token string">&quot;2&quot;</span>
+minContractPaymentWin = <span class="token string">&quot;5&quot;</span>
+requesters = <span class="token punctuation">[</span> <span class="token string">&quot;0xcFbe00786F9dC12d5985f1cD64657384F6065CD2&quot;</span> <span class="token punctuation">]</span>
+fromAddress = <span class="token string">&quot;0x40544c785F4127f39c9Ad3321BE4f439eE8bd73C&quot;</span>
+observationSource = <span class="token string">&quot;&quot;</span>&quot;
+    decode_log     <span class="token punctuation">[</span>type=tvmabidecodelog abi=<span class="token string">&quot;OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)&quot;</span> data=<span class="token string">&quot;$(jobRun.logData)&quot;</span> topics=<span class="token string">&quot;$(jobRun.logTopics)&quot;</span><span class="token punctuation">]</span>
+    decode_cbor    <span class="token punctuation">[</span>type=cborparse data=<span class="token string">&quot;$(decode_log.data)&quot;</span><span class="token punctuation">]</span>
+    ds1                     <span class="token punctuation">[</span>type=http method=GET url=<span class="token string">&quot;$(decode_cbor.get)&quot;</span> allowunrestrictednetworkaccess=<span class="token string">&quot;true&quot;</span><span class="token punctuation">]</span>
+    ds1_parse         <span class="token punctuation">[</span>type=jsonparse path=<span class="token string">&quot;$(decode_cbor.path)&quot;</span><span class="token punctuation">]</span>
+    ds1_multiply     <span class="token punctuation">[</span>type=multiply value=<span class="token string">&quot;$(ds1_parse)&quot;</span> times=<span class="token number">100</span><span class="token punctuation">]</span>
+    encode_data    <span class="token punctuation">[</span>type=tvmabiencode abi=<span class="token string">&quot;(uint256 value)&quot;</span> data=&lt;<span class="token punctuation">{</span><span class="token property">&quot;value&quot;</span><span class="token operator">:</span> $(ds1_multiply)<span class="token punctuation">}</span>&gt;<span class="token punctuation">]</span>
+    encode_tx        <span class="token punctuation">[</span>type=tvmabiencode abi=<span class="token string">&quot;fulfillOracleRequest(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes32 data)&quot;</span> data=&lt;<span class="token punctuation">{</span><span class="token property">&quot;requestId&quot;</span><span class="token operator">:</span> $(decode_log.requestId)<span class="token punctuation">,</span> <span class="token property">&quot;payment&quot;</span><span class="token operator">:</span> $(decode_log.payment)<span class="token punctuation">,</span> <span class="token property">&quot;callbackAddress&quot;</span><span class="token operator">:</span> $(decode_log.callbackAddr)<span class="token punctuation">,</span> <span class="token property">&quot;callbackFunctionId&quot;</span><span class="token operator">:</span> $(decode_log.callbackFunctionId)<span class="token punctuation">,</span> <span class="token property">&quot;expiration&quot;</span><span class="token operator">:</span> $(decode_log.cancelExpiration)<span class="token punctuation">,</span> <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> $(encode_data)<span class="token punctuation">}</span>&gt;<span class="token punctuation">]</span>
+   submit <span class="token punctuation">[</span>type=tvmcall contract=<span class="token string">&quot;THRs9Y3vqE4FMTE7LPjMB4LFEH8uUsZaE4&quot;</span> method=<span class="token string">&quot;fulfillOracleRequest(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes32 data)&quot;</span> data=<span class="token string">&quot;$(encode_tx)&quot;</span> extractRevertReason=<span class="token boolean">true</span><span class="token punctuation">]</span>
+
+decode_log-&gt;decode_cbor-&gt;ds1 -&gt; ds1_parse -&gt; ds1_multiply-&gt;encode_data-&gt;encode_tx-&gt;submit
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre></div><p>单变量任务规范有如下功能：</p> <ol><li>解码链上获取的事件消息</li> <li>用指定 URL 执行 http 操作</li> <li>用提供的路径从指定路径检索数据</li> <li>进行所需的数据变换</li> <li>将编码的数据作为响应并提交给Operator</li></ol> <p>Operator 合约将接收响应并将其转发回 Consumer 合约。</p> <h3 id="多变量请求"><a href="#多变量请求" class="header-anchor">#</a> 多变量请求</h3> <p>下面是一个多变量请求的 Consumer 合约示例。</p> <p>该合约接收用户输入的 URL 以及所有期望的数据路径。</p> <div class="language-solidity extra-class"><pre class="language-solidity"><code><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.7.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">&quot;./WinklinkClient.sol&quot;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">MultiWordConsumer</span> <span class="token keyword">is</span> WinklinkClient <span class="token punctuation">{</span>
+  <span class="token keyword">using</span> <span class="token class-name">Winklink</span> <span class="token keyword">for</span> Winklink<span class="token punctuation">.</span>Request<span class="token punctuation">;</span>
+
+  <span class="token builtin">bytes32</span> <span class="token keyword">internal</span> specId<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> currentUSDPriceInt<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> currentEURPriceInt<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> currentJPYPriceInt<span class="token punctuation">;</span>
+
+  <span class="token keyword">event</span> <span class="token function">RequestFulfilled2</span><span class="token punctuation">(</span>
+    <span class="token builtin">bytes32</span> <span class="token keyword">indexed</span> requestId<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> usd<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> eur<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> jpy
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> _wink<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> _winkMid<span class="token punctuation">,</span>
+    <span class="token builtin">address</span> _oracle<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> _specId
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    <span class="token function">setWinklinkToken</span><span class="token punctuation">(</span>_wink<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setWinkMid</span><span class="token punctuation">(</span>_winkMid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">setWinklinkOracle</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    specId <span class="token operator">=</span> _specId<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">setSpecID</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _specId<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    specId <span class="token operator">=</span> _specId<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">//https://min-api.cryptocompare.com/data/price?fsym=TRX&amp;tsyms=USD,EUR,JPY</span>
+  <span class="token keyword">function</span> <span class="token function">requestMultipleParametersWithCustomURLs</span><span class="token punctuation">(</span>
+    <span class="token builtin">string</span> <span class="token keyword">memory</span> _urlPriceCompare<span class="token punctuation">,</span>
+    <span class="token builtin">string</span> <span class="token keyword">memory</span> _pathUSD<span class="token punctuation">,</span>
+    <span class="token builtin">string</span> <span class="token keyword">memory</span> _pathEUR<span class="token punctuation">,</span>
+    <span class="token builtin">string</span> <span class="token keyword">memory</span> _pathJPY<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> _payment
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    Winklink<span class="token punctuation">.</span>Request <span class="token keyword">memory</span> req <span class="token operator">=</span> <span class="token function">buildOperatorRequest</span><span class="token punctuation">(</span>specId<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fulfillParametersWithCustomURLs<span class="token punctuation">.</span>selector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;urlPriceCompare&quot;</span><span class="token punctuation">,</span> _urlPriceCompare<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;pathUSD&quot;</span><span class="token punctuation">,</span> _pathUSD<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;pathEUR&quot;</span><span class="token punctuation">,</span> _pathEUR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    req<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&quot;pathJPY&quot;</span><span class="token punctuation">,</span> _pathJPY<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sendWinklinkRequest</span><span class="token punctuation">(</span>req<span class="token punctuation">,</span> _payment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">cancelRequest</span><span class="token punctuation">(</span>
+    <span class="token builtin">address</span> _oracle<span class="token punctuation">,</span>
+    <span class="token builtin">bytes32</span> _requestId<span class="token punctuation">,</span>
+    <span class="token builtin">uint64</span> _payment<span class="token punctuation">,</span>
+    <span class="token builtin">bytes4</span> _callbackFunctionId<span class="token punctuation">,</span>
+    <span class="token builtin">uint256</span> _expiration
+  <span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    WinklinkRequestInterface requested <span class="token operator">=</span> <span class="token function">WinklinkRequestInterface</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    requested<span class="token punctuation">.</span><span class="token function">cancelOracleRequest</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">,</span> _payment<span class="token punctuation">,</span> _callbackFunctionId<span class="token punctuation">,</span> _expiration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">withdrawWink</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">{</span>
+    TRC20Interface _wink <span class="token operator">=</span> <span class="token function">TRC20Interface</span><span class="token punctuation">(</span><span class="token function">WinklinkTokenAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>_wink<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">,</span> _wink<span class="token punctuation">.</span><span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;Unable to transfer&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">addExternalRequest</span><span class="token punctuation">(</span><span class="token builtin">address</span> _oracle<span class="token punctuation">,</span> <span class="token builtin">bytes32</span> _requestId<span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token punctuation">{</span>
+    <span class="token function">addWinklinkExternalRequest</span><span class="token punctuation">(</span>_oracle<span class="token punctuation">,</span> _requestId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">function</span> <span class="token function">fulfillParametersWithCustomURLs</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _requestId<span class="token punctuation">,</span> <span class="token builtin">uint256</span> _usd<span class="token punctuation">,</span> <span class="token builtin">uint256</span> _eur<span class="token punctuation">,</span> <span class="token builtin">uint</span> _jpy<span class="token punctuation">)</span>
+  <span class="token keyword">public</span>
+  <span class="token function">recordWinklinkFulfillment</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">)</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">emit</span> <span class="token function">RequestFulfilled2</span><span class="token punctuation">(</span>_requestId<span class="token punctuation">,</span> <span class="token builtin">bytes32</span><span class="token punctuation">(</span>_usd<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">bytes32</span><span class="token punctuation">(</span>_eur<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">bytes32</span><span class="token punctuation">(</span>_jpy<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    currentUSDPriceInt <span class="token operator">=</span> _usd<span class="token punctuation">;</span>
+    currentEURPriceInt <span class="token operator">=</span> _eur<span class="token punctuation">;</span>
+    currentJPYPriceInt <span class="token operator">=</span> _jpy<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>我们在节点中添加任务规范来支持获取所有数据和相应的数据变换。</p> <div class="language-json extra-class"><pre class="language-json"><code>type = <span class="token string">&quot;directrequest&quot;</span>
+schemaVersion = <span class="token number">1</span>
+name = <span class="token string">&quot;DR: MultiWordRequest&quot;</span>
+externalJobID = <span class="token string">&quot;11453105-98fc-4c25-b825-f4dae83e921e&quot;</span>
+forwardingAllowed = <span class="token boolean">false</span>
+maxTaskDuration = <span class="token string">&quot;0s&quot;</span>
+contractAddress = <span class="token string">&quot;0x51d389Ce2ba948C9c2fc382Efc910B5776D50E4b&quot;</span>
+tvmChainID = <span class="token string">&quot;2&quot;</span>
+minContractPaymentWin = <span class="token string">&quot;1&quot;</span>
+requesters = <span class="token punctuation">[</span> <span class="token string">&quot;0xcFbe00786F9dC12d5985f1cD64657384F6065CD2&quot;</span> <span class="token punctuation">]</span>
+fromAddress = <span class="token string">&quot;0x40544c785F4127f39c9Ad3321BE4f439eE8bd73C&quot;</span>
+observationSource = <span class="token string">&quot;&quot;</span>&quot;
+     decode_log  <span class="token punctuation">[</span>type=tvmabidecodelog
+                  abi=<span class="token string">&quot;OracleRequest(bytes32 indexed specId, address requester, bytes32 requestId, uint256 payment, address callbackAddr, bytes4 callbackFunctionId, uint256 cancelExpiration, uint256 dataVersion, bytes data)&quot;</span>
+                  data=<span class="token string">&quot;$(jobRun.logData)&quot;</span>
+                  topics=<span class="token string">&quot;$(jobRun.logTopics)&quot;</span><span class="token punctuation">]</span>
+    decode_cbor  <span class="token punctuation">[</span>type=cborparse data=<span class="token string">&quot;$(decode_log.data)&quot;</span><span class="token punctuation">]</span>
+
+    decode_log -&gt; decode_cbor
+
+    decode_cbor -&gt; usd
+    decode_cbor -&gt; eur
+    decode_cbor -&gt; jpy
+
+    usd           <span class="token punctuation">[</span>type=http method=GET url=<span class="token string">&quot;$(decode_cbor.urlPriceCompare)&quot;</span> allowunrestrictednetworkaccess=<span class="token string">&quot;true&quot;</span><span class="token punctuation">]</span>
+    usd_parse     <span class="token punctuation">[</span>type=jsonparse path=<span class="token string">&quot;$(decode_cbor.pathUSD)&quot;</span><span class="token punctuation">]</span>
+    usd_multiply  <span class="token punctuation">[</span>type=multiply value=<span class="token string">&quot;$(usd_parse)&quot;</span><span class="token punctuation">,</span> times=<span class="token string">&quot;100&quot;</span><span class="token punctuation">]</span>
+    usd -&gt; usd_parse -&gt; usd_multiply
+
+    eur            <span class="token punctuation">[</span>type=http method=GET url=<span class="token string">&quot;$(decode_cbor.urlPriceCompare)&quot;</span> allowunrestrictednetworkaccess=<span class="token string">&quot;true&quot;</span><span class="token punctuation">]</span>
+    eur_parse      <span class="token punctuation">[</span>type=jsonparse path=<span class="token string">&quot;$(decode_cbor.pathEUR)&quot;</span><span class="token punctuation">]</span>
+    eur_multiply   <span class="token punctuation">[</span>type=multiply value=<span class="token string">&quot;$(eur_parse)&quot;</span><span class="token punctuation">,</span> times=<span class="token string">&quot;100&quot;</span><span class="token punctuation">]</span>
+    eur -&gt; eur_parse -&gt; eur_multiply
+
+    jpy            <span class="token punctuation">[</span>type=http method=GET url=<span class="token string">&quot;$(decode_cbor.urlPriceCompare)&quot;</span> allowunrestrictednetworkaccess=<span class="token string">&quot;true&quot;</span><span class="token punctuation">]</span>
+    jpy_parse      <span class="token punctuation">[</span>type=jsonparse path=<span class="token string">&quot;$(decode_cbor.pathJPY)&quot;</span><span class="token punctuation">]</span>
+    jpy_multiply   <span class="token punctuation">[</span>type=multiply value=<span class="token string">&quot;$(jpy_parse)&quot;</span><span class="token punctuation">,</span> times=<span class="token string">&quot;100000&quot;</span><span class="token punctuation">]</span>
+    jpy -&gt; jpy_parse -&gt; jpy_multiply
+
+    usd_multiply -&gt; encode_mwr
+    eur_multiply -&gt; encode_mwr
+    jpy_multiply -&gt; encode_mwr
+
+    encode_mwr <span class="token punctuation">[</span>type=tvmabiencode
+                abi=<span class="token string">&quot;(bytes32 requestId, uint256 usd, uint256 eur, uint256 jpy)&quot;</span>
+                data=&lt;<span class="token punctuation">{</span>
+                    <span class="token property">&quot;requestId&quot;</span><span class="token operator">:</span> $(decode_log.requestId)<span class="token punctuation">,</span>
+                    <span class="token property">&quot;usd&quot;</span><span class="token operator">:</span> $(usd_multiply)<span class="token punctuation">,</span>
+                    <span class="token property">&quot;eur&quot;</span><span class="token operator">:</span> $(eur_multiply)<span class="token punctuation">,</span>
+                    <span class="token property">&quot;jpy&quot;</span><span class="token operator">:</span> $(jpy_multiply)<span class="token punctuation">}</span>&gt;<span class="token punctuation">]</span>
+    encode_tx  <span class="token punctuation">[</span>type=tvmabiencode
+                abi=<span class="token string">&quot;fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes calldata data)&quot;</span>
+                data=&lt;<span class="token punctuation">{</span><span class="token property">&quot;requestId&quot;</span><span class="token operator">:</span> $(decode_log.requestId)<span class="token punctuation">,</span>
+                       <span class="token property">&quot;payment&quot;</span><span class="token operator">:</span>   $(decode_log.payment)<span class="token punctuation">,</span>
+                       <span class="token property">&quot;callbackAddress&quot;</span><span class="token operator">:</span> $(decode_log.callbackAddr)<span class="token punctuation">,</span>
+                       <span class="token property">&quot;callbackFunctionId&quot;</span><span class="token operator">:</span> $(decode_log.callbackFunctionId)<span class="token punctuation">,</span>
+                       <span class="token property">&quot;expiration&quot;</span><span class="token operator">:</span> $(decode_log.cancelExpiration)<span class="token punctuation">,</span>
+                       <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> $(encode_mwr)<span class="token punctuation">}</span>&gt;<span class="token punctuation">]</span>
+    submit_tx  <span class="token punctuation">[</span>type=tvmcall contract =<span class="token string">&quot;THRs9Y3vqE4FMTE7LPjMB4LFEH8uUsZaE4&quot;</span> data=<span class="token string">&quot;$(encode_tx)&quot;</span>  method=<span class="token string">&quot;fulfillOracleRequest2(bytes32 requestId, uint256 payment, address callbackAddress, bytes4 callbackFunctionId, uint256 expiration, bytes data)&quot;</span> extractRevertReason=<span class="token boolean">true</span><span class="token punctuation">]</span>
+
+    encode_mwr -&gt; encode_tx -&gt; submit_tx
+<span class="token string">&quot;&quot;</span>&quot;
+</code></pre></div><p>多变量任务规范有如下功能：</p> <ol><li>解码链上获取的事件消息</li> <li>用指定 URL 执行 http 操作</li></ol> <hr> <ol start="3"><li>用提供的路径从指定路径检索数据</li> <li>进行所需的数据变换</li></ol> <p>根据需要获取的数据量，重复进行步骤 3 和步骤 4。</p> <hr> <ol start="5"><li>将编码的数据作为响应并提交给Operator。</li></ol> <p>除步骤 3 和步骤 4 需要对所有数据进行检索和变换外，此任务规范与上述单变量请求基本一样。</p> <h2 id="内部适配器"><a href="#内部适配器" class="header-anchor">#</a> 内部适配器</h2> <p>本节展示了可用的内部适配器，可用于制定任务规范以获取所需数据。</p> <table><thead><tr><th style="text-align:left;">任务</th> <th style="text-align:left;">描述</th> <th style="text-align:left;">输入类型</th> <th style="text-align:left;">输出类型</th></tr></thead> <tbody><tr><td style="text-align:left;">tvm abi decode log</td> <td style="text-align:left;">解码链上检索的事件</td> <td style="text-align:left;">[]byte</td> <td style="text-align:left;">map[string]</td></tr> <tr><td style="text-align:left;">tvm call</td> <td style="text-align:left;">在 TVM 链上调用合约</td> <td style="text-align:left;">[]byte</td> <td style="text-align:left;">Contract call <a href="https://github.com/tron-oracle/winklink-2.0/blob/develop/core/chains/tvm/tron-sdk/proto/api/api.pb.go#L214-L222" target="_blank" rel="noopener noreferrer"><code>Return</code><span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> struct</td></tr> <tr><td style="text-align:left;">hex decode</td> <td style="text-align:left;">将十六进制解码为字符串</td> <td style="text-align:left;">string</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">hex encode</td> <td style="text-align:left;">将字符串编码为十六进制</td> <td style="text-align:left;">string/[]byte/decimal/big.Int</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">base64 decode</td> <td style="text-align:left;">将字符串解码为 Base64</td> <td style="text-align:left;">string</td> <td style="text-align:left;">[]byte</td></tr> <tr><td style="text-align:left;">base64 encode</td> <td style="text-align:left;">将 Base64 编码为字符串</td> <td style="text-align:left;">string/[]byte</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">http</td> <td style="text-align:left;">发起 HTTP 调用</td> <td style="text-align:left;">string (method)<br>url (url)<br>map[string] (requestData)<br>bool (allowUnrestrictedNetworkAccess)<br>[]string (reqHeaders)</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">json parse</td> <td style="text-align:left;">从 JSON 获取值</td> <td style="text-align:left;">string (Path)<br>string (Separator)<br>string (Data)</td> <td style="text-align:left;">map[string]interface{}/[]interface{}</td></tr> <tr><td style="text-align:left;">length</td> <td style="text-align:left;">获取字符串长度</td> <td style="text-align:left;">string</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">less than</td> <td style="text-align:left;">检查输入值是否小于限制值</td> <td style="text-align:left;">string (input)<br>string (limit)</td> <td style="text-align:left;">bool</td></tr> <tr><td style="text-align:left;">lower case</td> <td style="text-align:left;">将字符串转为小写</td> <td style="text-align:left;">string</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">upper case</td> <td style="text-align:left;">将字符串转为大写</td> <td style="text-align:left;">string</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">any</td> <td style="text-align:left;">从输入值获取任意值</td> <td style="text-align:left;">decimal/string</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">mean</td> <td style="text-align:left;">根据输入值获取均值</td> <td style="text-align:left;">string (Values)<br>string (AllowedFaults)<br>string (Precision)</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">median</td> <td style="text-align:left;">根据输入值获取中位数</td> <td style="text-align:left;">string (Values)<br>string (AllowedFaults)</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">memo</td> <td style="text-align:left;">返回输入值</td> <td style="text-align:left;">string</td> <td style="text-align:left;">string</td></tr> <tr><td style="text-align:left;">merge</td> <td style="text-align:left;">合并两个字符串输入值</td> <td style="text-align:left;">string (left)<br>string (right)</td> <td style="text-align:left;">map[string]interface{}</td></tr> <tr><td style="text-align:left;">multiply</td> <td style="text-align:left;">两个输入值相乘</td> <td style="text-align:left;">string (Input)<br>string (Times)</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">divide</td> <td style="text-align:left;">输入值除以除数</td> <td style="text-align:left;">string (Input)<br>string (Divisor)<br>string (Precision)</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">sum</td> <td style="text-align:left;">两个输入值相加</td> <td style="text-align:left;">string (Values)<br>string (AllowedFaults)</td> <td style="text-align:left;">decimal</td></tr> <tr><td style="text-align:left;">cbor parse</td> <td style="text-align:left;">Cbor 解码输入值</td> <td style="text-align:left;">string (Data)<br>string (Mode)</td> <td style="text-align:left;">interface{}</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/v2/doc/cn/vrf.html" class="prev">
+        WINkLink 可验证随机数服务
+      </a></span> <span class="next"><a href="/v2/doc/cn/automation.html">
+        WINkLink 自动化服务
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/v2/doc/assets/js/app.03bfa769.js" defer></script><script src="/v2/doc/assets/js/2.a93bf3eb.js" defer></script><script src="/v2/doc/assets/js/1.449454cc.js" defer></script><script src="/v2/doc/assets/js/27.5ec9b61f.js" defer></script>
+  </body>
+</html>
