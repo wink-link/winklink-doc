@@ -107,10 +107,10 @@ sequenceDiagram
 
 **参与方式：**
 
-无论你是数据使用者、数据提供者，还是节点运营者，都可以参与 WINkLink 生态建设。
+无论您是数据使用者、数据提供者，还是节点运营者，都可以参与 WINkLink 生态建设。
 
 - 成为数据使用者 — 集成可信价格数据，构建安全DeFi协议。<br> 👉 [提交申请](https://docs.google.com/forms/d/e/1FAIpQLSd-YWewuQcKDTEeL-IitHFUEAy6mXaRj_yLic2vtXi8FhFaVw/viewform)
 
 - 成为数据提供者 — 成为可信数据源，释放数据价值。<br> 👉 [提交申请](https://docs.google.com/forms/d/e/1FAIpQLScasXYrYtSG9VC9LK_QUEbXPL76jSVZd26dy-Z4T5IV76h2Kg/viewform)
 
-- 运行 WINkLink 节点 — 加入节点网络，提升生态的安全性与去中心化程度。<br> 👉 [查看节点部署指南](https://doc.winklink.org/v2/doc/node.html)
+- 运行 WINkLink 节点 — 加入节点网络，提升生态的安全性与去中心化程度。<br> 👉 [查看节点部署指南](https://doc.winklink.org/v2/doc/cn/node.html)

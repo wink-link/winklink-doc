@@ -117,10 +117,10 @@ sequenceDiagram
 
 **參與方式：**
 
-無論你是數據使用者、數據提供者，還是節點運營者，都可以參與 WINkLink 生態建設。
+無論您是數據使用者、數據提供者，還是節點運營者，都可以參與 WINkLink 生態建設。
 
 - 成為數據使用者 — 集成可信價格數據，構建安全 DeFi 協議。<br> 👉 [提交申請](https://docs.google.com/forms/d/e/1FAIpQLSd-YWewuQcKDTEeL-IitHFUEAy6mXaRj_yLic2vtXi8FhFaVw/viewform)
 
 - 成為數據提供者 — 成為可信數據源，釋放數據價值。<br> 👉 [提交申請](https://docs.google.com/forms/d/e/1FAIpQLScasXYrYtSG9VC9LK_QUEbXPL76jSVZd26dy-Z4T5IV76h2Kg/viewform)
 
-- 運行 WINkLink 節點 — 加入節點網絡，提升生態的安全性與去中心化程度。<br> 👉 [查看節點部署指南](https://doc.winklink.org/v2/doc/node.html)
+- 運行 WINkLink 節點 — 加入節點網絡，提升生態的安全性與去中心化程度。<br> 👉 [查看節點部署指南](https://doc.winklink.org/v2/doc/hk/node.html)
