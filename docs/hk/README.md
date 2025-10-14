@@ -95,18 +95,32 @@ sequenceDiagram
 
 目前，鏈下報告模型仍處於測試階段，一旦穩定下來，將會提供更多的信息。
 
-## 如何參與 WINkLink
+## 链下报告(OCR)
 
-取決於你想在 WINkLink 生態中的角色，你可以選擇如下：
+链下报告（OCR）是一种新的数据聚合方法，旨在提高WINkLink网络的可扩展性、稳定性和去中心化。
 
-- 如果你想在 DApp 中 使用 WINkLink 價格服務：[价格服务](pricing.md)
+通过OCR，网络中的所有节点通过点对点（P2P）网络进行交互，其中一个节点充当领导者，其他节点充当跟随者。P2P网络在通信过程中使用轻量级共识算法。
 
-- 如果你想 了解 WINkLink 的實現細節：[架构介绍](vrf.md)
+每个节点将其签名的数据观察结果报告给领导者，领导者生成一个合并报告。如果满足传输条件，该报告作为单个聚合交易广播到区块链上。这个过程会产生一个单一的聚合交易，大大降低了燃气消耗。
 
-## WINkLink 社區
+聚合交易包含了由一组预言机签名的报告，其中包含了他们所有的观察结果。为了维护WINkLink预言机网络的不可信任特性，该报告在链上进行验证，并且验证预言机组的签名。
 
-歡迎加入 WINkLink 生態。
+目前，链下报告模型仍处于测试阶段，一旦稳定下来，将会提供更多的信息。
 
-- Telegram: [Join Channel](https://t.me/joinchat/PDRBbhkNbOJd_6DJS4lRoA)
-- Github 項目: <https://github.com/wink-link/winklink>
-- Support E-mail: <developer@winklink.org>
+## 加入 WINkLink 生態
+
+歡迎加入 WINkLink 生態，與 WINkLink 共建可信鏈上數據生態！
+
+**社群入口：**
+- Telegram: [加入頻道](https://t.me/WINkLink_Oracle_official)
+- GitHub Project: [GitHub - wink-link/winklink](https://github.com/wink-link/winklink)
+
+**參與方式：**
+
+無論您是數據使用者、數據提供者，還是節點運營者，都可以參與 WINkLink 生態建設。
+
+- 成為數據使用者 — 集成可信價格數據，構建安全 DeFi 協議。<br> 👉 [提交申請](https://docs.google.com/forms/d/e/1FAIpQLSd-YWewuQcKDTEeL-IitHFUEAy6mXaRj_yLic2vtXi8FhFaVw/viewform)
+
+- 成為數據提供者 — 成為可信數據源，釋放數據價值。<br> 👉 [提交申請](https://docs.google.com/forms/d/e/1FAIpQLScasXYrYtSG9VC9LK_QUEbXPL76jSVZd26dy-Z4T5IV76h2Kg/viewform)
+
+- 運行 WINkLink 節點 — 加入節點網絡，提升生態的安全性與去中心化程度。<br> 👉 [查看節點部署指南](https://doc.winklink.org/v2/doc/hk/node.html)
