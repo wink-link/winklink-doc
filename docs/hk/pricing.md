@@ -51,6 +51,7 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | USDDOLD-USD | TJrtqTiWkzsdCSU7Jz4JiBswc3Sv8FCw1i |
 | USDDOLD-TRX | TGJ7FspL9bftnXKrRFah1yU7VxHkgBpzVB |
 | USD1-TRX    | TVRD5vMZDnmBXF3AxBiHVJYeykVFzC8eLB |
+| HTX-TRX     | TJCCcAqSc1hK5DrJF8v26QW5LQbmXayPhJ |
 
 ### Nile 測試網
 
@@ -98,6 +99,7 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | USDDOLD-USD | THoshmYmTfmcNTqYLKAhMYTDNYBhJH3mbt |
 | USDDOLD-TRX | TKxxkv4CkJANRVNay8C2eY9E2zMjmWViE7 |
 | USD1-TRX    | TNeep6gumLAPU4ZfPkyhjJyyu7akMKKjrT |
+| HTX-TRX     | TGcVt5g4ExZNVz9gXPWBbnsAN1DPkg3RbG |
 
 ### 申請新價格對
 
