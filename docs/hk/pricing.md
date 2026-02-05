@@ -24,7 +24,6 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | ETH-USD     | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL |
 | JST-TRX     | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP |
 | JST-USD     | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47 |
-| LIVE-USD    | TNdLmxVhdj1H1yGjhhSp33cMaAJKjyTAM4 |
 | LTC-TRX     | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6 |
 | LTC-USD     | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ |
 | NFT-TRX     | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY |
@@ -72,7 +71,6 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | ETH-USD     | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX |
 | JST-TRX     | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj |
 | JST-USD     | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj |
-| LIVE-USD    | TPxNjLNrn3WAwoyGQgqJyw3dLo9E79mUdH |
 | LTC-TRX     | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22 |
 | LTC-USD     | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19 |
 | NFT-TRX     | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum |
