@@ -22,13 +22,14 @@ WINkLink's price service focuses on digital currency pairs, providing decentrali
 | BTTOLD-USD  | TEEnwU47Fgx4Ehii7Xs9bLWK3XKo4fs6sV |
 | ETH-TRX     | TXZ9AUk6nC2454NSDGUWvPB72JxSNJrezX |
 | ETH-USD     | TR2yWYWovJaSM7TfZq7L7sT7ZRugdJJQmL |
+| HTX-TRX     | TJCCcAqSc1hK5DrJF8v26QW5LQbmXayPhJ |
 | JST-TRX     | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP |
 | JST-USD     | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47 |
 | LTC-TRX     | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6 |
 | LTC-USD     | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ |
 | NFT-TRX     | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY |
-| STRX-TRX    | TW9bNueyJZA9iZnNXGYkJuPJJ7KFN3o5qw |
 | NFT-USD     | TEC8b2oL6sAQFMiea73tTgjtTLwyV1GuZU |
+| STRX-TRX    | TW9bNueyJZA9iZnNXGYkJuPJJ7KFN3o5qw |
 | SUN-TRX     | TLLyqXr5cbYEMjzeThe1esss1SVBbxxubu |
 | SUN-USD     | TRMgzSPsuWEcVpd5hv19XtLeCk8Z799sZa |
 | SUNOLD-TRX  | TWAob1YsNzh7bfgkjfAD9MAdarcoSWScWw |
@@ -44,13 +45,13 @@ WINkLink's price service focuses on digital currency pairs, providing decentrali
 | USDJ-USD    | TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k |
 | USDT-TRX    | TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp |
 | USDT-USD    | TKePc46n5CiUCR8LL788TFeKA4kjvNnuem |
+| WBTC-USD    | TCYS6aj9shB6rZNpTCqSkN1aTwkSnz1wHq |
 | WIN-TRX     | TQvCG1U2jGTVwXLqvFWR27LDtEJZVgRbEg |
 | WIN-USD     | TSCef3LT3jpLwwXCWhZe3hZoMsYk1ZLif2 |
 | WSTUSDT-TRX | TKcTU5vCPqBBfuULEGXg9kkLx6Tzs2Zo3x |
 | USDDOLD-USD | TJrtqTiWkzsdCSU7Jz4JiBswc3Sv8FCw1i |
 | USDDOLD-TRX | TGJ7FspL9bftnXKrRFah1yU7VxHkgBpzVB |
 | USD1-TRX    | TVRD5vMZDnmBXF3AxBiHVJYeykVFzC8eLB |
-| HTX-TRX     | TJCCcAqSc1hK5DrJF8v26QW5LQbmXayPhJ |
 
 ### Nile Testnet
 
@@ -69,6 +70,7 @@ List of price service contract addresses:
 | BTTOLD-USD  | TRpRfFzubR7oheDCwHRbwJRfeFa85L6tWE |
 | ETH-TRX     | TSVJwLrhWBF7K6BkEG6hStjMxQJXAzBABQ |
 | ETH-USD     | TQGyY3mWTTzKKBLBg3wQTSbAGqBnGqYSzX |
+| HTX-TRX     | TGcVt5g4ExZNVz9gXPWBbnsAN1DPkg3RbG |
 | JST-TRX     | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj |
 | JST-USD     | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj |
 | LTC-TRX     | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22 |
@@ -91,13 +93,13 @@ List of price service contract addresses:
 | USDJ-USD    | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1 |
 | USDT-TRX    | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK |
 | USDT-USD    | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ |
+| WBTC-USD    | TSBoimXw9Mgx7u5A6eC3yfTimn1jfUWAKE |
 | WIN-TRX     | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj |
 | WIN-USD     | TYYMqsRNZTwsiFkRtn2NewvXT9GnnsPBH9 |
 | WSTUSDT-TRX | TZGEUihByCHG79Hbpider6pGZfY9S8ct6P |
 | USDDOLD-USD | THoshmYmTfmcNTqYLKAhMYTDNYBhJH3mbt |
 | USDDOLD-TRX | TKxxkv4CkJANRVNay8C2eY9E2zMjmWViE7 |
 | USD1-TRX    | TNeep6gumLAPU4ZfPkyhjJyyu7akMKKjrT |
-| HTX-TRX     | TGcVt5g4ExZNVz9gXPWBbnsAN1DPkg3RbG |
 
 ### Apply for New Trading Pairs
 

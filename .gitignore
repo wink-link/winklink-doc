@@ -22,3 +22,9 @@ node/out/
 !**/src/test/**/out/
 
 *.log
+
+# macOS system files
+.DS_Store
+**/.DS_Store
+*.DS_Store
+.DS_Store?
