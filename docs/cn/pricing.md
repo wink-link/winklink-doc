@@ -91,7 +91,7 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 | USDD-USD    | TX264fxRmdhNfUgkruk9orzAVvtCehyowq |
 | USDJ-TRX    | TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd |
 | USDJ-USD    | TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1 |
-| USDT-TRX    | TJL5M1QqL7oF2ceazAFJ2ump9jf87jUqnK |
+| USDT-TRX    | TVZjuqiJNNuLQAQoPAFfUqvYUxhZYkUX5Z |
 | USDT-USD    | TT2ETLY1Mmx2DKYT9S6fMvKGPqbWH3LDEJ |
 | WBTC-USD    | TSBoimXw9Mgx7u5A6eC3yfTimn1jfUWAKE |
 | WIN-TRX     | TP7aHYuXUkKPKsojs9BNJDVyAJeQ2KtfCj |
