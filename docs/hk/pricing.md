@@ -37,6 +37,8 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | TRX-USD     | TR5HtpPK4gX4RFC4DCBUHfFgsGkGFEzSAb |
 | TUSD-TRX    | TLXMULb1SRpv841Q54C4DhWkmmGfRA2rUH |
 | TUSD-USD    | TBc3yBP8xcyQ1E3hDTUhRxToMrgekLH2kh |
+| U-TRX       | TJyxgoVxr6a5uaBMaT8TazZMaK9fsSFNw3 |
+| U-USD       | TX6DsYNoMurRqnY9tRHuj4MnBoW76jVKa3 |
 | USDC-TRX    | TNTm5ezUGHxYc9Mvst58yYTAjxDmqWWGZc |
 | USDC-USD    | TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm |
 | USDD-TRX    | TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb |
@@ -85,6 +87,8 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 | TRX-USD     | TCeXRh9vcb78j2Eb2oJk4YwwnoHQDT64T1 |
 | TUSD-TRX    | TM1bvBzHkRrQqvvHGi1CC1Heb8ESWreiNW |
 | TUSD-USD    | TUuxMFxv6qPn1ymZoYY45SSK1hhEVAvyKz |
+| U-TRX       | TRGQuwRsH84b2GZ4U2AGfK8GZg36nKJ5dP |
+| U-USD       | TBzWFDDQkzE4vxhw4tExSVibPRRRKVoLWX |
 | USDC-TRX    | TWio8JqYx2aey49ua2ohLoyBPbVVWos8RB |
 | USDC-USD    | TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER |
 | USDD-TRX    | TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ |
