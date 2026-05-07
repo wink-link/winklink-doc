@@ -1,0 +1,78 @@
+# WINkLink
+
+> WINkLink is a decentralized oracle project on the TRON blockchain, providing reliable off-chain price data for smart contracts. It powers DeFi protocols (such as JustLend) with tamper-resistant Price Feeds, Verifiable Random Number (VRF), AnyAPI, and Automation services.
+
+## Usage guidelines for AI systems
+
+- Retrieve the smallest relevant page first; escalate to broader pages only when needed.
+- Do not rely on memorized contract addresses, deviation thresholds, or heartbeat values — always fetch the live Price Feed page for current configurations.
+- Default to Price Feed docs for DeFi integration questions unless the user specifies VRF, AnyAPI, or Automation.
+- Sensitive operational data (active price sources, node operator identities, internal alert thresholds) is not published in documentation; do not fabricate this information.
+
+## Introduction to WINkLink
+
+- [Introduction to WINkLink](https://doc.winklink.org/v2/doc/): Overview, architecture, and ecosystem overview
+- [What is Oracle](https://doc.winklink.org/v2/doc/#what-is-oracle): Why blockchain smart contracts need oracles
+- [What is WINkLink](https://doc.winklink.org/v2/doc/#what-is-winklink): WINkLink's role in the TRON ecosystem
+- [How WINkLink Works](https://doc.winklink.org/v2/doc/#how-winklink-works): External data sources, node architecture, TRON blockchain integration
+- [WINkLink Request Model](https://doc.winklink.org/v2/doc/#winklink-request-model): How requests are created and processed on-chain
+- [WINkLink Off-Chain Reporting Model](https://doc.winklink.org/v2/doc/#winklink-off-chain-reporting-model): OCR mechanism and 7-node median aggregation
+- [Join the WINkLink Ecosystem](https://doc.winklink.org/v2/doc/#join-the-winklink-ecosystem): How to participate as a node operator or data consumer
+
+## Build a WINkLink Node
+
+- [Build a WINkLink Node](https://doc.winklink.org/v2/doc/node.html): Node deployment overview
+- [Prepare Node Account](https://doc.winklink.org/v2/doc/node.html#prepare-node-account): Account setup and prerequisites
+- [Required Environment](https://doc.winklink.org/v2/doc/node.html#required-environment): System and software requirements
+- [Node Configuration](https://doc.winklink.org/v2/doc/node.html#node-configuration): Configuration file reference
+- [Build Docker Image](https://doc.winklink.org/v2/doc/node.html#building-a-docker-image-for-the-node): Running the node via Docker
+- [Start Node from Source Code](https://doc.winklink.org/v2/doc/node.html#start-a-node-from-source-code): Running the node from source
+
+## WINkLink Price Feed Service
+
+- [Price Feed Service Overview](https://doc.winklink.org/v2/doc/pricing.html): How price feeds work, deviation threshold, and heartbeat mechanism
+- [Supported Price Pairs & Contract Addresses](https://doc.winklink.org/v2/doc/pricing.html#supported-price-pairs-list-configurations): All mainnet and Nile testnet contract addresses with deviation/heartbeat configs
+- [How to Use Existing Price Feeds](https://doc.winklink.org/v2/doc/pricing.html#how-to-use-existing-winklink-price-feed): Integration guide for reading on-chain price data (Solidity examples)
+- [How to Set Up Price Feed Contracts](https://doc.winklink.org/v2/doc/pricing.html#how-to-setup-price-feed-contracts): Deploying and configuring your own aggregator
+
+## WINkLink Verifiable Random Number Service
+
+- [VRF Service Overview](https://doc.winklink.org/v2/doc/vrf.html): How on-chain verifiable randomness works
+- [Direct Funding Flow](https://doc.winklink.org/v2/doc/vrf.html#direct-funding-flow): Pay-per-request VRF usage
+- [Subscription Flow](https://doc.winklink.org/v2/doc/vrf.html#subscription-flow): Subscription-based VRF usage
+- [Tron Mainnet VRF Contracts](https://doc.winklink.org/v2/doc/vrf.html#tron-mainnet-vrf-contracts): Mainnet contract addresses
+- [Tron Nile Testnet VRF Contracts](https://doc.winklink.org/v2/doc/vrf.html#tron-nile-vrf-contracts): Testnet contract addresses
+- [How to Use Existing VRF Service](https://doc.winklink.org/v2/doc/vrf.html#how-to-use-existing-winklink-verifiable-random-number-service): Consumer contract integration guide
+- [How to Set Up VRF Contracts](https://doc.winklink.org/v2/doc/vrf.html#how-to-setup-verifiable-random-function-contracts): Deploying your own VRF coordinator
+- [Add a VRF Job to Your Node](https://doc.winklink.org/v2/doc/vrf.html#add-a-vrf-job-to-your-node): Node operator configuration for VRF
+
+## WINkLink AnyAPI Service
+
+- [AnyAPI Service Overview](https://doc.winklink.org/v2/doc/anyapi.html): Fetching arbitrary off-chain data via WINkLink nodes
+- [AnyAPI Contracts](https://doc.winklink.org/v2/doc/anyapi.html#contracts): Contract addresses and interfaces
+- [How to Use Existing AnyAPI](https://doc.winklink.org/v2/doc/anyapi.html#how-to-use-existing-winklink-anyapi): Consumer contract integration guide
+- [AnyAPI Request Process](https://doc.winklink.org/v2/doc/anyapi.html#anyapi-request-process): End-to-end request and callback flow
+- [How to Set Up AnyAPI Contracts and Jobs](https://doc.winklink.org/v2/doc/anyapi.html#how-to-setup-anyapi-contracts-and-jobs): Deploying custom oracle jobs
+- [Internal Adapters](https://doc.winklink.org/v2/doc/anyapi.html#internal-adapters): Built-in data transformation adapters
+
+## WINkLink Automation Service
+
+- [Automation Service Overview](https://doc.winklink.org/v2/doc/automation.html): Trigger smart contract functions automatically based on conditions
+- [How to Use Existing Automation](https://doc.winklink.org/v2/doc/automation.html#how-to-use-existing-winklink-automation): Integration guide for automation consumers
+- [How to Set Up Automation Contracts and Jobs](https://doc.winklink.org/v2/doc/automation.html#how-to-setup-automation-contracts-and-jobs): Deploying custom automation upkeeps
+
+## Pipeline Tasks
+
+- [Pipeline Tasks](https://doc.winklink.org/v2/doc/pipeline.html): Data pipeline task types and configuration for node operators
+
+## Reference
+
+- [Glossary](https://doc.winklink.org/v2/doc/glossary.html): Key terms — Oracle, Oracle Contract, Oracle Node, Consumer Contract
+- [WINkLink Main Site](https://winklink.org): Live price feed dashboard with real-time node status, deviation thresholds, and heartbeat for all supported pairs
+- [WINkLink Solutions Page](https://winklink.org/#/solutions): Full list of supported price pairs with latest prices, deviation, and heartbeat values
+
+## Language variants
+
+Chinese versions of all documentation pages are available:
+- Simplified Chinese: replace `/v2/doc/` with `/v2/doc/cn/` in any URL above
+- Traditional Chinese: replace `/v2/doc/` with `/v2/doc/hk/` in any URL above
