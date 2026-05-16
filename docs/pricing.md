@@ -25,6 +25,7 @@ WINkLink's price service focuses on digital currency pairs, providing decentrali
 | HTX-TRX     | TJCCcAqSc1hK5DrJF8v26QW5LQbmXayPhJ |
 | JST-TRX     | TC19QPF2mjP1ZhXxD8JNKJs4ksxMZkCuNP |
 | JST-USD     | TE5rKoDzKmpVAQp1sn7x6V8biivR3d5r47 |
+| KGST-TRX    | TGt2qPTTCv6PvWRzXj12VVoG9kebzYP7WZ |
 | LTC-TRX     | TVJPFXKMysYsRWEXJ3JkSnAUPucinUFUB6 |
 | LTC-USD     | TGxGL85kN3W5sGdBiobgWabWFcMEtoqRJJ |
 | NFT-TRX     | TKtc1V6QAY1Gpy511QjzXkLUphG8Dre8CY |
@@ -75,6 +76,7 @@ List of price service contract addresses:
 | HTX-TRX     | TGcVt5g4ExZNVz9gXPWBbnsAN1DPkg3RbG |
 | JST-TRX     | TSf6ZwFrDg5Jvyci1PnRHrrZvPpCCKNTjj |
 | JST-USD     | TJ7SizJiCAjMPAri1CFAxzg4xCRLycumMj |
+| KGST-TRX    | TY9vDmskSFkahX7LESSe5cF5twZHerKgUd |
 | LTC-TRX     | TWProfbHdGBCf7HVNys5KAbVT4vhUwpu22 |
 | LTC-USD     | TRSFTb2seuQxQqUsyeJ8Wg8XhX1e2g3T19 |
 | NFT-TRX     | TWP99RnyMVKFjzuu9XT5J21qBZu8DwhCum |
