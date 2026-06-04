@@ -1,26 +1,18 @@
-#build stage
-FROM node:17-alpine as builder
-ENV NODE_OPTIONS=--openssl-legacy-provider
+# ---- build stage: builds the VuePress 1 static site (never shipped/scanned) ----
+FROM node:24-alpine3.23 AS builder
 WORKDIR /winklink-doc
-COPY . .
-RUN npm i \
- && npm install -g vuepress \
- && npm install -g vue@2.6.10 \
- && npm install -g vuepress@1.9.9 \
- && npm install -g pm2 \
- && npm run docs:build
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY docs ./docs
+RUN npm run docs:build
 
-RUN npm i --production
-
-#runtime stage
-FROM node:17-alpine as runner
+# ---- runtime stage: serves the static site via express ----
+FROM node:24-alpine3.23 AS runner
 WORKDIR /winklink-doc
-
-# Copy only the build artifacts
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 COPY --from=builder /winklink-doc/docs/.vuepress/dist ./docs/.vuepress/dist
-COPY --from=builder /winklink-doc/index.js ./index.js
-COPY --from=builder /winklink-doc/node_modules ./node_modules
-
+COPY index.js ./index.js
+USER node
 EXPOSE 8085
-
-CMD node index.js
+CMD ["node", "index.js"]
