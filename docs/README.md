@@ -92,7 +92,7 @@ Currently, the Off-Chain Reporting model is still in its beta phase, and additio
 
 This section gives a brief reference for the mechanism terms used throughout the price feed documentation.
 
-- **Aggregator** — The on-chain contract that aggregates price data submitted by WINkLink oracle nodes and provides an aggregated price to consumers. See [WINkLink Price Feed Service](./pricing.md#winklink-price-feed-service-introduction) and [API Reference](./api-reference.md).
+- **Aggregator** — The on-chain contract that aggregates price data submitted by WINkLink oracle nodes and provides an aggregated price to consumers. See [WINkLink Price Feed Service](./pricing.md#winklink-price-feed-service-introduction) and [API Reference](./pricing.md#api-reference).
 
 - **Median** — The aggregation method: the final on-chain price is the median of prices submitted by 7 nodes.
 
@@ -100,7 +100,7 @@ This section gives a brief reference for the mechanism terms used throughout the
 
 - **Deviation Threshold** — A percentage threshold; when the off-chain price moves beyond this versus the last on-chain price, an on-chain update is triggered.
 
-- **Round / RoundId** — A round is one price update cycle; each round has a unique `uint80` identifier returned by Aggregator methods. See [Acquire Price History](./pricing.md#acquire-price-history) and [API Reference](./api-reference.md).
+- **Round / RoundId** — A round is one price update cycle; each round has a unique `uint80` identifier returned by Aggregator methods. See [Acquire Price History](./pricing.md#acquire-price-history) and [API Reference](./pricing.md#api-reference).
 
 ## Join the WINkLink Ecosystem
 

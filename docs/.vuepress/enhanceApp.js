@@ -5,6 +5,10 @@ export default ({ router }) => {
       [100, 500].forEach((d) => setTimeout(hashScroll, d));
       // add copy buttons now + retries, and keep watching for SPA re-renders
       [100, 500, 1500].forEach((d) => setTimeout(addCopyButtons, d));
+      // Watch for SPA navigation re-renders so copy buttons get re-added on the
+      // new page. NOTE: deliberately NO router.afterEach hash-scroll here —
+      // active-header-links does router.replace(hash) on every scroll, and
+      // re-scrolling to that hash makes the page jump.
       if (typeof MutationObserver !== 'undefined') {
         let t;
         new MutationObserver(() => {
@@ -12,10 +16,6 @@ export default ({ router }) => {
           t = setTimeout(addCopyButtons, 200);
         }).observe(document.body, { childList: true, subtree: true });
       }
-    });
-    router.afterEach(() => {
-      setTimeout(hashScroll, 300);
-      setTimeout(addCopyButtons, 300);
     });
   }
 };

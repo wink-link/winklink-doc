@@ -27,24 +27,24 @@ module.exports = {
       '/hk/': {
         label: '繁体中文',
         sidebar: {
-          '/hk/': ['', 'node', { title: '價格服務', collapsable: false, children: ['/hk/pricing', '/hk/api-reference', '/hk/safety'] }, 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/hk/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       },
       '/cn/': {
         label: '简体中文',
         sidebar: {
-          '/cn/': ['', 'node', { title: '价格服务', collapsable: false, children: ['/cn/pricing', '/cn/api-reference', '/cn/safety'] }, 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/cn/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       },
       '/': {
         label: 'English',
         sidebar: {
-          '/': ['', 'node', { title: 'Price Feed Service', collapsable: false, children: ['/pricing', '/api-reference', '/safety'] }, 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
+          '/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
       }
     },
     sidebar: 'auto',
-    sidebarDepth: 4
+    sidebarDepth: 2
   },
   markdown: {
     anchor: {

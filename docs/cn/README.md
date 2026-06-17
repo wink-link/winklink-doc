@@ -81,7 +81,7 @@ sequenceDiagram
     消费者合约-->>预言机合约: success?
     deactivate 消费者合约
     deactivate 预言机合约
-    deactivate WINKLinkNode
+    deactivate WINkLinkNode
 
 ```
 
@@ -101,7 +101,7 @@ sequenceDiagram
 
 为便于阅读后续章节，本节集中给出价格服务文档中使用的核心机制术语。
 
-- **Aggregator（聚合器）** —— 接收并聚合 WINkLink 预言机节点提交的价格数据、向消费方返回聚合价格的链上合约。详见 [WINkLink 价格服务介绍](./pricing.md#winklink-价格服务介绍) 与 [API 参考](./api-reference.md)。
+- **Aggregator（聚合器）** —— 接收并聚合 WINkLink 预言机节点提交的价格数据、向消费方返回聚合价格的链上合约。详见 [WINkLink 价格服务介绍](./pricing.md#winklink-价格服务介绍) 与 [API 参考](./pricing.md#api-参考)。
 
 - **Median（中位数）** —— 聚合方式：7 个节点提交的价格取中位数作为最终上链价格。
 
@@ -109,7 +109,7 @@ sequenceDiagram
 
 - **Deviation Threshold（偏差阈值）** —— 偏差百分比阈值；链下价格相对上一次上链价格波动超过此阈值时触发链上更新。
 
-- **Round / RoundId（轮次）** —— 每次价格更新形成一个轮次；每个轮次由 Aggregator 方法返回的 `uint80` 类型唯一编号标识。详见 [获取价格历史](./pricing.md#获取价格历史) 与 [API 参考](./api-reference.md)。
+- **Round / RoundId（轮次）** —— 每次价格更新形成一个轮次；每个轮次由 Aggregator 方法返回的 `uint80` 类型唯一编号标识。详见 [获取价格历史](./pricing.md#获取价格历史) 与 [API 参考](./pricing.md#api-参考)。
 
 ## 加入 WINkLink 生态
 

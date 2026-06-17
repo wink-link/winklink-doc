@@ -111,7 +111,7 @@ sequenceDiagram
 
 為便於閱讀後續章節，本節集中給出價格服務文檔中使用的核心機制術語。
 
-- **Aggregator（聚合器）** —— 接收並聚合 WINkLink 預言機節點提交的價格資料、向消費方返回聚合價格的鏈上合約。詳見 [WINkLink 價格服務介紹](./pricing.md#winklink-價格服務介紹) 與 [API 參考](./api-reference.md)。
+- **Aggregator（聚合器）** —— 接收並聚合 WINkLink 預言機節點提交的價格資料、向消費方返回聚合價格的鏈上合約。詳見 [WINkLink 價格服務介紹](./pricing.md#winklink-價格服務介紹) 與 [API 參考](./pricing.md#api-參考)。
 
 - **Median（中位數）** —— 聚合方式：7 個節點提交的價格取中位數作為最終上鏈價格。
 
@@ -119,7 +119,7 @@ sequenceDiagram
 
 - **Deviation Threshold（偏差閾值）** —— 偏差百分比閾值；鏈下價格相對上一次上鏈價格波動超過此閾值時觸發鏈上更新。
 
-- **Round / RoundId（輪次）** —— 每次價格更新形成一個輪次；每個輪次由 Aggregator 方法返回的 `uint80` 類型唯一編號標識。詳見 [獲取價格歷史](./pricing.md#獲取價格歷史) 與 [API 參考](./api-reference.md)。
+- **Round / RoundId（輪次）** —— 每次價格更新形成一個輪次；每個輪次由 Aggregator 方法返回的 `uint80` 類型唯一編號標識。詳見 [獲取價格歷史](./pricing.md#獲取價格歷史) 與 [API 參考](./pricing.md#api-參考)。
 
 ## 加入 WINkLink 生態
 
