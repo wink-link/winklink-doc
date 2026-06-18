@@ -66,7 +66,7 @@ sequenceDiagram
 
 ### 處理請求
 
-预言机合约的事件会异步触发如下流程：
+預言機合約的事件會異步觸發如下流程：
 
 ```mermaid
 sequenceDiagram

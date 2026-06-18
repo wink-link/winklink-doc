@@ -153,7 +153,6 @@ interface AggregatorV3Interface {
 }
 
 /**
- * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
  * THIS IS AN EXAMPLE CONTRACT THAT USES UN-AUDITED CODE.
  * DO NOT USE THIS CODE IN PRODUCTION.
  */
@@ -256,7 +255,6 @@ The following code demonstrates how to read a historical price by `roundId` via 
 pragma solidity ^0.8.7;
 
 /**
- * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
  * DO NOT USE THIS CODE IN PRODUCTION.
  *
  * Continued from the AggregatorV3Interface defined above.
@@ -286,6 +284,112 @@ contract HistoricalPriceConsumer {
   }
 }
 ```
+
+## How to setup Price Feed contracts
+
+### Contract Deployment
+
+Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink oracle contracts and release these services to the public.
+
+Users may pick their sets from all the open services available on WINkLink to create their own aggregated data contracts and benefit from decentralization.
+
+Contracts for the project is hosted at: <https://github.com/tron-oracle/winklink-libocr/tree/main/tvm-contracts> - Connect your Github account
+
+You may use any of the following tools or libraries for contract deployment and call testing:
+- TronScan: [Mainnet](https://tronscan.org/), [Nile Testnet](https://nile.tronscan.org/)
+- [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
+- [Tron IDE](https://developers.tron.network/docs/tron-ide)
+- [TronBox](https://developers.tron.network/reference/what-is-tronbox)
+- [tronweb](https://developers.tron.network/docs/tronweb-1)
+
+### Aggregator Contract
+
+Aggregator contract is deployed on the TRON public chain with the following features:
+
+- Accepts transmission from WINkLink node's off-chain aggregation
+- Calculate the WIN fee on data requests and allow Oracle nodes to claim rewards
+- Implements the Owned interface. This provides access control on different methods of exposed by the aggregator contract.
+
+Contract code is available at AccessControlledOCRAggregator.sol.
+
+### Add a Job to Your Node
+
+The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (Oracle address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
+
+When your WINkLink node is running properly, you can add a job to your node via Operator UI:
+
+Example: (change the parameters below to the Oracle contract address deployed in the steps above)
+
+::: tip
+For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.
+```
+Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6nBrf7hDz25NXFSFNk7vgsTxj9bHskWEct4xh']
+```
+::: 
+
+### Bootstrap node
+```json
+type               = "offchainreporting"
+schemaVersion      = 1
+tvmChainID         = 1
+name               = "TUSD-TRX"
+contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
+p2pBootstrapPeers  = [
+  "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
+]
+isBootstrapPeer = true
+keyBundleID = "NODE-KEY-BUNDLE"
+forwardingAllowed = false
+maxTaskDuration = "0s"
+```
+::: tip
+Ensure that the bootstrap node and the oracle node are configured as individual entities, each linking to its unique database instance. When operating locally, modify the `config.toml` file to designate different port numbers for each instance, facilitating access to the distinct Operator UIs for each.
+```json
+[WebServer]
+HTTPPort = 3000
+SecureCookies = false # Default
+```
+:::
+
+### Oracle node
+```json
+type               = "offchainreporting"
+schemaVersion      = 1
+tvmChainID         = 2
+name               = "OCR: TUSD-TRX"
+contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
+p2pBootstrapPeers  = [
+"/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
+]
+isBootstrapPeer    = false
+keyBundleID        = "NODE-KEY-BUNDLE"
+transmitterAddress = "THE-CURRENT-NODE-EIP55-ADDRESS"
+observationTimeout = "10s"
+blockchainTimeout  = "20s"
+contractConfigTrackerSubscribeInterval = "2m"
+contractConfigTrackerPollInterval = "1m"
+contractConfigConfirmations = 3
+observationSource   = """
+ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=TUSD-USD"]
+    ds_parse          [type="jsonparse" path="data,0,idxPx"]
+ds_converttrx     [type="converttrx" url="https://www.okx.com/api/v5/market/index-tickers?instId=TRX-USD" path="data.0.idxPx"]
+ds_multiply       [type="multiply" times=1000000]
+
+    ds_http -> ds_parse -> ds_converttrx -> ds_multiply
+"""
+```
+
+### Query Jobs
+
+Jobs can be retrieved under the jobs tab in Operator UI.
+
+The sub-tabs are as follows:
+- Overview: list of recent job runs and task flow
+- Definition: job specification
+- Errors: cumulative count of different errors encountered since job creation
+- Runs: list of all job runs
+
+![job-page-ui.png](~@source/images/job-page-ui.png)
 
 ## API Reference
 
@@ -763,109 +867,3 @@ After integration, we recommend monitoring the following signals:
 - The frequency and distribution of the above
 
 You can implement this through TRON block explorer event subscriptions or your own off-chain monitoring scripts.
-
-## How to setup Price Feed contracts
-
-### Contract Deployment
-
-Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink oracle contracts and release these services to the public.
-
-Users may pick their sets from all the open services available on WINkLink to create their own aggregated data contracts and benefit from decentralization.
-
-Contracts for the project is hosted at: <https://github.com/tron-oracle/winklink-libocr/tree/main/tvm-contracts> - Connect your Github account
-
-You may use any of the following tools or libraries for contract deployment and call testing:
-- TronScan: [Mainnet](https://tronscan.org/), [Nile Testnet](https://nile.tronscan.org/)
-- [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
-- [Tron IDE](https://developers.tron.network/docs/tron-ide)
-- [TronBox](https://developers.tron.network/reference/what-is-tronbox)
-- [tronweb](https://developers.tron.network/docs/tronweb-1)
-
-### Aggregator Contract
-
-Aggregator contract is deployed on the TRON public chain with the following features:
-
-- Accepts transmission from WINkLink node's off-chain aggregation
-- Calculate the WIN fee on data requests and allow Oracle nodes to claim rewards
-- Implements the Owned interface. This provides access control on different methods of exposed by the aggregator contract.
-
-Contract code is available at AccessControlledOCRAggregator.sol.
-
-### Add a Job to Your Node
-
-The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (Oracle address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
-
-When your WINkLink node is running properly, you can add a job to your node via Operator UI:
-
-Example: (change the parameters below to the Oracle contract address deployed in the steps above)
-
-::: tip
-For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.
-```
-Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6nBrf7hDz25NXFSFNk7vgsTxj9bHskWEct4xh']
-```
-::: 
-
-### Bootstrap node
-```json
-type               = "offchainreporting"
-schemaVersion      = 1
-tvmChainID         = 1
-name               = "TUSD-TRX"
-contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
-p2pBootstrapPeers  = [
-  "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
-]
-isBootstrapPeer = true
-keyBundleID = "NODE-KEY-BUNDLE"
-forwardingAllowed = false
-maxTaskDuration = "0s"
-```
-::: tip
-Ensure that the bootstrap node and the oracle node are configured as individual entities, each linking to its unique database instance. When operating locally, modify the `config.toml` file to designate different port numbers for each instance, facilitating access to the distinct Operator UIs for each.
-```json
-[WebServer]
-HTTPPort = 3000
-SecureCookies = false # Default
-```
-:::
-
-### Oracle node
-```json
-type               = "offchainreporting"
-schemaVersion      = 1
-tvmChainID         = 2
-name               = "OCR: TUSD-TRX"
-contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
-p2pBootstrapPeers  = [
-"/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
-]
-isBootstrapPeer    = false
-keyBundleID        = "NODE-KEY-BUNDLE"
-transmitterAddress = "THE-CURRENT-NODE-EIP55-ADDRESS"
-observationTimeout = "10s"
-blockchainTimeout  = "20s"
-contractConfigTrackerSubscribeInterval = "2m"
-contractConfigTrackerPollInterval = "1m"
-contractConfigConfirmations = 3
-observationSource   = """
-ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=TUSD-USD"]
-    ds_parse          [type="jsonparse" path="data,0,idxPx"]
-ds_converttrx     [type="converttrx" url="https://www.okx.com/api/v5/market/index-tickers?instId=TRX-USD" path="data.0.idxPx"]
-ds_multiply       [type="multiply" times=1000000]
-
-    ds_http -> ds_parse -> ds_converttrx -> ds_multiply
-"""
-```
-
-### Query Jobs
-
-Jobs can be retrieved under the jobs tab in Operator UI.
-
-The sub-tabs are as follows:
-- Overview: list of recent job runs and task flow
-- Definition: job specification
-- Errors: cumulative count of different errors encountered since job creation
-- Runs: list of all job runs
-
-![job-page-ui.png](~@source/images/job-page-ui.png)
