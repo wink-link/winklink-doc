@@ -44,7 +44,7 @@ module.exports = {
       }
     },
     sidebar: 'auto',
-    sidebarDepth: 4
+    sidebarDepth: 2
   },
   markdown: {
     anchor: {

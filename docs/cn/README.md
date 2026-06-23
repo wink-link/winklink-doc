@@ -81,7 +81,7 @@ sequenceDiagram
     消费者合约-->>预言机合约: success?
     deactivate 消费者合约
     deactivate 预言机合约
-    deactivate WINKLinkNode
+    deactivate WINkLinkNode
 
 ```
 
@@ -96,6 +96,20 @@ sequenceDiagram
 聚合交易包含了由一组预言机签名的报告，其中包含了他们所有的观察结果。为了维护WINkLink预言机网络的不可信任特性，该报告在链上进行验证，并且验证预言机组的签名。
 
 目前，链下报告模型仍处于测试阶段，一旦稳定下来，将会提供更多的信息。
+
+## 核心机制术语
+
+为便于阅读后续章节，本节集中给出价格服务文档中使用的核心机制术语。
+
+- **Aggregator（聚合器）** —— 接收并聚合 WINkLink 预言机节点提交的价格数据、向消费方返回聚合价格的链上合约。详见 [WINkLink 价格服务介绍](./pricing.md#winklink-价格服务介绍) 与 [API 参考](./pricing.md#api-参考)。
+
+- **Median（中位数）** —— 聚合方式：7 个节点提交的价格取中位数作为最终上链价格。
+
+- **Heartbeat（心跳）** —— 固定时间间隔触发器；即使价格未发生明显波动，到达心跳周期也会强制上链一次，使上链时效性可预期。
+
+- **Deviation Threshold（偏差阈值）** —— 偏差百分比阈值；链下价格相对上一次上链价格波动超过此阈值时触发链上更新。
+
+- **Round / RoundId（轮次）** —— 每次价格更新形成一个轮次；每个轮次由 Aggregator 方法返回的 `uint80` 类型唯一编号标识。详见 [获取价格历史](./pricing.md#获取价格历史) 与 [API 参考](./pricing.md#api-参考)。
 
 ## 加入 WINkLink 生态
 
