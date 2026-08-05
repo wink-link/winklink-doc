@@ -65,7 +65,7 @@ The contract above is called an **Aggregator** — the on-chain contract that ho
 - WIN Token Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - WinkMid Contract Address: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
-List of price service contract addresses:
+List of price feed contract addresses:
 
 | Pair        | Nile (Proxy)                       |
 |:------------|:-----------------------------------|
@@ -289,7 +289,7 @@ contract HistoricalPriceConsumer {
 
 ### Contract Deployment
 
-Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink price service contracts and release these services to the public.
+Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink price feed contracts and release these services to the public.
 
 Users may pick their sets from all the open services available on WINkLink to create their own aggregated data contracts and benefit from decentralization.
 
@@ -314,11 +314,11 @@ Contract code is available at AccessControlledOCRAggregator.sol.
 
 ### Add a Job to Your Node
 
-The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (price feed node address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
+The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (price feed contract address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
 
 When your WINkLink node is running properly, you can add a job to your node via Operator UI:
 
-Example: (change the parameters below to the price service contract address deployed in the steps above)
+Example: (change the parameters below to the price feed contract address deployed in the steps above)
 
 ::: tip
 For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.

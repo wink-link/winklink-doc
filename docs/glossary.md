@@ -10,7 +10,7 @@ The on-chain component of a data service. It is the interface for passing consum
 
 ## Data Service Node
 
-The off-chain component of the data service.
+The off-chain component of a data service.
 
 ## Consumer Contract
 

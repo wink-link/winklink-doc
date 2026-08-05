@@ -9,7 +9,7 @@ Random number is determined by seed (provided by users), nonce (private state of
 The generation process of VRF is:
 
 - A Dapp contract sends out an on-chain request for a random number;
-- Once the off-chain data service node listens for the request, it generates a random number attaching the cryptographic proof to make the generated random number verifiable, and then submits them back to a VRF contract (VRFCoordinator);
+- Once the off-chain VRF node listens for the request, it generates a random number attaching the cryptographic proof to make the generated random number verifiable, and then submits them back to a VRF contract (VRFCoordinator);
 - Once the random number proof is verified by the VRF contract, the random number is published to the Dapp contract through a callback function.
 
 The process above ensures that the random number cannot be tampered with or manipulated by anyone, including data service operators, miners, users, and even smart contract developers.
@@ -623,7 +623,7 @@ WIN token address and WinkMid contract address are needed in the constructor fun
 
 The coordinator is the main contract that handles all VRF requests and fulfillments. Deploy the contract with respective arguments.
 
-VRF node must register its node address in `base58` with the proving keys to the coordinator before initiating requests; otherwise, requests will fail.
+The VRF node must register its node address in `base58` with the proving keys to the coordinator before initiating requests; otherwise, requests will fail.
 
 ### VRFV2Wrapper
 

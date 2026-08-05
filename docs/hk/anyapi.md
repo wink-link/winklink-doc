@@ -142,7 +142,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
    * @param callbackAddress The consumer of the request
    * @param payment The amount of payment given (specified in wei)
    * @param specId The Job Specification ID
-   * @param callbackAddress The address the oracle data will be sent to
+   * @param callbackAddress The address the requested data will be sent to
    * @param callbackFunctionId The callback function ID for the response
    * @param nonce The nonce sent by the requester
    * @param dataVersion The specified data version
@@ -207,7 +207,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
    * Will call the callback address' callback function without bubbling up error
    * checking in a `require` so that the node can get paid.
    * @param requestId The fulfillment request ID that must match the requesters'
-   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param payment The payment amount that will be released for the data service (specified in wei)
    * @param callbackAddress The callback address to call for fulfillment
    * @param callbackFunctionId The callback function ID to use for fulfillment
    * @param expiration The expiration that the node should respond by before the requester can cancel
@@ -232,7 +232,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
     _verifyOracleRequestAndProcessPayment(requestId, payment, callbackAddress, callbackFunctionId, expiration, 1);
     emit OracleResponse(requestId);
 //    require(gasleft() >= MINIMUM_CONSUMER_GAS_LIMIT, "Must provide consumer enough gas");
-    // All updates to the oracle's fulfillment should come before calling the
+    // All updates to the data service's fulfillment should come before calling the
     // callback(addr+functionId) as it is untrusted.
     // See: https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern
     (bool success, ) = callbackAddress.call(abi.encodeWithSelector(callbackFunctionId, requestId, data)); // solhint-disable-line avoid-low-level-calls
@@ -245,7 +245,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
    * Will call the callback address' callback function without bubbling up error
    * checking in a `require` so that the node can get paid.
    * @param requestId The fulfillment request ID that must match the requester's
-   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param payment The payment amount that will be released for the data service (specified in wei)
    * @param callbackAddress The callback address to call for fulfillment
    * @param callbackFunctionId The callback function ID to use for fulfillment
    * @param expiration The expiration that the node should respond by before the requester can cancel
@@ -271,7 +271,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
     _verifyOracleRequestAndProcessPayment(requestId, payment, callbackAddress, callbackFunctionId, expiration, 2);
     emit OracleResponse(requestId);
 //    require(gasleft() >= MINIMUM_CONSUMER_GAS_LIMIT, "Must provide consumer enough gas");
-    // All updates to the oracle's fulfillment should come before calling the
+    // All updates to the data service's fulfillment should come before calling the
     // callback(addr+functionId) as it is untrusted.
     // See: https://solidity.readthedocs.io/en/develop/security-considerations.html#use-the-checks-effects-interactions-pattern
     (bool success, ) = callbackAddress.call(abi.encodePacked(callbackFunctionId, data)); // solhint-disable-line avoid-low-level-calls
@@ -412,7 +412,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
   }
 
   /**
-   * @notice Allows recipient to cancel requests sent to this oracle contract.
+   * @notice Allows recipient to cancel requests sent to this data service contract.
    * Will transfer the WINK sent for the request back to the recipient address.
    * @dev Given params must hash to a commitment stored on the contract in order
    * for the request to be valid. Emits CancelOracleRequest event.
@@ -439,7 +439,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
   }
 
   /**
-   * @notice Allows requester to cancel requests sent to this oracle contract.
+   * @notice Allows requester to cancel requests sent to this data service contract.
    * Will transfer the WINK sent for the request back to the recipient address.
    * @dev Given params must hash to a commitment stored on the contract in order
    * for the request to be valid. Emits CancelOracleRequest event.
@@ -488,7 +488,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
   }
 
   /**
-   * @notice Verify the Oracle Request and record necessary information
+   * @notice Verify the data service request and record necessary information
    * @param sender The sender of the request
    * @param payment The amount of payment given (specified in wei)
    * @param callbackAddress The callback address for the response
@@ -514,9 +514,9 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
   }
 
   /**
-   * @notice Verify the Oracle request and unlock escrowed payment
+   * @notice Verify the data service request and unlock escrowed payment
    * @param requestId The fulfillment request ID that must match the requester's
-   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param payment The payment amount that will be released for the data service (specified in wei)
    * @param callbackAddress The callback address to call for fulfillment
    * @param callbackFunctionId The callback function ID to use for fulfillment
    * @param expiration The expiration that the node should respond by before the requester can cancel
@@ -538,7 +538,7 @@ contract Operator is AuthorizedReceiver, ConfirmedOwner, TRC20ReceiverInterface,
 
   /**
    * @notice Build the bytes31 hash from the payment, callback and expiration.
-   * @param payment The payment amount that will be released for the oracle (specified in wei)
+   * @param payment The payment amount that will be released for the data service (specified in wei)
    * @param callbackAddress The callback address to call for fulfillment
    * @param callbackFunctionId The callback function ID to use for fulfillment
    * @param expiration The expiration that the node should respond by before the requester can cancel

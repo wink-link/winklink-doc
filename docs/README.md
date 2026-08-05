@@ -84,7 +84,7 @@ Off-Chain Reporting (OCR) is a new method for aggregating data that promises to 
 
 With OCR, all nodes in the network interact through a peer-to-peer (P2P) network, with one node acting as the leader and the others as followers. The P2P network uses a lightweight consensus algorithm during communication. Each node reports its signed data observation back to the leader, who generates a consolidated report. If the transmission conditions are met, this report is broadcast onto the blockchain as a single aggregate transaction. This process leads to a single aggregate transaction, which greatly reduces gas consumption.
 
-The aggregated transaction contains a report that is signed by a quorum of data services and includes all their observations. To maintain the trustlessness properties of WINkLink data service networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
+The aggregated transaction contains a report that is signed by a quorum of data service nodes and includes all their observations. To maintain the trustless properties of the WINkLink data service network, the report is validated on-chain and the quorum's signatures are verified on-chain.
 
 Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.
 
