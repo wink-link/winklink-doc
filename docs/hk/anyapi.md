@@ -691,7 +691,7 @@ WinkMid 合約可幫助用戶進行合約調用，開發者無需直接進行調
 
 Operator 合約是處理來自 Consumer 合約的所有請求和 WINkLink 節點所有執行操作的主要合約，部署合約時需用對應參數。
 
-部署 Operator 合約後，需使用 setAuthorizedSender 方法將 Oracle 添加到列表中，以授權其進行執行操作。
+部署 Operator 合約後，需使用 setAuthorizedSender 方法將獲授權的執行節點地址添加到列表中，以授權其進行執行操作。
 
 ### Consumer 合約
 

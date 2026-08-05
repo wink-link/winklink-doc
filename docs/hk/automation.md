@@ -502,7 +502,7 @@ Registry 合約是負責管理新合約註冊的主要合約。請使用合約�
 
 爲了管理複雜的邏輯，Registry 合約包括 LogicB、LogicA 和 Registry 組件；進行部署時請務必按照上述順序依次部署。
 
-在部署 Registry 合約後，需要通過使用 setAuthorizedSender 方法將 Oracle 添加到列表中，以便批准執行  `performUpkeep` 操作。
+在部署 Registry 合約後，需要通過使用 setAuthorizedSender 方法將獲授權的執行節點地址添加到列表中，以便批准執行  `performUpkeep` 操作。
 
 ### Upkeep 合約
 

@@ -4,15 +4,15 @@
 
 Verifiable Random Function (VRF) is the public-key version of a keyed cryptographic hash, which can be used as a random number. Only the holder of the private key can compute the hash, but anyone with the public key can verify the correctness of the hash. VRF can be used to generate secure and reliable random numbers.
 
-Random number is determined by seed (provided by users), nonce (private state of VRFCoordinator contract) , block hash (the block of the request event) and private key of oracle node.
+Random number is determined by seed (provided by users), nonce (private state of VRFCoordinator contract), block hash (the block of the request event), and private key of the VRF node.
 
 The generation process of VRF is:
 
 - A Dapp contract sends out an on-chain request for a random number;
-- Once the off-chain oracle node listens for the request, it generates a random number attaching the cryptographic proof to make the generated random number verifiable, and then submits them back to an oracle contract (VRFCoordinator);
-- Once the random number proof is verified by the oracle contract, the random number is published to the Dapp contract through a callback function.
+- Once the off-chain data service node listens for the request, it generates a random number attaching the cryptographic proof to make the generated random number verifiable, and then submits them back to a VRF contract (VRFCoordinator);
+- Once the random number proof is verified by the VRF contract, the random number is published to the Dapp contract through a callback function.
 
-The process above ensures that the random number cannot be tampered with nor manipulated by anyone, including oracle operators, miners, users and even smart contract developers.
+The process above ensures that the random number cannot be tampered with or manipulated by anyone, including data service operators, miners, users, and even smart contract developers.
 
 WINkLink VRF is a provably-fair and verifiable source of randomness designed for Dapp contracts. Dapp contract developers can use WINkLink VRF as a tamper-proof RNG (Random Number Generator) to build reliable smart contracts for any applications which rely on unpredictable random number:
 
@@ -139,7 +139,7 @@ The owner of the VRFCoordinatorV2 contract is required to call the contract belo
 function registerProvingKey(address oracle, uint256[2] calldata publicProvingKey) external onlyOwner
 ```
 
-_`oracle` is the address of the registered node, which is used to receive the WIN token paid by DAPP , _`publicProvingKey` is the public key used by the registration node to generate random numbers,
+_`oracle` is the address of the registered node, which is used to receive the WIN token paid by DAPP, _`publicProvingKey` is the public key used by the registration node to generate random numbers,
 
 Call example: 
 ```
@@ -623,7 +623,7 @@ WIN token address and WinkMid contract address are needed in the constructor fun
 
 The coordinator is the main contract that handles all VRF requests and fulfillments. Deploy the contract with respective arguments.
 
-Oracle must register its node address in `base58` with the proving keys to the coordinator before initiating requests, otherwise requests will fail.
+VRF node must register its node address in `base58` with the proving keys to the coordinator before initiating requests; otherwise, requests will fail.
 
 ### VRFV2Wrapper
 
@@ -632,7 +632,7 @@ The wrapper contract acts as an access layer for direct funding consumers, topup
 Data passed in to be abi encoded subsctiption ID value i.e. `0x0000000000000000000000000000000000000000000000000000000000000007` for sub id = 7)
 
 ::: tip
-keyhash refers to the oracle node’s keyhash, it can be obtained through Operator UI or CLI
+keyhash refers to the VRF node’s keyhash, it can be obtained through Operator UI or CLI
 :::
 
 ### Consumers

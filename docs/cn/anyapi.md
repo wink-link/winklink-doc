@@ -690,7 +690,7 @@ WinkMid 合约可帮助用户进行合约调用，开发者无需直接进行调
 
 Operator 合约是处理来自 Consumer 合约的所有请求和 WINkLink 节点所有执行操作的主要合约，部署合约时需用对应参数。
 
-部署 Operator 合约后，需使用 setAuthorizedSender 方法将 Oracle 添加到列表中，以授权其进行执行操作。
+部署 Operator 合约后，需使用 setAuthorizedSender 方法将获授权的执行节点地址添加到列表中，以授权其进行执行操作。
 
 ### Consumer 合约
 

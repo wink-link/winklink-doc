@@ -4,7 +4,7 @@
 
 WINkLink node can be deployed after the contract is deployed.
 
-WINkLink node (project directory node) code is available at: <https://github.com/tron-oracle/winklink-2.0/tree/main> - Connect your Github account .
+WINkLink node (project directory node) code is available at: <https://github.com/tron-oracle/winklink-2.0/tree/main> - Connect your GitHub account.
 
 ::: warning
 Current node implementation includes the adapter for accessing token price via exchange APIs. Please run the node in a stable network environment outside Mainland China.

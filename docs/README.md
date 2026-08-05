@@ -1,16 +1,16 @@
 # Introduction to WINkLink
-## What is Oracle
+## What is a data service
 For quite some time, smart contracts powered by blockchain have been unable to directly communicate with external systems, which has limited the variety of smart contract-based applications.
 
-The introduction of an oracle provides a solution to connect smart contracts with the outside world. However, most oracles on the market are currently centralized, which exposes corresponding smart contracts to the risk of a single point of failure, compromising the benefits promised by their decentralized nature.
+The introduction of a data service provides a solution to connect smart contracts with the outside world. However, most data services on the market are currently centralized, which exposes corresponding smart contracts to the risk of a single point of failure, compromising the benefits promised by their decentralized nature.
 
 ## What is WINkLink
 
-WINkLink is a decentralized oracle project that operates on the TRON network. For more information about the TRON Network and its development basics, please visit [TRON Developer Hub](https://developers.tron.network).
+WINkLink is a decentralized data service project that operates on the TRON network. For more information about the TRON network and its development basics, please visit [TRON Developer Hub](https://developers.tron.network).
 
-WINkLink has created a decentralized oracle project that provides external data for smart contracts. It connects smart contracts with various real-life events while ensuring a high level of security and reliability
+WINkLink has created a decentralized data service project that provides external data for smart contracts. It connects smart contracts with various real-life events while ensuring a high level of security and reliability
 
-With the sharp rise of various DeFi applications, a stable and reliable decentralized oracle service is essential for premium DeFi projects. This is where WINkLink comes in, as it addresses the needs of TRON-based smart contracts to access external data.
+With the sharp rise of various DeFi applications, a stable and reliable decentralized data service is essential for premium DeFi projects. This is where WINkLink comes in, as it addresses the needs of TRON-based smart contracts to access external data.
 
 ## How WINkLink Works
 WINkLink Node Model
@@ -19,7 +19,7 @@ flowchart LR
 A[External data source] <--> B[WINkLink node] <--> C[TRON BlockChain API]
 ```
 
-The WINkLink oracle node structure consists of three main modules, as illustrated above:
+The WINkLink data service node structure consists of three main modules, as illustrated above:
 
 - External data source 
 - WINkLink node
@@ -29,7 +29,7 @@ Let us take a closer look at each of these modules.
 
 ### External Data Source
 
-The external data source module encompasses all the external data that is available to the native blockchain. This includes centralized exchanges, centralized oracles, stock exchange APIs, and other such sources of data.
+The external data source module encompasses all the external data that is available to the native blockchain. This includes centralized exchanges, centralized data services, stock exchange APIs, and other such sources of data.
 
 ### WINkLink Node
 
@@ -47,7 +47,7 @@ As indicated by the double-headed arrow, the WINkLink node subscribes to blockch
 
 ```mermaid
 sequenceDiagram
-Caller->>ConsumerContract: request an oracle data update
+Caller->>ConsumerContract: request a data feed update
 activate ConsumerContract
 ConsumerContract->>OracleContract: transferAndCall send token and request
 activate OracleContract
@@ -60,7 +60,7 @@ deactivate ConsumerContract
 
 ### Process a Request
 
-The Oracle's contract events asynchronously trigger the following procedure:
+The data service's contract events asynchronously trigger the following procedure:
 
 ```mermaid
 sequenceDiagram
@@ -84,7 +84,7 @@ Off-Chain Reporting (OCR) is a new method for aggregating data that promises to 
 
 With OCR, all nodes in the network interact through a peer-to-peer (P2P) network, with one node acting as the leader and the others as followers. The P2P network uses a lightweight consensus algorithm during communication. Each node reports its signed data observation back to the leader, who generates a consolidated report. If the transmission conditions are met, this report is broadcast onto the blockchain as a single aggregate transaction. This process leads to a single aggregate transaction, which greatly reduces gas consumption.
 
-The aggregated transaction contains a report that is signed by a quorum of oracles and includes all their observations. To maintain the trustlessness properties of WINkLink oracle networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
+The aggregated transaction contains a report that is signed by a quorum of data services and includes all their observations. To maintain the trustlessness properties of WINkLink data service networks, the report is validated on-chain and the quorum's signatures are verified on-chain.
 
 Currently, the Off-Chain Reporting model is still in its beta phase, and additional information will be made available once it has been stabilized.
 
@@ -92,7 +92,7 @@ Currently, the Off-Chain Reporting model is still in its beta phase, and additio
 
 This section gives a brief reference for the mechanism terms used throughout the price feed documentation.
 
-- **Aggregator** — The on-chain contract that aggregates price data submitted by WINkLink oracle nodes and provides an aggregated price to consumers. See [WINkLink Price Feed Service](./pricing.md#winklink-price-feed-service-introduction) and [API Reference](./pricing.md#api-reference).
+- **Aggregator** — The on-chain contract that aggregates price data submitted by WINkLink price feed nodes and provides an aggregated price to consumers. See [WINkLink Price Feed Service](./pricing.md#winklink-price-feed-service-introduction) and [API Reference](./pricing.md#api-reference).
 
 - **Median** — The aggregation method: the final on-chain price is the median of prices submitted by 7 nodes.
 

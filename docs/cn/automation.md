@@ -502,7 +502,7 @@ Registry 合约是负责管理新合约注册的主要合约。请使用合约�
 
 为了管理复杂的逻辑，Registry 合约包括 LogicB、LogicA 和 Registry 组件；进行部署时请务必按照上述顺序依次部署。
 
-在部署 Registry 合约后，需要通过使用 `setAuthorizedSender` 方法将 Oracle 添加到列表中，以便批准执行 `performUpkeep` 操作。
+在部署 Registry 合约后，需要通过使用 `setAuthorizedSender` 方法将获授权的执行节点地址添加到列表中，以便批准执行 `performUpkeep` 操作。
 
 ### Upkeep 合约
 
