@@ -14,7 +14,7 @@ The off-chain component of a data service.
 
 ## Consumer Contract
 
-The recipient of the data service's acquired results. For example, the `TronUser` price feed contract can request that multiple data service nodes update to the latest prices and aggregate the results.
+The recipient of the data service's acquired results. For example, the `TronUser` price feed contract requests multiple data service nodes to update the latest prices and aggregates the results.
 
 Generally, consumers are the contracts that initiate requests, but with exceptions.
 

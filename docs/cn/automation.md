@@ -483,11 +483,11 @@ WinkMid 合约已部署至 Nile 测试网，并封装了 WIN 代币。开发者�
 ::: tip
 **Nile 测试网**
 
-WIN TRC20 合约地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合约地址： TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid 合约地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合约地址： TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-测试水龙头: <https://nileex.io/join/getJoinPage>
+测试水龙头： <https://nileex.io/join/getJoinPage>
 :::
 
 部署 WinkMid 合约时，开发者需在构造函数中提供被封装的 `TRC20` 代币地址（即 WIN 代币地址）。
@@ -609,11 +609,11 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 
 每个用户定义的合约都需要实现 `AutomationCompatibleInterface` 及其方法，这样 Registry 便能在执行期间获取相应的方法签名。
 
-`checkUpkeep`: 节点检查以确定是否需要执行维护的逻辑。
+`checkUpkeep`： 节点检查以确定是否需要执行维护的逻辑。
 
-`simulateUpkeep`: 节点静态调用来模拟核心逻辑的运行。
+`simulateUpkeep`： 节点静态调用来模拟核心逻辑的运行。
 
-`performUpkeep`: 需要执行的核心逻辑。
+`performUpkeep`： 需要执行的核心逻辑。
 
 ### 节点
 

@@ -22,15 +22,15 @@ flowchart LR
 
 ### WINkLink 节点
 
-WINkLink 节点运行任务处理，监听链上合约请求(以 Event 方式监听)，从外部数据源获取数据，然后向区块链提交数据结果。
+WINkLink 节点运行任务处理，监听链上合约请求（以 Event 方式监听），从外部数据源获取数据，然后向区块链提交数据结果。
 
 ### TRON blockchain
 
 区块链节点主要指 TRON 区块链提供的 API 服务，包括 Fullnode API 和 Event API 服务。
-通过这些 API, WINkLink 节点可以监听特定合约事件来启动任务，同时也可以通过 API 服务签名广播交易，
+通过这些 API， WINkLink 节点可以监听特定合约事件来启动任务，同时也可以通过 API 服务签名广播交易，
 将数据返回给**消费者合约**。
 
-箭头表示的连接性是双向的, WINkLink 节点既订阅区块链事件，又通过 API 发布交易，提交数据结果。
+箭头表示的连接性是双向的， WINkLink 节点既订阅区块链事件，又通过 API 发布交易，提交数据结果。
 
 ## WINkLink 请求模型
 
@@ -75,9 +75,9 @@ sequenceDiagram
 
 例如价格聚合功能，从多个交易所提供的预言机服务聚合得到平均价格或中位数价格。
 
-价格聚合相关逻辑参考: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
+价格聚合相关逻辑参考： [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
 
-## 链下报告(OCR)
+## 链下报告（OCR）
 
 链下报告（OCR）是一种新的数据聚合方法，旨在提高WINkLink网络的可扩展性、稳定性和去中心化。
 

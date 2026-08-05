@@ -62,12 +62,12 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 
 ### Nile 测试网
 
-- WIN 代币合约地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- WinkMid 合约地址: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
+- WIN 代币合约地址： `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
+- WinkMid 合约地址： `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
-价格服务合约地址列表:
+价格服务合约地址列表：
 
-| 价格对         | Nile (代理)                          |
+| 价格对         | Nile （代理）                          |
 |:------------|:-----------------------------------|
 | BTC-TRX     | [TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE](https://nile.tronscan.org/#/contract/TFETSL1Yc8dCJM7z6uBkHhAsPbqP5UaCDE) |
 | BTC-USD     | [TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE](https://nile.tronscan.org/#/contract/TAX8Pm3FgN74za72TFZrn5gPBxJTKgnnpE) |
@@ -314,7 +314,7 @@ WINkLink 生态采用去中心化架构，所有智能合约开源，任何组�
 
 ### 为节点添加任务
 
-节点的任务代表其所支持的数据服务，每个任务都有一个 32 字节的唯一 ID。 对终端用户而言， (预言机地址，任务 ID) 唯一标识了一个 WINkLink 节点提供的数据服务。 每个 WINkLink 节点都可以提供多项数据服务。
+节点的任务代表其所支持的数据服务，每个任务都有一个 32 字节的唯一 ID。 对终端用户而言， （预言机地址，任务 ID） 唯一标识了一个 WINkLink 节点提供的数据服务。 每个 WINkLink 节点都可以提供多项数据服务。
 
 WINkLink 节点正常运行后，就可以通过 Operator UI 为节点添加任务：
 

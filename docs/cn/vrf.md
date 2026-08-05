@@ -120,8 +120,8 @@ Nile 测试网
 VRFV2Wrapper 可简化交互，允许 Dapp 直接调用 VRFCoordinatorV2 合约。
 
 **配置参数**\
-`keyHash` : 节点 keyhash\
-`maxNumWords` : 每个 VRF 请求包含的随机数个数上限，目前为 10
+`keyHash` ： 节点 keyhash\
+`maxNumWords` ： 每个 VRF 请求包含的随机数个数上限，目前为 10
 
 ### 授权节点账户
 
@@ -145,7 +145,7 @@ registerProvingKey(TYmwSFuFuiDZCtYsRFKCNr25byeqHH7Esb,['627322838604183013514127
 
 设置 Consumer 合约的主要步骤如下：
 
-- a) 导入并继承 `VRFV2WrapperConsumerBase`
+- a） 导入并继承 `VRFV2WrapperConsumerBase`
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -157,7 +157,7 @@ import "./VRFV2WrapperConsumerBase.sol";
 contract VRFv2DirectFundingConsumer is VRFV2WrapperConsumerBase{}
 ```
 
-- b) 合约必须执行 fulfillRandomWords 函数，该函数为 VRF 回调函数。 随机数返回合约后，添加处理逻辑。
+- b） 合约必须执行 fulfillRandomWords 函数，该函数为 VRF 回调函数。 随机数返回合约后，添加处理逻辑。
 
 ```solidity
 function fulfillRandomWords(
@@ -166,7 +166,7 @@ uint256[] memory _randomWords
 )
 ```
 
-- c) 合约调用 requestRandomness 函数，触发 VRF 请求。
+- c） 合约调用 requestRandomness 函数，触发 VRF 请求。
 
 ```solidity
 function requestRandomWords()
@@ -601,11 +601,11 @@ WINkLink 使用了 transferAndCall 功能，即在转账 TRC20 代币给合约�
 ::: tip
 Nile 测试网
 
-WIN TRC20 合约地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合约地址： TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid 合约地址: TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw
+WinkMid 合约地址： TJpkay8rJXUWhvS2uL5AmMwFspQdHCX1rw
 
-测试网水龙头地址: <https://nileex.io/join/getJoinPage> 
+测试网水龙头地址： <https://nileex.io/join/getJoinPage>
 :::
 
 部署 WinkMid 合约时，开发者需在构造函数中提供被封装的 TRC20 代币地址（即 WIN 代币地址）。

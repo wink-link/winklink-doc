@@ -674,11 +674,11 @@ WINkLink 使用了 `transferAndCall` 功能，即在轉賬 `TRC20` 代幣給合�
 ::: tip
 **Nile 測試網**
 
-WIN TRC20 合約地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合約地址： TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid 合約地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合約地址： TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-測試網水龍頭地址: <https://nileex.io/join/getJoinPage>
+測試網水龍頭地址： <https://nileex.io/join/getJoinPage>
 :::
 
 部署 WinkMid 合約時，開發者需在構造函數中提供被封裝的 `TRC20` 代幣地址（即 WIN 代幣地址）。
@@ -1003,7 +1003,7 @@ observationSource = """
 
 4. 進行所需的數據變換
 
-根據需要獲取的數據量，重復進行步驟 3 和步驟 4。
+根據需要獲取的數據量，重複進行步驟3和步驟4。
 ***
 
 5. 將編碼的數據作為響應並提交給Operator

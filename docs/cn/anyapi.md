@@ -673,11 +673,11 @@ WINkLink 使用了 `transferAndCall` 功能，即在转账 `TRC20` 代币给合�
 ::: tip
 **Nile 测试网**
 
-WIN TRC20 合约地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合约地址： TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid 合约地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合约地址： TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-测试网水龙头地址: <https://nileex.io/join/getJoinPage>
+测试网水龙头地址： <https://nileex.io/join/getJoinPage>
 :::
 
 部署 WinkMid 合约时，开发者需在构造函数中提供被封装的 `TRC20` 代币地址（即 WIN 代币地址）。

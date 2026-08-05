@@ -691,7 +691,7 @@ WIN token address and WinkMid contract address are needed in the constructor fun
 
 The operator contract is main contract to handle all requests from the consumer contract and fulfillment from the WINkLink node. Deploy with the respective arguments.
 
-After deploying the operator contract, the node address needs to be authorized for fulfillment by adding it to the list using setAuthorizedSender method.
+After deploying the `Operator` contract, use the `setAuthorizedSender` method to add the authorized execution node address to the list, authorizing it to perform fulfillment.
 
 ### Consumer Contract
 

@@ -22,7 +22,7 @@ flowchart LR
 
 ### WINkLink 節點
 
-WINkLink 節點運行任務處理，監聽鏈上合約請求(以 Event 方式監聽)，從外部數據源獲取數據，然後向區塊鏈提交數據結果。
+WINkLink 節點運行任務處理，監聽鏈上合約請求（以 Event 方式監聽），從外部數據源獲取數據，然後向區塊鏈提交數據結果。
 
 ### TRON 區塊鏈
 
@@ -75,9 +75,9 @@ sequenceDiagram
 
 例如價格聚合功能，從多個交易所提供的預言機服務聚合得到平均價格或中位數價格。
 
-價格聚合相關邏輯參考: [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
+價格聚合相關邏輯參考： [FluxAggregator.sol](https://github.com/wink-link/winklink/blob/master/tvm-contracts/v2.0/AggregatorInterface.sol)
 
-## 鏈下報告(OCR)
+## 鏈下報告（OCR）
 
 鏈下報告（OCR）是一種新的數據聚合方法，旨在提高WINkLink網絡的可擴展性、穩定性和去中心化。
 
