@@ -483,11 +483,11 @@ WinkMid 合約已部署至 Nile 測試網，並封裝了 WIN 代幣。開發者�
 ::: tip
 **Nile 測試網**
 
-WIN TRC20 合約地址: TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
+WIN TRC20 合約地址： TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2
 
-WinkMid 合約地址: TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
+WinkMid 合約地址： TLLEKGqhH4MiN541BDaGpXD7MRkwG2mTro
 
-測試水龍頭: <https://nileex.io/join/getJoinPage>
+測試水龍頭： <https://nileex.io/join/getJoinPage>
 :::
 
 部署 WinkMid 合約時，開發者需在構造函數中提供被封裝的 `TRC20` 代幣地址（即 WIN 代幣地址）。
@@ -502,7 +502,7 @@ Registry 合約是負責管理新合約註冊的主要合約。請使用合約�
 
 爲了管理複雜的邏輯，Registry 合約包括 LogicB、LogicA 和 Registry 組件；進行部署時請務必按照上述順序依次部署。
 
-在部署 Registry 合約後，需要通過使用 setAuthorizedSender 方法將 Oracle 添加到列表中，以便批准執行  `performUpkeep` 操作。
+在部署 Registry 合約後，需要通過使用 setAuthorizedSender 方法將獲授權的執行節點地址添加到列表中，以便批准執行  `performUpkeep` 操作。
 
 ### Upkeep 合約
 
@@ -609,11 +609,11 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 
 每個用戶定義的合約都需要實現 `AutomationCompatibleInterface`  及其方法，這樣 Registry 便能在執行期間獲取相應的方法簽名。
 
-`checkUpkeep`: 節點檢查以確定是否需要執行維護的邏輯。
+`checkUpkeep`： 節點檢查以確定是否需要執行維護的邏輯。
 
-`simulateUpkeep`: 節點靜態調用來模擬核心邏輯的運行。
+`simulateUpkeep`： 節點靜態調用來模擬核心邏輯的運行。
 
-`performUpkeep`: 需要執行的核心邏輯。
+`performUpkeep`： 需要執行的核心邏輯。
 
 ### 節點
 

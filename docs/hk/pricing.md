@@ -62,8 +62,8 @@ WINkLink 價格服務專註於數字貨幣價格對，為去中心化應用（DA
 
 ### Nile 測試網
 
-- WIN 代幣合約地址: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
-- WinkMid 合約地址: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
+- WIN 代幣合約地址： `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
+- WinkMid 合約地址： `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
 價格服務合約地址列表：
 
@@ -314,7 +314,7 @@ WINkLink 生態採用去中心化架構，所有智能合約開源，任何組�
 
 ### 為節點添加任務
 
-節點的任務代表其所支持的數據服務，每個任務都有一個 32 字節的唯一 ID。 對終端用戶而言， (預言機地址，任務 ID) 唯一標識了一個 WINkLink 節點提供的數據服務。 每個 WINkLink 節點都可以提供多項數據服務。
+節點的任務代表其所支持的數據服務，每個任務都有一個 32 字節的唯一 ID。 對終端用戶而言， （預言機地址，任務 ID） 唯一標識了一個 WINkLink 節點提供的數據服務。 每個 WINkLink 節點都可以提供多項數據服務。
 
 WINkLink 節點正常運行後，就可以通過 Operator UI 為節點添加任務：
 

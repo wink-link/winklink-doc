@@ -8,9 +8,9 @@
 
 To ensure that smart contracts reflect token prices in real-world time, it is necessary to frequently update them. In particular, the prices of assets in DeFi must closely match those of the real world. Otherwise, arbitrage or contract attacks may cause losses for users and developers.
 
-WINkLink's price service focuses on digital currency pairs, providing decentralized applications (DApps) with accurate and stable price information on real-world digital currencies. The solution offered by WINkLink aggregates price data from multiple oracle nodes, resulting in a stable price service known as the Price Feed Contract.
+WINkLink's price service focuses on digital currency pairs, providing decentralized applications (DApps) with accurate and stable price information on real-world digital currencies. The solution offered by WINkLink aggregates price data from multiple price feed nodes, resulting in a stable price service known as the Price Feed Contract.
 
-The contract above is called an **Aggregator** — the on-chain contract that holds aggregated price data from WINkLink oracle nodes. Each price feed (e.g., BTC/USD) is implemented as an Aggregator contract that consumer contracts read from.
+The contract above is called an **Aggregator** — the on-chain contract that holds aggregated price data from WINkLink price feed nodes. Each price feed (e.g., BTC/USD) is implemented as an Aggregator contract that consumer contracts read from.
 
 ## Supported Price Pairs List & Configurations
 
@@ -65,7 +65,7 @@ The contract above is called an **Aggregator** — the on-chain contract that ho
 - WIN Token Contract Address: `TNDSHKGBmgRx9mDYA9CnxPx55nu672yQw2`
 - WinkMid Contract Address: `TLDU7C8K3Gd3pXrAj9gtpVVNRHZHuHHZ8P`
 
-List of price service contract addresses:
+List of price feed contract addresses:
 
 | Pair        | Nile (Proxy)                       |
 |:------------|:-----------------------------------|
@@ -285,15 +285,15 @@ contract HistoricalPriceConsumer {
 }
 ```
 
-## How to setup Price Feed contracts
+## How to set up Price Feed contracts
 
 ### Contract Deployment
 
-Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink oracle contracts and release these services to the public.
+Employing a decentralized structure, WINkLink features open-source smart contracts and allows any organization or individual to deploy their WINkLink price feed contracts and release these services to the public.
 
 Users may pick their sets from all the open services available on WINkLink to create their own aggregated data contracts and benefit from decentralization.
 
-Contracts for the project is hosted at: <https://github.com/tron-oracle/winklink-libocr/tree/main/tvm-contracts> - Connect your Github account
+Contracts for the project is hosted at: <https://github.com/tron-oracle/winklink-libocr/tree/main/tvm-contracts> - Connect your GitHub account
 
 You may use any of the following tools or libraries for contract deployment and call testing:
 - TronScan: [Mainnet](https://tronscan.org/), [Nile Testnet](https://nile.tronscan.org/)
@@ -307,18 +307,18 @@ You may use any of the following tools or libraries for contract deployment and 
 Aggregator contract is deployed on the TRON public chain with the following features:
 
 - Accepts transmission from WINkLink node's off-chain aggregation
-- Calculate the WIN fee on data requests and allow Oracle nodes to claim rewards
+- Calculate the WIN fee on data requests and allow price feed nodes to claim rewards
 - Implements the Owned interface. This provides access control on different methods of exposed by the aggregator contract.
 
 Contract code is available at AccessControlledOCRAggregator.sol.
 
 ### Add a Job to Your Node
 
-The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (Oracle address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
+The job of your node represents the data service that your node supports, and each job has a unique 32-byte ID. For end users, (price feed contract address, job ID) uniquely identifies the data service provided by a WINkLink node. Each WINkLink node can provide multiple data services.
 
 When your WINkLink node is running properly, you can add a job to your node via Operator UI:
 
-Example: (change the parameters below to the Oracle contract address deployed in the steps above)
+Example: (change the parameters below to the price feed contract address deployed in the steps above)
 
 ::: tip
 For bootstrap node, set the `DefaultBootstrapPeers` in the config file as well.
@@ -343,7 +343,7 @@ forwardingAllowed = false
 maxTaskDuration = "0s"
 ```
 ::: tip
-Ensure that the bootstrap node and the oracle node are configured as individual entities, each linking to its unique database instance. When operating locally, modify the `config.toml` file to designate different port numbers for each instance, facilitating access to the distinct Operator UIs for each.
+Ensure that the bootstrap node and the price feed node are configured as individual entities, each linking to its unique database instance. When operating locally, modify the `config.toml` file to designate different port numbers for each instance, facilitating access to the distinct Operator UIs for each.
 ```json
 [WebServer]
 HTTPPort = 3000
@@ -351,7 +351,7 @@ SecureCookies = false # Default
 ```
 :::
 
-### Oracle node
+### Price feed node
 ```json
 type               = "offchainreporting"
 schemaVersion      = 1
@@ -528,7 +528,7 @@ A simple way to read the variables or functions is to get the ABI from a blockch
 | getBilling                               | Retrieve the current billing configuration.                                                                         |
 | getRoundData                         | Get the full information for a specific aggregator round including the answer and update timestamps.                |
 | getTimestamp                           | Deprecated — Do not use this function.                                                                              |
-| getWinToken                             | Get the address of the WIN token contract used to pay oracles.                                                      |
+| getWinToken                             | Get the address of the WIN token contract used to pay price feed nodes.                                             |
 | hasAccess                                 | Check if an address has internal access.                                                                            |
 | latestAnswer                           | Return the latest answer for this data feed. No timestamp is included to check data freshness.                     |
 | latestConfigDetails             | Return information about the current offchain reporting protocol configuration.                                     |
@@ -536,14 +536,14 @@ A simple way to read the variables or functions is to get the ABI from a blockch
 | latestRoundData                   | Get the full information for the most recent round including the answer and update timestamps.                      |
 | latestTimestamp                     | Deprecated — Do not use this function.                                                                              |
 | latestTransmissionDetails | Get information about the most recent answer.                                                                       |
-| oracleObservationCount       | Returns the number of observations that oracle is due to be reimbursed for.                                         |
-| owedPayment                             | Returns how much WIN an oracle is owed for its observations.                                                        |
+| oracleObservationCount       | Returns the number of observations that a price feed node is due to be reimbursed for.                              |
+| owedPayment                             | Returns how much WIN a price feed node is owed for its observations.                                                |
 | requesterAccessController | Returns the address for the requester access controller contract.                                                  |
-| transmitters                           | The oracle addresses that can report answers to this aggregator.                                                    |
+| transmitters                           | The price feed node addresses that can report answers to this aggregator.                                           |
 | typeAndVersion                       | Returns the aggregator type and version. The version is for the type of aggregator, and different from the contract `version`. |
 | validatorConfig                     | Returns the address and the gas limit for the validator contract.                                                  |
 | version                                   | Returns the contract version. This is different from the `typeAndVersion` for the aggregator.                       |
-| winAvailableForPayment       | Get the amount of WIN on this contract that is available to make payments to oracles. This value can be negative if there are outstanding payment obligations. |
+| winAvailableForPayment       | Get the amount of WIN on this contract that is available to make payments to price feed nodes. This value can be negative if there are outstanding payment obligations. |
 
 **billingAccessController**
 
@@ -626,7 +626,7 @@ function getRoundData(uint80 _roundId)
 
 **getWinToken**
 
-Get the address of the WIN token contract used to pay oracles.
+Get the address of the WIN token contract used to pay price feed nodes.
 
 ```solidity
 function getWinToken() external view returns (WinTokenInterface winToken) {
@@ -705,7 +705,7 @@ function latestTransmissionDetails()
 
 **oracleObservationCount**
 
-Returns the number of observations that oracle is due to be reimbursed for.
+Returns the number of observations that a price feed node is due to be reimbursed for.
 
 ```solidity
 function oracleObservationCount(address _signerOrTransmitter) external view returns (uint16) {
@@ -719,7 +719,7 @@ function oracleObservationCount(address _signerOrTransmitter) external view retu
 
 **owedPayment**
 
-Returns how much WIN an oracle is owed for its observations.
+Returns how much WIN a price feed node is owed for its observations.
 
 ```solidity
 function owedPayment(address _transmitter) public view returns (uint256) {
@@ -746,7 +746,7 @@ function requesterAccessController() external view returns (AccessControllerInte
 
 **transmitters**
 
-The oracle addresses that can report answers to this aggregator.
+The price feed node addresses that can report answers to this aggregator.
 
 ```solidity
 function transmitters() external view returns (address[] memory) {
@@ -785,7 +785,7 @@ function version() external view returns (uint256);
 
 **winAvailableForPayment**
 
-Get the amount of WIN on this contract that is available to make payments to oracles. This value can be negative if there are outstanding payment obligations.
+Get the amount of WIN on this contract that is available to make payments to price feed nodes. This value can be negative if there are outstanding payment obligations.
 
 ```solidity
 function winAvailableForPayment() external view returns (int256 availableBalance) {
@@ -797,7 +797,7 @@ function winAvailableForPayment() external view returns (int256 availableBalance
 
 ## Developer Notes
 
-WINkLink price feeds provide reliable on-chain price data through a decentralized network of 7 independent oracle nodes. The performance of feeds in your DApp depends on both external market conditions and the integration code you write. When integrating WINkLink price feeds, please be mindful of two areas: **market integrity** and **application code**.
+WINkLink price feeds provide reliable on-chain price data through a decentralized network of 7 independent price feed nodes. The performance of feeds in your DApp depends on both external market conditions and the integration code you write. When integrating WINkLink price feeds, please be mindful of two areas: **market integrity** and **application code**.
 
 ### Market Integrity
 
@@ -851,7 +851,7 @@ Before deploying your consumer contract to mainnet, run full integration testing
 
 **Watch for WINkLink updates**
 
-WINkLink publishes price feed–related updates through two channels. We recommend integrators monitor content relevant to their applications:
+WINkLink publishes price feed-related updates through two channels. We recommend integrators monitor content relevant to their applications:
 
 - [**Official announcement channel**](https://winklink.org/#/supportCentre?lang=en-US): matters such as feed deprecation notices and new feed launches.
 - [**WINkLink price feed detail page**](https://winklink.org/#/solutions?lang=en-US): real-time configuration parameters (e.g., heartbeat, deviation threshold) for each feed. Parameter changes are reflected here.

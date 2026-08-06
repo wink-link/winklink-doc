@@ -504,7 +504,7 @@ The registry contract is the primary contract for managing all new contract regi
 
 To manage the complex logic, the registry contract is divided into LogicB, LogicA and Registry components, which must be deployed in that order.
 
-After deploying the Registry contract, Oracle needs to be approved for `performUpkeep` by adding it to the list using setAuthorizedSender method.
+After deploying the `Registry` contract, use the `setAuthorizedSender` method to add the authorized execution node address to the list, allowing it to perform `performUpkeep`.
 
 ### Upkeep Contract
 

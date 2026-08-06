@@ -3,7 +3,7 @@
 
 長久以來，區塊鏈上運行的智能合約無法直接的與外部系統進行交流，這一瓶頸限制了智能合約應用場景。
 
-如今，我們可以通過引入預言機(Oracle)來解決這一問題，預言機為智能合約提供了與外部世界的連接性。 但是目前的預言機大都是中心化的服務，這會給使用預言機服務的智能合約帶來單點故障的風險，使得智能合約的去中心化特性變得毫無意義。
+如今，我們可以通過引入預言機來解決這一問題，預言機為智能合約提供了與外部世界的連接性。 但是目前的預言機大都是中心化的服務，這會給使用預言機服務的智能合約帶來單點故障的風險，使得智能合約的去中心化特性變得毫無意義。
 
 ## 什麽是 WINkLink
 
@@ -36,15 +36,15 @@ flowchart LR
 
 ### WINkLink 節點
 
-WINkLink 節點運行任務處理，監聽鏈上合約請求(以 Event 方式監聽)，從外部數據源獲取數據，然後向區塊鏈提交數據結果。
+WINkLink 節點運行任務處理，監聽鏈上合約請求（以 Event 方式監聽），從外部數據源獲取數據，然後向區塊鏈提交數據結果。
 
 ### TRON 區塊鏈
 
 區塊鏈節點主要指 TRON 區塊鏈提供的 API 服務，包括 Fullnode API 和 Event API 服務。 
 
-通過這些 API, WINkLink 節點可以監聽特定合約事件來啟動任務，同時也可以通過 API 服務簽名廣播交易， 將數據返回給消費者合約。
+通過這些 API， WINkLink 節點可以監聽特定合約事件來啟動任務，同時也可以通過 API 服務簽名廣播交易， 將數據返回給消費者合約。
 
-箭頭表示的連接性是雙向的, WINkLink 節點既訂閱區塊鏈事件，又通過 API 發布交易，提交數據結果。
+箭頭表示的連接性是雙向的， WINkLink 節點既訂閱區塊鏈事件，又通過 API 發布交易，提交數據結果。
 
 ## WINkLink 請求模型
 
@@ -85,7 +85,7 @@ sequenceDiagram
 
 ```
 
-## 鏈下報告(OCR)
+## 鏈下報告（OCR）
 
 鏈下報告（OCR）是一種新的數據聚合方法，旨在提高WINkLink網絡的可擴展性、穩定性和去中心化。
 
@@ -114,7 +114,7 @@ sequenceDiagram
 歡迎加入 WINkLink 生態，與 WINkLink 共建可信鏈上數據生態！
 
 **社群入口：**
-- Telegram: [加入頻道](https://t.me/WINkLink_Oracle_official)
+- Telegram： [加入頻道](https://t.me/WINkLink_Oracle_official)
 - GitHub Project: [GitHub - wink-link/winklink](https://github.com/wink-link/winklink)
 
 **參與方式：**

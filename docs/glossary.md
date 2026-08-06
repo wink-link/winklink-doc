@@ -1,21 +1,21 @@
 # Glossary
 
-## Oracle
+## Data Service
 
-An entity that connects on-chain computation and off-chain resources .It consists of the Oracle node and Oracle contract.
+An entity that connects on-chain computation and off-chain resources. It consists of the data service node and data service contract.
 
-## Oracle Contract
+## Data Service Contract
 
-The on-chain component of Oracle. It is the interface for passing consumer contracts and receiving off-chain resources.
+The on-chain component of a data service. It is the interface for passing consumer contracts and receiving off-chain resources.
 
-## Oracle Node
+## Data Service Node
 
-The off-chain component of Oracle.
+The off-chain component of a data service.
 
 ## Consumer Contract
 
-The recipient of Oracle's acquired results. For example, the `TronUser` price feed contract can request that multiple Oracles update to the latest prices and aggregate the results.
+The recipient of the data service's acquired results. For example, the `TronUser` price feed contract requests multiple data service nodes to update the latest prices and aggregates the results.
 
 Generally, consumers are the contracts that initiate requests, but with exceptions.
 
-For example, the `PriceConsumer` can inquire the latest prices using `AggregatorInterface`, not by requesting Oracle, but by inquiring the latest results on the price feed contract, which makes it a consumer contract as well.
+For example, the `PriceConsumer` can inquire the latest prices using `AggregatorInterface`, not by requesting the data service, but by inquiring the latest results on the price feed contract, which makes it a consumer contract as well.
