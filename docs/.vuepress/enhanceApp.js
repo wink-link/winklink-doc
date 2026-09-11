@@ -25,6 +25,31 @@ function applyEnhancements() {
   injectStyle();
   addAddressCopyButtons();
   addCodeCopyButtons();
+  armBadgeDismiss();
+}
+
+// The feed badges show their note via CSS on hover/focus. WCAG 1.4.13 also wants
+// that note dismissible without moving the pointer, so Escape hides the one
+// currently showing until the pointer/focus leaves the badge.
+function armBadgeDismiss() {
+  if (document.body.dataset.badgeDismissArmed) return;
+  document.body.dataset.badgeDismissArmed = '1';
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape' && e.key !== 'Esc') return;
+    const active = document.activeElement;
+    const open =
+      document.querySelector('.feed-badge:hover, .feed-badge:focus') ||
+      (active && active.classList && active.classList.contains('feed-badge') ? active : null);
+    if (!open) return;
+    open.classList.add('tip-off');
+    if (open.blur) open.blur();
+  });
+  const clear = (e) => {
+    const b = e.target && e.target.closest && e.target.closest('.feed-badge');
+    if (b) b.classList.remove('tip-off');
+  };
+  document.addEventListener('mouseleave', clear, true);
+  document.addEventListener('focusout', clear, true);
 }
 
 function hashScroll() {
@@ -129,6 +154,16 @@ function injectStyle() {
     'div[class*="language-"]:hover .code-copy{opacity:1}' +
     '.code-copy:hover{color:#fff;background:rgba(255,255,255,.22)}' +
     '.code-copy.copied{color:#27aa6e;opacity:1}' +
-    '.code-copy.copied::after{content:"Copied";position:absolute;top:118%;right:0;background:#27aa6e;color:#fff;font-size:11px;line-height:1;padding:3px 6px;border-radius:4px;white-space:nowrap;pointer-events:none}';
+    '.code-copy.copied::after{content:"Copied";position:absolute;top:118%;right:0;background:#27aa6e;color:#fff;font-size:11px;line-height:1;padding:3px 6px;border-radius:4px;white-space:nowrap;pointer-events:none}' +
+    // Feed status badge on a price-pair row. Only the deprecation badge carries
+    // a hover note (the stop date); the "new" badge is label-only, so the
+    // tooltip rules are scoped to [data-tip] or an empty box would show.
+    '.feed-badge{display:inline-block;margin-left:8px;padding:1px 7px;border-radius:4px;background:#fdf0d5;color:#8a5a00;font-size:11px;font-weight:600;line-height:1.6;white-space:nowrap;vertical-align:middle;position:relative}' +
+    '.feed-badge[data-tip]{cursor:help}' +
+    '.feed-badge[data-tip]::after{content:attr(data-tip);position:absolute;top:calc(100% + 6px);left:0;z-index:10;white-space:nowrap;background:#3c4043;color:#fff;font-size:12px;font-weight:400;line-height:1.5;text-align:left;padding:8px 10px;border-radius:6px;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:0;visibility:hidden;transition:opacity .15s}' +
+    '.feed-badge[data-tip]:hover::after,.feed-badge[data-tip]:focus::after{opacity:1;visibility:visible}' +
+    '.feed-badge[data-tip].tip-off::after{opacity:0;visibility:hidden}' +
+    // the replacement feed alongside a deprecated one
+    '.feed-badge--new{background:#e3f5ec;color:#1c7a4f}';
   document.head.appendChild(s);
 }
