@@ -5,8 +5,8 @@ module.exports = {
   locales: {
     '/hk/': {
       lang: 'zh-HK',
-      label: '繁体中文',
-      title: 'WINkLink 開發文档',
+      label: '繁體中文',
+      title: 'WINkLink 開發文檔',
       description: 'WINkLink 開發和使用手冊'
     },
     '/cn/': {
@@ -25,7 +25,7 @@ module.exports = {
   themeConfig: {
     locales: {
       '/hk/': {
-        label: '繁体中文',
+        label: '繁體中文',
         sidebar: {
           '/hk/': ['', 'node', 'pricing', 'vrf', 'anyapi', 'automation', 'pipeline', 'glossary'],
         }
