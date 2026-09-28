@@ -52,6 +52,8 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 | USDC-USD    | 6        | [TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm](https://tronscan.org/#/contract/TNu3zS55MP4KnBBP6Maw1nHSzRpc3CXAxm) |
 | USDD-TRX    | 6        | [TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb](https://tronscan.org/#/contract/TWW4P2pck8rFcxx3H8NfnH4qhNPu1V35Pb) |
 | USDD-USD    | 6        | [TJ7jEgoYVaeymVfYZ3bS57dYArwVDS1mhW](https://tronscan.org/#/contract/TJ7jEgoYVaeymVfYZ3bS57dYArwVDS1mhW) |
+| USDe-TRX    | 8        | [TSAHk25PtGcYoFtC6rsQxhAAhYTTFnhdKH](https://tronscan.org/#/contract/TSAHk25PtGcYoFtC6rsQxhAAhYTTFnhdKH) |
+| USDe-USD    | 8        | [THRZPqdWhufvytoPsm4PCNwRTeT24oFgvq](https://tronscan.org/#/contract/THRZPqdWhufvytoPsm4PCNwRTeT24oFgvq) |
 | USDJ-TRX    | 6        | [TCBKyYMP4YQFHxYznuUaResHDTaEWLuJNW](https://tronscan.org/#/contract/TCBKyYMP4YQFHxYznuUaResHDTaEWLuJNW) |
 | USDJ-USD    | 6        | [TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k](https://tronscan.org/#/contract/TB1MyT7pDCNg8w7cSW1QvYKs4WPzErzP5k) |
 | USDT-TRX    | 6        | [TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp](https://tronscan.org/#/contract/TUfV7S4RYtdmBvtHzedfFPVsK9nvndtETp) |
@@ -105,6 +107,8 @@ WINkLink 价格服务专注于数字货币价格对，为去中心化应用（DA
 | USDC-USD    | 6        | [TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER](https://nile.tronscan.org/#/contract/TF5a2qhfxtWzUQnAocPoxgKXLe1vEE8oER) |
 | USDD-TRX    | 6        | [TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ](https://nile.tronscan.org/#/contract/TFr7TWdb5RWPNCfecr3HNfnCmNNL8qvgmJ) |
 | USDD-USD    | 6        | [TX264fxRmdhNfUgkruk9orzAVvtCehyowq](https://nile.tronscan.org/#/contract/TX264fxRmdhNfUgkruk9orzAVvtCehyowq) |
+| USDe-TRX    | 8        | [TTr8fmxV52dNkF2ePYdUHypaLVWnyRR8L5](https://nile.tronscan.org/#/contract/TTr8fmxV52dNkF2ePYdUHypaLVWnyRR8L5) |
+| USDe-USD    | 8        | [TGUjNcnXKWZH54o9Qf3KQSN1VaFhfVWySC](https://nile.tronscan.org/#/contract/TGUjNcnXKWZH54o9Qf3KQSN1VaFhfVWySC) |
 | USDJ-TRX    | 6        | [TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd](https://nile.tronscan.org/#/contract/TDJtnT7JRNqmNaqY1mK9i1xWN4GnX1UfGd) |
 | USDJ-USD    | 6        | [TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1](https://nile.tronscan.org/#/contract/TKZUQTYAhH1LTG67QmhX4HxTWZdvLfH9d1) |
 | USDT-TRX    | 6        | [TVZjuqiJNNuLQAQoPAFfUqvYUxhZYkUX5Z](https://nile.tronscan.org/#/contract/TVZjuqiJNNuLQAQoPAFfUqvYUxhZYkUX5Z) |
