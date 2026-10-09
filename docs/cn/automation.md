@@ -40,14 +40,15 @@ Nile 环境（测试环境）中部署了一组用于测试的合约。
 1. 用户创建自定义逻辑合约并部署上链。
 2. 合约在 `Registrar` 中完成注册，并在过程中创建了一个转发器。
 3. 用户用 `addFunds` 方法在 `Registry` 中为合约充值资金。
+4. 用户通过 `KeeperRegistry.getForwarder(upkeepId)` 获取该 upkeep 的转发器地址，并以合约所有者身份调用自己合约的 `setForwarderAddress(forwarder)`。如果合约像下文示例那样用转发器地址校验 `performUpkeep` 的调用者，未完成这一步时该校验会拒绝节点的调用，自定义逻辑不会执行。
 
 如需使用 WINkLink 的自动化功能，用户需创建自己的 Consumer 合约和任务规范，并为合约提供资金以发起请求。
 
 ### 自动化执行流程
 
 1. WINkLink 节点获取所有活跃用户合约的列表，以便在启动时进行检查和执行操作。节点持续监听新合约注册、暂停、取消暂停以及现有合约取消的事件链。
-2. 节点每三秒对活跃列表进行 `checkUpkeep`、`simulateUpkeep` 和 `performUpkeep` 操作。
-3. 在执行下一阶段之前，每一阶段都需先返回一个正布尔值。
+2. 节点每三秒对活跃列表进行 `checkUpkeep`、`simulatePerformUpkeep` 和 `performUpkeep` 操作。
+3. `checkUpkeep` 和 `simulatePerformUpkeep` 都需返回 true 才会进入下一阶段；`performUpkeep` 没有返回值，失败时通过 revert 体现。
 4. Wink 资金不足时合约无法执行。
 
 ### Registry 合约
@@ -611,7 +612,7 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 
 `checkUpkeep`： 节点检查以确定是否需要执行维护的逻辑。
 
-`simulateUpkeep`： 节点静态调用来模拟核心逻辑的运行。
+`simulatePerformUpkeep`： 节点静态调用来模拟核心逻辑的运行。
 
 `performUpkeep`： 需要执行的核心逻辑。
 

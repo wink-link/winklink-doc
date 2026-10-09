@@ -93,7 +93,7 @@ Prepare the node account. You should read related Node account preparation doc.
 
 VRFCoordinatorV2 contract is deployed on the TRON public chain with the following features:
 
-- Receive random number requests from Dapp contract and emit VRFRequest event
+- Receive random number requests from Dapp contract and emit RandomWordsRequested event
 - WIN transfer as fees, will be sent along with the request
 - Accept random number and the proof submitted from WINkLink node
 - VRFCoordinator contract will verify the proof before sending the random number to Dapp contract
@@ -180,7 +180,6 @@ onlyOwner
 returns (uint256 requestId)
 {
   requestId = requestRandomness(
-  msg.sender,
   callbackGasLimit,
   requestConfirmations,
   numWords
@@ -640,7 +639,7 @@ keyhash refers to the VRF node’s keyhash, it can be obtained through Operator 
 - VRFv2DirectFundingConsumer
 
 
-  Direct funding consumer directly debits Wink tokens from user’s account on request. This consumer interfaces with the wrapper contract for requests.
+  Direct funding consumer pays for each request out of its own WIN balance: it approves WinkMid and calls transferAndCall, so the consumer contract has to hold enough WIN before it requests. This consumer interfaces with the wrapper contract for requests.
 
 - VRFv2SubscriptionConsumer
 

@@ -41,14 +41,15 @@ e.g TCvpP3Fu5nXMJqFJEVGdCZoLZoUfkDPcn2
 1. User creates a custom logic contract and deployed on chain.
 2. The contract is registered with the registrar with a forwarder created during the process.
 3. User tops ups their own contract in the registry using the `addFunds` method
+4. User reads the upkeep's forwarder with `KeeperRegistry.getForwarder(upkeepId)` and, as the contract owner, calls `setForwarderAddress(forwarder)` on their own contract. This is needed whenever the contract gates `performUpkeep` on the forwarder, as the sample below does — until it is set, that check rejects the node's call and the logic never runs.
 
 To utilize WINkLink's Automation feature, users have to craft their own consumer contracts and job specifications and fund these contracts to initiate requests.
 
 ### Automation execution Process
 
 1. The WINkLink node obtains the list of all active user contracts for checking and execution on startup. It continuously listens for the chain events for new contract registration, pauses, unpauses and cancellation of existing contracts.
-2. Every 3 seconds, the node will take the active list and `checkUpkeep`, `simulateUpkeep`, `performUpkeep`.
-3. Each stage has to return a positive boolean result before the next stage can be executed.
+2. Every 3 seconds, the node will take the active list and `checkUpkeep`, `simulatePerformUpkeep`, `performUpkeep`.
+3. `checkUpkeep` and `simulatePerformUpkeep` each have to return true before the next stage runs; `performUpkeep` returns nothing and signals failure by reverting.
 4. Contracts will not execute if Wink funds is insufficient.
 
 ### Registry Contract
@@ -613,7 +614,7 @@ Every user defined contract is required to implement `AutomationCompatibleInterf
 
 `checkUpkeep`: Logic that is checked by the node to determine if the upkeep needs to be performed.
 
-`simulateUpkeep`: A static call for node to simulate the run of the core logic.
+`simulatePerformUpkeep`: A static call for node to simulate the run of the core logic.
 
 `performUpkeep`: Core logic that is to be executed.
 
