@@ -87,7 +87,7 @@ WINkLink 的維護者需要對波場 TRON 有一定的了解，且熟悉智能�
 
 VRFCoordinatorV2 合約部署在波場 TRON 公鏈上，擁有以下功能：
 
-- 接收 Dapp 合約的隨機數請求並發布 VRFRequest 事件
+- 接收 Dapp 合約的隨機數請求並發布 RandomWordsRequested 事件
 - 數據請求發送時會附帶WIN轉賬，作為使用費用
 - 接受 WINkLink 節點提交的隨機數和證明
 - 將隨機數發送至 Dapp 合約之前，VRFCoordinator 合約會對其證明進行驗證
@@ -175,7 +175,6 @@ onlyOwner
 returns (uint256 requestId)
 {
   requestId = requestRandomness(
-  msg.sender,
   callbackGasLimit,
   requestConfirmations,
   numWords
@@ -634,7 +633,7 @@ keyhash 指的是預言機節點的 keyhash，可通過 Operator UI 或 CLI 獲�
 
 - VRFv2DirectFundingConsumer
 
-在發起請求時，直接付費的 Consumer 會直接從用戶賬戶中扣除 Wink 代幣。 請求時，該 Consumer 接口會與 Wrapper 合約進行交互。
+直接付費的 Consumer 從合約自身的 WIN 餘額中支付請求費用：合約內部先 approve WinkMid，再調用 transferAndCall，因此需要事先向該 Consumer 合約轉入足夠的 WIN。 請求時，該 Consumer 接口會與 Wrapper 合約進行交互。
 
 - VRFv2SubscriptionConsumer
 

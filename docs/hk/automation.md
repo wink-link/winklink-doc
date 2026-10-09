@@ -40,14 +40,15 @@ Nile 環境（測試環境）中部署了一組用於測試的合約。
 1. 用戶創建自定義邏輯合約並部署上鍊。
 2. 合約在 `Registrar` 中完成註冊，並在過程中創建了一個轉發器。
 3. 用戶用 `addFunds` 方法在 `Registry` 中爲合約充值資金。
+4. 用戶通過 `KeeperRegistry.getForwarder(upkeepId)` 獲取該 upkeep 的轉發器地址，並以合約所有者身份調用自己合約的 `setForwarderAddress(forwarder)`。如果合約像下文示例那樣用轉發器地址校驗 `performUpkeep` 的調用者，未完成這一步時該校驗會拒絕節點的調用，自定義邏輯不會執行。
 
 如需使用 WINkLink 的自動化功能，用戶需創建自己的 Consumer 合約和任務規範，併爲合約提供資金以發起請求。
 
 ### 自動化執行流程
 
 1. WINkLink 節點獲取所有活躍用戶合約的列表，以便在啓動時進行檢查和執行操作。節點持續監聽新合約註冊、暫停、取消暫停以及現有合約取消的事件鏈。
-2. 節點每三秒對活躍列表進行 `checkUpkeep`、`simulateUpkeep` 和 `performUpkeep` 操作。
-3. 在執行下一階段之前，每一階段都需先返回一個正布爾值。
+2. 節點每三秒對活躍列表進行 `checkUpkeep`、`simulatePerformUpkeep` 和 `performUpkeep` 操作。
+3. `checkUpkeep` 和 `simulatePerformUpkeep` 都需返回 true 纔會進入下一階段；`performUpkeep` 沒有返回值，失敗時通過 revert 體現。
 4. Wink 資金不足時合約無法執行。
 
 ### Registry 合約
@@ -611,7 +612,7 @@ contract Counter is AutomationCompatibleInterface, OwnerIsCreator {
 
 `checkUpkeep`： 節點檢查以確定是否需要執行維護的邏輯。
 
-`simulateUpkeep`： 節點靜態調用來模擬核心邏輯的運行。
+`simulatePerformUpkeep`： 節點靜態調用來模擬核心邏輯的運行。
 
 `performUpkeep`： 需要執行的核心邏輯。
 
