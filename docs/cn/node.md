@@ -93,7 +93,7 @@ make install
 使用以下指令及对应配置项启动 WINkLink 节点：
 
 ```
-winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/vrfpassword -a /tools/secrets/apicredentials
+winklink -c /tools/config/config.toml -s /tools/config/secrets.toml node start -p /tools/secrets/password -a /tools/secrets/apicredentials
 ```
 
 ::: warning
