@@ -4,7 +4,7 @@
 # the image OP builds; see winklink-cicd/security/image-ledger/README.md).
 # Bump the digests with each release, never remove them:
 #   docker buildx imagetools inspect <image:tag> | grep Digest
-FROM node:24-alpine3.23@sha256:9ec4a2e289874ed0d722e1772ec2de45d2801541db8612f3638b26f128c69ac2 AS builder
+FROM node:24.22.1-alpine3.23@sha256:4b00b6d1aa138805aace94cc2482808f2b4f01e5e9c9f8cdc0e217fd70600ef9 AS builder
 WORKDIR /winklink-doc
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -12,7 +12,7 @@ COPY docs ./docs
 RUN npm run docs:build
 
 # ---- runtime stage: serves the static site via express ----
-FROM node:24-alpine3.23@sha256:9ec4a2e289874ed0d722e1772ec2de45d2801541db8612f3638b26f128c69ac2 AS runner
+FROM node:24.22.1-alpine3.23@sha256:4b00b6d1aa138805aace94cc2482808f2b4f01e5e9c9f8cdc0e217fd70600ef9 AS runner
 WORKDIR /winklink-doc
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
