@@ -690,7 +690,7 @@ WinkMid 合约可帮助用户进行合约调用，开发者无需直接进行调
 
 Operator 合约是处理来自 Consumer 合约的所有请求和 WINkLink 节点所有执行操作的主要合约，部署合约时需用对应参数。
 
-部署 Operator 合约后，需使用 setAuthorizedSender 方法将获授权的执行节点地址添加到列表中，以授权其进行执行操作。
+部署 Operator 合约后，需使用 `setAuthorizedSenders` 方法设置获授权的执行节点列表，以授权这些节点进行执行操作。该方法接收 `address[]`，会整体替换原有列表，因此需要把所有应保留授权的节点一并传入。
 
 ### Consumer 合约
 
@@ -707,7 +707,7 @@ Operator 合约是处理来自 Consumer 合约的所有请求和 WINkLink 节点
 可以根据用户需求，使用相应参数部署任一合约。
 
 ::: warning
-删除 bytes32 的“-”和右侧填充的“0”后，将 Consumer 合约中的 Spec ID 设置为对应的外部任务 ID
+将 Consumer 合约中的 Spec ID 设置为对应的外部任务 ID：删除其中的“-”，并在右侧补“0”填充为 bytes32
 
 ```
 如：0x8495b310eb4a479f8982ad656521344900000000000000000000000000000000
@@ -1009,8 +1009,8 @@ observationSource = """
 | tvm call           | 在 TVM 链上调用合约    | []byte                                                                                                                          | Contract call [`Return`](https://github.com/tron-oracle/winklink-2.0/blob/develop/core/chains/tvm/tron-sdk/proto/api/api.pb.go#L214-L222) struct |
 | hex decode         | 将十六进制解码为字符串     | string                                                                                                                          | string                                                                                                                                           |
 | hex encode         | 将字符串编码为十六进制     | string/[]byte/decimal/big.Int                                                                                                   | string                                                                                                                                           |
-| base64 decode      | 将字符串解码为 Base64  | string                                                                                                                          | []byte                                                                                                                                           |
-| base64 encode      | 将 Base64 编码为字符串 | string/[]byte                                                                                                                   | string                                                                                                                                           |
+| base64 decode      | 将 Base64 字符串解码为字节  | string                                                                                                                          | []byte                                                                                                                                           |
+| base64 encode      | 将字符串/字节编码为 Base64 | string/[]byte                                                                                                                   | string                                                                                                                                           |
 | http               | 发起 HTTP 调用      | string (method)<br/>url (url)<br/>map[string] (requestData)<br/>bool (allowUnrestrictedNetworkAccess)<br/>[]string (reqHeaders) | string                                                                                                                                           |
 | json parse         | 从 JSON 获取值      | string (Path)<br/>string (Separator)<br/>string (Data)                                                                          | map[string]interface{}/[]interface{}                                                                                                             |
 | length             | 获取字符串长度         | string                                                                                                                          | decimal                                                                                                                                          |
