@@ -6,6 +6,21 @@ const prefix = "/v2/doc";
 const distDir = path.join(__dirname, 'docs/.vuepress/dist');
 const rootStaticFiles = ['/llms.txt'];
 
+// Do not advertise the framework in an X-Powered-By header.
+app.disable('x-powered-by');
+
+// Baseline security headers, set first so they are on every response
+// (pages, redirects, 404s and preflight replies alike).
+app.use(function (req, res, next) {
+    // Keep browsers on HTTPS for a year once they have visited over HTTPS.
+    res.header('Strict-Transport-Security', 'max-age=31536000');
+    // The docs are never meant to be framed; the two headers cover old and
+    // current browsers respectively.
+    res.header('X-Frame-Options', 'DENY');
+    res.header('Content-Security-Policy', "frame-ancestors 'none'");
+    next();
+});
+
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With');
