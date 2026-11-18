@@ -311,7 +311,7 @@ WINkLink 生態採用去中心化架構，所有智能合約開源，任何組�
 - TronScan: [Mainnet](https://tronscan.org/), [Nile Testnet](https://nile.tronscan.org/)
 - [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
 - [Tron IDE](https://developers.tron.network/docs/tron-ide)
-- [TronBox](https://developers.tron.network/reference/what-is-tronbox)
+- [TronBox](https://developers.tron.network/docs/tronbox-1)
 - [tronweb](https://developers.tron.network/docs/tronweb-1)
 
 ### 聚合器合約
@@ -345,7 +345,7 @@ Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6n
 type               = "offchainreporting"
 schemaVersion      = 1
 tvmChainID         = 1
-name               = "TUSD-TRX"
+name               = "BTC-TRX"
 contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
 p2pBootstrapPeers  = [
   "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
@@ -371,7 +371,7 @@ SecureCookies = false # Default
 type               = "offchainreporting"
 schemaVersion      = 1
 tvmChainID         = 2
-name               = "OCR: TUSD-TRX"
+name               = "OCR: BTC-TRX"
 contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
 p2pBootstrapPeers  = [
 "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
@@ -385,7 +385,7 @@ contractConfigTrackerSubscribeInterval = "2m"
 contractConfigTrackerPollInterval = "1m"
 contractConfigConfirmations = 3
 observationSource   = """
-ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=TUSD-USD"]
+ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=BTC-USD"]
     ds_parse          [type="jsonparse" path="data,0,idxPx"]
 ds_converttrx     [type="converttrx" url="https://www.okx.com/api/v5/market/index-tickers?instId=TRX-USD" path="data.0.idxPx"]
 ds_multiply       [type="multiply" times=1000000]
@@ -393,6 +393,16 @@ ds_multiply       [type="multiply" times=1000000]
     ds_http -> ds_parse -> ds_converttrx -> ds_multiply
 """
 ```
+
+::: tip
+此示例生成 BTC-TRX 價格：`ds_http` 和 `ds_parse` 從 OKX 讀取 BTC-USD 指數價格，`ds_converttrx` 將其除以 TRX-USD 指數價格，`ds_multiply` 再按該餵價的 6 位精度放大。如需提供其他交易對，請同時修改 `instId` 和任務名稱，並確認數據源提供該交易對。
+
+OKX 在請求失敗時同樣返回 HTTP 200，此時響應中的 `code` 不為 0，`data` 為空數組，例如交易對不存在時：
+```json
+{"code":"51001","data":[],"msg":"Instrument ID, Instrument ID code, or Spread ID doesn't exist."}
+```
+這類響應中無法解析出 `data,0,idxPx`，本次任務運行會報錯，節點不會為該次運行上報價格。添加任務前請先自行請求每個 URL，確認能返回價格；任務啟動後可在該任務的「錯誤」選項卡中查看報錯。
+:::
 
 ### 查詢任務
 
