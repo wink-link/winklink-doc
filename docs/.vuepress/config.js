@@ -1,3 +1,10 @@
+// One typeface for every label in a diagram. Mermaid's defaults give sequence
+// diagram participants '"Open-Sans", "sans-serif"', which browsers cannot
+// resolve (the quoted "sans-serif" is a family name, not the generic keyword),
+// so those labels fell back to a serif face beside Trebuchet messages and notes.
+// Body text keeps the theme's system font and code keeps its monospace font.
+const DIAGRAM_FONT = '"trebuchet ms", verdana, arial, sans-serif'
+
 module.exports = {
   title: 'WINkLink',
   description: 'WINkLink Documentation',
@@ -60,6 +67,13 @@ module.exports = {
     }]
   ],
   plugins: [
-    'vuepress-plugin-mermaidjs'
+    ['vuepress-plugin-mermaidjs', {
+      fontFamily: DIAGRAM_FONT,
+      sequence: {
+        actorFontFamily: DIAGRAM_FONT,
+        noteFontFamily: DIAGRAM_FONT,
+        messageFontFamily: DIAGRAM_FONT
+      }
+    }]
   ]
 }

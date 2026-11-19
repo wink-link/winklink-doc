@@ -311,7 +311,7 @@ You may use any of the following tools or libraries for contract deployment and 
 - TronScan: [Mainnet](https://tronscan.org/), [Nile Testnet](https://nile.tronscan.org/)
 - [Official wallet-cli](https://github.com/tronprotocol/wallet-cli)
 - [Tron IDE](https://developers.tron.network/docs/tron-ide)
-- [TronBox](https://developers.tron.network/reference/what-is-tronbox)
+- [TronBox](https://developers.tron.network/docs/tronbox-1)
 - [tronweb](https://developers.tron.network/docs/tronweb-1)
 
 ### Aggregator Contract
@@ -344,7 +344,7 @@ Example: DefaultBootstrapPeers = ['/ip4/127.0.0.1/tcp/6788/p2p/12D3KooWMrKGdnH6n
 type               = "offchainreporting"
 schemaVersion      = 1
 tvmChainID         = 1
-name               = "TUSD-TRX"
+name               = "BTC-TRX"
 contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
 p2pBootstrapPeers  = [
   "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
@@ -368,7 +368,7 @@ SecureCookies = false # Default
 type               = "offchainreporting"
 schemaVersion      = 1
 tvmChainID         = 2
-name               = "OCR: TUSD-TRX"
+name               = "OCR: BTC-TRX"
 contractAddress    = "ACCESS-CONTROLLED-OCR-AGGREGATOR-ADDRESS"
 p2pBootstrapPeers  = [
 "/ip4/127.0.0.1/tcp/6788/p2p/P2P-PEER-ID",
@@ -382,7 +382,7 @@ contractConfigTrackerSubscribeInterval = "2m"
 contractConfigTrackerPollInterval = "1m"
 contractConfigConfirmations = 3
 observationSource   = """
-ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=TUSD-USD"]
+ds_http           [type="http" method=GET url="https://www.okx.com/api/v5/market/index-tickers?instId=BTC-USD"]
     ds_parse          [type="jsonparse" path="data,0,idxPx"]
 ds_converttrx     [type="converttrx" url="https://www.okx.com/api/v5/market/index-tickers?instId=TRX-USD" path="data.0.idxPx"]
 ds_multiply       [type="multiply" times=1000000]
@@ -390,6 +390,16 @@ ds_multiply       [type="multiply" times=1000000]
     ds_http -> ds_parse -> ds_converttrx -> ds_multiply
 """
 ```
+
+::: tip
+This example produces a BTC-TRX price. `ds_http` and `ds_parse` read the BTC-USD index price from OKX, `ds_converttrx` divides it by the TRX-USD index price, and `ds_multiply` scales the result to the 6 decimals of the feed. To serve another pair, change both the `instId` and the job name, and confirm that the data source lists that pair.
+
+OKX answers with HTTP 200 even when a request fails. The response then has a non-zero `code` and an empty `data` array, for example when the pair is not listed:
+```json
+{"code":"51001","data":[],"msg":"Instrument ID, Instrument ID code, or Spread ID doesn't exist."}
+```
+`data,0,idxPx` cannot be resolved in such a response, so the job run fails with an error and the node reports no price for that run. Request each URL yourself before you add the job, and check the Errors tab of the job after it starts.
+:::
 
 ### Query Jobs
 
